@@ -1,52 +1,13 @@
 /* import {Button} from 'react'; */
 import { Link, useNavigate }  from "react-router-dom";
-import axios from '../config/axios';
+import {logout} from "../config/LoginOut";
+
 
 function HomePages() {
 
-    const navigate = useNavigate();
-    const Logout01 = () => {
-       
-      };
+    /* const navigate = useNavigate();  */  
 
-    const Logout = async (data)  => {
-        console.log('borrando cache');          
-        /* data.preventDefault(); */
-        try {
-          await axios.get('/logout',           
-          {
-              headers: {
-                'Authorization': `Bearer ${sessionStorage.accessToken}` 
-              }
-          })
-          .then((response) => {
-            /* if (response.data.username) {
-              localStorage.setItem("user", JSON.stringify(response.data));
-            } */
-            console.log(response.data);
-            console.log(response.data.message);
-            /* console.log(response.data.message);  */
-            /* console.log(response.data.accessToken); */
     
-            /* if(response.data.status==="success"){
-              console.log(response.data);              
-              sessionStorage.setItem('accessToken', response.data.accessToken);
-              console.log(sessionStorage.accessToken);
-              return response.data;
-            } else {
-              console.log("error")
-            } */
-
-            /* return response.data;  */          
-          });          
-          navigate('/');
-          console.log("cache borrada...");
-          /* console.log(response.data.message); */      
-        } catch (e) {
-          console.log(e.response.message);         
-          /* swal(e.response.data.message); */
-        }       
-      };
 
   return (
     <>
@@ -98,8 +59,8 @@ function HomePages() {
 
                <button 
                className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" 
-               type="button" onClick={Logout}>
-                    Click Me
+               type="button" onClick={logout}>
+                    Logout
                 </button>
             </div>
             </div>
