@@ -1,14 +1,12 @@
 /* import {Button} from 'react'; */
 import { Link, useNavigate }  from "react-router-dom";
-import {logout02} from "../services/LoginOut";
+import {logout} from "../services/LoginOut";
 
 
 function HomePages() {
 
     /* const navigate = useNavigate();  */  
-
     
-
   return (
     <>
         {/* component */}
@@ -22,7 +20,8 @@ function HomePages() {
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <Link
-                to= "/login04'"
+                to= "/login"
+                /* to= "/login04" */
                 /* href="/login" */
                 className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
@@ -59,7 +58,7 @@ function HomePages() {
 
                <button 
                className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" 
-               type="button" onClick={logout02}>
+               type="button" onClick={logout}>
                     Logout
                 </button>
             </div>

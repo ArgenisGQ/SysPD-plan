@@ -1,14 +1,22 @@
 import axios from "./axios";
 import swal from "sweetalert";
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useNavigate } from 'react'
+
+/* const [ email, setEmail ] = useState( [] );  
+const [ password, setPassword ] = useState( [] );  */
+/* const [ user, setUser ] = useState( [] ); 
+const [list, setList] = useState([]); // */
+/* const navigate = useNavigate(); */
 
 function logout01() {
+    const [ email, setEmail ] = useState( [] );
     alert('You clicked me!');
     console.log('clicked')
  }
 export {logout01};
 
-function logout02() {
+
+function login02() {
 
   console.log("via services/axios");
 
@@ -65,9 +73,29 @@ function logout02() {
   };
 
 }
-export {logout02};
-/* export default logout02; */
+export {login02};
+/* export default login02; */
 
+
+/* function login03() {
+  const [ email, setEmail ] = useState( [] );  
+  alert('You clicked me!');
+  console.log(email);
+  return (email);
+} */
+
+
+
+function login03() {    
+    const [ email, setEmail ] = useState( [] );
+    alert('You clicked me!');
+    console.log(email); 
+    /* return login03  */
+  }
+export {login03};
+
+
+//-------------------//------------------------//
 const login = async (data) => {
   /* console.log(data.email); */
   const [email, password ] = [data.email, data.password ];
@@ -118,7 +146,7 @@ const login = async (data) => {
   }
 };
 export {login};
-  
+//----------------//----------------//  
 const logout = async (data)  => {  
     console.log('borrando cache');          
     /* data.preventDefault(); */
