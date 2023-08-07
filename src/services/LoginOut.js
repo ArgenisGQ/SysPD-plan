@@ -8,6 +8,7 @@ const [ password, setPassword ] = useState( [] );  */
 const [list, setList] = useState([]); // */
 /* const navigate = useNavigate(); */
 
+
 function logout01() {
     const [ email, setEmail ] = useState( [] );
     alert('You clicked me!');
@@ -93,6 +94,22 @@ function login03() {
     /* return login03  */
   }
 export {login03};
+
+function login20() {    
+  /* const [ email, setEmail ] = useLogin( [] ); */
+  /* alert('You clicked me!'); */
+  console.log('testing');
+  /* return login03  */
+}
+export {login20};
+
+function useLogin() {    
+  const navigate = useNavigate();
+  console.log('testing');
+  navigate('/');
+}
+export {useLogin};
+
 
 
 //-------------------//------------------------//

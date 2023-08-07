@@ -1,6 +1,7 @@
 /* import {Button} from 'react'; */
 import { Link, useNavigate }  from "react-router-dom";
-import {logout} from "../services/LoginOut";
+/* import {logout} from "../services/LoginOut"; */
+import {logout} from "../services/Login";
 
 
 function HomePages() {

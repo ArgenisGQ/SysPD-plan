@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
-import { login, login03 } from '../../services/LoginOut';
+/* import { login, login03 } from '../../services/LoginOut'; */
+import { login, useLogin} from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
 
@@ -10,7 +11,11 @@ function Login() {
   const [ password, setPassword ] = useState( [] ); 
   const [ user, setUser ] = useState( [] ); 
   const [ list, setList ] = useState([]); //
-  const navigate = useNavigate();  
+  const [ data, setData ] = useState([]); //
+  const navigate = useNavigate();
+  /* const login25 = useLogin(data); */
+  
+
   
   //---------------------------------------------------------------------------------------------
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
@@ -22,11 +27,24 @@ function Login() {
   
   //---------------
   const onSubmit01  = async (data) =>{
-    console.log(data);
+     
+    /* console.log(data); */
     /* data.preventDefault();  */   
-    login(data);
-  }
+    /* login(data); */
+    /* setData('data'); */
+    /* login25; */
+    
+  };
 
+  function Logging(data) {
+    /* console.log('here...'); */
+    /* console.log(data); */
+    login(data);
+    console.log('here!!');
+    console.log(sessionStorage);
+    navigate('/');       
+  };
+  
   
 
   
@@ -56,7 +74,7 @@ function Login() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(onSubmit01)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
