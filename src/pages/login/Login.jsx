@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Await, Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
 /* import { login, login03 } from '../../services/LoginOut'; */
 import { login, useLogin} from '../../services/Login';
@@ -36,19 +36,16 @@ function Login() {
     
   };
 
-  function Logging(data) {
-    /* console.log('here...'); */
-    /* console.log(data); */
-    login(data);
-    console.log('here!!');
-    console.log(sessionStorage.status)
-    console.log(sessionStorage);
-    sessionStorage.status  === 'success' ? navigate('/') : navigate('/login');
-    /* navigate('/');    */    
-  };
+  function Logging(data) {    
+    login(data)    
+    .then((status)=>{
+      status = sessionStorage.status;
+      console.log(status);
+      status  === 'success' ? navigate('/') : navigate('/login');
+    })
+    console.log('here 02 !!');   
+  }
   
-  
-
   
   //---------------------------------------------------------------------------------------------
   return (

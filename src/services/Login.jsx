@@ -22,22 +22,17 @@ const login = async (data) => {
         /* console.log(response.data.accessToken); */
   
         if(response.data.status==="success"){
-          /* console.log(response.data); */
-          /* sessionStorage.setItem('userr', response.data); */
-          console.log('probando grabado de session storage..')
+          /* console.log(response.data); */          
+          console.log('session storage..')
           sessionStorage.setItem('accessToken', response.data.accessToken);
-          sessionStorage.setItem('status', response.data.status);
-          /* sessionStorage.setItem('user', response.data.user); */
+          sessionStorage.setItem('status', response.data.status);          
           sessionStorage.user = JSON.stringify(response.data.user);//REVISAR
-
-          /* sessionStorage.setItem([
-            'accessToken', response.data.accessToken,
-            'status',           response.data.status,
-          ]); */
+          // let user = JSON.parse( localStorage.user ); //REVISAR
+          
           /* sessionStorage.setItem('accessToken', response.data.accessToken);   */   
           /* console.log(sessionStorage.accessToken); */
           console.log(sessionStorage.status);
-          console.log(sessionStorage.user);
+          //console.log(sessionStorage.user);//USUARIO COMPLETO 
           /* console.log(sessionStorage); */
           /* login20(); */
           return response.data;
