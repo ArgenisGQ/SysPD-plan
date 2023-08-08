@@ -22,10 +22,11 @@ const login = async (data) => {
         /* console.log(response.data.accessToken); */
   
         if(response.data.status==="success"){
-          console.log(response.data);
+          /* console.log(response.data); */
           /* sessionStorage.setItem('userr', response.data); */
           console.log('probando grabado de session storage..')
           sessionStorage.setItem('accessToken', response.data.accessToken);
+          sessionStorage.setItem('status', response.data.status);
           /* sessionStorage.setItem('user', response.data.user); */
           sessionStorage.user = JSON.stringify(response.data.user);//REVISAR
 
@@ -34,9 +35,10 @@ const login = async (data) => {
             'status',           response.data.status,
           ]); */
           /* sessionStorage.setItem('accessToken', response.data.accessToken);   */   
-          console.log(sessionStorage.accessToken);
+          /* console.log(sessionStorage.accessToken); */
+          console.log(sessionStorage.status);
           console.log(sessionStorage.user);
-          console.log(sessionStorage);
+          /* console.log(sessionStorage); */
           /* login20(); */
           return response.data;
         } else {

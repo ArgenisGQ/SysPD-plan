@@ -41,8 +41,10 @@ function Login() {
     /* console.log(data); */
     login(data);
     console.log('here!!');
+    console.log(sessionStorage.status)
     console.log(sessionStorage);
-    navigate('/');       
+    sessionStorage.status  === 'success' ? navigate('/') : navigate('/login');
+    /* navigate('/');    */    
   };
   
   
