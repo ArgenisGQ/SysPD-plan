@@ -13,26 +13,33 @@ import Register from './components/register';
 import HomePages from './pages/HomePages';
 import Login from './pages/login/Login';
 import Layout from './pages/layout/Layout';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
+import { ProtectedRoute } from './components/routes/ProtectedRoute';
+
 
 
 function App() {
+  /* colocar una funcion que se traiga el valor de status desde caches. */
   return (
     <>
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path='/'         element={< HomePages/>}/>
-          <Route path='/login'    element={< Login/>}/>
-          <Route path='/login01'  element={< Login01Base/>}/>
-          <Route path='/login02'  element={< Login02Base/>}/>
-          <Route path='/login03'  element={< Login03Base/>}/>
-          <Route path='/login04'  element={< Login04Base/>}/>
-          <Route path='/register' element={< Register/>}/>
-          <Route path='/all'      element={< AllUsers/>}/>
-          <Route path='/LoginTest' element={< LoginTest/>}/>
+          <Route element={<ProtectedRoute isAllowed={!!sessionStorage.status} />}>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login01" element={<Login01Base />} />
+          </Route>
+          <Route path='/'           element={< HomePages/>}/>
+          <Route path='/login'      element={< Login/>}/>
+          {/* <Route path='/login01'    element={< Login01Base/>}/> */}
+          <Route path='/login02'    element={< Login02Base/>}/>
+          <Route path='/login03'    element={< Login03Base/>}/>
+          <Route path='/login04'    element={< Login04Base/>}/>
+          {/* <Route path='/register'   element={< Register/>}/> */}
+          <Route path='/all'        element={< AllUsers/>}/>
+          <Route path='/LoginTest'  element={< LoginTest/>}/>
         </Routes>
      </Layout>
     </BrowserRouter>

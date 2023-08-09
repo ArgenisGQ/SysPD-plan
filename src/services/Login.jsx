@@ -3,35 +3,29 @@ import swal from "sweetalert";
 import React, { useEffect, useState} from 'react';
 import { Link, useNavigate }  from "react-router-dom";
 
-const login = async (data) => {
-    /* console.log(data.email); */
-    const [email, password ] = [data.email, data.password ];
-    /* const csrf = () => axios.get("/sanctum/csrf-cookie");    */ 
-    /* data.preventDefault(); */
-    /* await csrf(); */
-    /* console.log(csrf); */
-    /* const navigate = useNavigate(); */
+const login = async (data) => {    
+    const [email, password ] = [data.email, data.password ];    
     try {      
       await axios.post('/login', {email, password})
-      .then((response) => {
-        /* if (response.data.username) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        } */
+      .then((response) => {        
         /* console.log(response.data); */
         /* console.log(response.data.message);  */
-        /* console.log(response.data.accessToken); */
-  
+        /* console.log(response.data.accessToken); */  
         if(response.data.status==="success"){
           /* console.log(response.data); */          
           console.log('session storage..')
           sessionStorage.setItem('accessToken', response.data.accessToken);
-          sessionStorage.setItem('status', response.data.status);          
+          sessionStorage.setItem('status', response.data.status);
+          sessionStorage.setItem('permissions', ["analize"] );
+          sessionStorage.setItem('roles', ["admin"]);          
           sessionStorage.user = JSON.stringify(response.data.user);//REVISAR
           // let user = JSON.parse( localStorage.user ); //REVISAR
           
           /* sessionStorage.setItem('accessToken', response.data.accessToken);   */   
           /* console.log(sessionStorage.accessToken); */
           console.log(sessionStorage.status);
+          console.log(sessionStorage.permissions);
+          console.log(sessionStorage.roles);
           //console.log(sessionStorage.user);//USUARIO COMPLETO 
           /* console.log(sessionStorage); */
           /* login20(); */
@@ -45,15 +39,8 @@ const login = async (data) => {
       
       /* setEmail('');
       setPassword(''); */
-      /* navigate('/'); */
-  
-  
-    //*************** */  
-      /* const logg = useEffect(() => {
-        axios.get('/login').then((response) => {
-          setPost(response.data);
-        }); */
-    //*************** */  
+      /* navigate('/'); */ 
+    
     } catch (e) {     
       /* if (e.response.status === 401) {
         setErrors(e.response.data.message);
@@ -104,24 +91,5 @@ const logout = async (data)  => {
   };
   export {logout};
 
-  //---------------testing-----------------//
-  function login20() { 
-    
   
-    
-  }
-  export {login20};
-
-  function useLogin(data) {    
-    const navigate = useNavigate();
-    console.log('testing...');
-    console.log(data);
-    /* navigate('/'); */
-    useEffect(function () {
-        console.log('used');
-        /* navigate('/'); */
-      })
-  }
-  export {useLogin};
-
   

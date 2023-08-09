@@ -13,13 +13,13 @@ function Register() {
     const navigate = useNavigate();
     /* const [errors, setErrors]  = useState([]); */
 
-    useEffect(() => {
+    /* useEffect(() => {
         const headers = { 'Authorization': 'Bearer my-token' };
         axios.get('https://testapi.jasonwatmore.com/products/2', { headers })
             .then(response => setProduct(response.data));
         
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        
+    }, []); */
 
     const handleRegister = async (event) => {
         event.preventDefault();

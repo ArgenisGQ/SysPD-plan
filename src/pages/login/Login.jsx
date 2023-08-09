@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Await, Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
 /* import { login, login03 } from '../../services/LoginOut'; */
-import { login, useLogin} from '../../services/Login';
+import { login } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
 
