@@ -3,10 +3,10 @@ import React from 'react'
 function Footer() {
   return (
     <>
-    <meta charSet="utf-8" />
+    {/* <meta charSet="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet" /> */}
     <footer className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">

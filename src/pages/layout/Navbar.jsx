@@ -3,13 +3,13 @@ import React from 'react'
 function Navbar() {
   return (
     <>
-    <meta charSet="utf-8" />
+    {/* <meta charSet="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
-    {/* follow me on twitter @asad_codes */}
-    <div className="flex flex-wrap place-items-center h-screen">
-        <section className="relative mx-auto">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet" /> */}
+    
+    {/* <div className="flex flex-wrap place-items-center h-screen">
+        <section className="relative mx-auto"> */}
         {/* navbar */}
         <nav className="flex justify-between bg-gray-900 text-white w-screen">
             <div className="px-5 xl:px-12 py-6 flex w-full items-center">
@@ -135,10 +135,10 @@ function Navbar() {
             </svg>
             </a>
         </nav>
-        </section>
-    </div>
+    {/*     </section>
+    </div> */}
     {/* Does this resource worth a follow? */}
-    <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+    {/* <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
         <a
             title="Follow me on twitter"
@@ -152,7 +152,7 @@ function Navbar() {
             />
         </a>
         </div>
-    </div>
+    </div> */}
 </>
 
   )
