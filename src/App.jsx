@@ -22,12 +22,13 @@ import { ProtectedRoute } from './components/routes/ProtectedRoute';
 
 function App() {
   /* colocar una funcion que se traiga el valor de status desde caches. */
+  const user = sessionStorage.status;
   return (
     <>
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route element={<ProtectedRoute isAllowed={!!sessionStorage.status} />}>
+          <Route element={<ProtectedRoute isAllowed={!!user} />}>
             <Route path="/register" element={<Register />} />
             <Route path="/login01" element={<Login01Base />} />
           </Route>
@@ -40,8 +41,12 @@ function App() {
           {/* <Route path='/register'   element={< Register/>}/> */}
           <Route path='/all'        element={< AllUsers/>}/>
           <Route path='/LoginTest'  element={< LoginTest/>}/>
+          {/* <Route path="*" element={<Page404 />}   */}       
         </Routes>
      </Layout>
+        {/* <Routes>          
+          <Route path="*" element={<>404</>} />
+        </Routes> */}
     </BrowserRouter>
     {/* <TremuTest /> */}
     {/* <FormBase /> */}

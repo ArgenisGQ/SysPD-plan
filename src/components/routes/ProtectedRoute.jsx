@@ -10,5 +10,5 @@ export const ProtectedRoute = ({
   }
 
   return children ? children : <Outlet />;
-  return children;
+  /* return children; */
 };
