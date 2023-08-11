@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext  } from 'react'
 import { Await, Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
 /* import { login, login03 } from '../../services/LoginOut'; */
 import { login } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
+import { UserContext } from '../../context/UserProvider'; 
 
 function Login() {  
   const [ email, setEmail ] = useState( [] );  
@@ -14,6 +15,7 @@ function Login() {
   const [ data, setData ] = useState([]); //
   const navigate = useNavigate();
   /* const login25 = useLogin(data); */
+  const { Loggingg} = useContext(UserContext);
   
 
   
@@ -73,7 +75,7 @@ function Login() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Loggingg)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"

@@ -17,7 +17,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
 import { ProtectedRoute } from './components/routes/ProtectedRoute';
-
+import UserProvider from './context/UserProvider';
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+      <UserProvider>
       <Layout>
         <Routes>
           <Route element={<ProtectedRoute isAllowed={!!user} />}>
@@ -47,6 +48,7 @@ function App() {
         {/* <Routes>          
           <Route path="*" element={<>404</>} />
         </Routes> */}
+      </UserProvider>
     </BrowserRouter>
     {/* <TremuTest /> */}
     {/* <FormBase /> */}
