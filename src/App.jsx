@@ -1,6 +1,7 @@
 /* import { Card, Text, Metric, TextInput, Flex, Grid, Col } from '@tremor/react'; */
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
-import React from 'react';
+/* import React from 'react'; */
+import { useContext } from "react";
 import TremuTest from './components/TremuTest';
 import FormBase from './components/FormBase';
 import LoginBase from './components/LoginBase';
@@ -17,16 +18,19 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
 import { ProtectedRoute } from './components/routes/ProtectedRoute';
-import UserProvider from './context/UserProvider';
+import UserProvider, {UserContext} from './context/UserProvider';
+/* import { UserContext } from "../context/UserProvider"; */
 
 
 function App() {
   /* colocar una funcion que se traiga el valor de status desde caches. */
   const user = sessionStorage.status;
+  /* const { user } = useContext(UserContext); */
+  /* console.log(user); */
   return (
     <>
     <BrowserRouter>
-      <UserProvider>
+      <UserProvider>        
       <Layout>
         <Routes>
           <Route element={<ProtectedRoute isAllowed={!!user} />}>

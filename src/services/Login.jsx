@@ -4,12 +4,13 @@ import React, { useEffect, useState} from 'react';
 import { Link, useNavigate }  from "react-router-dom";
 
 const login = async (data) => {    
-    const [email, password ] = [data.email, data.password ];    
+    const [email, password ] = [data.email, data.password ];
+    /* const userLogin = [];  */   
     try {      
       await axios.post('/login', {email, password})
       .then((response) => {        
         /* console.log(response.data); */
-        /* console.log(response.data.message);  */
+        /* console.log(response.data.message); */ 
         /* console.log(response.data.accessToken); */  
         if(response.data.status==="success"){
           /* console.log(response.data); */          
@@ -19,23 +20,26 @@ const login = async (data) => {
           sessionStorage.setItem('permissions', ["analize"] );
           sessionStorage.setItem('roles', ["admin"]);          
           sessionStorage.user = JSON.stringify(response.data.user);//REVISAR
-          // let user = JSON.parse( localStorage.user ); //REVISAR
+          const userr = JSON.parse( sessionStorage.user ); //REVISAR
+          
           
           /* sessionStorage.setItem('accessToken', response.data.accessToken);   */   
           /* console.log(sessionStorage.accessToken); */
-          console.log(sessionStorage.status);
-          console.log(sessionStorage.permissions);
-          console.log(sessionStorage.roles);
+          /* console.log(sessionStorage.status); */
+          /* console.log(sessionStorage.permissions); */
+          /* console.log(sessionStorage.roles); */
+          /* console.log(userr); */
+
           //console.log(sessionStorage.user);//USUARIO COMPLETO 
           /* console.log(sessionStorage); */
           /* login20(); */
-          return response.data;
+          console.log(response.data);
+          /* return response.data; */
         } else {
-          console.log("error")
+          console.log("no autorizado")
         }
         /* return response.data;  */          
-      });
-  
+      }); 
       
       /* setEmail('');
       setPassword(''); */
@@ -48,6 +52,7 @@ const login = async (data) => {
       /* console.log(data)   */    
       swal(e.response.data.message);
     }
+    
   };
   export {login};
 

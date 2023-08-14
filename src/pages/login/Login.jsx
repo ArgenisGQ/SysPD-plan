@@ -15,7 +15,7 @@ function Login() {
   const [ data, setData ] = useState([]); //
   const navigate = useNavigate();
   /* const login25 = useLogin(data); */
-  const { Loggingg} = useContext(UserContext);
+  const { Loggingg, signIn} = useContext(UserContext);
   
 
   
@@ -75,7 +75,7 @@ function Login() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Loggingg)}>
+          <form /* action="#"  */onSubmit={handleSubmit(signIn)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
