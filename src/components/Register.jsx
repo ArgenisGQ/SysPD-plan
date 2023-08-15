@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../services/axios';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
+import UserContext from '../context/UserContext';
 
 function Register() {
     const [username, setUsername] = useState("");
@@ -20,6 +21,9 @@ function Register() {
         
         
     }, []); */
+
+    const { dato } = useContext(UserContext);
+    console.log(dato);
 
     const handleRegister = async (event) => {
         event.preventDefault();

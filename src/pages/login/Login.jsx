@@ -5,7 +5,7 @@ import axios from '../../config/axios';
 import { login } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
-import { UserContext } from '../../context/UserProvider'; 
+/* import { UserContext } from '../../context/UserProvider';  */
 
 function Login() {  
   const [ email, setEmail ] = useState( [] );  
@@ -15,7 +15,7 @@ function Login() {
   const [ data, setData ] = useState([]); //
   const navigate = useNavigate();
   /* const login25 = useLogin(data); */
-  const { Loggingg, signIn} = useContext(UserContext);
+  /* const { Loggingg, signIn} = useContext(UserContext); */
   
 
   
@@ -75,7 +75,7 @@ function Login() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(signIn)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"

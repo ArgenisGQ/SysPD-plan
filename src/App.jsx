@@ -18,37 +18,39 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
 import { ProtectedRoute } from './components/routes/ProtectedRoute';
-import UserProvider, {UserContext} from './context/UserProvider';
+/* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
-
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   /* colocar una funcion que se traiga el valor de status desde caches. */
-  const user = sessionStorage.status;
+  
+  /* const user = sessionStorage.status; */
+
   /* const { user } = useContext(UserContext); */
   /* console.log(user); */
   return (
     <>
     <BrowserRouter>
       <UserProvider>        
-      <Layout>
-        <Routes>
-          <Route element={<ProtectedRoute isAllowed={!!user} />}>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login01" element={<Login01Base />} />
-          </Route>
-          <Route path='/'           element={< HomePages/>}/>
-          <Route path='/login'      element={< Login/>}/>
-          {/* <Route path='/login01'    element={< Login01Base/>}/> */}
-          <Route path='/login02'    element={< Login02Base/>}/>
-          <Route path='/login03'    element={< Login03Base/>}/>
-          <Route path='/login04'    element={< Login04Base/>}/>
-          {/* <Route path='/register'   element={< Register/>}/> */}
-          <Route path='/all'        element={< AllUsers/>}/>
-          <Route path='/LoginTest'  element={< LoginTest/>}/>
-          {/* <Route path="*" element={<Page404 />}   */}       
-        </Routes>
-     </Layout>
+          <Layout>
+            <Routes>
+              {/* <Route element={<ProtectedRoute isAllowed={!!user} />}> */}
+                <Route path="/register" element={<Register />} />
+                <Route path="/login01" element={<Login01Base />} />
+              {/* </Route> */}
+              <Route path='/'           element={< HomePages/>}/>
+              <Route path='/login'      element={< Login/>}/>
+              {/* <Route path='/login01'    element={< Login01Base/>}/> */}
+              <Route path='/login02'    element={< Login02Base/>}/>
+              <Route path='/login03'    element={< Login03Base/>}/>
+              <Route path='/login04'    element={< Login04Base/>}/>
+              {/* <Route path='/register'   element={< Register/>}/> */}
+              <Route path='/all'        element={< AllUsers/>}/>
+              <Route path='/LoginTest'  element={< LoginTest/>}/>
+              {/* <Route path="*" element={<Page404 />}   */}       
+            </Routes>
+          </Layout>
         {/* <Routes>          
           <Route path="*" element={<>404</>} />
         </Routes> */}
