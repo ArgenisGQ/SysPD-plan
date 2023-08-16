@@ -2,14 +2,14 @@ import React, { useEffect, useState, useContext  } from 'react'
 import { Await, Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
 /* import { login, login03 } from '../../services/LoginOut'; */
-import { login } from '../../services/Login';
+import { Login, loginTwo, isAuthenticated, loginE, LoginEE } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
-/* import { UserContext } from '../../context/UserProvider';  */
+import UserContext from '../../context/UserContext';
 
-function Login() {  
-  const [ email, setEmail ] = useState( [] );  
-  const [ password, setPassword ] = useState( [] ); 
+function LoginOn() {  
+  const [ emailSend, setEmail ] = useState('');  
+  const [ passwordSend, setPassword ] = useState(''); 
   const [ user, setUser ] = useState( [] ); 
   const [ list, setList ] = useState([]); //
   const [ data, setData ] = useState([]); //
@@ -39,14 +39,40 @@ function Login() {
   };
 
   function Logging(data) {    
-    login(data)    
-    .then((status)=>{
-      status = sessionStorage.status;
+    Login(data) 
+    .then((status)=>{      
+      status = sessionStorage.status;      
       console.log(status);
       status  === 'success' ? navigate('/') : navigate('/login');
     })
-    console.log('here 02 !!');   
+    /* useEffect (()=>{
+      console.log('session efecto..');
+    }, []); */
+    console.log('here 02 !!:', );   
   }
+
+  function LoggingTwo(data) {
+    console.log("Primero:",data);
+    setEmail(data.email);
+    setPassword(data.password);       
+  }
+
+  useEffect(() => {    
+    console.log("efecto..");    
+    const datos = {
+      email: emailSend,
+      password: passwordSend 
+    };
+    /* console.log(datos); */
+    Login(datos) 
+    /* .then((status)=>{      
+      status = sessionStorage.status;      
+      console.log(status);
+      status  === 'success' ? navigate('/') : navigate('/login');
+    }) */
+    console.log(sessionStorage.status);
+
+  },[emailSend, passwordSend]);
   
   
   //---------------------------------------------------------------------------------------------
@@ -217,4 +243,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginOn

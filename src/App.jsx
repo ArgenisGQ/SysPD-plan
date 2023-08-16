@@ -21,14 +21,17 @@ import { ProtectedRoute } from './components/routes/ProtectedRoute';
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
 import { UserProvider } from "./context/UserContext";
+import { isAuthenticated } from "./services/Login";
 
 function App() {
   /* colocar una funcion que se traiga el valor de status desde caches. */
   
-  /* const user = sessionStorage.status; */
+  const user = sessionStorage.status;
 
-  /* const { user } = useContext(UserContext); */
-  /* console.log(user); */
+  const userTwo = isAuthenticated();
+  
+ 
+  console.log("usuario:", userTwo.name);
   return (
     <>
     <BrowserRouter>
