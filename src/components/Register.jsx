@@ -22,8 +22,8 @@ function Register() {
         
     }, []); */
 
-    const { dato } = useContext(UserContext);
-    console.log(dato);
+    const dato  = useContext(UserContext);
+    console.log('dato de prueba:',dato);
 
     const handleRegister = async (event) => {
         event.preventDefault();

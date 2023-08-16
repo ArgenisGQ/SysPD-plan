@@ -3,7 +3,7 @@ import react, { createContext, useState } from 'react';
 const UserContext = createContext();
 
 const initialUser = { id: 1, name: 'Miguel', favoriteMovies: [1,2]} //test
-
+const initialUserTwo = 'testing' ;
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(initialUser)
