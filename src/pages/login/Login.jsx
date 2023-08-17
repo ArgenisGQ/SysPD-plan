@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useContext  } from 'react'
+import React, { useEffect, useState, useContext, useRef  } from 'react'
 import { Await, Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
 /* import { login, login03 } from '../../services/LoginOut'; */
 import { Login, loginTwo, isAuthenticated, loginE, LoginEE } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
-import UserContext from '../../context/UserContext';
+/* import UserContext from '../../context/UserContext'; */
+import AuthContext from '../../context/AuthContext';
 
-function LoginOn() {  
+
+
+function LoginOn() {    
   const [ emailSend, setEmail ] = useState(null);  
   const [ passwordSend, setPassword ] = useState(null); 
   const [ user, setUser ] = useState( [] ); 
@@ -15,86 +18,78 @@ function LoginOn() {
   const [ data, setData ] = useState([]); //
   const [ statusNew, setStatusNew] = useState(null);
   const navigate = useNavigate();
-  /* const login25 = useLogin(data); */
-  /* const { Loggingg, signIn} = useContext(UserContext); */
+
+  const { login } = useContext(AuthContext);
+  //---//
+  /* const USER_REGEX = /^\[A-z\][A-z0-9-_]{3,23}$/;
+  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  const { setAuth } = useContext(AuthContext);
+  const [pwd, setPwd] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef(); */
+  //---//
+  
   
 
   
   //---------------------------------------------------------------------------------------------
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
-      /* defaultValues: {
-          nombre: 'Luis',
-          direccion: 'Calle Gran Vía'
-      } */      
-  });  
+    /* defaultValues: {
+        nombre: 'Luis',
+        direccion: 'Calle Gran Vía'
+    } */      
+});  
   
-  //---------------
-  const onSubmit01  = async (data) =>{
-     
-    /* console.log(data); */
-    /* data.preventDefault();  */   
-    /* login(data); */
-    /* setData('data'); */
-    /* login25; */
-    
+  //---//
+  const Conexion = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user, pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
   };
+  //---//
+ 
 
   function Logging(data) {
-    console.log("DATA:",data)    
-    Login(data) 
+    console.log("DATA:",data);
+    login(data);
+    /* Login(data) 
     .then((status)=>{      
       status = sessionStorage.status;      
       console.log(status);
       status  === 'success' ? navigate('/') : navigate('/login');
-    })
+    }) */
     /* useEffect (()=>{
       console.log('session efecto..');
     }, []); */
     console.log('here 02 !!:', );   
   }
 
-  function LoggingTwo(data) {
-    console.log("Primero:",data);
-    /* setEmail(data.email);
-    setPassword(data.password);  */ 
-    Login(data)
-      .then((all)=>{      
-        setStatusNew(sessionStorage.status);
-        console.log("SessionStorage:",sessionStorage.status); 
-        console.log("ALL:",all);       
-      })
-    Auth();
-  }
-
-  
-
-  function Auth() {
-    console.log("STATUS IN:",statusNew);
-    statusNew  === 'success' ? navigate('/') : navigate('/login');
-  }
-
-  useEffect(() => {    
-    console.log("efecto..");    
-    const datos = {
-      email: emailSend,
-      password: passwordSend 
-    };
-    console.log("DATA2:",datos) 
-    /* if ((emailSend&&passwordSend)) {
-      console.log("email/pass")
-      Login(datos)
-      .then((all)=>{      
-        setStatusNew(sessionStorage.status);
-        console.log("SessionStorage:",sessionStorage.status); 
-        console.log("ALL:",all);       
-      })
-    }; */
-    /* console.log(statusNew); */
-    /* statusNew  === 'success' ? navigate('/') : navigate('/login'); */
-    
-    console.log("status de sesion:",sessionStorage.status);
-  },[emailSend, passwordSend]);
-  
   
   //---------------------------------------------------------------------------------------------
   return (
@@ -122,7 +117,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(LoggingTwo)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"

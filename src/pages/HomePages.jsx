@@ -1,13 +1,19 @@
 /* import {Button} from 'react'; */
+import { useContext } from "react";
 import { Link, useNavigate }  from "react-router-dom";
 /* import {logout} from "../services/LoginOut"; */
 import {logout} from "../services/Login";
+import AuthContext from "../context/AuthContext";
 
 
 function HomePages() {
 
     /* const navigate = useNavigate();  */  
-    
+  const Auth   = useContext(AuthContext);
+  console.log( "autorizacion:", Auth.auth.status);
+  console.log("status en storage:",sessionStorage.status)
+
+  
   return (
     <>
         {/* component */}

@@ -1,112 +1,134 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import axios from '../services/axios';
-/* import login from '../services/LoginOut'; */
+import React, { useEffect, useState, useContext, useRef  } from 'react'
+import { Await, Link, useNavigate } from 'react-router-dom';
+import axios from '../../config/axios';
+/* import { login, login03 } from '../../services/LoginOut'; */
+import { Login, loginTwo, isAuthenticated, loginE, LoginEE } from '../../services/Login';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
+import UserContext from '../../context/UserContext';
+/* import AuthContext from '../../context/AuthContext'; */
+import { Conex } from '../../services/Conex';
 
-function Login() {  
-  const [ email, setEmail ] = useState( [] );  
-  const [ password, setPassword ] = useState( [] ); 
+
+function LoginOn() {    
+  const [ emailSend, setEmail ] = useState(null);  
+  const [ passwordSend, setPassword ] = useState(null); 
   const [ user, setUser ] = useState( [] ); 
-  const [list, setList] = useState([]); //
+  const [ list, setList ] = useState([]); //
+  const [ data, setData ] = useState([]); //
+  const [ statusNew, setStatusNew] = useState(null);
   const navigate = useNavigate();
+  //---//
+  /* const USER_REGEX = /^\[A-z\][A-z0-9-_]{3,23}$/;
+  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  const { setAuth } = useContext(AuthContext);
+  const [pwd, setPwd] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const errRef = useRef(); */
+  //---//
+  /* const login25 = useLogin(data); */
+  /* const { Loggingg, signIn} = useContext(UserContext); */
   
-  const handleLogin = async (event) =>{
-    event.prevenDefault();        
-    try {
-      await axios.post('/login', {email, password});
-      setEmail('');
-      setPassword('');
-      navigate('/all');
-      console.log('conectando..');
-    } catch (e) {
-      console.log('no conectado..');
-      console.log(e);
-    }
-  }
+
+  
   //---------------------------------------------------------------------------------------------
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
       /* defaultValues: {
           nombre: 'Luis',
           direccion: 'Calle Gran Vía'
       } */      
-  });
-  /* const onSubmit = (data) => {      
-      console.log(data);
-      onSubmit 
-  } */
-  const onSubmit = async data => {
-    /* console.log(data.email); */
-    const [email, password ] = [data.email, data.password ];
-    /* const csrf = () => axios.get("/sanctum/csrf-cookie");    */ 
-    /* data.preventDefault(); */
-    /* await csrf(); */
-    /* console.log(csrf); */
-    try {      
-      await axios.post('/login', {email, password})
-      .then((response) => {
-        /* if (response.data.username) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        } */
-        /* console.log(response.data); */
-        /* console.log(response.data.message);  */
-        /* console.log(response.data.accessToken); */
-
-        if(response.data.status==="success"){
-          console.log(response.data);
-          /* sessionStorage.setItem('userr', response.data); */
-          sessionStorage.setItem('accessToken', response.data.accessToken);
-          console.log(sessionStorage.accessToken);
-          return response.data;
-        } else {
-          console.log("error")
-        }
-        /* return response.data;  */          
-      });
-      setEmail('');
-      setPassword('');
-      navigate('/');
-    //*************** */  
-      /* const logg = useEffect(() => {
-        axios.get('/login').then((response) => {
-          setPost(response.data);
-        }); */
-    //*************** */  
-    } catch (e) {     
-      /* if (e.response.status === 401) {
-        setErrors(e.response.data.message);
-      } */
-      /* console.log(data)   */    
-      swal(e.response.data.message);
-    }
-  };
-  /* const userr = sessionStorage.userr; */
-  /* console.log(sessionStorage.userr); */
-  //---------------
-  const onSubmit02  = async (data) =>{
-    data.preventDefault();    
+  });  
+  
+  //---//
+  /* const Conexion = async (e) => {
+    e.preventDefault();
     try {
-      await axios.post('/login', {email, password});
-      setEmail('');
-      setPassword('');
-      navigate('/');
-      console.log(email, password);
-    } catch (e) {
-      /* console.log(e.response.data.message); */
-      if (e.response.status === 401) {
-        /* setErrors(e.response.data.message); */
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user, pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
       }
-      /* setErrors(e.response.status) */
-      /* setErrors(e.response.data.message) */
-      console.log(register);      
-      /* console.log(errors.email); */      
-      swal(e.response.data.message);
+      errRef.current.focus();
     }
+  }; */
+  //---//
+  const onSubmit01  = async (data) =>{
+     
+    /* console.log(data); */
+    /* data.preventDefault();  */   
+    /* login(data); */
+    /* setData('data'); */
+    /* login25; */
+    
+  };
+
+  function Logging(data) {
+    console.log("DATA:",data)    
+    Login(data) 
+    .then((status)=>{      
+      status = sessionStorage.status;      
+      console.log(status);
+      status  === 'success' ? navigate('/') : navigate('/login');
+    })
+    /* useEffect (()=>{
+      console.log('session efecto..');
+    }, []); */
+    console.log('here 02 !!:', );   
   }
 
-  const incluirTelefono = watch('incluirTelefono');
+  function LoggingTwo(data) {
+    console.log("Primero:",data);
+    /* setEmail(data.email);
+    setPassword(data.password);  */ 
+    Login(data)
+      .then((all)=>{      
+        setStatusNew(sessionStorage.status);
+        console.log("SessionStorage:",sessionStorage.status); 
+        console.log("ALL:",all);       
+      })    
+  }
 
+  function Conex(data) {
+    console.log("datos:", data)
+    /* handleSubmitx(data); */
+  }
+
+ /*  function Auth() {
+    console.log("STATUS IN:",statusNew);
+    statusNew  === 'success' ? navigate('/') : navigate('/login');
+  } */
+
+  /* useEffect(() => {    
+    console.log("efecto..");    
+    const datos = {
+      email: emailSend,
+      password: passwordSend 
+    };
+    console.log("DATA2:",datos)     
+    
+    console.log("status de sesion:",sessionStorage.status);
+  },[emailSend, passwordSend]); */
+  
   
   //---------------------------------------------------------------------------------------------
   return (
@@ -118,7 +140,7 @@ function Login() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
-          PLANIFICACION DIDACTICA
+          PLANIFICACION DIDACTICA (Version 02)
         </div>
         {/* <button className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
           <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">
@@ -134,7 +156,7 @@ function Login() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(onSubmit)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Conex)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
@@ -276,4 +298,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginOn
