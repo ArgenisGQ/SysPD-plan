@@ -8,11 +8,12 @@ import swal from "sweetalert";
 import UserContext from '../../context/UserContext';
 
 function LoginOn() {  
-  const [ emailSend, setEmail ] = useState('');  
-  const [ passwordSend, setPassword ] = useState(''); 
+  const [ emailSend, setEmail ] = useState(null);  
+  const [ passwordSend, setPassword ] = useState(null); 
   const [ user, setUser ] = useState( [] ); 
   const [ list, setList ] = useState([]); //
   const [ data, setData ] = useState([]); //
+  const [ statusNew, setStatusNew] = useState(null);
   const navigate = useNavigate();
   /* const login25 = useLogin(data); */
   /* const { Loggingg, signIn} = useContext(UserContext); */
@@ -38,7 +39,8 @@ function LoginOn() {
     
   };
 
-  function Logging(data) {    
+  function Logging(data) {
+    console.log("DATA:",data)    
     Login(data) 
     .then((status)=>{      
       status = sessionStorage.status;      
@@ -53,8 +55,22 @@ function LoginOn() {
 
   function LoggingTwo(data) {
     console.log("Primero:",data);
-    setEmail(data.email);
-    setPassword(data.password);       
+    /* setEmail(data.email);
+    setPassword(data.password);  */ 
+    Login(data)
+      .then((all)=>{      
+        setStatusNew(sessionStorage.status);
+        console.log("SessionStorage:",sessionStorage.status); 
+        console.log("ALL:",all);       
+      })
+    Auth();
+  }
+
+  
+
+  function Auth() {
+    console.log("STATUS IN:",statusNew);
+    statusNew  === 'success' ? navigate('/') : navigate('/login');
   }
 
   useEffect(() => {    
@@ -63,15 +79,20 @@ function LoginOn() {
       email: emailSend,
       password: passwordSend 
     };
-    /* console.log(datos); */
-    Login(datos) 
-    /* .then((status)=>{      
-      status = sessionStorage.status;      
-      console.log(status);
-      status  === 'success' ? navigate('/') : navigate('/login');
-    }) */
-    console.log(sessionStorage.status);
-
+    console.log("DATA2:",datos) 
+    /* if ((emailSend&&passwordSend)) {
+      console.log("email/pass")
+      Login(datos)
+      .then((all)=>{      
+        setStatusNew(sessionStorage.status);
+        console.log("SessionStorage:",sessionStorage.status); 
+        console.log("ALL:",all);       
+      })
+    }; */
+    /* console.log(statusNew); */
+    /* statusNew  === 'success' ? navigate('/') : navigate('/login'); */
+    
+    console.log("status de sesion:",sessionStorage.status);
   },[emailSend, passwordSend]);
   
   
@@ -101,7 +122,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
+          <form /* action="#"  */onSubmit={handleSubmit(LoggingTwo)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
