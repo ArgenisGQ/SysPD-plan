@@ -42,8 +42,9 @@ export const AuthProvider = ({ children }) => {
       setPwd("");
       setSuccess(true); */
       setStatus(status);
+      sessionStorage.setItem('accessToken', accessToken);
       sessionStorage.setItem('status', status);
-      setAuth({ status, accessToken });
+      setAuth({ status, accessToken });      
       console.log("token:",accessToken);
       navigate('/');
     } catch (err) {
