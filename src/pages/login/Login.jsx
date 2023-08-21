@@ -7,6 +7,8 @@ import {useForm} from "react-hook-form";
 import swal from "sweetalert";
 /* import UserContext from '../../context/UserContext'; */
 import AuthContext from '../../context/AuthContext';
+import { loginx } from '../../api/login';
+import { useMutation, useQuery } from 'react-query';
 
 
 
@@ -90,6 +92,41 @@ function LoginOn() {
     console.log('here 02 !!:', );   
   }
 
+  const loginnn = async (mutation) => {
+
+    /* const mutation = useMutation({ mutationFn: addTodo }) */
+
+    try {
+      const todo = await mutation.mutateAsync(todo)
+      console.log(todo)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      console.log('done')
+    }
+
+  }
+
+
+  /* const {loginxx, error, isLoading } = useMutation({loginx}); */
+
+  function Loginx(data) {
+    console.log("DATA:",data);
+
+    /* const mutation = useMutation({ loginnn }) */
+    
+    /* loginnn(mutation); */
+
+        
+    
+
+    console.log("datos Query:",mutation);
+    console.log("error Query:",error);
+    console.log("isLoading Query:",isLoading);
+
+    console.log('login x !!:', );   
+  }
+
   
   //---------------------------------------------------------------------------------------------
   return (
@@ -117,7 +154,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Logging)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Loginx)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"

@@ -24,12 +24,7 @@ import { UserProvider } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
 /* import { isAuthenticated } from "./services/Login"; */
 
-function App() {
-  /* colocar una funcion que se traiga el valor de status desde caches. */
-  
-  /* const user = sessionStorage.status;
-
-  const userTwo = isAuthenticated(); */
+function App() {  
   
  
   console.log("usuario:");
