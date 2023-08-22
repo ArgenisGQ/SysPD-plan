@@ -92,35 +92,137 @@ function LoginOn() {
     console.log('here 02 !!:', );   
   }
 
-  const loginnn = async (mutation) => {
+  
 
-    /* const mutation = useMutation({ mutationFn: addTodo }) */
 
-    try {
-      const todo = await mutation.mutateAsync(todo)
-      console.log(todo)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      console.log('done')
+  /* const {mutate, error, isLoading, mutateAsync } = useMutation({loginx}); */
+
+
+  /* const { isError, error, isLoading, mutateAsync } = useMutation(
+    "login",
+    login,
+    {
+      onSuccess: (data) => {
+        dispatch({ type: actionTypes.SET_TOKEN, value: data.token });
+        setCookie("jwt", data.token);
+        history.push("/");
+      },
     }
+  ); */
 
+
+  //---///
+          /* initialValues={{ email: "anshu5@gmail.com", password: "123456" }} */
+          /* onSubmit={async (values) => {
+            try {
+              await mutateAsync({
+                email: values.email,
+                password: values.password,
+              });
+            } catch (error) {
+              console.log(error);
+            }
+          }} */
+   //---///   
+
+/* 
+   function Logging(data) {
+    console.log("DATA:",data);
+    login(data);
+   
+    console.log('here 02 !!:', );   
+  } */
+
+  
+
+
+
+
+
+   
+  /* function conexx(data) {  */
+  const conexx = async (data) => {
+    
+    const [email, password ] = [data.email, data.password];
+    try {
+      const response = await axios.post('/login', {email, password})
+  
+      
+      const status = response?.data?.status;
+      const accessToken = response?.data?.accessToken;
+      /* const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      setUser("");
+      setPwd("");
+      setSuccess(true); */
+      /* setStatus(status);
+      sessionStorage.setItem('accessToken', accessToken);
+      sessionStorage.setItem('status', status);
+      setAuth({ status, accessToken });      
+      console.log("token:",accessToken); */
+      /* navigate('/'); */
+      console.log("token:::::",accessToken);
+    } catch (err) {
+      /* if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      } */
+      /* errRef.current.focus(); */
+      /* swal(err.response.data.message); */
+      console.log("Error de conexx:", err);
+    }
+  }
+
+  /* mutationFn: ()=>Promise.resolve(console.log('I am mutationFn')) */
+
+  function muta(data) {
+    /* Promise.resolve(console.log('data', data)) */
+    /* console.log('data', data) */
+    conexx(data);    
+  }
+
+  const {mutate, error, isLoading, mutateAsync } = useMutation({ mutationFn: muta});
+
+  const Login2 = async (data) => {
+    console.log("DATA:",data);      
+      try {
+        console.log("--INICIO MUTAR--");
+        const mutationx = await mutateAsync({ 
+        email: data.email,
+        password: data.password,
+        });
+        console.log("mutx:",mutationx);
+      } catch (error) {
+        console.log(error);
+      }    
+    console.log("error Query:",error);
+    console.log("isLoading Query:",isLoading);
+
+    console.log('login2.....!!:', );   
   }
 
 
-  /* const {loginxx, error, isLoading } = useMutation({loginx}); */
-
   function Loginx(data) {
-    console.log("DATA:",data);
+    console.log("DATA:",data);  
 
-    /* const mutation = useMutation({ loginnn }) */
+    async (data) => {
+    try {
+      console.log("inicio mutar");
+      const mutationx = await mutateAsync({ 
+      email: data.email,
+      password: data.password,
+     });
+    console.log("mutx:",mutationx);
+    } catch (error) {
+      console.log(error);
+    }
+    }
     
-    /* loginnn(mutation); */
-
-        
-    
-
-    console.log("datos Query:",mutation);
     console.log("error Query:",error);
     console.log("isLoading Query:",isLoading);
 
@@ -154,7 +256,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Loginx)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Login2)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
