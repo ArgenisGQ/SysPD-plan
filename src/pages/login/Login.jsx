@@ -92,55 +92,8 @@ function LoginOn() {
     console.log('here 02 !!:', );   
   }
 
+     
   
-
-
-  /* const {mutate, error, isLoading, mutateAsync } = useMutation({loginx}); */
-
-
-  /* const { isError, error, isLoading, mutateAsync } = useMutation(
-    "login",
-    login,
-    {
-      onSuccess: (data) => {
-        dispatch({ type: actionTypes.SET_TOKEN, value: data.token });
-        setCookie("jwt", data.token);
-        history.push("/");
-      },
-    }
-  ); */
-
-
-  //---///
-          /* initialValues={{ email: "anshu5@gmail.com", password: "123456" }} */
-          /* onSubmit={async (values) => {
-            try {
-              await mutateAsync({
-                email: values.email,
-                password: values.password,
-              });
-            } catch (error) {
-              console.log(error);
-            }
-          }} */
-   //---///   
-
-/* 
-   function Logging(data) {
-    console.log("DATA:",data);
-    login(data);
-   
-    console.log('here 02 !!:', );   
-  } */
-
-  
-
-
-
-
-
-   
-  /* function conexx(data) {  */
   const conexx = async (data) => {
     
     const [email, password ] = [data.email, data.password];
@@ -192,7 +145,7 @@ function LoginOn() {
     console.log("test de mensaje: ", conexx2 ) 
   }
 
-  const {
+  /* const {
     mutate,    
     error, 
     isLoading, 
@@ -201,14 +154,13 @@ function LoginOn() {
     isError,    
     } = useMutation(muta,{
           onSuccess: () => {
-            /* console.log("error Query:",logError);
-            console.log("isLoading Query:",isLogin); */
+            
             console.log("ON SUCCESS inicial");
           }
-    });
+    }); */
   /* } = useMutation({ mutationFn: muta}); */
 
-  const Login2 = async (datax) => {
+  /* const Login2 = async (datax) => {
     console.log("DATA:",datax);      
       try {
         console.log("--INICIO MUTAR--");
@@ -225,11 +177,11 @@ function LoginOn() {
     console.log("isLoading Query:",);
 
     console.log('login2.....!!:',);   
-  }
+  } */
 
 
 
-  const Login3 = async (datax) => {
+  /* const Login3 = async (datax) => {
     console.log("DATA:",datax); 
     mutate({
       email: datax.email,
@@ -239,10 +191,76 @@ function LoginOn() {
        
         console.log("ON SUCCESS", json);        
       }
-    });
-    /* console.log("repuesta:", conexx2 ) */
-   /*  console.log("resultado:", mutate.isLoading) */
-  };
+    });    
+  }; */
+
+
+  //---//---//
+ 
+    const mutation = useMutation(
+      async (data) => {    
+        const [email, password ] = [data.email, data.password];
+        try {
+            const response = await axios.post('/login', {email, password})      
+            /* const outfit = JSON.stringify(response?.data); */            
+            const status = response?.data?.status;
+            const accessToken = response?.data?.accessToken;
+            /* const roles = response?.data?.roles;
+            setAuth({ user, pwd, roles, accessToken });
+            setUser("");
+            setPwd("");
+            setSuccess(true); */
+            /* setStatus(status);
+            sessionStorage.setItem('accessToken', accessToken);
+            sessionStorage.setItem('status', status);
+            setAuth({ status, accessToken });      
+            console.log("token:",accessToken); */
+            /* navigate('/'); */
+
+            /* console.log("token:::::2",accessToken); */
+            
+            return response.data;
+          } catch (err) {
+            /* if (!err?.response) {
+              setErrMsg("No Server Response");
+            } else if (err.response?.status === 400) {
+              setErrMsg("Missing Username or Password");
+            } else if (err.response?.status === 401) {
+              setErrMsg("Unauthorized");
+            } else {
+              setErrMsg("Login Failed");
+            } */
+            /* errRef.current.focus(); */
+            /* swal(err.response.data.message); */
+
+            /* console.log("Error de conexx2:", err); */
+            return err.response.data.message;
+          }
+        /* return outfit.json(); */
+      },
+      {
+        onMutate: () => {
+          console.log("Ïnicia la mutacion");
+        },
+        onSuccess: (response) => {
+          console.log("response:", response);
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+        onSettled: () => {
+          console.log("Terminada la mutacion")
+        }
+      }
+    )
+  
+
+  function Login4(data) {
+
+    mutation.mutate(data);
+
+  }
+  //---//---//
 
 
 
@@ -281,9 +299,9 @@ function LoginOn() {
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
           PLANIFICACION DIDACTICA (Version 02)
-          {isLoading && <div>CONECTANDO...</div>}
-          {isSuccess && <div>USUARIO CONECTADO...</div>}
-          {isError && <div>SE A PRODUCIDO UN ERROR</div>}
+          {mutation.isLoading && <div>CONECTANDO...</div>}
+          {mutation.isSuccess && <div>USUARIO CONECTADO...</div>}
+          {mutation.isError && <div>SE A PRODUCIDO UN ERROR</div>}
         </div>
         {/* <button className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
           <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">
@@ -299,7 +317,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Login3)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Login4)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
