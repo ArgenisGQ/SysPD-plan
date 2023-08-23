@@ -8,7 +8,7 @@ import swal from "sweetalert";
 /* import UserContext from '../../context/UserContext'; */
 import AuthContext from '../../context/AuthContext';
 import { loginx } from '../../api/login';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 
 
@@ -17,7 +17,7 @@ function LoginOn() {
   const [ passwordSend, setPassword ] = useState(null); 
   const [ user, setUser ] = useState( [] ); 
   const [ list, setList ] = useState([]); //
-  const [ data, setData ] = useState([]); //
+  /* const [ data, setData ] = useState([]);  */
   const [ statusNew, setStatusNew] = useState(null);
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function LoginOn() {
   const errRef = useRef(); */
   //---//
   
-  
+  const queryClient = useQueryClient();
 
   
   //---------------------------------------------------------------------------------------------
@@ -147,7 +147,8 @@ function LoginOn() {
     try {
       const response = await axios.post('/login', {email, password})
   
-      
+      /* const outfit = JSON.stringify(response?.data); */
+      const outfit = response?.data;
       const status = response?.data?.status;
       const accessToken = response?.data?.accessToken;
       /* const roles = response?.data?.roles;
@@ -162,49 +163,88 @@ function LoginOn() {
       console.log("token:",accessToken); */
       /* navigate('/'); */
       console.log("token:::::",accessToken);
-    } catch (err) {
-      /* if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Missing Username or Password");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
-      } else {
-        setErrMsg("Login Failed");
-      } */
-      /* errRef.current.focus(); */
-      /* swal(err.response.data.message); */
-      console.log("Error de conexx:", err);
-    }
+      console.log("outfit:",outfit)
+      return outfit;
+      } catch (err) {
+        /* if (!err?.response) {
+          setErrMsg("No Server Response");
+        } else if (err.response?.status === 400) {
+          setErrMsg("Missing Username or Password");
+        } else if (err.response?.status === 401) {
+          setErrMsg("Unauthorized");
+        } else {
+          setErrMsg("Login Failed");
+        } */
+        /* errRef.current.focus(); */
+        /* swal(err.response.data.message); */
+        console.log("Error de conexx:", err);
+      }
+    /* return outfit.json(); */
   }
 
   /* mutationFn: ()=>Promise.resolve(console.log('I am mutationFn')) */
 
-  function muta(data) {
+  function muta(datax) {
     /* Promise.resolve(console.log('data', data)) */
     /* console.log('data', data) */
-    conexx(data);    
+    const conexx2 = conexx(datax);
+    /* console.log("datos en cache:", queryClient.getQueryData(["response"]))  */ 
+    console.log("test de mensaje: ", conexx2 ) 
   }
 
-  const {mutate, error, isLoading, mutateAsync } = useMutation({ mutationFn: muta});
+  const {
+    mutate,    
+    error, 
+    isLoading, 
+    mutateAsync,
+    isSuccess,
+    isError,    
+    } = useMutation(muta,{
+          onSuccess: () => {
+            /* console.log("error Query:",logError);
+            console.log("isLoading Query:",isLogin); */
+            console.log("ON SUCCESS inicial");
+          }
+    });
+  /* } = useMutation({ mutationFn: muta}); */
 
-  const Login2 = async (data) => {
-    console.log("DATA:",data);      
+  const Login2 = async (datax) => {
+    console.log("DATA:",datax);      
       try {
         console.log("--INICIO MUTAR--");
         const mutationx = await mutateAsync({ 
-        email: data.email,
-        password: data.password,
+              email: datax.email,
+              password: datax.password,
         });
         console.log("mutx:",mutationx);
-      } catch (error) {
-        console.log(error);
+        
+      } catch (err) {
+        console.log(err);
       }    
-    console.log("error Query:",error);
-    console.log("isLoading Query:",isLoading);
+    console.log("error Query:",);
+    console.log("isLoading Query:",);
 
-    console.log('login2.....!!:', );   
+    console.log('login2.....!!:',);   
   }
+
+
+
+  const Login3 = async (datax) => {
+    console.log("DATA:",datax); 
+    mutate({
+      email: datax.email,
+      password: datax.password,
+    }, {
+      onSuccess: (json) => {
+       
+        console.log("ON SUCCESS", json);        
+      }
+    });
+    /* console.log("repuesta:", conexx2 ) */
+   /*  console.log("resultado:", mutate.isLoading) */
+  };
+
+
 
 
   function Loginx(data) {
@@ -241,6 +281,9 @@ function LoginOn() {
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
           PLANIFICACION DIDACTICA (Version 02)
+          {isLoading && <div>CONECTANDO...</div>}
+          {isSuccess && <div>USUARIO CONECTADO...</div>}
+          {isError && <div>SE A PRODUCIDO UN ERROR</div>}
         </div>
         {/* <button className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
           <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">
@@ -256,7 +299,7 @@ function LoginOn() {
           </div>
         </div> */}
         <div className="mt-10">
-          <form /* action="#"  */onSubmit={handleSubmit(Login2)}>
+          <form /* action="#"  */onSubmit={handleSubmit(Login3)}>
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
