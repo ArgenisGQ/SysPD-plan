@@ -304,12 +304,7 @@ function LoginOn() {
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
           PLANIFICACION DIDACTICA (Version 02)
-          {mutation.isLoading && <div >
-              <div
-                className="w-8 h-8 rounded-full animate-spin
-              border-y-4 border-solid border-green-500 border-t-transparent shadow-md"
-              />
-            CONECTANDO...</div>}          
+          {mutation.isLoading && <div>CONECTANDO...</div>}
           {mutation.isSuccess && <div>USUARIO CONECTADO...</div>}
           {mutation.isError && <div>SE A PRODUCIDO UN ERROR</div>}
         </div>

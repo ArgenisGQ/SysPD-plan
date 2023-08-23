@@ -24,6 +24,9 @@ import { UserProvider } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
 /* import { isAuthenticated } from "./services/Login"; */
 
+//--solo para pruebas--//
+import Spiners from "./forUse/spiners";
+
 function App() {  
   
  
@@ -48,7 +51,10 @@ function App() {
                 {/* <Route path='/register'   element={< Register/>}/> */}
                 <Route path='/all'        element={< AllUsers/>}/>
                 <Route path='/LoginTest'  element={< LoginTest/>}/>
-                {/* <Route path="*" element={<Page404 />}   */}       
+                {/* <Route path="*" element={<Page404 />}   */}
+
+                {/* SOLO PRUEBAS */}
+                <Route path='/spiners'  element={< Spiners/>}/>       
               </Routes>
             </Layout>
           {/* <Routes>          
