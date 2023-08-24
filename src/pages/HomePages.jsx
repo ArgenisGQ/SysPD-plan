@@ -4,14 +4,23 @@ import { Link, useNavigate }  from "react-router-dom";
 /* import {logout} from "../services/LoginOut"; */
 import {logout} from "../services/Login";
 import AuthContext from "../context/AuthContext";
+import {  useQueryClient } from 'react-query';
 
 
 function HomePages() {
 
     /* const navigate = useNavigate();  */  
+  const queryClient = useQueryClient();
+  const statusLogg = queryClient.getQueryData(["status"]);
+  console.log("status luego del hook: ",statusLogg);
+
+
+
   const Auth   = useContext(AuthContext);
   console.log( "autorizacion:", Auth.auth.status);
   console.log("status en storage:",sessionStorage.status)
+
+  
 
   
   return (
