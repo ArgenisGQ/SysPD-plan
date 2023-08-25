@@ -1,20 +1,35 @@
 /* import {Button} from 'react'; */
 import { useContext } from "react";
 import { Link, useNavigate }  from "react-router-dom";
-/* import {logout} from "../services/LoginOut"; */
 import {logout} from "../services/Login";
 import AuthContext from "../context/AuthContext";
 import {  useQueryClient } from 'react-query';
+import useAuthUser from "../hooks/useAuthUser";
 
 
 function HomePages() {
-
+  /* const [Login5, userAuth, Logout1, Logout5]   = useAuthUser(); */
+  const [ Logout1, userAuth, Login5 ]   = useAuthUser();   
     /* const navigate = useNavigate();  */  
   const queryClient = useQueryClient();
   const statusLogg = queryClient.getQueryData(["status"]);
   console.log("status luego del hook: ",statusLogg);
 
-
+    const log = () => {
+        /* defaultValues: {
+        email: 'admin@uny.edu.ve',
+        password: 'admin'
+    } */
+        console.log('log');
+        console.log("user: ", queryClient.getQueryData(["user"]));
+        const data = {
+            email: 'admin@uny.edu.ve',
+            password: 'admin'
+        }
+        Login5(data);
+        console.log('fuera');
+        /* Logout1(); */
+    }
 
   const Auth   = useContext(AuthContext);
   console.log( "autorizacion:", Auth.auth.status);
@@ -75,7 +90,7 @@ function HomePages() {
 
                <button 
                className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" 
-               type="button" onClick={logout}>
+               type="button" onClick={log}>
                     Logout
                 </button>
             </div>

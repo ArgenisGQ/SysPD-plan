@@ -24,7 +24,7 @@ function LoginOn() {
   //---// 
   
   const queryClient = useQueryClient();
-  const [userAuth, userStatus, userToken, login5, mutation  ]   = useAuthUser();
+  const [userAuth, userStatus, userToken, Login5, mutLogin  ]   = useAuthUser();
 
   
   //---------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ function LoginOn() {
   function Login ( data ) {
     console.log("Loging...!!");
     /* login5(data); */
-    login5(data)
+    Login5(data)
       /* .then (console.log("then")); */
      /* .then (function () {
       const statusLogg = queryClient.getQueryData(["status"]);
@@ -63,14 +63,14 @@ function LoginOn() {
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
           PLANIFICACION DIDACTICA (Version 02)
-          {mutation.isLoading && <div >
+          {mutLogin.isLoading && <div >
               <div
                 className="w-8 h-8 rounded-full animate-spin
               border-y-4 border-solid border-green-500 border-t-transparent shadow-md"
               />
             CONECTANDO...</div>}          
-          {mutation.isSuccess && <div>USUARIO CONECTADO...</div>}
-          {mutation.isError && <div>SE A PRODUCIDO UN ERROR</div>}
+          {mutLogin.isSuccess && <div>USUARIO CONECTADO...</div>}
+          {mutLogin.isError && <div>SE A PRODUCIDO UN ERROR</div>}
         </div>
         {/* <button className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
           <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">

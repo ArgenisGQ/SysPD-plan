@@ -11,7 +11,7 @@ const useAuthUser = (data) => {
     const [userStatus, setUserStatus]  = useState(null);
     const [userToken,  setUserToken]   = useState(null);    
     const queryClient = useQueryClient();
-    const mutation    = useMutation(
+    const mutLogin    = useMutation(
         async (data) => {    
           const [email, password ] = [data.email, data.password];
           try {
@@ -67,10 +67,51 @@ const useAuthUser = (data) => {
           } */
         }
     )
+    const mutLogout   = useMutation(
+      async (data)  => {  
+        console.log('borrando cache2');          
+        /* data.preventDefault(); */
+        try {
+          await axios.get('/logout',           
+          {
+              headers: {                
+                'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
+                /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */ 
+              }
+          })
+          .then((response) => {        
+            console.log("token antes2:")
+            console.log(queryClient.getQueryData(["userAuth"]));
+            /* sessionStorage.clear(); */
+            queryClient.removeQueries();
+            console.log("token despues2:")
+            console.log(queryClient.getQueryData(["userAuth"]));
+            /* console.log(response.data); */
+            /* console.log(response.data.message); */
+            /* if(response.data.status==="success"){
+              console.log(response.data);              
+              sessionStorage.setItem('accessToken', response.data.accessToken);
+              console.log(sessionStorage.accessToken);
+              return response.data;
+            } else {
+              console.log("error")
+            } */
+    
+            /* return response.data;  */          
+          });          
+          /* navigate('/'); */
+          console.log("cache borrada...2");
+          /* console.log(response.data.message); */      
+        } catch (e) {
+          console.log(e.response.message);         
+          /* swal(e.response.data.message); */
+        }       
+      }      
+    )
 
     function Login5(data) {
         console.log("--en hooks--")
-        mutation.mutate(data,
+        mutLogin.mutate(data,
           {
             onMutate: () => {
               console.log("Ïnicia la mutacion (en hooks)");
@@ -100,8 +141,37 @@ const useAuthUser = (data) => {
               console.log ("status (en otro hooks): ", status);
               console.log("Terminada la mutacion (en hooks)")
             }
-          });
+          });    
+      }
+
+    /* const Logout1 = () => {
+      console.log("log out");
+    } */
+
+    function Logout1 () {
+      console.log("log out");
+    }
     
+    function Logout5(data) {
+        console.log("--en hooks--(out)")
+        /* mutLogout.mutate(data,
+          {
+            onMutate: () => {
+              console.log("Ïnicia la mutacion (en hooks -- out)");
+            },
+            onSuccess: (response) => {
+              console.log("onSucc -- logout");
+            },
+            onError: (error) => {
+              console.log(error);
+            },
+            onSettled: (response) => {
+              
+              const status = queryClient.getQueryData(["status"]);
+              console.log ("status (en otro hooks): ", status);
+              console.log("Terminada la mutacion (en hooks)")
+            }
+          }); */
       }
 
   return [
@@ -109,7 +179,10 @@ const useAuthUser = (data) => {
         userStatus,
         userToken,
         Login5,
-        mutation,
+        mutLogin,
+        mutLogout,
+        Logout5,
+        Logout1 
   ] 
     
 }
