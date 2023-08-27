@@ -9,31 +9,38 @@ import useAuthUser from "../hooks/useAuthUser";
 
 function HomePages() {
   /* const [Login5, userAuth, Logout1, Logout5]   = useAuthUser(); */
-  const [ Logout1, userAuth, Login5 ]   = useAuthUser();   
+  const { userAuth, Fuera, Logout5 } = useAuthUser();   
     /* const navigate = useNavigate();  */  
   const queryClient = useQueryClient();
   const statusLogg = queryClient.getQueryData(["status"]);
   console.log("status luego del hook: ",statusLogg);
+  const data = 'nada';
 
     const log = () => {
         /* defaultValues: {
         email: 'admin@uny.edu.ve',
         password: 'admin'
     } */
-        console.log('log');
-        console.log("user: ", queryClient.getQueryData(["user"]));
-        const data = {
+        console.log('log-----');
+        /* console.log("user: ", queryClient.getQueryData(["user"])); */
+        /* const data = {
             email: 'admin@uny.edu.ve',
             password: 'admin'
-        }
-        Login5(data);
-        console.log('fuera');
+        } */
+        console.log("data: ",data);
+        /* Login1(); */
+        /* Fuera(); */
+        Logout5();
+        
+        console.log('fuera-----');
         /* Logout1(); */
     }
 
-  const Auth   = useContext(AuthContext);
+    
+
+  /* const Auth   = useContext(AuthContext);
   console.log( "autorizacion:", Auth.auth.status);
-  console.log("status en storage:",sessionStorage.status)
+  console.log("status en storage:",sessionStorage.status) */
 
   
 

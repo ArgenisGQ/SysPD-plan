@@ -69,42 +69,24 @@ const useAuthUser = (data) => {
     )
     const mutLogout   = useMutation(
       async (data)  => {  
-        console.log('borrando cache2');          
-        /* data.preventDefault(); */
+        console.log('borrando cache2 - out');
         try {
           await axios.get('/logout',           
           {
               headers: {                
                 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
-                /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */ 
               }
           })
           .then((response) => {        
-            console.log("token antes2:")
+            console.log("token antes2 - out:")
             console.log(queryClient.getQueryData(["userAuth"]));
-            /* sessionStorage.clear(); */
             queryClient.removeQueries();
-            console.log("token despues2:")
+            console.log("token despues2 - out:")
             console.log(queryClient.getQueryData(["userAuth"]));
-            /* console.log(response.data); */
-            /* console.log(response.data.message); */
-            /* if(response.data.status==="success"){
-              console.log(response.data);              
-              sessionStorage.setItem('accessToken', response.data.accessToken);
-              console.log(sessionStorage.accessToken);
-              return response.data;
-            } else {
-              console.log("error")
-            } */
-    
-            /* return response.data;  */          
-          });          
-          /* navigate('/'); */
-          console.log("cache borrada...2");
-          /* console.log(response.data.message); */      
+          });
+          console.log("cache borrada...2 - out");   
         } catch (e) {
-          console.log(e.response.message);         
-          /* swal(e.response.data.message); */
+          console.log(e.response.message);
         }       
       }      
     )
@@ -142,19 +124,28 @@ const useAuthUser = (data) => {
               console.log("Terminada la mutacion (en hooks)")
             }
           });    
-      }
+    }
 
     /* const Logout1 = () => {
       console.log("log out");
     } */
 
-    function Logout1 () {
-      console.log("log out");
-    }
+    /* function Logout1 () {
+      console.log("log out---");
+    } */
+
+    function Fuera() {
+      /* const data = 'inside';
+      console.log("dentro del hook: ", data); */
+      /* setUserAuth(data);
+      console.log("log out: ". userAuth); */
+      console.log("dentro...")
+      
+    } 
     
     function Logout5(data) {
         console.log("--en hooks--(out)")
-        /* mutLogout.mutate(data,
+        mutLogout.mutate(data,
           {
             onMutate: () => {
               console.log("Ïnicia la mutacion (en hooks -- out)");
@@ -168,22 +159,51 @@ const useAuthUser = (data) => {
             onSettled: (response) => {
               
               const status = queryClient.getQueryData(["status"]);
-              console.log ("status (en otro hooks): ", status);
-              console.log("Terminada la mutacion (en hooks)")
+              console.log ("status (en otro hooks -- out): ", status);
+              console.log("Terminada la mutacion (en hooks) -- out")
+            }
+          });
+
+          /* {
+            onMutate: () => {
+              console.log("Ïnicia la mutacion (en hooks -- out)");
+            },
+            onSuccess: (response) => {
+              console.log("onSucc -- logout");
+            },
+            onError: (error) => {
+              console.log(error);
+            },
+            onSettled: (response) => {
+              
+              const status = queryClient.getQueryData(["status"]);
+              console.log ("status (en otro hooks -- out): ", status);
+              console.log("Terminada la mutacion (en hooks) -- out")
             }
           }); */
       }
 
-  return [
+      /* function Fuera() {
+        console.log("log out");        
+      }  */
+
+      /* const Fuera = (data) => {
+        console.log("log out");
+      } */
+
+  return {
         userAuth,
         userStatus,
         userToken,
         Login5,
+        Logout5,
+        Fuera, 
         mutLogin,
         mutLogout,
-        Logout5,
-        Logout1 
-  ] 
+        
+        /* Logout1, */
+        
+  }
     
 }
 
