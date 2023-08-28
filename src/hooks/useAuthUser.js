@@ -124,15 +124,7 @@ const useAuthUser = (data) => {
               console.log("Terminada la mutacion (en hooks)")
             }
           });    
-    }
-
-    /* const Logout1 = () => {
-      console.log("log out");
-    } */
-
-    /* function Logout1 () {
-      console.log("log out---");
-    } */
+    } 
 
     function Fuera() {
       /* const data = 'inside';
@@ -181,15 +173,7 @@ const useAuthUser = (data) => {
               console.log("Terminada la mutacion (en hooks) -- out")
             }
           }); */
-      }
-
-      /* function Fuera() {
-        console.log("log out");        
-      }  */
-
-      /* const Fuera = (data) => {
-        console.log("log out");
-      } */
+    }      
 
   return {
         userAuth,
