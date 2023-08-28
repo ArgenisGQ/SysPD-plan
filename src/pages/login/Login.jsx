@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext} from 'react'
+import { useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
@@ -37,15 +37,9 @@ function LoginOn() {
   
   function Login ( data ) {
     console.log("Loging...!!");
-    /* login5(data); */
+    
     Login5(data)
-      /* .then (console.log("then")); */
-     /* .then (function () {
-      const statusLogg = queryClient.getQueryData(["status"]);
-      console.log("status: ",statusLogg);
-      return statusLogg ; 
-    }); */
-    /* const statusLog = queryClient.getQueryData(["status"]); */
+    
     console.log("user: ",userAuth);
     console.log("status: ",userStatus);
     console.log("token: ",userToken);

@@ -1,50 +1,28 @@
 /* import {Button} from 'react'; */
 import { useContext } from "react";
 import { Link, useNavigate }  from "react-router-dom";
-import {logout} from "../services/Login";
+/* import {logout} from "../services/Login"; */
 import AuthContext from "../context/AuthContext";
 import {  useQueryClient } from 'react-query';
 import useAuthUser from "../hooks/useAuthUser";
 
 
-function HomePages() {
-  /* const [Login5, userAuth, Logout1, Logout5]   = useAuthUser(); */
-  const { userAuth, Fuera, Logout5 } = useAuthUser();   
-    /* const navigate = useNavigate();  */  
-  const queryClient = useQueryClient();
-  const statusLogg = queryClient.getQueryData(["status"]);
-  console.log("status luego del hook: ",statusLogg);
-  const data = 'nada';
+function HomePages() {    
+    const { userAuth, Logout5 } = useAuthUser(); 
+    const queryClient = useQueryClient();
+    const statusLogg = queryClient.getQueryData(["status"]);
+    console.log("status en homepage: ",statusLogg);    
 
-    const log = () => {
-        /* defaultValues: {
-        email: 'admin@uny.edu.ve',
-        password: 'admin'
-    } */
-        console.log('log-----');
-        /* console.log("user: ", queryClient.getQueryData(["user"])); */
-        /* const data = {
-            email: 'admin@uny.edu.ve',
-            password: 'admin'
-        } */
-        console.log("data: ",data);
-        /* Login1(); */
-        /* Fuera(); */
+    const logout = () => {
+        console.log("iniciando logout...");
         Logout5();
-        
-        console.log('fuera-----');
-        /* Logout1(); */
+        console.log("desconexion realizada...")
     }
-
+     
+    /* const Auth   = useContext(AuthContext);
+    console.log( "autorizacion:", Auth.auth.status);
+    console.log("status en storage:",sessionStorage.status) */
     
-
-  /* const Auth   = useContext(AuthContext);
-  console.log( "autorizacion:", Auth.auth.status);
-  console.log("status en storage:",sessionStorage.status) */
-
-  
-
-  
   return (
     <>
         {/* component */}
@@ -60,8 +38,7 @@ function HomePages() {
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <Link
                 to= "/login"
-                /* to= "/login04" */
-                /* href="/login" */
+                /* to= "/login04" */                
                 className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
                 Login
@@ -97,7 +74,7 @@ function HomePages() {
 
                <button 
                className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" 
-               type="button" onClick={log}>
+               type="button" onClick={logout}>
                     Logout
                 </button>
             </div>

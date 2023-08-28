@@ -1,7 +1,9 @@
 /* import { Card, Text, Metric, TextInput, Flex, Grid, Col } from '@tremor/react'; */
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
-import { useContext } from "react";
+/* import { useContext } from "react"; */
+/* import AppRouter from '.AppRouter'; */
+
 import TremuTest from './components/TremuTest';
 import FormBase from './components/FormBase';
 import LoginBase from './components/LoginBase';
@@ -26,40 +28,25 @@ import { AuthProvider } from "./context/AuthContext";
 
 //--solo para pruebas--//
 import Spiners from "./forUse/spiners";
+import AppRouter from './components/routes/AppRouter';
 
 function App() {  
   
  
-  console.log("usuario:");
+  /* console.log("usuario:"); */
   return (
     <>
     <BrowserRouter>
       <AuthProvider>
         <UserProvider>        
             <Layout>
-              <Routes>
-                {/* <Route element={<ProtectedRoute isAllowed={!!user} />}> */}
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/login01" element={<Login01Base />} />
-                {/* </Route> */}
-                <Route path='/'           element={< HomePages/>}/>
-                <Route path='/login'      element={< Login/>}/>
-                {/* <Route path='/login01'    element={< Login01Base/>}/> */}
-                <Route path='/login02'    element={< Login02Base/>}/>
-                <Route path='/login03'    element={< Login03Base/>}/>
-                <Route path='/login04'    element={< Login04Base/>}/>
-                {/* <Route path='/register'   element={< Register/>}/> */}
-                <Route path='/all'        element={< AllUsers/>}/>
-                <Route path='/LoginTest'  element={< LoginTest/>}/>
-                {/* <Route path="*" element={<Page404 />}   */}
 
-                {/* SOLO PRUEBAS */}
-                <Route path='/spiners'  element={< Spiners/>}/>       
-              </Routes>
+
+              
+
+            <AppRouter />
+
             </Layout>
-          {/* <Routes>          
-            <Route path="*" element={<>404</>} />
-          </Routes> */}
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>

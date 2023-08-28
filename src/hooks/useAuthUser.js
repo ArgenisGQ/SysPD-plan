@@ -144,6 +144,7 @@ const useAuthUser = (data) => {
             },
             onSuccess: (response) => {
               console.log("onSucc -- logout");
+              navigate('/');
             },
             onError: (error) => {
               console.log(error);
