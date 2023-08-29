@@ -20,7 +20,7 @@ import Layout from './pages/layout/Layout';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
-import { ProtectedRoute } from './components/routes/ProtectedRoute';
+import { ProtectedRoute } from './routes/ProtectedRoute';
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
 import { UserProvider } from "./context/UserContext";
@@ -29,34 +29,24 @@ import { AuthProvider } from "./context/AuthContext";
 
 //--solo para pruebas--//
 import Spiners from "./forUse/spiners";
-import AppRouter from './components/routes/AppRouter';
+import AppRouter from './routes/AppRouter';
 
 function App() {  
-  
- 
   /* console.log("usuario:"); */
   return (
     <>
     <BrowserRouter>
       <AuthProvider>
-        <UserProvider>
-            <Routes path='/' element={ <Layout /> }>
-                <Route path='/'           element={< HomePages/>}/>
-                <Route path='/login'      element={< Login/>}/>
+        <UserProvider>        
+            <Layout>
 
 
-            </Routes>
+              
 
-            <Routes  path='*' element={ <Page404 /> } >
-                <Route path='*' element={ <Page404 /> } />
-            </Routes>
-
-            
-
-            {/* <Layout> 
             <AppRouter />
             </Layout> */}
 
+            </Layout>
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>
@@ -69,8 +59,7 @@ function App() {
     {/* <Login04Base/> */}
     {/* <HomePages /> */} 
     
-    </>    
-    
+    </>      
     
   )
 }
