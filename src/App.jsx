@@ -12,6 +12,7 @@ import Login02Base from './components/Login02Base';
 import Login03Base from './components/Login03Base';
 import Login04Base from './components/Login04Base';
 import Register from './components/register';
+import Page404 from './components/Page404';
 /* import HomePages from './scenes/HomePages'; */
 import HomePages from './pages/HomePages';
 import Login from './pages/login/Login';
@@ -38,15 +39,24 @@ function App() {
     <>
     <BrowserRouter>
       <AuthProvider>
-        <UserProvider>        
-            <Layout>
+        <UserProvider>
+            <Routes path='/' element={ <Layout /> }>
+                <Route path='/'           element={< HomePages/>}/>
+                <Route path='/login'      element={< Login/>}/>
 
 
-              
+            </Routes>
 
+            <Routes  path='*' element={ <Page404 /> } >
+                <Route path='*' element={ <Page404 /> } />
+            </Routes>
+
+            
+
+            {/* <Layout> 
             <AppRouter />
+            </Layout> */}
 
-            </Layout>
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>
