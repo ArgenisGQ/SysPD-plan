@@ -27,39 +27,45 @@ import { AuthProvider } from "../context/AuthContext";
 //--solo para pruebas--//
 import Spiners from "../forUse/spiners";
 
-function AppRouter() {  
-  
- 
+function AppRouter() { 
   /* console.log("usuario:"); */
   return (
     <>
     {/*< BrowserRouter>
       <AuthProvider>
-        <UserProvider>        
-            <Layout> */}
+        <UserProvider>*/}        
+            <Layout> 
               <Routes>
                 {/* <Route element={<ProtectedRoute isAllowed={!!user} />}> */}
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/login01" element={<Login01Base />} />
+                  <Route exact path="/register" element={<Register />} />
+                  <Route exact path="/login01" element={<Login01Base />} />
                 {/* </Route> */}
-                <Route path='/'           element={< HomePages/>}/>
-                <Route path='/login'      element={< Login/>}/>
+                <Route exact path='/'           element={< HomePages/>}/>
+                <Route exact path='/login'      element={< Login/>}/>
                 {/* <Route path='/login01'    element={< Login01Base/>}/> */}
-                <Route path='/login02'    element={< Login02Base/>}/>
-                <Route path='/login03'    element={< Login03Base/>}/>
-                <Route path='/login04'    element={< Login04Base/>}/>
+                <Route exact path='/login02'    element={< Login02Base/>}/>
+                <Route exact path='/login03'    element={< Login03Base/>}/>
+                <Route exact path='/login04'    element={< Login04Base/>}/>
                 {/* <Route path='/register'   element={< Register/>}/> */}
-                <Route path='/all'        element={< AllUsers/>}/>
-                <Route path='/LoginTest'  element={< LoginTest/>}/>
+                <Route exact path='/all'        element={< AllUsers/>}/>
+                <Route exact path='/LoginTest'  element={< LoginTest/>}/>
                 {/* <Route path="*" element={<Page404 />}   */}
 
                 {/* SOLO PRUEBAS */}
                 <Route path='/spiners'  element={< Spiners/>}/>       
               </Routes>
-            {/* </Layout> */}
+            </Layout>
           <Routes>          
             <Route path="*" element={<>404</>} />
-          </Routes>         
+          </Routes>   
+
+          
+
+
+
+
+
+
           {/* </UserProvider>
       </AuthProvider>
     </BrowserRouter> */}

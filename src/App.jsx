@@ -31,22 +31,17 @@ import Spiners from "./forUse/spiners";
 import AppRouter from './routes/AppRouter';
 
 function App() {  
-  
- 
   /* console.log("usuario:"); */
   return (
     <>
     <BrowserRouter>
       <AuthProvider>
         <UserProvider>        
-            <Layout>
-
-
-              
+           {/*  <Layout>    */}          
 
             <AppRouter />
 
-            </Layout>
+            {/* </Layout> */}
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>
@@ -59,8 +54,7 @@ function App() {
     {/* <Login04Base/> */}
     {/* <HomePages /> */} 
     
-    </>    
-    
+    </>      
     
   )
 }
