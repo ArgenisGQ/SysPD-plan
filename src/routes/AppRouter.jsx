@@ -27,7 +27,7 @@ import { AuthProvider } from "../context/AuthContext";
 
 //--solo para pruebas--//
 import Spiners from "../forUse/spiners";
-
+/* import Burguer from "../forUse/burguer"; */
 
 function AppRouter() { 
   /* console.log("usuario:"); */
@@ -62,7 +62,7 @@ function AppRouter() {
 
                       {/* SOLO PRUEBAS */}
                       <Route path='/spiners'  element={< Spiners/>}/> 
-                  
+                      {/* <Route path='/burguer'  element={< Burguer/>}/>  */}
                 </Route>
                 {/* </Layout> */}
 
