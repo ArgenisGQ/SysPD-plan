@@ -2,30 +2,30 @@
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
-import TremuTest from '../TremuTest';
-import FormBase from '../FormBase';
-import LoginBase from '../LoginBase';
-import Login01Base from '../Login01Base';
-import Login02Base from '../Login02Base';
-import Login03Base from '../Login03Base';
-import Login04Base from '../Login04Base';
-import Register from '../register';
+import TremuTest from '../components/TremuTest';
+import FormBase from '../components/FormBase';
+import LoginBase from '../components/LoginBase';
+import Login01Base from '../components/Login01Base';
+import Login02Base from '../components/Login02Base';
+import Login03Base from '../components/Login03Base';
+import Login04Base from '../components/Login04Base';
+import Register from '../components/register';
 /* import HomePages from './scenes/HomePages'; */
-import HomePages from '../../pages/HomePages';
-import Login from '../../pages/login/Login';
-import Layout from '../../pages/layout/Layout';
+import HomePages from '../pages/HomePages';
+import Login from '../pages/login/Login';
+import Layout from '../pages/layout/Layout';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import AllUsers from '../AllUsers';
-import LoginTest from '../LoginTest';
+import AllUsers from '../components/AllUsers';
+import LoginTest from '../components/LoginTest';
 import { ProtectedRoute } from './ProtectedRoute';
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
-import { UserProvider } from "../../context/UserContext";
-import { AuthProvider } from "../../context/AuthContext";
+import { UserProvider } from "../context/UserContext";
+import { AuthProvider } from "../context/AuthContext";
 /* import { isAuthenticated } from "./services/Login"; */
 
 //--solo para pruebas--//
-import Spiners from "../../forUse/spiners";
+import Spiners from "../forUse/spiners";
 
 function AppRouter() {  
   
