@@ -34,30 +34,48 @@ function AppRouter() {
     {/*< BrowserRouter>
       <AuthProvider>
         <UserProvider>*/}        
-            <Layout> 
-              <Routes>
-                {/* <Route element={<ProtectedRoute isAllowed={!!user} />}> */}
-                  <Route exact path="/register" element={<Register />} />
-                  <Route exact path="/login01" element={<Login01Base />} />
-                {/* </Route> */}
-                <Route exact path='/'           element={< HomePages/>}/>
-                <Route exact path='/login'      element={< Login/>}/>
-                {/* <Route path='/login01'    element={< Login01Base/>}/> */}
-                <Route exact path='/login02'    element={< Login02Base/>}/>
-                <Route exact path='/login03'    element={< Login03Base/>}/>
-                <Route exact path='/login04'    element={< Login04Base/>}/>
-                {/* <Route path='/register'   element={< Register/>}/> */}
-                <Route exact path='/all'        element={< AllUsers/>}/>
-                <Route exact path='/LoginTest'  element={< LoginTest/>}/>
-                {/* <Route path="*" element={<Page404 />}   */}
+            
+              <Routes   >
+                {/* <Layout>  */}
+                <Route path='/' element={<Layout />} >
+                  
+                      {/* <Route element={<ProtectedRoute isAllowed={!!user} />}> */}
+                        <Route exact path="/register" element={<Register />} />
+                        <Route exact path="/login01" element={<Login01Base />} />
+                      {/* </Route> */}
+                      <Route exact path='/'           element={< HomePages/>}/>
+                      <Route exact path='/login'      element={< Login/>}/>
+                      {/* <Route path='/login01'    element={< Login01Base/>}/> */}
+                      <Route exact path='/login02'    element={< Login02Base/>}/>
+                      <Route exact path='/login03'    element={< Login03Base/>}/>
+                      <Route exact path='/login04'    element={< Login04Base/>}/>
+                      {/* <Route path='/register'   element={< Register/>}/> */}
+                      <Route exact path='/all'        element={< AllUsers/>}/>
+                      <Route exact path='/LoginTest'  element={< LoginTest/>}/>
+                      {/* <Route path="*" element={<Page404 />}   */}
 
-                {/* SOLO PRUEBAS */}
-                <Route path='/spiners'  element={< Spiners/>}/>       
+                      {/* SOLO PRUEBAS */}
+                      <Route path='/spiners'  element={< Spiners/>}/> 
+
+                  
+                </Route>
+                {/* </Layout> */}
+
+
+                <Route path="*">
+                    <Route path="*" element={<>404</>} />
+                </Route> 
+
+
               </Routes>
-            </Layout>
-          <Routes>          
-            <Route path="*" element={<>404</>} />
-          </Routes>   
+            
+
+            
+         {/*  <Routes> 
+            <Route path="*">
+               <Route path="*" element={<>404</>} />
+            </Route>               
+          </Routes>    */}
 
           
 

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Pague404 = () => {
+const Page404 = () => {
   return (
-    <div>Pague404</div>
+    <div>Pag404</div>
   )
 }
 
-export default Pague404
+export default Page404

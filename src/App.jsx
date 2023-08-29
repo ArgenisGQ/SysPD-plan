@@ -38,15 +38,18 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <UserProvider>        
-            <Layout>
-
-
+            {/* <Layout> */}
               
+             <AppRouter />            
+            
+            {/* </Layout> */}
 
-            <AppRouter />
-            </Layout> */}
 
-            </Layout>
+            {/* <Routes>
+                <Route path="*">
+                    <Route path="*" element={<>404</>} />
+                </Route> 
+            </Routes> */}
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>
