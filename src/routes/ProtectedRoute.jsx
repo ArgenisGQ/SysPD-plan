@@ -1,14 +1,18 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
+/* import { getUser } from "./utils/auth"; */ // Este es el archivo hipotético que contiene la función getUser().
 
-export const ProtectedRoute = ({
-  isAllowed,
-  redirectTo = "/",
-  children,
-}) => {
-  if (!isAllowed) {
-    return <Navigate to={redirectTo} replace />;
+const ProtectedRoute = () => {
+  /* const usuario = getUser(); */ // La función getUser() devuelve el usuario si está logueado o null si no lo está.
+
+  /* const usuario = "PRUEBA"; */
+  const usuario = null;
+
+  if (!usuario) {
+    console.log("no paso!!")
+    return <Navigate to="/login" />;
   }
+  console.log("si paso!!")
+  return <Outlet />;
+}
 
-  return children ? children : <Outlet />;
-  /* return children; */
-};
+export default ProtectedRoute;

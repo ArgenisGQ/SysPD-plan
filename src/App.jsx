@@ -20,7 +20,7 @@ import Layout from './pages/layout/Layout';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
-import { ProtectedRoute } from './routes/ProtectedRoute';
+/* import { ProtectedRoute } from './routes/ProtectedRoute'; */
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
 import { UserProvider } from "./context/UserContext";
