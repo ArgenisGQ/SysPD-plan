@@ -4,8 +4,8 @@ import { Outlet, Navigate } from "react-router-dom";
 const ProtectedRoute = () => {
   /* const usuario = getUser(); */ // La función getUser() devuelve el usuario si está logueado o null si no lo está.
 
-  /* const usuario = "PRUEBA"; */
-  const usuario = null;
+  const usuario = "PRUEBA";
+  /* const usuario = null; */
 
   if (!usuario) {
     console.log("no paso!!")
