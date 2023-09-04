@@ -50,6 +50,7 @@ import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
 
 function App() {  
   /* console.log("usuario:"); */ 
+  console.log('prueba de dashboard');
   return (
     <>
     {/* <BrowserRouter>
@@ -65,20 +66,20 @@ function App() {
    
     
 
-   {/* <ChakraProvider theme={theme}> */}
+   <ChakraProvider theme={theme}>
       {/* <React.StrictMode> */}
-        {/* <ThemeEditorProvider> */}
-          {/* <BrowserRouter>
-            <Routes> */}
-              {/* <Route path={`/auth`} component={AuthLayout} />
+        <ThemeEditorProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path={`/auth`} component={AuthLayout} />
               <Route path={`/admin`} component={AdminLayout} />
-              <Route path={`/rtl`} component={RtlLayout} /> */}
-              {/* <Redirect from='/' to='/admin' /> */}
-           {/*  </Routes>
-          </BrowserRouter> */}
-        {/* </ThemeEditorProvider> */}
+              {/* <Route path={`/rtl`} component={RtlLayout} /> */}
+              <Redirect from='/' to='/admin' />
+            </Routes>
+          </BrowserRouter>
+        </ThemeEditorProvider>
       {/* </React.StrictMode> */}
-    {/* </ChakraProvider>, */}
+    </ChakraProvider>,
 
     </>      
     
