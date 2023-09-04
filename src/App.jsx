@@ -17,7 +17,7 @@ import Page404 from './components/Page404';
 import HomePages from './pages/HomePages';
 import Login from './pages/login/Login';
 import Layout from './pages/layout/Layout';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+/* import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'; */
 import AllUsers from './components/AllUsers';
 import LoginTest from './components/LoginTest';
 /* import { ProtectedRoute } from './routes/ProtectedRoute'; */
@@ -31,37 +31,55 @@ import { AuthProvider } from "./context/AuthContext";
 import Spiners from "./forUse/spiners";
 import AppRouter from './routes/AppRouter';
 
+
+/* import ReactDOM from 'react-dom'; */
+/* import 'assets/css/App.css'; */
+/* import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'; */
+import { Route } from 'react-router-dom';
+/* import AuthLayout from 'layouts/auth'; */
+/* import AdminLayout from 'layouts/admin'; */
+/* import RtlLayout from 'layouts/rtl'; */
+import { ChakraProvider } from '@chakra-ui/react';
+/* import theme from 'theme/theme'; */
+/* import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui'; */
+
+
+
+
+
+
 function App() {  
   /* console.log("usuario:"); */
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <AuthProvider>
         <UserProvider>        
-            {/* <Layout> */}
+            
               
              <AppRouter />            
             
-            {/* </Layout> */}
-
-
-            {/* <Routes>
-                <Route path="*">
-                    <Route path="*" element={<>404</>} />
-                </Route> 
-            </Routes> */}
         </UserProvider>
       </AuthProvider>
-    </BrowserRouter>
-    {/* <TremuTest /> */}
-    {/* <FormBase /> */}
-    {/* <LoginBase /> */}
-    {/* <Login01Base/> */}
-    {/* <Login02Base/> */}
-    {/* <Login03Base/> */}
-    {/* <Login04Base/> */}
-    {/* <HomePages /> */} 
+    </BrowserRouter> */}
+   
     
+
+   {/* <ChakraProvider theme={theme}> */}
+      {/* <React.StrictMode> */}
+        {/* <ThemeEditorProvider> */}
+          {/* <HashRouter>
+            <Switch> */}
+              {/* <Route path={`/auth`} component={AuthLayout} />
+              <Route path={`/admin`} component={AdminLayout} />
+              <Route path={`/rtl`} component={RtlLayout} /> */}
+              {/* <Redirect from='/' to='/admin' /> */}
+           {/*  </Switch>
+          </HashRouter> */}
+        {/* </ThemeEditorProvider> */}
+      {/* </React.StrictMode> */}
+    {/* </ChakraProvider>, */}
+
     </>      
     
   )

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Card, Text, Metric, TextInput, Flex, Grid, Col } from '@tremor/react';
 import { SearchIcon } from "@heroicons/react/solid";
 
@@ -23,4 +23,4 @@ function FormBase() {
   )
 }
 
-export default FormBase
+export default FormBase */
