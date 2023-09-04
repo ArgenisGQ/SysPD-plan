@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import routes from "routes.js";
+/* import { Redirect, Route, Switch } from "react-router-dom"; */
+import { Redirect, Route, Routes } from "react-router-dom";
+import routes from "../../routes.js";
 
 // Chakra imports
 import { Box, useColorModeValue } from "@chakra-ui/react";
 
 // Layout components
-import { SidebarContext } from "contexts/SidebarContext";
+import { SidebarContext } from "../../context/SidebarContext";
 
 // Custom Chakra theme
 export default function Auth() {
@@ -59,14 +60,14 @@ export default function Auth() {
           transitionTimingFunction='linear, linear, ease'>
           {getRoute() ? (
             <Box mx='auto' minH='100vh'>
-              <Switch>
+              <Routes>
                 {getRoutes(routes)}
                 <Redirect
                   from='/auth'
                   to='/auth/sign-in/default
                   '
                 />
-              </Switch>
+              </Routes>
             </Box>
           ) : null}
         </Box>

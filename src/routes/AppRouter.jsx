@@ -23,7 +23,7 @@ import ProtectedRoute from './ProtectedRoute';
 /* import { UserContext } from "../context/UserProvider"; */
 import { UserProvider } from "../context/UserContext";
 import { AuthProvider } from "../context/AuthContext";
-/* import { isAuthenticated } from "./services/Login"; */
+import { isAuthenticated } from "../services/Login";
 
 //--solo para pruebas--//
 import Spiners from "../forUse/spiners";
