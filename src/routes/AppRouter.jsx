@@ -2,8 +2,8 @@
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
-import TremuTest from '../components/TremuTest';
-import FormBase from '../components/FormBase';
+/* import TremuTest from '../components/TremuTest'; */
+/* import FormBase from '../components/FormBase'; */
 import LoginBase from '../components/LoginBase';
 import Login01Base from '../components/Login01Base';
 import Login02Base from '../components/Login02Base';

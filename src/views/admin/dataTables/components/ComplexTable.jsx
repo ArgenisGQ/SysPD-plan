@@ -1,8 +1,8 @@
-/* eslint-disable */
 import {
   Flex,
-  Progress,
   Table,
+  Progress,
+  Icon,
   Tbody,
   Td,
   Text,
@@ -11,10 +11,6 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Custom components
-import Card from "components/card/Card";
-import { AndroidLogo, AppleLogo, WindowsLogo } from "components/icons/Icons";
-import Menu from "components/menu/MainMenu";
 import React, { useMemo } from "react";
 import {
   useGlobalFilter,
@@ -23,7 +19,13 @@ import {
   useTable,
 } from "react-table";
 
-export default function DevelopmentTable(props) {
+// Custom components
+import Card from "../../../../components/card/Card";
+import Menu from "../../../../components/menu/MainMenu";
+
+// Assets
+import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
+export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -47,10 +49,9 @@ export default function DevelopmentTable(props) {
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 11;
+  initialState.pageSize = 5;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
-  const iconColor = useColorModeValue("secondaryGray.500", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   return (
     <Card
@@ -64,7 +65,7 @@ export default function DevelopmentTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Development Table
+          Complex Table
         </Text>
         <Menu />
       </Flex>
@@ -103,41 +104,35 @@ export default function DevelopmentTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "TECH") {
+                  } else if (cell.column.Header === "STATUS") {
                     data = (
                       <Flex align='center'>
-                        {cell.value.map((item, key) => {
-                          if (item === "apple") {
-                            return (
-                              <AppleLogo
-                                key={key}
-                                color={iconColor}
-                                me='16px'
-                                h='18px'
-                                w='15px'
-                              />
-                            );
-                          } else if (item === "android") {
-                            return (
-                              <AndroidLogo
-                                key={key}
-                                color={iconColor}
-                                me='16px'
-                                h='18px'
-                                w='16px'
-                              />
-                            );
-                          } else if (item === "windows") {
-                            return (
-                              <WindowsLogo
-                                key={key}
-                                color={iconColor}
-                                h='18px'
-                                w='19px'
-                              />
-                            );
+                        <Icon
+                          w='24px'
+                          h='24px'
+                          me='5px'
+                          color={
+                            cell.value === "Approved"
+                              ? "green.500"
+                              : cell.value === "Disable"
+                              ? "red.500"
+                              : cell.value === "Error"
+                              ? "orange.500"
+                              : null
                           }
-                        })}
+                          as={
+                            cell.value === "Approved"
+                              ? MdCheckCircle
+                              : cell.value === "Disable"
+                              ? MdCancel
+                              : cell.value === "Error"
+                              ? MdOutlineError
+                              : null
+                          }
+                        />
+                        <Text color={textColor} fontSize='sm' fontWeight='700'>
+                          {cell.value}
+                        </Text>
                       </Flex>
                     );
                   } else if (cell.column.Header === "DATE") {
@@ -149,18 +144,11 @@ export default function DevelopmentTable(props) {
                   } else if (cell.column.Header === "PROGRESS") {
                     data = (
                       <Flex align='center'>
-                        <Text
-                          me='10px'
-                          color={textColor}
-                          fontSize='sm'
-                          fontWeight='700'>
-                          {cell.value}%
-                        </Text>
                         <Progress
                           variant='table'
                           colorScheme='brandScheme'
                           h='8px'
-                          w='63px'
+                          w='108px'
                           value={cell.value}
                         />
                       </Flex>

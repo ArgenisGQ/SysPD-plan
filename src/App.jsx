@@ -34,11 +34,12 @@ import AppRouter from './routes/AppRouter';
 
 import ReactDOM from 'react-dom';
 import './assets/css/App.css';
-/* import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'; */
-import { BrowserRouter, Routes, Route, Redirect  } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, /* Redirect  */ } from 'react-router-dom';
 import AuthLayout from './layouts/auth/index';
 import AdminLayout from './layouts/admin/index';
+
 /* import RtlLayout from 'layouts/rtl'; */
+
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme/theme';
 import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
@@ -74,7 +75,7 @@ function App() {
               <Route path={`/auth`} component={AuthLayout} />
               <Route path={`/admin`} component={AdminLayout} />
               {/* <Route path={`/rtl`} component={RtlLayout} /> */}
-              <Redirect from='/' to='/admin' />
+              {/* <Redirect from='/' to='/admin' /> */}
             </Routes>
           </BrowserRouter>
         </ThemeEditorProvider>
