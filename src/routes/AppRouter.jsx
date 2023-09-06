@@ -29,6 +29,9 @@ import { AuthProvider } from "../context/AuthContext";
 import Spiners from "../forUse/spiners";
 /* import Burguer from "../forUse/burguer"; */
 
+import AuthLayout from '../layouts/auth/index';
+import AdminLayout from '../layouts/admin/index';
+
 function AppRouter() { 
   /* console.log("usuario:"); */
   return (
@@ -63,6 +66,8 @@ function AppRouter() {
                       {/* SOLO PRUEBAS */}
                       <Route path='/spiners'  element={< Spiners/>}/> 
                       {/* <Route path='/burguer'  element={< Burguer/>}/>  */}
+                      <Route path='/admin'  element={< AdminLayout/>}/>
+                      <Route path='/entrada'  element={< AuthLayout/>}/>
                 </Route>
                 {/* </Layout> */}
 

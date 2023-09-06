@@ -35,8 +35,9 @@ import AppRouter from './routes/AppRouter';
 import ReactDOM from 'react-dom';
 import './assets/css/App.css';
 /* import { BrowserRouter, Routes, Route } from 'react-router-dom'; */
-import AuthLayout from './layouts/auth/index';
-import AdminLayout from './layouts/admin/index';
+
+/* import AuthLayout from './layouts/auth/index';
+import AdminLayout from './layouts/admin/index'; */
 
 /* import RtlLayout from 'layouts/rtl'; */
 
@@ -53,8 +54,16 @@ function App() {
         <UserProvider>        
             {/* <Layout> */}
               
-             <AppRouter />            
+
+            <ChakraProvider >
+                <AppRouter />
+            </ChakraProvider>
+
+                         
             
+
+
+
             {/* </Layout> */}
 
 

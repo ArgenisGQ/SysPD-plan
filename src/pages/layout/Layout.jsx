@@ -17,9 +17,9 @@ import { Outlet } from 'react-router-dom';
 const Layout =() =>{
   return(
       <>
-      <Navigation />      
+      {/* <Navigation />   */}    
       <main> <Outlet /> </main>
-      <Footer />
+      {/* <Footer /> */}
       </>
   )
 }
