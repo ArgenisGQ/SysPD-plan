@@ -31,19 +31,6 @@ import { AuthProvider } from "./context/AuthContext";
 import Spiners from "./forUse/spiners";
 import AppRouter from './routes/AppRouter';
 
-
-import ReactDOM from 'react-dom';
-import './assets/css/App.css';
-/* import { BrowserRouter, Routes, Route } from 'react-router-dom'; */
-import AuthLayout from './layouts/auth/index';
-import AdminLayout from './layouts/admin/index';
-
-/* import RtlLayout from 'layouts/rtl'; */
-
-import { ChakraProvider } from '@chakra-ui/react';
-import theme from './theme/theme';
-/* import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui'; */
-
 function App() {  
   /* console.log("usuario:"); */
   return (
