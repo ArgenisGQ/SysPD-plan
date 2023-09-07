@@ -43,7 +43,7 @@ import AdminLayout from './layouts/admin/index'; */
 
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme/theme';
-/* import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui'; */
+import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
 
 function App() {  
   /* console.log("usuario:"); */
@@ -55,8 +55,10 @@ function App() {
             {/* <Layout> */}
               
 
-            <ChakraProvider >
+            <ChakraProvider theme={theme}>
+              <ThemeEditorProvider>
                 <AppRouter />
+              </ThemeEditorProvider>
             </ChakraProvider>
 
                          

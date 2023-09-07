@@ -18,6 +18,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^1.0.6",
+    "@hypertheme-editor/chakra-ui": "^0.1.6-rc.0",
     "@tremor/react": "^3.4.1",
     "apexcharts": "^3.42.0",
     "axios": "^1.4.0",
