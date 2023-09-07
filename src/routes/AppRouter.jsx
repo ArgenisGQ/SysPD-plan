@@ -42,6 +42,7 @@ import DataTables from "../views/admin/dataTables";
 import SignInCentered from "../views/auth/signIn";
 
 function AppRouter() { 
+  const navigate = useNavigate();
   /* console.log("usuario:"); */
   return (
     <>
@@ -75,8 +76,8 @@ function AppRouter() {
                       {/* SOLO PRUEBAS */}
                       <Route path='/spiners'  element={< Spiners/>}/> 
 
-                      <Route path='/admin/*'                element={< AdminLayout/>}/>
-                      <Route path='/auth/*'                 element={< AuthLayout/>}/>
+                      {/* <Route path='/admin/*'                element={< AdminLayout/>}/>
+                      <Route path='/auth/*'                 element={< AuthLayout/>}/> */}
                       {/* <Route path='/admin/default'          element={< MainDashboard/>}/>
                       <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
                       <Route path='/admin/data-tables'      element={< DataTables/>}/>
@@ -84,10 +85,15 @@ function AppRouter() {
                       <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
 
                       <Route path="/admin" element={<AdminLayout />}>
+                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}
                         <Route path='/admin/default'          element={< MainDashboard/>}/>
                         <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
                         <Route path='/admin/data-tables'      element={< DataTables/>}/>
                         <Route path='/admin/profile'          element={< Profile/>}/>   
+                      </Route>
+
+                      <Route path="/auth" element={< AuthLayout/>}>
+                        <Route path='/auth/sign-in'           element={< SignInCentered/>}/>                         
                       </Route>
 
 

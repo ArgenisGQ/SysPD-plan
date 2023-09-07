@@ -63,7 +63,7 @@ export default function SidebarDocs() {
           mb='6px'
           textAlign='center'>
           Improve your development process and start doing more with Horizon UI
-          PRO!
+          PRO! -
         </Text>
       </Flex>
       <Link href='https://horizon-ui.com/pro?ref=horizon-chakra-free'>

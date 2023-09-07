@@ -132,7 +132,7 @@ export default function HeaderLinks(props) {
               w='100%'
               href='https://horizon-ui.com/pro?ref=horizon-chakra-free'>
               <Button w='100%' h='44px' mb='10px' variant='brand'>
-                Buy Horizon UI PRO
+                Buy Horizon UI PRO -
               </Button>
             </Link>
             <Link
@@ -145,7 +145,7 @@ export default function HeaderLinks(props) {
                 border='1px solid'
                 bg='transparent'
                 borderColor={borderButton}>
-                See Documentation
+                See Documentation -
               </Button>
             </Link>
             <Link
