@@ -31,6 +31,7 @@ import Spiners from "../forUse/spiners";
 
 import AuthLayout from '../layouts/auth/index';
 import AdminLayout from '../layouts/admin/index';
+import LayoutAdmin from '../pages/layout/LayoutAdmin'; 
 // Admin Imports
 import MainDashboard from "../views/admin/default";
 import NFTMarketplace from "../views/admin/marketplace";
@@ -48,12 +49,12 @@ function AppRouter() {
       <AuthProvider>
         <UserProvider>*/}        
             
-              <Routes   >
+              <Routes>
                 {/* <Layout>  */}
                 <Route path='/' element={<Layout />} >
-                  
+                {/* <Route path='/' element={<LayoutAdmin />} >  */}
                       
-                      <Route exact path='/'           element={< HomePages/>}/>
+                      <Route exact path='/'           element={< HomePages/>}/>                      
                       <Route exact path='/login'      element={< Login/>}/>
                       {/* <Route path='/login01'    element={< Login01Base/>}/> */}
                       <Route exact path='/login02'    element={< Login02Base/>}/>
@@ -73,14 +74,24 @@ function AppRouter() {
 
                       {/* SOLO PRUEBAS */}
                       <Route path='/spiners'  element={< Spiners/>}/> 
-                      {/* <Route path='/burguer'  element={< Burguer/>}/>  */}
-                      <Route path='/admin'  element={< AdminLayout/>}/>
-                      <Route path='/entrada'  element={< AuthLayout/>}/>
-                      <Route path='/admin/default'          element={< MainDashboard/>}/>
+
+                      <Route path='/admin/*'                element={< AdminLayout/>}/>
+                      <Route path='/auth/*'                 element={< AuthLayout/>}/>
+                      {/* <Route path='/admin/default'          element={< MainDashboard/>}/>
                       <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
                       <Route path='/admin/data-tables'      element={< DataTables/>}/>
                       <Route path='/admin/profile'          element={< Profile/>}/>                      
-                      <Route path='/auth/sign-in'           element={< SignInCentered/>}/>
+                      <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
+
+                      <Route path="/admin" element={<AdminLayout />}>
+                        <Route path='/admin/default'          element={< MainDashboard/>}/>
+                        <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
+                        <Route path='/admin/data-tables'      element={< DataTables/>}/>
+                        <Route path='/admin/profile'          element={< Profile/>}/>   
+                      </Route>
+
+
+
                 </Route>
                 {/* </Layout> */}
 

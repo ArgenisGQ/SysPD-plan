@@ -6,11 +6,17 @@ import Navbar from '../../components/navbar/NavbarAdmin';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { SidebarContext } from '../../context/SidebarContext';
 import React, { useState } from 'react';
-import { /* Redirect, */ Route, Routes } from 'react-router-dom';
+import { /* Redirect, */ Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import routes from '../../routes'; //routes.js
+
+// Admin Imports
+import MainDashboard from "../../views/admin/default";
+import NFTMarketplace from "../../views/admin/marketplace";
+import Register from '../../components/register';
 
 // Custom Chakra theme
 export default function Dashboard(props) {
+	const navigate = useNavigate(); //borrar
 	const { ...rest } = props;
 	// states and functions
 	const [ fixed ] = useState(false);
@@ -20,7 +26,7 @@ export default function Dashboard(props) {
 		return window.location.pathname !== '/admin/full-screen-maps';
 	};
 	const getActiveRoute = (routes) => {
-		let activeRoute = 'Default Brand Text';
+		let activeRoute = 'Default Brand Text -';
 		for (let i = 0; i < routes.length; i++) {
 			if (routes[i].collapse) {
 				let collapseActiveRoute = getActiveRoute(routes[i].items);
@@ -84,8 +90,13 @@ export default function Dashboard(props) {
 	};
 	const getRoutes = (routes) => {
 		return routes.map((prop, key) => {
-			if (prop.layout === '/admin') {
-				return <Route path={prop.layout + prop.path} component={prop.component} key={key} />;
+			if (prop.layout === '/admin') {				
+				console.log('rutax: ', prop.layout + prop.path,' - ',prop.component);
+				return <Route path={prop.layout + prop.path} component={prop.component} key={key} />;			
+				/* return <Route path= {"'" + prop.layout + prop.path +"'"} element={"<" + prop.component +"/>"} key={key}/>; */
+				/* const ruta = "<Route path='/admin/nft-marketplace' element={< NFTMarketplace/>} />";
+				return ruta; */
+								
 			}
 			if (prop.collapse) {
 				return getRoutes(prop.items);
@@ -138,10 +149,16 @@ export default function Dashboard(props) {
 
 						{getRoute() ? (
 							<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px'>
-								<Routes>
-									{getRoutes(routes)}
-									{/* <Redirect from='/' to='/admin/default' /> */}
-								</Routes>
+								{/* <Routes>									
+									{getRoutes(routes)}									
+									{console.log('rutasx: ',getRoutes(routes) )}
+									<Route path='/admin/default'          element={< MainDashboard/>}/>
+									<Redirect from='/' to='/admin/default' />
+									{navigate('/admin/default')}
+								</Routes> */}
+
+								<main> <Outlet /> </main>
+								
 							</Box>
 						) : null}
 						<Box>
