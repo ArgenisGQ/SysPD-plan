@@ -31,6 +31,14 @@ import Spiners from "../forUse/spiners";
 
 import AuthLayout from '../layouts/auth/index';
 import AdminLayout from '../layouts/admin/index';
+// Admin Imports
+import MainDashboard from "../views/admin/default";
+import NFTMarketplace from "../views/admin/marketplace";
+import Profile from "../views/admin/profile";
+import DataTables from "../views/admin/dataTables";
+/* import RTL from "./views/admin/rtl"; */
+// Auth Imports
+import SignInCentered from "../views/auth/signIn";
 
 function AppRouter() { 
   /* console.log("usuario:"); */
@@ -68,6 +76,11 @@ function AppRouter() {
                       {/* <Route path='/burguer'  element={< Burguer/>}/>  */}
                       <Route path='/admin'  element={< AdminLayout/>}/>
                       <Route path='/entrada'  element={< AuthLayout/>}/>
+                      <Route path='/admin/default'          element={< MainDashboard/>}/>
+                      <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
+                      <Route path='/admin/data-tables'      element={< DataTables/>}/>
+                      <Route path='/admin/profile'          element={< Profile/>}/>                      
+                      <Route path='/auth/sign-in'           element={< SignInCentered/>}/>
                 </Route>
                 {/* </Layout> */}
 
