@@ -43,7 +43,7 @@ export default function Footer() {
             href='https://sima.uny.edu.ve/'
             target='_blank'
             fontWeight='700'>
-            - Equipo Demtec - Universidad Yacambu
+            - Demtec - Universidad Yacambu
           </Link>
         </Text>
       </Text>
