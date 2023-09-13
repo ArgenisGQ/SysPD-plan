@@ -55,6 +55,8 @@ const routes = [
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     component: "Profile",
+    category: "CATEGORIA",
+    items: "ITEMS",
   },
   {
     name: "Sign In",
