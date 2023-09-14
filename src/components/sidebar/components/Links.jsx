@@ -35,7 +35,7 @@ export function SidebarLinks(props) {
       if (route.category) {
         return (
           <>
-            <Text
+            {/* <Text
               fontSize={"md"}
               color={activeColor}
               fontWeight='bold'
@@ -48,15 +48,29 @@ export function SidebarLinks(props) {
               pb='12px'
               key={index}>
               {route.name}
-            </Text>
+            </Text> */}
             <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
               <AccordionItem>
                 <AccordionButton
                   display="flex"
-                  alignItems="center"
+                  /* alignItems="center"
                   justifyContent="space-between"
-                  p={4}>
-                  <Text fontSize="md">What is Chakra UI?</Text>
+                  p={4} */>
+                  {/* <Text fontSize="md">What is Chakra UI?</Text> */}
+                  <Text
+                    fontSize={"md"}
+                    color={activeColor}
+                    fontWeight='bold'
+                    mx='auto'
+                    ps={{
+                      sm: "10px",
+                      xl: "16px",
+                    }}
+                    pt='18px'
+                    pb='12px'
+                    key={index}>
+                    {route.name}
+                  </Text>
                   <ChevronDownIcon fontSize="24px" />
                 </AccordionButton>
                 <AccordionPanel pb={4}>
