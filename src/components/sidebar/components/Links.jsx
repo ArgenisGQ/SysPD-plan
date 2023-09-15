@@ -54,6 +54,7 @@ export function SidebarLinks(props) {
               key={index}>
               {route.name}
             </Text> */}
+<<<<<<< HEAD
             
             <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
               <AccordionItem border='none'>
@@ -133,6 +134,31 @@ export function SidebarLinks(props) {
                     )}
                   </Box>          
                   <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
+=======
+            <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
+              <AccordionItem>
+                <AccordionButton
+                  display="flex"
+                  /* alignItems="center"
+                  justifyContent="space-between"
+                  p={4} */>
+                  {/* <Text fontSize="md">What is Chakra UI?</Text> */}
+                  <Text
+                    fontSize={"md"}
+                    color={activeColor}
+                    fontWeight='bold'
+                    mx='auto'
+                    ps={{
+                      sm: "10px",
+                      xl: "16px",
+                    }}
+                    pt='18px'
+                    pb='12px'
+                    key={index}>
+                    {route.name}
+                  </Text>
+                  <ChevronDownIcon fontSize="24px" />
+>>>>>>> d0b70467bbe5407d11983e4ec81056ba991361ec
                 </AccordionButton>
                 
                 <AccordionPanel pb={4}>
