@@ -35,10 +35,7 @@ export function SidebarLinks(props) {
   const createLinks = (routes) => {
     return routes.map((route, index) => {
       if (route.category) {
-        console.log("uno: ",route.path.toLowerCase());
-        console.log("ruta activa: ",activeRoute(route.path.toLowerCase()));
         return (
-          /* console.log("uno: ",route.path.toLowerCase()), */
           <>
             {/* <Text
               fontSize={"md"}
@@ -54,26 +51,29 @@ export function SidebarLinks(props) {
               key={index}>
               {route.name}
             </Text> */}
-            
             <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
               <AccordionItem border='none'>
-                <AccordionButton  
+                <AccordionButton                                  
+                  /* alignItems="center" */
+                  /* justifyContent="space-between" */
                   p={0}
                   > 
-                                  
+                  {/* {route.layout === "/admin" }  */}                 
                   <Box key={index}>
                     {route.icon ? (
                       <Box>
                         <HStack
                           spacing={
-                            activeRoute(route.path.toLowerCase()) ? "22px" : "26px"                            
+                            /* activeRoute(route.path.toLowerCase()) ? "22px" : "26px" */
+                            activeRoute(true) ? "22px" : "26px"
                           }
                           py='5px'
                           ps='10px'>
                           <Flex w='100%' alignItems='center' justifyContent='center'>
                             <Box
                               color={
-                                activeRoute(route.path.toLowerCase())                                
+                                /* activeRoute(route.path.toLowerCase()) */
+                                activeRoute(true)
                                   ? activeIcon
                                   : textColor
                               }
@@ -83,12 +83,14 @@ export function SidebarLinks(props) {
                             <Text
                               me='auto'
                               color={
-                                activeRoute(route.path.toLowerCase())                                
+                                /* activeRoute(route.path.toLowerCase()) */
+                                activeRoute(true)
                                   ? activeColor
                                   : textColor
                               }
                               fontWeight={
-                                activeRoute(route.path.toLowerCase())                               
+                                /* activeRoute(route.path.toLowerCase()) */
+                                activeRoute(true)
                                   ? "bold"
                                   : "normal"
                               }>
@@ -134,18 +136,90 @@ export function SidebarLinks(props) {
                   </Box>          
                   <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
                 </AccordionButton>
-                
                 <AccordionPanel pb={4}>
                   <Text color="gray.600">
                     Chakra UI is a simple and modular component library that gives developers
                     the building blocks they need to create web applications.
-                  </Text>          
+                  </Text>
+                  {route.layout === "/admin" }
+
+                  {/* <NavLink key={index} to={route.layout + route.path}>
+                    {route.icon ? (
+                      <Box>
+                        <HStack
+                          spacing={
+                            activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                          }
+                          py='5px'
+                          ps='10px'>
+                          <Flex w='100%' alignItems='center' justifyContent='center'>
+                            <Box
+                              color={
+                                activeRoute(route.path.toLowerCase())
+                                  ? activeIcon
+                                  : textColor
+                              }
+                              me='18px'>
+                              {route.icon}
+                            </Box>
+                            <Text
+                              me='auto'
+                              color={
+                                activeRoute(route.path.toLowerCase())
+                                  ? activeColor
+                                  : textColor
+                              }
+                              fontWeight={
+                                activeRoute(route.path.toLowerCase())
+                                  ? "bold"
+                                  : "normal"
+                              }>
+                              {route.name}
+                            </Text>
+                          </Flex>
+                          <Box
+                            h='36px'
+                            w='4px'
+                            bg={
+                              activeRoute(route.path.toLowerCase())
+                                ? brandColor
+                                : "transparent"
+                            }
+                            borderRadius='5px'
+                          />
+                        </HStack>
+                      </Box>
+                    ) : (
+                      <Box>
+                        <HStack
+                          spacing={
+                            activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                          }
+                          py='5px'
+                          ps='10px'>
+                          <Text
+                            me='auto'
+                            color={
+                              activeRoute(route.path.toLowerCase())
+                                ? activeColor
+                                : inactiveColor
+                            }
+                            fontWeight={
+                              activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
+                            }>
+                            {route.name}
+                          </Text>
+                          <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' />
+                        </HStack>
+                      </Box>
+                    )}
+                  </NavLink>  */}           
+
+
                 </AccordionPanel>
               </AccordionItem>  
             </Accordion>   
-            {createLinks(route.items)}
-
-            
+            {/* {createLinks(route.items)} */}
           </>
         );
       } else if (
@@ -154,8 +228,6 @@ export function SidebarLinks(props) {
         route.layout === "/rtl"
       ) {
         return (
-          console.log("dos: ",route.path.toLowerCase()),
-          console.log("ruta activa:", activeRoute(route.path.toLowerCase())),
           <NavLink key={index} to={route.layout + route.path}>
             {route.icon ? (
               <Box>
