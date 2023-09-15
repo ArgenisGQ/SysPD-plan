@@ -54,19 +54,65 @@ const routes = [
     layout: "/admin",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    icon2: <Icon viewBox="0 0 200 200" color="inherit">
+            <path
+              fill="currentColor"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+            />
+          </Icon>,
     component: "Profile",
-    category: "CATEGORIA",
+    category: "Category",
     items: "ITEMS",
   },
-  /* {
+  {
     name: "Profile2",
     layout: "/admin",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    icon2: <Icon viewBox="0 0 200 200" color="inherit">
+            <path
+              fill="currentColor"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+            />
+          </Icon>,
     component: "Profile",
-    category: "CATEGORIA",
+    category: "Category",
     items: "ITEMS",
-  }, */
+  },
+  { 
+    submenu: "submenu",
+    sutitem:[ {
+                name: "Profile1",
+                layout: "/admin",
+                path: "/profile",
+                icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "Profile",
+                category: "Category",
+                items: "ITEMS",
+              },
+              {
+                name: "Profile2",
+                layout: "/admin",
+                path: "/profile",
+                icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "Profile",
+                category: "Category",
+                items: "ITEMS",
+              },
+            ]
+  },
   {
     name: "Sign In",
     layout: "/auth",
