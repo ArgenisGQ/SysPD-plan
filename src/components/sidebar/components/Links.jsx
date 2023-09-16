@@ -32,6 +32,185 @@ export function SidebarLinks(props) {
   };
 
   //create link sub menu
+  const createSubMenu = (route, index) => {
+
+    return (
+      <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
+        <AccordionItem border='none'>
+          <AccordionButton  
+            p={0}
+            >                                  
+            <Box key={index}>
+              {route.icon ? (
+                <Box>
+                  <HStack
+                    spacing={
+                      activeRoute(route.path.toLowerCase()) ? "22px" : "26px"                            
+                    }
+                    py='5px'
+                    ps='10px'>
+                    <Flex w='100%' alignItems='center' justifyContent='center'>
+                      <Box
+                        color={
+                          activeRoute(route.path.toLowerCase())                                
+                            ? activeIcon
+                            : textColor
+                        }
+                        me='18px'>
+                        {route.icon}
+                      </Box>
+                      <Text
+                        me='auto'
+                        color={
+                          activeRoute(route.path.toLowerCase())                                
+                            ? activeColor
+                            : textColor
+                        }
+                        fontWeight={
+                          activeRoute(route.path.toLowerCase())                               
+                            ? "bold"
+                            : "normal"
+                        }>
+                        {route.submenu}
+                      </Text>
+                    </Flex>
+                    {/* <Box
+                      h='36px'
+                      w='4px'
+                      bg={
+                        activeRoute(route.path.toLowerCase())
+                          ? brandColor
+                          : "transparent"
+                      }
+                      borderRadius='5px'
+                    /> */}
+                  </HStack>
+                </Box>
+              ) : (
+                <Box>                  
+                  <HStack
+                    spacing={
+                      activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                    }
+                    py='5px'
+                    ps='10px'>
+                    <Text
+                      me='auto'
+                      color={
+                        activeRoute(route.path.toLowerCase())
+                          ? activeColor
+                          : inactiveColor
+                      }
+                      fontWeight={
+                        activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
+                      }>
+                      {route.submenu}
+                    </Text>
+                    <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' />
+                  </HStack>
+                </Box>
+              )}
+            </Box>          
+            <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
+          </AccordionButton>
+          
+          <AccordionPanel pb={4}>
+            {/* <Text color="gray.600">
+              Chakra UI is a simple and modular component library that gives developers
+              the building blocks they need to create web applications.
+            </Text> */}
+            {route.subitem.map((route, index) => {
+              console.log("subitem: ", index);
+              /* console.log("contenido: ", routex.name); */
+              {/* <> */}
+                <NavLink key={index} to={route.layout + route.path}>                
+                {console.log("dentro: ", route.name)}
+                  {route.icon ? (
+                    <Box>
+                      <HStack
+                        spacing={
+                          activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                        }
+                        py='5px'
+                        ps='10px'>
+                        <Flex w='100%' alignItems='center' justifyContent='center'>
+                          <Box
+                            color={
+                              activeRoute(route.path.toLowerCase())
+                                ? activeIcon
+                                : textColor
+                            }
+                            me='18px'>
+                            {route.icon}
+                          </Box>
+                          <Text
+                            me='auto'
+                            color={
+                              activeRoute(route.path.toLowerCase())
+                                ? activeColor
+                                : textColor
+                            }
+                            fontWeight={
+                              activeRoute(route.path.toLowerCase())
+                                ? "bold"
+                                : "normal"
+                            }>
+                              uno
+                            {route.name}
+                            {console.log("SI... ",route.name)}
+                          </Text>
+                        </Flex>
+                        <Box
+                          h='36px'
+                          w='4px'
+                          bg={
+                            activeRoute(route.path.toLowerCase())
+                              ? brandColor
+                              : "transparent"
+                          }
+                          borderRadius='5px'
+                        />
+                      </HStack>
+                      
+                    </Box>
+                  ) : (
+                    <Box>
+                      <HStack
+                        spacing={
+                          activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                        }
+                        py='5px'
+                        ps='10px'>
+                        <Text
+                          me='auto'
+                          color={
+                            activeRoute(route.path.toLowerCase())
+                              ? activeColor
+                              : inactiveColor
+                          }
+                          fontWeight={
+                            activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
+                          }>
+                          {route.name}
+                        </Text>
+                        <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' />
+                      </HStack>
+                      {console.log("no...")}
+                    </Box>
+                  )}
+                </NavLink>
+              /* </> */
+            })}
+            
+            
+            
+          </AccordionPanel>
+        </AccordionItem>  
+      </Accordion>
+
+    )
+  }
+
   const createSubLinks = (route, index) => {
 
     return (
@@ -201,12 +380,12 @@ export function SidebarLinks(props) {
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks = (routes) => {
     return routes.map((route, index) => {
-      if (route.category) {
+      if (route.submenu) {
         
         return (
           
           <>
-            {createSubLinks(route, index)}
+            {createSubMenu(route, index)}
 
             {/* {createLinks(route.items)} */}
           </>
