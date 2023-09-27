@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,  
+  AccordionIcon, 
   Box, Flex, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { FaTruckMonster } from "react-icons/fa";
@@ -499,94 +499,7 @@ export function SidebarLinks(props) {
         return (
           
           <>
-            <Accordion allowMultiple width="100%" maxW="lg" rounded="lg" key={index}>
-              <AccordionItem border='none'>
-                <AccordionButton 
-                  p={0}
-                  > 
-                  {/* <Box key={index}> */}
-                  <Box as="span" flex='1' textAlign='left'>
-                    {route.icon ? (
-                      <Box>
-                        <HStack
-                          spacing={
-                            activeRoute(route.layout.toLowerCase()) ? "100px" : "26px"
-                            /* activeRoute(true) ? "22px" : "26px" */
-                          }
-                          py='5px'
-                          ps='10px'>
-                          <Flex w='100%' alignItems='center' justifyContent='center'>
-                            <Box
-                              color={
-                                activeRoute(route.layout.toLowerCase())
-                                /* activeRoute(true) */
-                                  ? activeIcon
-                                  : textColor
-                              }
-                              me='18px'>
-                              {route.icon}
-                            </Box>
-                            <Text
-                              me='auto'
-                              color={
-                                activeRoute(route.layout.toLowerCase())
-                                /* activeRoute(true) */
-                                  ? activeColor
-                                  : textColor
-                              }
-                              fontWeight={
-                                activeRoute(route.layout.toLowerCase())
-                                /* activeRoute(true) */
-                                  ? "bold"
-                                  : "normal"
-                              }>
-                              {route.name}
-                            </Text>
-                          </Flex>
-                          {/* <Box
-                            h='36px'
-                            w='4px'
-                            bg={
-                              activeRoute(route.layout.toLowerCase())
-                                ? brandColor
-                                : "transparent"
-                            }
-                            borderRadius='5px'
-                          /> */}
-                        </HStack>
-                      </Box>
-                    ) : (
-                      <Box>
-                        <HStack
-                          spacing={
-                            activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                          }
-                          py='5px'
-                          ps='10px'>
-                          <Text
-                            me='auto'
-                            color={
-                              activeRoute(route.path.toLowerCase())
-                                ? activeColor
-                                : inactiveColor
-                            }
-                            fontWeight={
-                              activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
-                            }>
-                            {route.name}
-                          </Text>
-                          <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' />
-                        </HStack>
-                      </Box>
-                    )}
-                  </Box> 
-                  <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
-                </AccordionButton>
-                <AccordionPanel pb={4}>  
-                  {createLinks(route.subitem)} 
-                </AccordionPanel>
-              </AccordionItem>  
-            </Accordion>
+            {createSubMenu(route, index)}
 
             {/* {createLinks(route.items)} */}
           </>
@@ -654,44 +567,19 @@ export function SidebarLinks(props) {
                   }
                   py='5px'
                   ps='10px'>
-                  <Flex w='100%' alignItems='center' justifyContent='center'>
-                    <Box
-                        color={
-                          activeRoute(route.path.toLowerCase())
-                            ? activeIcon
-                            : textColor
-                        }
-                        me='18px'>
-                        {route.icon3}
-                    </Box>
-                    {/* <CircleIcon boxSize={8} color="red.500" />   */}
-                    {/* <CircleIcon boxSize={8} color="inherit />   */}
-                    <Text
-                      me='auto'
-                      fontSize='sm'
-                      ml='5px'
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? activeColor
-                          : inactiveColor
-                      }
-                      fontWeight={
-                        activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
-                      }>
-                      {route.name}
-                    </Text>
-                  </Flex>
-                  {/* <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' /> */}
-                  <Box
-                    h='36px'
-                    w='4px'
-                    bg={
+                  <Text
+                    me='auto'
+                    color={
                       activeRoute(route.path.toLowerCase())
-                        ? brandColor
-                        : "transparent"
+                        ? activeColor
+                        : inactiveColor
                     }
-                    borderRadius='5px'
-                  />
+                    fontWeight={
+                      activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
+                    }>
+                    {route.name}
+                  </Text>
+                  <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' />
                 </HStack>
               </Box>
             )}

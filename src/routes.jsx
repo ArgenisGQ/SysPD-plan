@@ -66,14 +66,16 @@ const routes = [
   },  
   { 
     submenu: "submenu",
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    name: "SubMenu",    
+    layout: "/admin",
     path: "/profile",
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ {
                 name: "Perfil 1",
                 layout: "/admin",
-                path: "/profile",
-                icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-                icon2: <Icon viewBox="0 0 200 200" color="inherit">
+                path: "/data-tables",
+                icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
                         <path
                           fill="currentColor"
                           d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
@@ -86,9 +88,9 @@ const routes = [
               {
                 name: "Perfil 2",
                 layout: "/admin",
-                path: "/profile",
-                icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-                icon2: <Icon viewBox="0 0 200 200" color="inherit">
+                path: "/nft-marketplace",
+                icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
                         <path
                           fill="currentColor"
                           d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
@@ -100,6 +102,44 @@ const routes = [
               },
             ]
   },
+  /* { 
+    submenu: "submenu2",
+    name: "SubMenu2",    
+    layout: "/admin",
+    path: "/profile",
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    subitem:[ {
+                name: "Perfil 3",
+                layout: "/admin",
+                path: "/data-tables",
+                icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "Profile",
+                category: "Category",
+                items: "ITEMS",
+              },
+              {
+                name: "Perfil 4",
+                layout: "/admin",
+                path: "/nft-marketplace",
+                icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "Profile",
+                category: "Category",
+                items: "ITEMS",
+              },
+            ]
+  }, */
   {
     name: "Sign In",
     layout: "/auth",
