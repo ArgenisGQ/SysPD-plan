@@ -583,7 +583,13 @@ export function SidebarLinks(props) {
                   <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
                 </AccordionButton>
                 <AccordionPanel pb={4}>  
-                  {createLinks(route.subitem)} 
+                  {/* {createLinks(route.subitem)} */}
+
+                  {route.subitem.subsub ?
+                      console.log('con sub categoria')                      
+                  :
+                      createLinks(route.subitem)
+                  } 
                 </AccordionPanel>
               </AccordionItem>  
             </Accordion>
