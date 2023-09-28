@@ -120,8 +120,8 @@ const routes = [
                         />
                       </Icon>,
                 component: "Profile",
-                category: "Category",
-                items: "ITEMS",
+                /* category: "Category", */
+                /* items: "ITEMS", */
               },
               {
                 name: "Perfil 4",
@@ -135,11 +135,11 @@ const routes = [
                         />
                       </Icon>,
                 component: "Profile",
-                category: "Category",
-                items: "ITEMS",
+                /* category: "Category", */
+                /* items: "ITEMS", */
               },
               {
-                subsub: true,
+                subsub: "SUB",
                 name: "Perfil 5",
                 layout: "/admin",
                 path: "/nft-marketplace",
@@ -150,7 +150,7 @@ const routes = [
                           d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                         />
                       </Icon>,
-                subcat: [ {
+                subitem: [ {
                             name: "Perfil 6",
                             layout: "/admin",
                             path: "/data-tables",
@@ -182,8 +182,8 @@ const routes = [
                           },                          
                         ],
                 component: "Profile",
-                category: "Category",
-                items: "ITEMS", 
+                /* category: "Category", */
+                /* items: "ITEMS",  */
               }
             ]
   },

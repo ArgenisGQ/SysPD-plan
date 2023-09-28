@@ -585,10 +585,9 @@ export function SidebarLinks(props) {
                 <AccordionPanel pb={4}>  
                   {/* {createLinks(route.subitem)} */}
 
-                  {route.subitem.subsub ?
-                      console.log('con sub categoria')                      
-                  :
-                      createLinks(route.subitem)
+                  {route.subsub 
+                    ?console.log('con sub categoria')                      
+                    :createLinks(route.subitem)
                   } 
                 </AccordionPanel>
               </AccordionItem>  
