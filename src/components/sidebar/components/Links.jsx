@@ -497,7 +497,6 @@ export function SidebarLinks(props) {
       if (route.submenu) {
         
         return (
-          
           <>
             <Accordion allowMultiple width="100%" maxW="lg" rounded="lg" key={index}>
               <AccordionItem border='none'>
@@ -584,18 +583,116 @@ export function SidebarLinks(props) {
                 </AccordionButton>
                 <AccordionPanel pb={4}>  
                   {/* {createLinks(route.subitem)} */}
-
-                  {route.subsub 
-                    ?console.log('con sub categoria')                      
-                    :createLinks(route.subitem)
+                  {route.subitem                     
+                    ?createLinks(route.subitem)
+                    :console.log('error - no subitems')
                   } 
                 </AccordionPanel>
               </AccordionItem>  
             </Accordion>
-
             {/* {createLinks(route.items)} */}
           </>
         );
+      } else if (route.subsub) {
+        return (
+          <>
+            <Accordion allowMultiple width="100%" maxW="lg" rounded="lg" key={index}>
+              <AccordionItem border='none'>
+                <AccordionButton 
+                  p={0}
+                  > 
+                  {/* <Box key={index}> */}
+                  <Box as="span" flex='1' textAlign='left'>
+                    {route.icon ? (
+                      <Box>
+                        <HStack
+                          spacing={
+                            activeRoute(route.layout.toLowerCase()) ? "100px" : "26px"
+                            /* activeRoute(true) ? "22px" : "26px" */
+                          }
+                          py='5px'
+                          ps='10px'>
+                          <Flex w='100%' alignItems='center' justifyContent='center'>
+                            <Box
+                              color={
+                                activeRoute(route.layout.toLowerCase())
+                                /* activeRoute(true) */
+                                  ? activeIcon
+                                  : textColor
+                              }
+                              me='18px'>
+                              {route.icon}
+                            </Box>
+                            <Text
+                              me='auto'
+                              color={
+                                activeRoute(route.layout.toLowerCase())
+                                /* activeRoute(true) */
+                                  ? activeColor
+                                  : textColor
+                              }
+                              fontWeight={
+                                activeRoute(route.layout.toLowerCase())
+                                /* activeRoute(true) */
+                                  ? "bold"
+                                  : "normal"
+                              }>
+                              {route.name}
+                            </Text>
+                          </Flex>
+                          {/* <Box
+                            h='36px'
+                            w='4px'
+                            bg={
+                              activeRoute(route.layout.toLowerCase())
+                                ? brandColor
+                                : "transparent"
+                            }
+                            borderRadius='5px'
+                          /> */}
+                        </HStack>
+                      </Box>
+                    ) : (
+                      <Box>
+                        <HStack
+                          spacing={
+                            activeRoute(route.path.toLowerCase()) ? "100px" : "26px"
+                          }
+                          py='5px'
+                          ps='33px'>
+                          <Text fontSize='sm'
+                            me='auto'
+                            color={
+                              activeRoute(route.path.toLowerCase())
+                                ? activeColor
+                                : inactiveColor
+                            }
+                            fontWeight={
+                              activeRoute(route.path.toLowerCase()) 
+                              ? "bold" 
+                              : "normal"
+                            }>
+                            {route.name}
+                          </Text>
+                          {/* <Box h='36px' w='4px' bg='brand.400' borderRadius='5px' /> */}
+                        </HStack>
+                      </Box>
+                    )}
+                  </Box> 
+                  <AccordionIcon className='text-left !text-navy-900 dark:!text-white'/>
+                </AccordionButton>
+                <AccordionPanel pb={4}>  
+                  {/* {createLinks(route.subitem)} */}
+                  {route.subitem                     
+                    ?createLinks(route.subitem)
+                    :console.log('error - no subitems')
+                  } 
+                </AccordionPanel>
+              </AccordionItem>  
+            </Accordion>
+            {/* {createLinks(route.items)} */}
+          </>
+        ); 
       } else if (
         route.layout === "/admin" ||
         route.layout === "/auth" ||
@@ -624,6 +721,7 @@ export function SidebarLinks(props) {
                       me='18px'>
                       {route.icon}
                     </Box>
+                    {Router.icon}
                     <Text
                       me='auto'
                       color={
@@ -660,17 +758,34 @@ export function SidebarLinks(props) {
                   py='5px'
                   ps='10px'>
                   <Flex w='100%' alignItems='center' justifyContent='center'>
-                    <Box
+                    {route.icon2
+                     ?<Box
+                          color={
+                            activeRoute(route.path.toLowerCase())
+                              ? activeIcon
+                              : textColor
+                          }
+                          me='18px'>
+                          {route.icon2}
+                      </Box> 
+                     :<Box
+                          color={
+                            activeRoute(route.path.toLowerCase())
+                              ? activeIcon
+                              : textColor
+                          }
+                          me='18px'>
+                          {route.icon}
+                      </Box> }
+                    {/* <Box
                         color={
                           activeRoute(route.path.toLowerCase())
                             ? activeIcon
                             : textColor
                         }
                         me='18px'>
-                        {route.icon3}
-                    </Box>
-                    {/* <CircleIcon boxSize={8} color="red.500" />   */}
-                    {/* <CircleIcon boxSize={8} color="inherit />   */}
+                        {route.icon}
+                    </Box>   */}                  
                     <Text
                       me='auto'
                       fontSize='sm'
@@ -701,7 +816,7 @@ export function SidebarLinks(props) {
               </Box>
             )}
           </NavLink>
-        );
+        );      
       }
     });
   };
