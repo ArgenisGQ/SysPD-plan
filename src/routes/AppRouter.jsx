@@ -38,6 +38,7 @@ import NFTMarketplace from "../views/admin/marketplace";
 import Profile from "../views/admin/profile";
 import DataTables from "../views/admin/dataTables";
 /* import RTL from "./views/admin/rtl"; */
+import Users from "../views/admin/users";
 // Auth Imports
 import SignInCentered from "../views/auth/signIn";
 
@@ -89,7 +90,8 @@ function AppRouter() {
                         <Route path='/admin/default'          element={< MainDashboard/>}/>
                         <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
                         <Route path='/admin/data-tables'      element={< DataTables/>}/>
-                        <Route path='/admin/profile'          element={< Profile/>}/>   
+                        <Route path='/admin/profile'          element={< Profile/>}/>
+                        <Route path='/admin/users'          element={< Users/>}/>    
                       </Route>
 
                       <Route path="/auth" element={< AuthLayout/>}>
