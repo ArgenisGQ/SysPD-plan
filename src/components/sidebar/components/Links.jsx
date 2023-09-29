@@ -720,8 +720,7 @@ export function SidebarLinks(props) {
                       }
                       me='18px'>
                       {route.icon}
-                    </Box>
-                    {Router.icon}
+                    </Box>                    
                     <Text
                       me='auto'
                       color={
@@ -758,7 +757,7 @@ export function SidebarLinks(props) {
                   py='5px'
                   ps='10px'>
                   <Flex w='100%' alignItems='center' justifyContent='center'>
-                    {route.icon2
+                    {route.icon3
                      ?<Box
                           color={
                             activeRoute(route.path.toLowerCase())
@@ -766,7 +765,7 @@ export function SidebarLinks(props) {
                               : textColor
                           }
                           me='18px'>
-                          {route.icon2}
+                          {route.icon3}
                       </Box> 
                      :<Box
                           color={
@@ -785,7 +784,7 @@ export function SidebarLinks(props) {
                         }
                         me='18px'>
                         {route.icon}
-                    </Box>   */}                  
+                    </Box> */}                    
                     <Text
                       me='auto'
                       fontSize='sm'

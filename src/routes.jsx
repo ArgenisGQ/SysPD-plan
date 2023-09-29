@@ -155,7 +155,7 @@ const routes = [
                             layout: "/admin",
                             path: "/data-tables",
                             icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
-                            icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
+                            icon3: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
                                     <path
                                       fill="currentColor"
                                       d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
@@ -170,7 +170,7 @@ const routes = [
                             layout: "/admin",
                             path: "/nft-marketplace",
                             icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-                            icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
+                            icon3: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
                                     <path
                                       fill="currentColor"
                                       d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
