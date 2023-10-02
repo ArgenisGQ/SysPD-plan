@@ -10,6 +10,8 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Button, 
+  ButtonGroup
 } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import {
@@ -56,7 +58,7 @@ export default function ColumnsTable(props) {
   return (
     <Card
       direction='column'
-      w='100%'
+      w='200%'
       px='0px'
       overflowX={{ sm: "scroll", lg: "hidden" }}>
       <Flex px='25px' justify='space-between' mb='20px' align='center'>
@@ -150,7 +152,44 @@ export default function ColumnsTable(props) {
                           h='8px'
                           w='108px'
                           value={cell.value}
-                        />
+                        />                        
+                      </Flex>
+                      
+                    );
+                  } else if (cell.column.Header === " ") {
+                    data = (
+                      <Flex align='center'>
+                        {/* <Progress
+                          variant='table'
+                          colorScheme='brandScheme'
+                          h='8px'
+                          w='108px'
+                          value={cell.value}
+                        /> */}
+                        <Button 
+                        colorScheme="blue"
+                        variant="outline" 
+                        size="sm"> 
+                        EDITAR
+                        </Button> 
+                      </Flex>
+                    );
+                  } else if (cell.column.Header === "") {
+                    data = (
+                      <Flex align='center'>
+                        {/* <Progress
+                          variant='table'
+                          colorScheme='brandScheme'
+                          h='8px'
+                          w='108px'
+                          value={cell.value}
+                        /> */}
+                        <Button 
+                        colorScheme="red"
+                        variant="outline" 
+                        size="sm"> 
+                        BORRAR
+                        </Button> 
                       </Flex>
                     );
                   }

@@ -90,5 +90,13 @@ export const columnsDataUsers = [
   {
     Header: "PROGRESO",
     accessor: "progress",
-  },  
+  },
+  {
+    Header: " ",
+    accessor: "edit",
+  },
+  {
+    Header: "",
+    accessor: "delete",
+  },     
 ];

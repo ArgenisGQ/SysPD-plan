@@ -21,6 +21,7 @@
     "name":"Marketplace",
     "status": "Approved",
     "date": "12.Jul.2021",
-    "progress": 50.5  
+    "progress": 50.5,
+    "progressx": 50.5
   }
 ]
