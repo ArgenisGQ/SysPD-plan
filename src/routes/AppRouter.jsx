@@ -11,6 +11,7 @@ import Login03Base from '../components/Login03Base';
 import Login04Base from '../components/Login04Base';
 import Register from '../components/register';
 /* import HomePages from './scenes/HomePages'; */
+import Pagination from '../pages/Pagination';
 import HomePages from '../pages/HomePages';
 import Login from '../pages/login/Login';
 import Layout from '../pages/layout/Layout';
@@ -62,6 +63,7 @@ function AppRouter() {
                       <Route exact path='/login02'    element={< Login02Base/>}/>
                       <Route exact path='/login03'    element={< Login03Base/>}/>
                       <Route exact path='/login04'    element={< Login04Base/>}/>
+                      <Route exact path='/pagination'    element={< Pagination/>}/>
                       {/* <Route path='/register'   element={< Register/>}/> */}
                       {/* <Route exact path='/all'        element={< AllUsers/>}/> */}
                       <Route exact path='/LoginTest'  element={< LoginTest/>}/>
