@@ -76,7 +76,7 @@ export default function ColumnsTable(props) {
     setPageSize,
     state: { pageIndex, pageSize }
   } = tableInstance;
-  initialState.pageSize = 5;
+  initialState.pageSize = 10;
   initialState.pageIndex = 0;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
