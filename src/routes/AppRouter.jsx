@@ -93,7 +93,7 @@ function AppRouter() {
                         <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
                         <Route path='/admin/data-tables'      element={< DataTables/>}/>
                         <Route path='/admin/profile'          element={< Profile/>}/>
-                        <Route path='/admin/users'          element={< Users/>}/>    
+                        <Route path='/admin/users'            element={< Users/>}/>    
                       </Route>
 
                       <Route path="/auth" element={< AuthLayout/>}>
