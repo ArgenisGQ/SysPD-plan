@@ -95,7 +95,7 @@ function AppRouter() {
 
                       <Route path="/admin" element={<AdminLayout />}>
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
-                        <Route path='/admin/default'            element={< MainDashboardUsers/>}/>
+                        <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
                         <Route path='/admin/users'              element={< Users/>}/>  
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}

@@ -27,7 +27,7 @@ const routes = [
   {
     name: "Panel Principal",
     layout: "/admin",
-    path: "/default",
+    path: "/dashboard",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: "MainDashboardUsers",
   },
@@ -38,7 +38,7 @@ const routes = [
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Users",
   },
-  {
+  /* {
     name: "NFT Marketplace",
     layout: "/reference",
     path: "/nft-marketplace",
@@ -52,15 +52,15 @@ const routes = [
     ),
     component: "NFTMarketplace",
     secondary: true,
-  },
-  {
+  }, */
+  /* {
     name: "Data Tables",
     layout: "/reference",
     icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
     path: "/data-tables",
     component: "DataTables",
-  },
-  {
+  }, */
+  /* {
     name: "Profile",
     layout: "/reference",
     path: "/profile",
@@ -74,14 +74,14 @@ const routes = [
     component: "Profile",
     category: "Category",
     items: "ITEMS",
-  },  
+  },  */ 
   { 
     submenu: "submenu",
-    name: "SubMenu",    
+    name: "Referencias",    
     layout: "/reference",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[ {
+    subitem:[ /* {
                 name: "Perfil 1",
                 layout: "/reference",
                 path: "/data-tables",
@@ -95,8 +95,8 @@ const routes = [
                 component: "Profile",
                 category: "Category",
                 items: "ITEMS",
-              },
-              {
+              }, */
+              /* {
                 name: "Perfil 2",
                 layout: "/reference",
                 path: "/nft-marketplace",
@@ -110,8 +110,8 @@ const routes = [
                 component: "Profile",
                 category: "Category",
                 items: "ITEMS",
-              },
-              {
+              }, */
+              /* {
                 name: "Perfil 3",
                 layout: "/reference",
                 path: "/default",
@@ -123,6 +123,60 @@ const routes = [
                         />
                       </Icon>,
                 component: "D",
+                category: "Category",
+                items: "ITEMS",
+              }, */
+              {
+                name: "Panel Principal",
+                layout: "/reference",
+                path: "/default",
+                icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+                component: "MainDashboard",
+              },
+              {
+                name: "NFT Marketplace",
+                layout: "/reference",
+                path: "/nft-marketplace",
+                icon: (
+                  <Icon
+                    as={MdOutlineShoppingCart}
+                    width='20px'
+                    height='20px'
+                    color='inherit'
+                  />
+                ),
+                icon2: (
+                  <Icon
+                    as={MdOutlineShoppingCart}
+                    width='20px'
+                    height='20px'
+                    color='inherit'
+                  />
+                ),
+                component: "NFTMarketplace",
+                secondary: true,
+              },
+              {
+                name: "Data Tables",
+                layout: "/reference",
+                icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+                path: "/data-tables",
+                component: "DataTables",
+              },
+              {
+                name: "Profile",
+                layout: "/reference",
+                path: "/profile",
+                icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "Profile",
                 category: "Category",
                 items: "ITEMS",
               },
