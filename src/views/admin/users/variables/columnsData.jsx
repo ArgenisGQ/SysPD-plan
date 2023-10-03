@@ -76,21 +76,41 @@ export const columnsDataComplex = [
 
 export const columnsDataUsers = [
   {
+    Header: "ID",
+    accessor: "id",
+  },
+  {
+    Header: "USUARIO",
+    accessor: "user",
+  },
+  {
     Header: "NOMBRE",
     accessor: "name",
   },
   {
-    Header: "STATUS",
-    accessor: "status",
+    Header: "DOCUMENTO",
+    accessor: "document",
   },
   {
+    Header: "EMAIL",
+    accessor: "email",
+  },
+  {
+    Header: "ROL",
+    accessor: "rol",
+  },    
+  /* {
     Header: "FECHA",
     accessor: "date",
-  },
-  {
+  }, */
+  /* {
+    Header: "STATUS",
+    accessor: "status",
+  }, */
+  /* {
     Header: "PROGRESO",
     accessor: "progress",
-  },
+  }, */
   {
     Header: " ",
     accessor: "edit",

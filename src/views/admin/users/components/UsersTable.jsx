@@ -126,12 +126,42 @@ export default function ColumnsTable(props) {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
                   let data = "";
-                  if (cell.column.Header === "NOMBRE") {
+                  if (cell.column.Header === "ID") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
                       </Text>
                     );
+                  } else if (cell.column.Header === "USUARIO") {
+                    data = (
+                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "NOMBRE") {
+                    data = (
+                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "DOCUMENTO") {
+                    data = (
+                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "EMAIL") {
+                    data = (
+                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "ROL") {
+                    data = (
+                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Text>
+                    );   
                   } else if (cell.column.Header === "STATUS") {
                     data = (
                       <Flex align='center'>
