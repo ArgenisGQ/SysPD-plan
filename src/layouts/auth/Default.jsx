@@ -30,7 +30,7 @@ function AuthIllustration(props) {
         justifyContent='start'
         direction='column'>
         <NavLink
-          to='/admin'
+          to='/admin/dashboard'
           style={() => ({
             width: "fit-content",
             marginTop: "40px",
@@ -62,13 +62,17 @@ function AuthIllustration(props) {
           right='0px'>
           <Flex
             bg={`url(${illustrationBackground})`}
-            justify='center'
+            /* justify='center' */
+            justify='left'
             align='end'
             w='100%'
+            /* h='100%' */
             h='100%'
             bgSize='cover'
             bgPosition='50%'
             position='absolute'
+            /* left='50' */
+            /* right='50' */
             borderBottomLeftRadius={{ lg: "120px", xl: "200px" }}></Flex>
         </Box>
         <Footer />

@@ -60,21 +60,15 @@ const routes = [
     path: "/data-tables",
     component: "DataTables",
   }, */
-  /* {
-    name: "Profile",
-    layout: "/reference",
-    path: "/profile",
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    icon2: <Icon viewBox="0 0 200 200" color="inherit">
-            <path
-              fill="currentColor"
-              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-            />
-          </Icon>,
-    component: "Profile",
+  {
+    name: "Mi perfil",
+    layout: "/admin",
+    path: "/myprofile",
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
+    component: "MyProfile",
     category: "Category",
     items: "ITEMS",
-  },  */ 
+  },  
   { 
     submenu: "submenu",
     name: "Referencias",    
