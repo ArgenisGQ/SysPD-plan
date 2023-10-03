@@ -11,12 +11,13 @@ import {
 } from "react-icons/md";
 
 // Admin Imports
-import MainDashboard from "./views/admin/default";
+import MainDashboardUsers from "./views/admin/default";
 import Users from "./views/admin/users";
-import NFTMarketplace from "./views/admin/marketplace";
-import Profile from "./views/admin/profile";
-import DataTables from "./views/admin/dataTables";
-import RTL from "./views/admin/rtl";
+import MainDashboard from "./views/reference/default";
+import NFTMarketplace from "./views/reference/marketplace";
+import Profile from "./views/reference/profile";
+import DataTables from "./views/reference/dataTables";
+import RTL from "./views/reference/rtl";
 
 // Auth Imports
 import SignInCentered from "./views/auth/signIn";
@@ -28,7 +29,7 @@ const routes = [
     layout: "/admin",
     path: "/default",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: "MainDashboard",
+    component: "MainDashboardUsers",
   },
   {
     name: "Usuarios",
@@ -39,7 +40,7 @@ const routes = [
   },
   {
     name: "NFT Marketplace",
-    layout: "/admin",
+    layout: "/reference",
     path: "/nft-marketplace",
     icon: (
       <Icon
@@ -54,14 +55,14 @@ const routes = [
   },
   {
     name: "Data Tables",
-    layout: "/admin",
+    layout: "/reference",
     icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
     path: "/data-tables",
     component: "DataTables",
   },
   {
     name: "Profile",
-    layout: "/admin",
+    layout: "/reference",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     icon2: <Icon viewBox="0 0 200 200" color="inherit">
@@ -77,12 +78,12 @@ const routes = [
   { 
     submenu: "submenu",
     name: "SubMenu",    
-    layout: "/admin",
+    layout: "/reference",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ {
                 name: "Perfil 1",
-                layout: "/admin",
+                layout: "/reference",
                 path: "/data-tables",
                 icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -97,7 +98,7 @@ const routes = [
               },
               {
                 name: "Perfil 2",
-                layout: "/admin",
+                layout: "/reference",
                 path: "/nft-marketplace",
                 icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -110,17 +111,32 @@ const routes = [
                 category: "Category",
                 items: "ITEMS",
               },
+              {
+                name: "Perfil 3",
+                layout: "/reference",
+                path: "/default",
+                icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+                icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
+                        <path
+                          fill="currentColor"
+                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                        />
+                      </Icon>,
+                component: "D",
+                category: "Category",
+                items: "ITEMS",
+              },
             ]
   },
   { 
     submenu: "submenu2",
     name: "SubMenu2",    
-    layout: "/admin",
+    layout: "/reference",
     path: "/profile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ {
                 name: "Perfil 3",
-                layout: "/admin",
+                layout: "/reference",
                 path: "/data-tables",
                 icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -135,7 +151,7 @@ const routes = [
               },
               {
                 name: "Perfil 4",
-                layout: "/admin",
+                layout: "/reference",
                 path: "/nft-marketplace",
                 icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -151,7 +167,7 @@ const routes = [
               {
                 subsub: "SUB",
                 name: "Perfil 5",
-                layout: "/admin",
+                layout: "/reference",
                 path: "/nft-marketplace",
                 icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -162,7 +178,7 @@ const routes = [
                       </Icon>,
                 subitem: [ {
                             name: "Perfil 6",
-                            layout: "/admin",
+                            layout: "/reference",
                             path: "/data-tables",
                             icon1: <Icon as={MdPerson} width='10px' height='10px' color='inherit' />,
                             icon3: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -177,7 +193,7 @@ const routes = [
                           },
                           {
                             name: "Perfil 7",
-                            layout: "/admin",
+                            layout: "/reference",
                             path: "/nft-marketplace",
                             icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                             icon3: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">

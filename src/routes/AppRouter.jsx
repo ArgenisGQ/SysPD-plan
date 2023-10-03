@@ -34,12 +34,18 @@ import AuthLayout from '../layouts/auth/index';
 import AdminLayout from '../layouts/admin/index';
 import LayoutAdmin from '../pages/layout/LayoutAdmin'; 
 // Admin Imports
-import MainDashboard from "../views/admin/default";
-import NFTMarketplace from "../views/admin/marketplace";
-import Profile from "../views/admin/profile";
-import DataTables from "../views/admin/dataTables";
-/* import RTL from "./views/admin/rtl"; */
+import MainDashboardUsers from "../views/admin/default";
 import Users from "../views/admin/users";
+/* import NFTMarketplace from "../views/admin/marketplace";
+import Profile from "../views/admin/profile";
+import DataTables from "../views/admin/dataTables"; */
+// Reference Imports 
+import MainDashboard from "../views/reference/default";
+import NFTMarketplace from "../views/reference/marketplace";
+import Profile from "../views/reference/profile";
+import DataTables from "../views/reference/dataTables";
+/* import RTL from "./views/admin/rtl"; */
+
 // Auth Imports
 import SignInCentered from "../views/auth/signIn";
 
@@ -88,12 +94,23 @@ function AppRouter() {
                       <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
 
                       <Route path="/admin" element={<AdminLayout />}>
-                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}
-                        <Route path='/admin/default'          element={< MainDashboard/>}/>
-                        <Route path='/admin/nft-marketplace'  element={< NFTMarketplace/>}/>
-                        <Route path='/admin/data-tables'      element={< DataTables/>}/>
-                        <Route path='/admin/profile'          element={< Profile/>}/>
-                        <Route path='/admin/users'            element={< Users/>}/>    
+                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
+                        <Route path='/admin/default'            element={< MainDashboardUsers/>}/>
+                        <Route path='/admin/users'              element={< Users/>}/>  
+                        {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
+                        {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
+                        {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}
+                        {/* <Route path='/reference/profile'          element={< Profile/>}/>  */}                         
+                      </Route>
+
+                      <Route path="/reference" element={<AdminLayout />}>
+                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
+                        {/* <Route path='/admin/default'            element={< MainDashboardUsers/>}/> */}
+                        {/* <Route path='/admin/users'              element={< Users/>}/>   */}
+                        <Route path='/reference/default'          element={< MainDashboard/>}/>
+                        <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/>
+                        <Route path='/reference/data-tables'      element={< DataTables/>}/>
+                        <Route path='/reference/profile'          element={< Profile/>}/>                          
                       </Route>
 
                       <Route path="/auth" element={< AuthLayout/>}>
