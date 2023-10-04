@@ -66,8 +66,8 @@ const routes = [
     path: "/myprofile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
     component: "MyProfile",
-    category: "Category",
-    items: "ITEMS",
+   /*  category: "Category", */
+    /* items: "ITEMS", */
   },  
   { 
     submenu: "submenu",
@@ -149,7 +149,7 @@ const routes = [
                   />
                 ),
                 component: "NFTMarketplace",
-                secondary: true,
+                /* secondary: true, */
               },
               {
                 name: "Data Tables",
@@ -171,8 +171,8 @@ const routes = [
                         />
                       </Icon>,
                 component: "Profile",
-                category: "Category",
-                items: "ITEMS",
+                /* category: "Category", */
+                /* items: "ITEMS", */
               },
             ]
   },
