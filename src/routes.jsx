@@ -13,6 +13,7 @@ import {
 // Admin Imports
 import MainDashboardUsers from "./views/admin/default";
 import Users from "./views/admin/users";
+import MyProfile from "./views/admin/myprofile";
 import MainDashboard from "./views/reference/default";
 import NFTMarketplace from "./views/reference/marketplace";
 import Profile from "./views/reference/profile";
@@ -66,14 +67,14 @@ const routes = [
     path: "/myprofile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
     component: "MyProfile",
-    category: "Category",
-    items: "ITEMS",
+    /* category: "Category", */
+    /* items: "ITEMS", */
   },  
   { 
     submenu: "submenu",
     name: "Referencias",    
     layout: "/reference",
-    path: "/profile",
+    /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ /* {
                 name: "Perfil 1",
@@ -149,7 +150,7 @@ const routes = [
                   />
                 ),
                 component: "NFTMarketplace",
-                secondary: true,
+                /* secondary: true, */
               },
               {
                 name: "Data Tables",
@@ -171,8 +172,8 @@ const routes = [
                         />
                       </Icon>,
                 component: "Profile",
-                category: "Category",
-                items: "ITEMS",
+                /* category: "Category", */
+                /* items: "ITEMS", */
               },
             ]
   },
@@ -180,7 +181,7 @@ const routes = [
     submenu: "submenu2",
     name: "SubMenu2",    
     layout: "/reference",
-    path: "/profile",
+    /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ {
                 name: "Perfil 3",
