@@ -67,7 +67,6 @@ const routes = [
     path: "/myprofile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
     component: "MyProfile",
-    /* category: "Category", */
     /* items: "ITEMS", */
   },  
   { 
