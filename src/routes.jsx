@@ -73,7 +73,7 @@ const routes = [
     submenu: "submenu",
     name: "Referencias",    
     layout: "/reference",
-    path: "/profile",
+    /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ /* {
                 name: "Perfil 1",
@@ -180,7 +180,7 @@ const routes = [
     submenu: "submenu2",
     name: "SubMenu2",    
     layout: "/reference",
-    path: "/profile",
+    /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[ {
                 name: "Perfil 3",
