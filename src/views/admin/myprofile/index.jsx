@@ -24,9 +24,13 @@ export default function Overview() {
       {/* Main Fields */}
       <Grid
         templateColumns={{
+          /* base: "1fr",
+          lg: "1.34fr 1fr 1.62fr", */
+        }}
+        /* templateColumns={{
           base: "1fr",
           lg: "1.34fr 1fr 1.62fr",
-        }}
+        }} */
         templateRows={{
           base: "repeat(1 , 1fr)",
           lg: "1fr",
