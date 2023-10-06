@@ -6,6 +6,7 @@ import { Box,
 import * as React from 'react'
 import { PersonalInfoCard } from './AddressCard'
 import { ProfileCard } from './ProfileCard'
+import Card from "../../../components/card/Card";
 
 export default function Settings() {
 /* export const App = () => ( */
@@ -18,6 +19,7 @@ return (
       }}
     >
       <Stack spacing="5" divider={<StackDivider />}>
+        <Card>
         <Stack
           direction={{
             base: 'column',
@@ -43,7 +45,9 @@ return (
             }}
           />
         </Stack>
+        </Card>
 
+        <Card>
         <Stack
           direction={{
             base: 'column',
@@ -69,6 +73,7 @@ return (
             }}
           />
         </Stack>
+        </Card>
       </Stack>
     </Box>
   </Box>
