@@ -36,8 +36,12 @@ import LayoutAdmin from '../pages/layout/LayoutAdmin';
 // Admin Imports
 import MainDashboardUsers from "../views/admin/default";
 import Users from "../views/admin/users";
-/* import NFTMarketplace from "../views/admin/marketplace"; */
 import MyProfile from "../views/admin/myprofile";
+import UserForm from "../views/admin/userForm";
+
+
+/* import NFTMarketplace from "../views/admin/marketplace"; */
+
 /* import DataTables from "../views/admin/dataTables"; */
 // Reference Imports 
 import MainDashboard from "../views/reference/default";
@@ -96,7 +100,8 @@ function AppRouter() {
                       <Route path="/admin" element={<AdminLayout />}>
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
                         <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
-                        <Route path='/admin/users'                element={< Users/>}/>  
+                        <Route path='/admin/users'                element={< Users/>}/>
+                        <Route path='/admin/userform'             element={< UserForm/>}/>    
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
                         {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}

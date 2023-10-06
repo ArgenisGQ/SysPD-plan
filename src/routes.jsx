@@ -39,6 +39,13 @@ const routes = [
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Users",
   },
+  {
+    name: "Gestion de Usuarios",
+    layout: "/admin",
+    path: "/userform",
+    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+    component: "Userform",
+  },
   /* {
     name: "NFT Marketplace",
     layout: "/reference",
