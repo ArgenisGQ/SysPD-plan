@@ -46,6 +46,13 @@ const routes = [
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Userform",
   },
+  {
+    name: "Formulario next",
+    layout: "/admin",
+    path: "/nextform",
+    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+    component: "Nextform",
+  },
   /* {
     name: "NFT Marketplace",
     layout: "/reference",
