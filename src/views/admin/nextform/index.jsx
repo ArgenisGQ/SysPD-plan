@@ -18,8 +18,11 @@ import {
   InputGroup,
   Textarea,
   FormHelperText,
-  InputRightElement,
+  InputRightElement, 
+  Grid, 
 } from '@chakra-ui/react'
+
+import InputField from '../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
@@ -211,7 +214,7 @@ const Form2 = () => {
   )
 }
 
-const Form3 = () => {
+const Form3 = () => {  
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -245,9 +248,21 @@ const Form3 = () => {
               rounded="md"
             />
           </InputGroup>
+
+          <InputField
+            mb="0px"
+            me="30px"
+            id="username"
+            label="Username"
+            placeholder="@simmmple.web"
+          />
+          <FormHelperText>
+            Brief description for your profile. URLs are hyperlinked.
+          </FormHelperText>
+
         </FormControl>
 
-        <FormControl id="email" mt={1}>
+        <FormControl id="email" mt={1} >
           <FormLabel
             fontSize="sm"
             fontWeight="md"
@@ -261,14 +276,12 @@ const Form3 = () => {
             placeholder="you@example.com"
             rows={3}
             shadow="sm"
+            size="sm"
             focusBorderColor="brand.400"
             fontSize={{
               sm: 'sm',
             }}
-          />
-          <FormHelperText>
-            Brief description for your profile. URLs are hyperlinked.
-          </FormHelperText>
+          />                  
         </FormControl>
       </SimpleGrid>
     </>
@@ -282,16 +295,18 @@ export default function Multistep() {
 
   return (
     <>    
-    <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
+    <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>     
       <Box
+        color='gray.600' 
+        bg='white'
         borderWidth="1px"
         rounded="lg"
         shadow="1px 1px 3px rgba(0,0,0,0.3)"
-        /* maxWidth={800} */
+        maxWidth={1200}
         p={6}
         m="10px auto"
-        as="form">
-        <Progress hasStripe value={progress} mb="5%" mx="5%" /* size="xs" */ isAnimated/>{/* </Progress> */}
+        as="form">      
+        <Progress /* hasStripe */ value={progress} mb="5%" mx="5%" size="xs" width /* isAnimated *//>{/* </Progress> */}
         {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
@@ -343,11 +358,9 @@ export default function Multistep() {
             ) : null}
           </Flex>
         </ButtonGroup>
-      </Box>
-    </Box>
-    <Box p={4}>
-      <Progress hasStripe value={progress} mb="5%" mx="5%" /* size="xs" */ isAnimated/>
-    </Box>
+      </Box>     
+    </Box>  
+    
     </>
   )
 }
