@@ -19,7 +19,8 @@ import {
   Textarea,
   FormHelperText,
   InputRightElement, 
-  Grid, 
+  Grid,
+  useColorModeValue, 
 } from '@chakra-ui/react'
 
 import InputField from '../../../components/fields/InputField'
@@ -27,6 +28,12 @@ import InputField from '../../../components/fields/InputField'
 import { useToast } from '@chakra-ui/react'
 
 const Form1 = () => {
+  // Chakra color mode
+  const textColor = useColorModeValue("navy.700", "white");
+  const textColorSecondary = "gray.400";
+  const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
+  const textColorBrand = useColorModeValue("brand.500", "white");
+  const brandStars = useColorModeValue("brand.500", "brand.400");
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
   return (
@@ -36,14 +43,33 @@ const Form1 = () => {
       </Heading>
       <Flex>
         <FormControl mr="5%">
-          <FormLabel htmlFor="first-name" fontWeight={'normal'}>
+          <FormLabel
+            display='flex'
+            /* ms='4px' */
+            fontSize='sm'
+            fontWeight='500'
+            color={textColor}
+            /* mb='8px' */
+             
+            htmlFor="first-name" 
+            /* fontWeight={'normal'} */>
             First name
           </FormLabel>
-          <Input id="first-name" placeholder="First name" />
+          <Input 
+            id="first-name" 
+            placeholder="First name" />
         </FormControl>
 
         <FormControl>
-          <FormLabel htmlFor="last-name" fontWeight={'normal'}>
+          <FormLabel 
+            display='flex'
+            /* ms='4px' */
+            fontSize='sm'
+            fontWeight='500'
+            color={textColor}
+            /* mb='8px' */
+            htmlFor="last-name" 
+            /* fontWeight={'normal'} */>
             Last name
           </FormLabel>
           <Input id="last-name" placeholder="First name" />
