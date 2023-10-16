@@ -47,6 +47,13 @@ const routes = [
     component: "Userform",
   },
   {
+    name: "Create/Edit de Usuarios",
+    layout: "/admin",
+    path: "/usercreate",
+    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+    component: "Userform",
+  },
+  {
     name: "Formulario next",
     layout: "/admin",
     path: "/nextform",
