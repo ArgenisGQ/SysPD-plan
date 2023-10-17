@@ -13,6 +13,7 @@ import {
   Stack,
   Textarea,
   useColorModeValue,
+  Switch,
 } from '@chakra-ui/react'
 import * as React from 'react'
 import { Dropzone } from './Dropzone'
@@ -36,20 +37,62 @@ export const ProfileCard = (props) => (
         md: '6',
       }}
     >
-      <FormControl id="website">
+      <Stack
+        spacing="6"
+        direction={{
+          base: 'column',
+          md: 'row',
+        }}
+      >
+        <FormControl id="username">
+          <FormLabel>Usuario</FormLabel>
+          <Input defaultValue="Usuario unico" />
+        </FormControl>
+        <FormControl id="cedula">
+          <FormLabel>Cedula</FormLabel>
+          <Input defaultValue="Cedula" />
+        </FormControl>
+        <FormControl display="flex" /* alignItems="center" */>
+          <FormLabel htmlFor="user-active" mb="0">
+            Usuario Activo
+          </FormLabel>
+          <Switch id="user-active" colorScheme="brand" />          
+        </FormControl>
+      </Stack>
+      <Stack
+        spacing="6"
+        direction={{
+          base: 'column',
+          md: 'row',
+        }}
+      >
+        <FormControl id="firstName">
+          <FormLabel>Nombres</FormLabel>
+          <Input defaultValue="Nombres del Usuario" />
+        </FormControl>
+        <FormControl id="lastName">
+          <FormLabel>Apellidos</FormLabel>
+          <Input defaultValue="Apellidos del Usuario" />
+        </FormControl>
+      </Stack>
+      {/* <FormControl id="website">
         <FormLabel>Website</FormLabel>
         <InputGroup>
           <InputLeftAddon>https://</InputLeftAddon>
           <Input defaultValue="www.chakra-ui.com" />
         </InputGroup>
+      </FormControl> */}
+      <FormControl id="street">
+        <FormLabel>Email</FormLabel>
+        <Input defaultValue="user@email.com" />
       </FormControl>
-      <FormControl id="bio">
+      {/* <FormControl id="bio">
         <FormLabel>Bio</FormLabel>
         <Textarea rows={3} resize="none" />
         <FormHelperText color="subtle">Write a short introduction about yourself</FormHelperText>
-      </FormControl>
+      </FormControl> */}
       <FormControl id="picture">
-        <FormLabel>Picture</FormLabel>
+        <FormLabel>Foto</FormLabel>
         <Stack
           spacing={{
             base: '3',
@@ -60,11 +103,11 @@ export const ProfileCard = (props) => (
             sm: 'row',
           }}
         >
-          <Avatar size="lg" name="Christoph Winston" src="https://tinyurl.com/yhkm2ek8" />
+          <Avatar size="lg" name="USUARIO" src="https://tinyurl.com/yhkm2ek8" />
           <Dropzone width="full" />
         </Stack>
-      </FormControl>
-    </Stack>
+      </FormControl>      
+      </Stack>        
     <Divider />
     <Flex
       direction="row-reverse"

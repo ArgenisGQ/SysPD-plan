@@ -20,59 +20,59 @@ return (
     >
       <Stack spacing="5" divider={<StackDivider />}>
         <Card>
-        <Stack
-          direction={{
-            base: 'column',
-            lg: 'row',
-          }}
-          spacing={{
-            base: '5',
-            lg: '8',
-          }}
-          justify="space-between"
-        >
-          <Box flexShrink={0}>
-            <Text fontSize="lg" fontWeight="medium">
-              Perfil
-            </Text>
-            <Text color="muted" fontSize="sm">
-              Datos del usuario
-            </Text>
-          </Box>
-          <PersonalInfoCard
-            maxW={{
-              lg: '3xl',
+          <Stack
+            direction={{
+              base: 'column',
+              lg: 'row',
             }}
-          />
-        </Stack>
+            spacing={{
+              base: '5',
+              lg: '8',
+            }}
+            justify="space-between"
+          >
+            <Box flexShrink={0}>
+              <Text fontSize="lg" fontWeight="medium">
+                Perfil
+              </Text>
+              <Text color="muted" fontSize="sm">
+                Perfil basico del usuario.
+              </Text>
+            </Box>
+            <ProfileCard
+              maxW={{
+                lg: '3xl',
+              }}
+            />
+          </Stack>
         </Card>
 
         <Card>
-        <Stack
-          direction={{
-            base: 'column',
-            lg: 'row',
-          }}
-          spacing={{
-            base: '5',
-            lg: '8',
-          }}
-          justify="space-between"
-        >
-          <Box flexShrink={0}>
-            <Text fontSize="lg" fontWeight="medium">
-              Your Profile
-            </Text>
-            <Text color="muted" fontSize="sm">
-              Tell others who you are
-            </Text>
-          </Box>
-          <ProfileCard
-            maxW={{
-              lg: '3xl',
+          <Stack
+            direction={{
+              base: 'column',
+              lg: 'row',
             }}
-          />
-        </Stack>
+            spacing={{
+              base: '5',
+              lg: '8',
+            }}
+            justify="space-between"
+          >
+            <Box flexShrink={0}>
+              <Text fontSize="lg" fontWeight="medium">
+                Perfil
+              </Text>
+              <Text color="muted" fontSize="sm">
+                Datos del usuario
+              </Text>
+            </Box>
+            <PersonalInfoCard
+              maxW={{
+                lg: '3xl',
+              }}
+            />
+          </Stack>
         </Card>
       </Stack>
     </Box>
