@@ -27,14 +27,14 @@ export const Dropzone = (props) => (
       <VStack spacing="1">
         <HStack spacing="1" whiteSpace="nowrap">
           <Button variant="link" colorScheme="blue" size="sm">
-            Click to upload
+            Click para subir
           </Button>
           <Text fontSize="sm" color="muted">
-            or drag and drop
+            abrir o colocar
           </Text>
         </HStack>
         <Text fontSize="xs" color="muted">
-          PNG, JPG or GIF up to 2MB
+          PNG, JPG o GIF maximo de 2MB
         </Text>
       </VStack>
     </VStack>

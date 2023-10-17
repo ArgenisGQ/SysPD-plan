@@ -18,7 +18,7 @@ import {
 import * as React from 'react'
 import { Dropzone } from './Dropzone'
 
-export const ProfileCard = (props) => (
+export const CourseCard = (props) => (
   <Box
     bg="bg-surface"
     boxShadow={useColorModeValue('sm', 'sm-dark')}

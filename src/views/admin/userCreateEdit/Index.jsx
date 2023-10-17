@@ -4,8 +4,10 @@ import { Box,
         StackDivider, 
         Text } from '@chakra-ui/react'
 import * as React from 'react'
-import { PersonalInfoCard } from './AddressCard'
-import { ProfileCard } from './ProfileCard'
+import { PersonalInfoCard } from './AddressCard';
+import { ProfileCard } from './ProfileCard';
+import { PasswordCard } from './PasswordCard';
+import { CourseCard } from './CourseCard';
 import Card from "../../../components/card/Card";
 
 export default function Settings() {
@@ -47,7 +49,7 @@ return (
           </Stack>
         </Card>
 
-        <Card>
+        {/* <Card>
           <Stack
             direction={{
               base: 'column',
@@ -68,6 +70,62 @@ return (
               </Text>
             </Box>
             <PersonalInfoCard
+              maxW={{
+                lg: '3xl',
+              }}
+            />
+          </Stack>
+        </Card> */}
+
+        <Card>
+          <Stack
+            direction={{
+              base: 'column',
+              lg: 'row',
+            }}
+            spacing={{
+              base: '5',
+              lg: '8',
+            }}
+            justify="space-between"
+          >
+            <Box flexShrink={0}>
+              <Text fontSize="lg" fontWeight="medium">
+                Contraseña
+              </Text>
+              <Text color="muted" fontSize="sm">
+                Cambios de clave secreta del usuario
+              </Text>
+            </Box>
+            <PasswordCard
+              maxW={{
+                lg: '3xl',
+              }}
+            />
+          </Stack>
+        </Card>
+
+        <Card>
+          <Stack
+            direction={{
+              base: 'column',
+              lg: 'row',
+            }}
+            spacing={{
+              base: '5',
+              lg: '8',
+            }}
+            justify="space-between"
+          >
+            <Box flexShrink={0}>
+              <Text fontSize="lg" fontWeight="medium">
+                Materias
+              </Text>
+              <Text color="muted" fontSize="sm">
+                Materias asginadas al usuario
+              </Text>
+            </Box>
+            <CourseCard
               maxW={{
                 lg: '3xl',
               }}
