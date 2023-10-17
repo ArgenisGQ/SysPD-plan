@@ -155,7 +155,7 @@ function SignIn() {
               fontWeight='500'
               color={textColor}
               display='flex'>
-              Clave<Text color={brandStars}>*</Text>
+              Contraseña<Text color={brandStars}>*</Text>
             </FormLabel>
             <InputGroup size='md'>
               <Input
