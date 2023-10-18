@@ -7,6 +7,7 @@ import * as React from 'react'
 import { PersonalInfoCard } from './AddressCard';
 import { ProfileCard } from './ProfileCard';
 import { PasswordCard } from './PasswordCard';
+import { PwdUserCard } from './PwdUserCard';
 import { CourseCard } from './CourseCard';
 import Card from "../../../components/card/Card";
 
@@ -91,7 +92,35 @@ return (
           >
             <Box flexShrink={0}>
               <Text fontSize="lg" fontWeight="medium">
-                Contraseña
+                Contraseña (Usuario)
+              </Text>
+              <Text color="muted" fontSize="sm">
+                Cambios de clave secreta del usuario
+              </Text>
+            </Box>
+            <PwdUserCard
+              maxW={{
+                lg: '3xl',
+              }}
+            />
+          </Stack>
+        </Card>
+
+        <Card>
+          <Stack
+            direction={{
+              base: 'column',
+              lg: 'row',
+            }}
+            spacing={{
+              base: '5',
+              lg: '8',
+            }}
+            justify="space-between"
+          >
+            <Box flexShrink={0}>
+              <Text fontSize="lg" fontWeight="medium">
+                Contraseña (Admninistrador)
               </Text>
               <Text color="muted" fontSize="sm">
                 Cambios de clave secreta del usuario
