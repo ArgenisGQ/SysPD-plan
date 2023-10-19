@@ -52,7 +52,7 @@ export default function CheckTable(props) {
   return (
     <Card
       direction='column'
-      w='100%'
+      w='200%'
       px='0px'
       overflowX={{ sm: "scroll", lg: "hidden" }}>
       <Flex px='25px' justify='space-between' mb='20px' align='center'>
