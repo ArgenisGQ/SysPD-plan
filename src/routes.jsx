@@ -61,6 +61,13 @@ const routes = [
     component: "Uploads",
   },
   {
+    name: "Roles del sistema",
+    layout: "/admin",
+    path: "/role",
+    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    component: "Role",
+  },
+  {
     name: "Formulario next",
     layout: "/admin",
     path: "/nextform",
