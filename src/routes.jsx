@@ -54,6 +54,13 @@ const routes = [
     component: "Userform",
   },
   {
+    name: "Carga masiva de datos",
+    layout: "/admin",
+    path: "/uploads",
+    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+    component: "Uploads",
+  },
+  {
     name: "Formulario next",
     layout: "/admin",
     path: "/nextform",

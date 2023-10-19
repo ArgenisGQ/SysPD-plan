@@ -40,7 +40,7 @@ import MyProfile from "../views/admin/myprofile";
 import UserForm from "../views/admin/userForm";
 import UserCreate from "../views/admin/userCreateEdit";
 import NextForm from "../views/admin/nextForm";
-
+import Uploads from "../views/admin/uploads";
 
 /* import NFTMarketplace from "../views/admin/marketplace"; */
 
@@ -105,7 +105,8 @@ function AppRouter() {
                         <Route path='/admin/users'                element={< Users/>}/>
                         <Route path='/admin/userform'             element={< UserForm/>}/>
                         <Route path='/admin/usercreate'           element={< UserCreate/>}/>
-                        <Route path='/admin/nextform'             element={< NextForm/>}/>     
+                        <Route path='/admin/nextform'             element={< NextForm/>}/>
+                        <Route path='/admin/uploads'              element={< Uploads/>}/>      
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
                         {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}
