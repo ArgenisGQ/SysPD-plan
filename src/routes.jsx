@@ -75,6 +75,13 @@ const routes = [
     component: "Periods",
   },
   {
+    name: "Planificacion Didactica",
+    layout: "/admin",
+    path: "/planning",
+    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    component: "Planning",
+  },
+  {
     name: "Formulario next",
     layout: "/admin",
     path: "/nextform",

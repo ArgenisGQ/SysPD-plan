@@ -43,6 +43,7 @@ import NextForm from "../views/admin/nextForm";
 import Uploads from "../views/admin/uploads";
 import Role from "../views/admin/role";
 import Periods from "../views/admin/periods";
+import Planning from "../views/admin/planning";
 
 /* import NFTMarketplace from "../views/admin/marketplace"; */
 
@@ -110,7 +111,8 @@ function AppRouter() {
                         <Route path='/admin/nextform'             element={< NextForm/>}/>
                         <Route path='/admin/uploads'              element={< Uploads/>}/>
                         <Route path='/admin/role'                 element={< Role/>}/>
-                        <Route path='/admin/periods'              element={< Periods/>}/>        
+                        <Route path='/admin/periods'              element={< Periods/>}/>
+                        <Route path='/admin/planning'             element={< Planning/>}/>         
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
                         {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}
