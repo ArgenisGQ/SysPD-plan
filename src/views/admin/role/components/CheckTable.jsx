@@ -21,7 +21,7 @@ import {
 // Custom components
 import Card from "../../../../components/card/Card";
 import Menu from "../../../../components/menu/MainMenu";
-export default function CheckTable(props) {
+export default function Form01(props) {
   const { columnsData, tableData } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
