@@ -21,24 +21,26 @@ import {
   useColorModeValue, 
 } from '@chakra-ui/react'
 
-import InputField from '../../../components/fields/InputField'
+import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
-/* const Form1 = () => { */
-    // Chakra color mode
-    const textColor = useColorModeValue("navy.700", "white");
-    const textColorSecondary = "gray.400";
-    const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
-    const textColorBrand = useColorModeValue("brand.500", "white");
-    const brandStars = useColorModeValue("brand.500", "brand.400");
-    const [show, setShow] = useState(false)
-    const handleClick = () => setShow(!show)
-/*     return ( */
-export default function CheckTable(props) {
+/* const Form1 = () => { */    
+
+export default function Form01() {
+      // Chakra color mode
+      const textColor = useColorModeValue("navy.700", "white");
+      const textColorSecondary = "gray.400";
+      const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
+      const textColorBrand = useColorModeValue("brand.500", "white");
+      const brandStars = useColorModeValue("brand.500", "brand.400");    
+      const [show, setShow] = useState(false)
+      const handleClick = () => setShow(!show)
+    return (
+/* export default function Form01(props) { */
       <>    
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-          User Registration
+          I. Datos de la unidad curricular
         </Heading>
         <Flex>
           <FormControl mr="5%">
@@ -100,7 +102,7 @@ export default function CheckTable(props) {
           </InputGroup>
         </FormControl>    
       </>
-}
+/* } */
 
-/*     ) */
-/*   } */
+    )
+  }
