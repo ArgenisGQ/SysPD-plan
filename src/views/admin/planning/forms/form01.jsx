@@ -42,8 +42,82 @@ export default function Form01() {
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
           I. Datos de la unidad curricular
         </Heading>
+        <FormControl mt="2%">
+          <FormLabel 
+            htmlFor="course"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+            Nombre de la asignatura
+          </FormLabel>
+          <Input id="course" /* type="email" */ />
+          <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
+          {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
+        </FormControl>
+        <FormControl  mt="2%" id="proposito">
+          <FormLabel
+          htmlFor="course"
+          fontSize='sm' 
+          fontWeight={'normal'}
+          color={textColor}>
+            Proposito
+          </FormLabel>
+          <Textarea rows={3} resize="none" />
+          <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText>
+        </FormControl>
+
         <Flex>
-          <FormControl mr="5%">
+          <FormControl mt="2%" mr="5%">
+            <FormLabel
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+               
+              htmlFor="code-course" 
+              /* fontWeight={'normal'} */>
+              Codigo de Asignatura
+            </FormLabel>
+            <Input 
+              id="first-name" 
+              placeholder="First name" />
+          </FormControl>
+  
+          <FormControl mt="2%" mr="5%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="seccion-course" 
+              /* fontWeight={'normal'} */>
+              Seccion
+            </FormLabel>
+            <Input id="last-name" placeholder="First name" />
+          </FormControl>
+
+          <FormControl mt="2%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="prelacion" 
+              /* fontWeight={'normal'} */>
+              Prelacion
+            </FormLabel>
+            <Input id="last-name" placeholder="First name" />
+          </FormControl>
+        </Flex>
+
+        <Flex>
+          <FormControl mt="2%" mr="5%">
             <FormLabel
               display='flex'
               /* ms='4px' */
@@ -61,7 +135,7 @@ export default function Form01() {
               placeholder="First name" />
           </FormControl>
   
-          <FormControl>
+          <FormControl mt="2%">
             <FormLabel 
               display='flex'
               /* ms='4px' */
@@ -76,6 +150,8 @@ export default function Form01() {
             <Input id="last-name" placeholder="First name" />
           </FormControl>
         </Flex>
+
+
         <FormControl mt="2%">
           <FormLabel htmlFor="email" fontWeight={'normal'}>
             Email address
