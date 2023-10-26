@@ -82,7 +82,7 @@ export default function Form01() {
             </FormLabel>
             <Input 
               id="first-name" 
-              placeholder="First name" />
+              placeholder="Codigo de la asignatura" />
           </FormControl>
   
           <FormControl mt="2%" mr="5%">
@@ -97,7 +97,7 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Seccion
             </FormLabel>
-            <Input id="last-name" placeholder="First name" />
+            <Input id="last-name" placeholder="Seccion" />
           </FormControl>
 
           <FormControl mt="2%">
@@ -112,12 +112,12 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Prelacion
             </FormLabel>
-            <Input id="last-name" placeholder="First name" />
+            <Input id="last-name" placeholder="Prelacion" />
           </FormControl>
         </Flex>
 
         <Flex>
-          <FormControl mt="2%" mr="5%">
+          <FormControl mt="2%" mr="4%">
             <FormLabel
               display='flex'
               /* ms='4px' */
@@ -126,16 +126,16 @@ export default function Form01() {
               color={textColor}
               /* mb='8px' */
                
-              htmlFor="first-name" 
+              htmlFor="hours-total" 
               /* fontWeight={'normal'} */>
-              First name
+              Total horas
             </FormLabel>
             <Input 
-              id="first-name" 
-              placeholder="First name" />
+              id="hours-total" 
+              placeholder="Total de horas" />
           </FormControl>
   
-          <FormControl mt="2%">
+          <FormControl mt="2%" mr="1%">
             <FormLabel 
               display='flex'
               /* ms='4px' */
@@ -143,24 +143,116 @@ export default function Form01() {
               fontWeight='500'
               color={textColor}
               /* mb='8px' */
-              htmlFor="last-name" 
+              htmlFor="hours-user" 
               /* fontWeight={'normal'} */>
-              Last name
+              HD
             </FormLabel>
-            <Input id="last-name" placeholder="First name" />
+            <Input id="hours-total" placeholder="Horas docentes" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hours-teory" 
+              /* fontWeight={'normal'} */>
+              T
+            </FormLabel>
+            <Input id="last-name" placeholder="Horas teoricas" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hours-user" 
+              /* fontWeight={'normal'} */>
+              L/T
+            </FormLabel>
+            <Input id="hours-total" placeholder="Laboratorio/Taller" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="4%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="iscp" 
+              /* fontWeight={'normal'} */>
+              I/SC/P
+            </FormLabel>
+            <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hiv-s" 
+              /* fontWeight={'normal'} */>
+              HIV S
+            </FormLabel>
+            <Input id="hiv-s" placeholder="HIV S" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="5%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hiv-a" 
+              /* fontWeight={'normal'} */>
+              HIV A
+            </FormLabel>
+            <Input id="hiv-a" placeholder="HIV-A" />
+          </FormControl>
+
+          <FormControl mt="2%" >
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hde" 
+              /* fontWeight={'normal'} */>
+              HDE
+            </FormLabel>
+            <Input id="hde" placeholder="HDE" />
           </FormControl>
         </Flex>
 
+        
 
-        <FormControl mt="2%">
+
+        {/* <FormControl mt="2%">
           <FormLabel htmlFor="email" fontWeight={'normal'}>
             Email address
           </FormLabel>
           <Input id="email" type="email" />
           <FormHelperText>We&apos;ll never share your email.</FormHelperText>
-        </FormControl>
+        </FormControl> */}
   
-        <FormControl>
+        {/* <FormControl>
           <FormLabel htmlFor="password" fontWeight={'normal'} mt="2%">
             Password
           </FormLabel>
@@ -176,7 +268,7 @@ export default function Form01() {
               </Button>
             </InputRightElement>
           </InputGroup>
-        </FormControl>    
+        </FormControl>             */}
       </>
 /* } */
 
