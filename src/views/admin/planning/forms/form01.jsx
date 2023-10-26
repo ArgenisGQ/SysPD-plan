@@ -18,8 +18,11 @@ import {
   FormHelperText,
   InputRightElement, 
   Grid,
-  useColorModeValue, 
+  useColorModeValue,
+  Text  
 } from '@chakra-ui/react'
+
+import { HSeparator } from "../../../../components/separator/Separator";
 
 import InputField from '../../../../components/fields/InputField'
 
@@ -116,7 +119,7 @@ export default function Form01() {
           </FormControl>
         </Flex>
 
-        <Flex>
+        <Flex mb='45px'>
           <FormControl mt="2%" mr="4%">
             <FormLabel
               display='flex'
@@ -269,6 +272,149 @@ export default function Form01() {
             </InputRightElement>
           </InputGroup>
         </FormControl>             */}
+
+          <Flex align='center' mb='20px'>
+            <HSeparator />
+            <Text 
+              /* color='gray.400' */
+              color={textColor} 
+              mx='14px'>
+                
+            </Text>
+            <HSeparator />
+          </Flex>
+
+
+
+            <Flex>
+          <FormControl mt="2%" mr="4%">
+            <FormLabel
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+               
+              htmlFor="hours-total" 
+              /* fontWeight={'normal'} */>
+              Total horas
+            </FormLabel>
+            <Input 
+              id="hours-total" 
+              placeholder="Total de horas" />
+          </FormControl>
+  
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hours-user" 
+              /* fontWeight={'normal'} */>
+              HD
+            </FormLabel>
+            <Input id="hours-total" placeholder="Horas docentes" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hours-teory" 
+              /* fontWeight={'normal'} */>
+              T
+            </FormLabel>
+            <Input id="last-name" placeholder="Horas teoricas" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hours-user" 
+              /* fontWeight={'normal'} */>
+              L/T
+            </FormLabel>
+            <Input id="hours-total" placeholder="Laboratorio/Taller" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="4%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="iscp" 
+              /* fontWeight={'normal'} */>
+              I/SC/P
+            </FormLabel>
+            <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="1%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hiv-s" 
+              /* fontWeight={'normal'} */>
+              HIV S
+            </FormLabel>
+            <Input id="hiv-s" placeholder="HIV S" />
+          </FormControl>
+
+          <FormControl mt="2%" mr="5%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hiv-a" 
+              /* fontWeight={'normal'} */>
+              HIV A
+            </FormLabel>
+            <Input id="hiv-a" placeholder="HIV-A" />
+          </FormControl>
+
+          <FormControl mt="2%" >
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="hde" 
+              /* fontWeight={'normal'} */>
+              HDE
+            </FormLabel>
+            <Input id="hde" placeholder="HDE" />
+          </FormControl>
+        </Flex>
+
+
+
+
+
       </>
 /* } */
 
