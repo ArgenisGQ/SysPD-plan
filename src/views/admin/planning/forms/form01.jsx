@@ -533,7 +533,7 @@ export default function Form01() {
             </FormLabel>
             <Input 
               id="hours-total" 
-              placeholder="Total de horas" />
+              placeholder="2023-3" />
           </FormControl> 
           
           <FormControl mt="2%" mr="1%" w='50%'>
@@ -548,7 +548,7 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Faculdad/Carrera
             </FormLabel>
-            <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
+            <Input id="iscp" placeholder="---" />
           </FormControl>
 
           <FormControl mt="2%" mr="1%" w='50%'>
@@ -563,7 +563,7 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Programa/Postgrado
             </FormLabel>
-            <Input id="hiv-s" placeholder="HIV S" />
+            <Input id="hiv-s" placeholder="---" />
           </FormControl>
 
                  
@@ -582,9 +582,9 @@ export default function Form01() {
 
                 <RadioGroup onChange={setValue} value={value}>
                   <Stack direction='row'>
-                    <Radio value='1'>First</Radio>
-                    <Radio value='2'>Second</Radio>
-                    <Radio value='3'>Third</Radio>
+                    <Radio value='1'>Presencial</Radio>
+                    <Radio value='2'>Mixta</Radio>
+                    <Radio value='3'>Virtual</Radio>
                   </Stack>
                 </RadioGroup>   
             </CardBody>
