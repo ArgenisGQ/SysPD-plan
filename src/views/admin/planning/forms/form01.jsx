@@ -565,30 +565,27 @@ export default function Form01() {
             </FormLabel>
             <Input id="hiv-s" placeholder="---" />
           </FormControl>
-
-                 
-
-
+          
           <FormControl>
-          <Card
-            /* direction={{ base: 'column', sm: 'row' }} */
-            /* overflow='hidden' */
-            /* variant='outline' */>
-            <CardHeader>
-              <Heading size='md'>Modalidad</Heading>
-            </CardHeader>
+            <Card
+              /* direction={{ base: 'column', sm: 'row' }} */
+              /* overflow='hidden' */
+              /* variant='outline' */>
+              <CardHeader>
+                <Heading size='md'>Modalidad</Heading>
+              </CardHeader>
 
-            <CardBody>
+              <CardBody>
 
-                <RadioGroup onChange={setValue} value={value}>
-                  <Stack direction='row'>
-                    <Radio value='1'>Presencial</Radio>
-                    <Radio value='2'>Mixta</Radio>
-                    <Radio value='3'>Virtual</Radio>
-                  </Stack>
-                </RadioGroup>   
-            </CardBody>
-          </Card>
+                  <RadioGroup onChange={setValue} value={value}>
+                    <Stack direction='row'>
+                      <Radio value='1'>Presencial</Radio>
+                      <Radio value='2'>Mixta</Radio>
+                      <Radio value='3'>Virtual</Radio>
+                    </Stack>
+                  </RadioGroup>   
+              </CardBody>
+            </Card>
           </FormControl>
         </Flex>
 

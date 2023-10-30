@@ -37,9 +37,9 @@ export default function Form02() {
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-          User Details
+          Identificacion del Docente
         </Heading>
-        <FormControl as={GridItem} colSpan={[6, 3]}>
+        {/* <FormControl as={GridItem} colSpan={[6, 3]}>
           <FormLabel
             htmlFor="country"
             fontSize="sm"
@@ -64,11 +64,11 @@ export default function Form02() {
             <option>Canada</option>
             <option>Mexico</option>
           </Select>
-        </FormControl>
+        </FormControl> */}
   
         <FormControl as={GridItem} colSpan={6}>
           <FormLabel
-            htmlFor="street_address"
+            htmlFor="user"
             fontSize="sm"
             fontWeight="md"
             color="gray.700"
@@ -76,13 +76,13 @@ export default function Form02() {
               color: 'gray.50',
             }}
             mt="2%">
-            Street address
+            Nombre Docente/Tutor
           </FormLabel>
           <Input
             type="text"
             name="street_address"
-            id="street_address"
-            autoComplete="street-address"
+            id="user"
+            autoComplete="user"
             focusBorderColor="brand.400"
             shadow="sm"
             size="sm"
@@ -90,8 +90,95 @@ export default function Form02() {
             rounded="md"
           />
         </FormControl>
+
+        <Flex>
+          <FormControl mt="2%" mr="5%">
+            <FormLabel
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+               
+              htmlFor="cedula" 
+              /* fontWeight={'normal'} */>
+              Nro de Cedula
+            </FormLabel>
+            <Input 
+              id="cedula" 
+              placeholder="Nro de Cedula" />
+          </FormControl>
   
-        <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
+          <FormControl mt="2%" mr="5%">
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="phone" 
+              /* fontWeight={'normal'} */>
+              Telefono
+            </FormLabel>
+            <Input id="phone" placeholder="Numero de Telefono" />
+          </FormControl>
+
+          <FormControl mt="2%" >
+            <FormLabel 
+              display='flex'
+              /* ms='4px' */
+              fontSize='sm'
+              fontWeight='500'
+              color={textColor}
+              /* mb='8px' */
+              htmlFor="email" 
+              /* fontWeight={'normal'} */>
+              Correo electronico
+            </FormLabel>
+            <Input id="email" placeholder="my@email.com" />
+          </FormControl>
+        </Flex>
+
+        <Flex>
+          <FormControl  mt="2%" id="proposito" mr="2%">
+            <FormLabel
+            htmlFor="course"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+              Horario de clases
+            </FormLabel>
+            <Textarea rows={4} resize="none" />
+            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+          </FormControl>
+          <FormControl  mt="2%" id="proposito" mr="2%">
+            <FormLabel
+            htmlFor="course"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+              Horario de Tutoria Docente
+            </FormLabel>
+            <Textarea rows={4} resize="none" />
+            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+          </FormControl>
+          <FormControl  mt="2%" id="t-hours" >
+            <FormLabel
+            htmlFor="t-hours"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+              Total, horas docentes
+            </FormLabel>
+            <Textarea rows={4} resize="none" />
+            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+          </FormControl>
+        </Flex>
+        
+  
+        {/* <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
           <FormLabel
             htmlFor="city"
             fontSize="sm"
@@ -164,7 +251,7 @@ export default function Form02() {
             w="full"
             rounded="md"
           />
-        </FormControl>
+        </FormControl> */}
       </>
     )
   }
