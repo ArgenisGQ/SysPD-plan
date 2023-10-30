@@ -26,7 +26,8 @@ import {
   CardHeader,
   CardBody,
   Stack,
-  StackDivider     
+  StackDivider,
+  Radio, RadioGroup     
 } from '@chakra-ui/react'
 
 import { HSeparator } from "../../../../components/separator/Separator";
@@ -46,6 +47,7 @@ export default function Form01() {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
+      const [value, setValue] = useState('1')
     return (
 /* export default function Form01(props) { */
       <>    
@@ -126,130 +128,7 @@ export default function Form01() {
           </FormControl>
         </Flex>
 
-        <Flex mb='45px'>
-          <FormControl mt="2%" mr="4%">
-            <FormLabel
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-               
-              htmlFor="hours-total" 
-              /* fontWeight={'normal'} */>
-              Total horas
-            </FormLabel>
-            <Input 
-              id="hours-total" 
-              placeholder="Total de horas" />
-          </FormControl>
-  
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-user" 
-              /* fontWeight={'normal'} */>
-              HD
-            </FormLabel>
-            <Input id="hours-total" placeholder="Horas docentes" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-teory" 
-              /* fontWeight={'normal'} */>
-              T
-            </FormLabel>
-            <Input id="last-name" placeholder="Horas teoricas" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-user" 
-              /* fontWeight={'normal'} */>
-              L/T
-            </FormLabel>
-            <Input id="hours-total" placeholder="Laboratorio/Taller" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="4%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="iscp" 
-              /* fontWeight={'normal'} */>
-              I/SC/P
-            </FormLabel>
-            <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hiv-s" 
-              /* fontWeight={'normal'} */>
-              HIV S
-            </FormLabel>
-            <Input id="hiv-s" placeholder="HIV S" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="5%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hiv-a" 
-              /* fontWeight={'normal'} */>
-              HIV A
-            </FormLabel>
-            <Input id="hiv-a" placeholder="HIV-A" />
-          </FormControl>
-
-          <FormControl mt="2%" >
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hde" 
-              /* fontWeight={'normal'} */>
-              HDE
-            </FormLabel>
-            <Input id="hde" placeholder="HDE" />
-          </FormControl>
-        </Flex>
+        
 
         
 
@@ -280,7 +159,354 @@ export default function Form01() {
           </InputGroup>
         </FormControl>             */}
 
-          <Flex align='center' mb='20px'>
+          
+          <Flex>
+            <FormControl mt="2%" mr="4%">
+              <FormLabel
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                
+                htmlFor="hours-total" 
+                /* fontWeight={'normal'} */>
+                Total horas
+              </FormLabel>
+              <Input 
+                id="hours-total" 
+                placeholder="Total de horas" />
+            </FormControl>
+    
+            <FormControl mt="2%" mr="1%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hours-user" 
+                /* fontWeight={'normal'} */>
+                HD
+              </FormLabel>
+              <Input id="hours-total" placeholder="Horas docentes" />
+            </FormControl>
+
+            <FormControl mt="2%" mr="1%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hours-teory" 
+                /* fontWeight={'normal'} */>
+                T
+              </FormLabel>
+              <Input id="last-name" placeholder="Horas teoricas" />
+            </FormControl>
+
+            <FormControl mt="2%" mr="1%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hours-user" 
+                /* fontWeight={'normal'} */>
+                L/T
+              </FormLabel>
+              <Input id="hours-total" placeholder="Laboratorio/Taller" />
+            </FormControl>
+
+            <FormControl mt="2%" mr="4%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="iscp" 
+                /* fontWeight={'normal'} */>
+                I/SC/P
+              </FormLabel>
+              <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
+            </FormControl>
+
+            <FormControl mt="2%" mr="1%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hiv-s" 
+                /* fontWeight={'normal'} */>
+                HIV S
+              </FormLabel>
+              <Input id="hiv-s" placeholder="HIV S" />
+            </FormControl>
+
+            <FormControl mt="2%" mr="5%">
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hiv-a" 
+                /* fontWeight={'normal'} */>
+                HIV A
+              </FormLabel>
+              <Input id="hiv-a" placeholder="HIV-A" />
+            </FormControl>
+
+            <FormControl mt="2%" >
+              <FormLabel 
+                display='flex'
+                /* ms='4px' */
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                /* mb='8px' */
+                htmlFor="hde" 
+                /* fontWeight={'normal'} */>
+                HDE
+              </FormLabel>
+              <Input id="hde" placeholder="HDE" />
+            </FormControl>
+          </Flex>
+
+        <Box position='relative' padding='10'>
+          <Divider />
+          {/* <AbsoluteCenter bg='white' px='4'>
+            Content
+          </AbsoluteCenter> */}
+        </Box>
+
+        <Card
+          direction={{ base: 'column', sm: 'row' }}
+          /* overflow='hidden' */
+          /* variant='outline' */>
+          <CardHeader>
+            <Heading size='md'>Componente Pregrado</Heading>
+          </CardHeader>
+
+          <CardBody>
+          <Flex>
+                <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      
+                      htmlFor="hours-total" 
+                      /* fontWeight={'normal'} */>
+                      General
+                    </FormLabel>
+                    <Input 
+                      id="hours-total" 
+                      placeholder="General"
+                      /* w='50%'  */
+                      /* size="sm" */ />
+                  </FormControl>
+          
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-user" 
+                      /* fontWeight={'normal'} */>
+                      Basica
+                    </FormLabel>
+                    <Input 
+                    id="hours-total" 
+                    placeholder="Basica"
+                    /* w='50%' */ />
+                  </FormControl>
+
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-teory" 
+                      /* fontWeight={'normal'} */>
+                      Profesional
+                    </FormLabel>
+                    <Input 
+                    id="last-name" 
+                    placeholder="Profesional"
+                    /* w='50%' */ />
+                  </FormControl>
+
+                  <FormControl mt="2%" mr="1%">
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-user" 
+                      /* fontWeight={'normal'} */>
+                      Investigacion/Pasantia
+                    </FormLabel>
+                    <Input id="hours-total" placeholder="Investigacion/Pasantia" />
+                  </FormControl>
+                </Flex>
+
+            {/* <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Summary
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  View a summary of all your clients over the last month.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the overview of your clients.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Analysis
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  See a detailed analysis of all your business clients.
+                </Text>
+              </Box>
+            </Stack> */}
+          </CardBody>
+        </Card>
+
+        <Box position='relative' padding='10'>
+          <Divider />
+          {/* <AbsoluteCenter bg='white' px='4'>
+            Content
+          </AbsoluteCenter> */}
+        </Box>
+
+        <Card
+          direction={{ base: 'column', sm: 'row' }}
+          /* overflow='hidden' */
+          /* variant='outline' */>
+          <CardHeader>
+            <Heading size='md'>Componente Postgrado</Heading>
+          </CardHeader>
+
+          <CardBody>
+          <Flex>
+                <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      
+                      htmlFor="hours-total" 
+                      /* fontWeight={'normal'} */>
+                      Obligatorio
+                    </FormLabel>
+                    <Input 
+                      id="hours-total" 
+                      placeholder="---"
+                      /* w='50%'  */
+                      /* size="sm" */ />
+                  </FormControl>
+          
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-user" 
+                      /* fontWeight={'normal'} */>
+                      Mixta
+                    </FormLabel>
+                    <Input 
+                    id="hours-total" 
+                    placeholder="--"
+                    /* w='50%' */ />
+                  </FormControl>
+
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-teory" 
+                      /* fontWeight={'normal'} */>
+                      Investigacion
+                    </FormLabel>
+                    <Input 
+                    id="last-name" 
+                    placeholder="---"
+                    /* w='50%' */ />
+                  </FormControl>                  
+                </Flex>
+
+            {/* <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Summary
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  View a summary of all your clients over the last month.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the overview of your clients.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Analysis
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  See a detailed analysis of all your business clients.
+                </Text>
+              </Box>
+            </Stack> */}
+          </CardBody>
+        </Card>
+
+          <Flex align='center' mb='20px' padding='10'>
             <HSeparator />
             <Text 
               /* color='gray.400' */
@@ -291,10 +517,8 @@ export default function Form01() {
             <HSeparator />
           </Flex>
 
-
-
-            <Flex>
-          <FormControl mt="2%" mr="4%">
+        <Flex mb='45px'>
+          <FormControl mt="2%" mr="1%" w='50%'>
             <FormLabel
               display='flex'
               /* ms='4px' */
@@ -305,59 +529,14 @@ export default function Form01() {
                
               htmlFor="hours-total" 
               /* fontWeight={'normal'} */>
-              Total horas
+              Periodo Academico
             </FormLabel>
             <Input 
               id="hours-total" 
               placeholder="Total de horas" />
-          </FormControl>
-  
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-user" 
-              /* fontWeight={'normal'} */>
-              HD
-            </FormLabel>
-            <Input id="hours-total" placeholder="Horas docentes" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-teory" 
-              /* fontWeight={'normal'} */>
-              T
-            </FormLabel>
-            <Input id="last-name" placeholder="Horas teoricas" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="1%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hours-user" 
-              /* fontWeight={'normal'} */>
-              L/T
-            </FormLabel>
-            <Input id="hours-total" placeholder="Laboratorio/Taller" />
-          </FormControl>
-
-          <FormControl mt="2%" mr="4%">
+          </FormControl> 
+          
+          <FormControl mt="2%" mr="1%" w='50%'>
             <FormLabel 
               display='flex'
               /* ms='4px' */
@@ -367,12 +546,12 @@ export default function Form01() {
               /* mb='8px' */
               htmlFor="iscp" 
               /* fontWeight={'normal'} */>
-              I/SC/P
+              Faculdad/Carrera
             </FormLabel>
             <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
           </FormControl>
 
-          <FormControl mt="2%" mr="1%">
+          <FormControl mt="2%" mr="1%" w='50%'>
             <FormLabel 
               display='flex'
               /* ms='4px' */
@@ -382,85 +561,36 @@ export default function Form01() {
               /* mb='8px' */
               htmlFor="hiv-s" 
               /* fontWeight={'normal'} */>
-              HIV S
+              Programa/Postgrado
             </FormLabel>
             <Input id="hiv-s" placeholder="HIV S" />
           </FormControl>
 
-          <FormControl mt="2%" mr="5%">
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hiv-a" 
-              /* fontWeight={'normal'} */>
-              HIV A
-            </FormLabel>
-            <Input id="hiv-a" placeholder="HIV-A" />
-          </FormControl>
+                 
 
-          <FormControl mt="2%" >
-            <FormLabel 
-              display='flex'
-              /* ms='4px' */
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              /* mb='8px' */
-              htmlFor="hde" 
-              /* fontWeight={'normal'} */>
-              HDE
-            </FormLabel>
-            <Input id="hde" placeholder="HDE" />
+
+          <FormControl>
+          <Card
+            /* direction={{ base: 'column', sm: 'row' }} */
+            /* overflow='hidden' */
+            /* variant='outline' */>
+            <CardHeader>
+              <Heading size='md'>Modalidad</Heading>
+            </CardHeader>
+
+            <CardBody>
+
+                <RadioGroup onChange={setValue} value={value}>
+                  <Stack direction='row'>
+                    <Radio value='1'>First</Radio>
+                    <Radio value='2'>Second</Radio>
+                    <Radio value='3'>Third</Radio>
+                  </Stack>
+                </RadioGroup>   
+            </CardBody>
+          </Card>
           </FormControl>
         </Flex>
-
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Card>
-  <CardHeader>
-    <Heading size='md'>Client Report</Heading>
-  </CardHeader>
-
-  <CardBody>
-    <Stack divider={<StackDivider />} spacing='4'>
-      <Box>
-        <Heading size='xs' textTransform='uppercase'>
-          Summary
-        </Heading>
-        <Text pt='2' fontSize='sm'>
-          View a summary of all your clients over the last month.
-        </Text>
-      </Box>
-      <Box>
-        <Heading size='xs' textTransform='uppercase'>
-          Overview
-        </Heading>
-        <Text pt='2' fontSize='sm'>
-          Check out the overview of your clients.
-        </Text>
-      </Box>
-      <Box>
-        <Heading size='xs' textTransform='uppercase'>
-          Analysis
-        </Heading>
-        <Text pt='2' fontSize='sm'>
-          See a detailed analysis of all your business clients.
-        </Text>
-      </Box>
-    </Stack>
-  </CardBody>
-</Card>
-
-
 
 
 
