@@ -29,7 +29,7 @@ export default function Form03() {
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
-          Ajustes de puntos de las unidades
+        IV. Desarrollo de las unidades de contenidos
         </Heading>
         <SimpleGrid columns={1} spacing={6}>
           <FormControl as={GridItem} colSpan={[3, 2]}>
@@ -40,7 +40,7 @@ export default function Form03() {
               _dark={{
                 color: 'gray.50',
               }}>
-              Website
+              IV. Desarrollo de las unidades de contenidos
             </FormLabel>
             <InputGroup size="sm">
               <InputLeftAddon

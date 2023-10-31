@@ -29,7 +29,7 @@ export default function Form03() {
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
-          Ajustes de puntos de las unidades
+          Social Handles
         </Heading>
         <SimpleGrid columns={1} spacing={6}>
           <FormControl as={GridItem} colSpan={[3, 2]}>

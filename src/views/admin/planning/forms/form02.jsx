@@ -37,7 +37,7 @@ export default function Form02() {
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-          Identificacion del Docente
+          II. Identificacion del Docente
         </Heading>
         {/* <FormControl as={GridItem} colSpan={[6, 3]}>
           <FormLabel

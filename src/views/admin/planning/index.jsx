@@ -31,6 +31,8 @@ import { useToast } from '@chakra-ui/react'
 import Form01 from '../../../views/admin/planning/forms/form01';
 import Form02 from '../../../views/admin/planning/forms/form02';
 import Form03 from '../../../views/admin/planning/forms/form03';
+import Form04 from '../../../views/admin/planning/forms/form04';
+import Form05 from '../../../views/admin/planning/forms/form05';
 import { HSeparator } from "../../../components/separator/Separator";
 
 
@@ -58,14 +60,14 @@ export default function Multistep() {
         as="form"
         >      
         <Progress /* hasStripe */ value={progress} mb="5%" mx="5%" size="xs" width /* isAnimated *//>{/* </Progress> */}
-        {step === 1 ? <Form01 /> : step === 2 ? <Form02 /> : <Form03 />}
+        {step === 1 ? <Form01 /> :step === 2 ? <Form02 />:step === 3 ? <Form03 /> : step === 4 ? <Form04 /> : <Form05 />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
             <Flex>
               <Button
                 onClick={() => {
                   setStep(step - 1)
-                  setProgress(progress - 33.33)
+                  setProgress(progress - 20)
                 }}
                 isDisabled={step === 1}
                 colorScheme="teal"
@@ -76,13 +78,13 @@ export default function Multistep() {
               </Button>
               <Button
                 w="7rem"
-                isDisabled={step === 3}
+                isDisabled={step === 5}
                 onClick={() => {
                   setStep(step + 1)
-                  if (step === 3) {
+                  if (step === 5) {
                     setProgress(100)
                   } else {
-                    setProgress(progress + 33.33)
+                    setProgress(progress + 20)
                   }
                 }}
                 colorScheme="teal"
@@ -90,7 +92,7 @@ export default function Multistep() {
                 Next
               </Button>
             </Flex>
-            {step === 3 ? (
+            {step === 5 ? (
               <Button
                 w="7rem"
                 colorScheme="red"
