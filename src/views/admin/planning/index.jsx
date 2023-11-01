@@ -39,7 +39,7 @@ import { HSeparator } from "../../../components/separator/Separator";
 export default function Multistep() {
   const toast = useToast()
   const [step, setStep] = useState(1)
-  const [progress, setProgress] = useState(33.33)
+  const [progress, setProgress] = useState(20)
 
   return (
     <>    
