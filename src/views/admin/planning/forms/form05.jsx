@@ -25,7 +25,8 @@ import {
   Divider,  
   Stack,
   StackDivider,
-  Radio, RadioGroup 
+  Radio, RadioGroup,
+  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator,  
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -47,6 +48,53 @@ export default function Form03() {
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
         IV. Desarrollo de las unidades de contenidos
         </Heading>
+
+        <SimpleGrid columns={2} spacing={6} mt="5%">
+          <Stack spacing={3} mt="2%"  w='100%' mr="5%">
+            {/* <Select variant='outline' placeholder='Outline' /> */}
+            {/* <Select variant='filled' placeholder='Filled' /> */}
+            {/* <Select variant='flushed' placeholder='Flushed' /> */}
+            {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
+
+            <Select variant='flushed' placeholder='Seleccione la Unidad'>
+              <option value='option1'>Unidad I</option>
+              <option value='option2'>Unidad II</option>
+              <option value='option3'>Unidad III</option>
+              <option value='option3'>Unidad IV</option>
+            </Select>
+          </Stack>
+
+          <Tabs position="relative" variant="unstyled" mt="2%">
+            <TabList>
+              <Tab>Semana 1</Tab>
+              <Tab>Semana 2</Tab>
+              <Tab>Semana 3</Tab>
+              <Tab>Semana 4</Tab>            
+            </TabList>
+            <TabIndicator
+              mt="-1.5px"
+              height="2px"
+              bg="blue.500"
+              borderRadius="1px"
+            />
+            <TabPanels>
+              <TabPanel>
+                <p>one!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>two!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>three!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>four!</p>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </SimpleGrid> 
+        
+        
 
         <Flex mt="5%">
           <FormControl  mt="2%" id="proposito" mr="2%">

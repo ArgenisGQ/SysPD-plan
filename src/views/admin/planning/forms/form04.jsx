@@ -24,8 +24,9 @@ import {
   CardBody,
   Divider,  
   Stack,
-  StackDivider,
-  Radio, RadioGroup 
+  StackDivider,  
+  Radio, RadioGroup,
+  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator 
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -48,6 +49,34 @@ export default function Form03() {
           III. Plan de evaluacion
         </Heading>
 
+        <Tabs position="relative" variant="unstyled" mt="5%">
+          <TabList>
+            <Tab>Unidad I</Tab>
+            <Tab>Unidad II</Tab>
+            <Tab>Unidad III</Tab>
+            <Tab>Unidad IV</Tab>
+          </TabList>
+          <TabIndicator
+            mt="-1.5px"
+            height="2px"
+            bg="blue.500"
+            borderRadius="1px"
+          />
+          <TabPanels>
+            <TabPanel>
+              <p>one!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>three!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>four!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
 
         <Flex mt="5%">
           <FormControl  mt="2%" id="proposito" mr="2%">
