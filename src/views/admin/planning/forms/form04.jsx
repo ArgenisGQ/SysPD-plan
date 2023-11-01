@@ -33,6 +33,8 @@ import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
+import Unit  from './units'
+
 export default function Form03() {
       // Chakra color mode
       const textColor = useColorModeValue("navy.700", "white");
@@ -65,154 +67,26 @@ export default function Form03() {
           <TabPanels>
             <TabPanel>
               <p>one!</p>
+              <Unit unitsx="UNIDAD I" others="50"/>
             </TabPanel>
             <TabPanel>
               <p>two!</p>
+              <Unit unitsx="UNIDAD II" others="50"/>
             </TabPanel>
             <TabPanel>
               <p>three!</p>
+              <Unit unitsx="UNIDAD III" others="50"/>
             </TabPanel>
             <TabPanel>
               <p>four!</p>
+              <Unit unitsx="UNIDAD IV" others="50"/>
             </TabPanel>
           </TabPanels>
         </Tabs>
 
-        <Flex mt="5%">
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Competencia especifica
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Criterio de Desempeño
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
+        
 
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Flex /* mt="2%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Estrategia de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Instrumento de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Flex /* mt="5%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Evidencia de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Retroalimentacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-          <FormControl mt="2%" w='50%' >
-            <Card
-              /* direction={{ base: 'column', sm: 'row' }} */
-              /* overflow='hidden' */
-              /* variant='outline' */>
-              <CardHeader>
-                <Heading size='md'>Tipo de Evaluacion</Heading>
-              </CardHeader>
-
-              <CardBody>
-
-                  <RadioGroup onChange={setValue} value={value}>
-                    <Stack direction='row'>
-                      <Radio value='1'>Diagnostica</Radio>
-                      <Radio value='2'>Formativa</Radio>
-                      <Radio value='3'>Sumativa</Radio>
-                    </Stack>
-                  </RadioGroup>   
-              </CardBody>
-            </Card>
-          </FormControl>
-
-        <Flex /* mt="3%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Lapso/Entrega
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Ponderacion/Calificacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
+        <Unit unitsx="50" others="50"/>
 
         {/* <SimpleGrid columns={1} spacing={6}>
           <FormControl as={GridItem} colSpan={[3, 2]}>
