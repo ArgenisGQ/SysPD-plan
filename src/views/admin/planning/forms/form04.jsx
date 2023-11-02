@@ -49,7 +49,12 @@ export default function Form03() {
       /* const unitsx = (unidad) => {<Unit unitsx="UNIDAD I" others="50"/>}; */
       const unitsxx = (unidad) => {
         if (!unidad) {
-          return <p>Seleccione la UNIDAD</p>
+          return <>
+            <Center mt="5%">
+              <p>Seleccione la UNIDAD</p>
+            </Center>            
+          </>
+          
         }
         return <Unit unitsx={unidad} others="50"/>};
     return (
@@ -74,7 +79,7 @@ export default function Form03() {
             </Select>
           </Stack>
         </Center>
-               
+
         {unitsxx(value)}
 
         {/* {if ({value!=0}) {
