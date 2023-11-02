@@ -52,6 +52,17 @@ export default function Form03() {
       /* const weekkk = (semana) => {setWeekk(semana)}; */
       /* const weekkk = (semana) => {weekkx=semana};
       let weekkx; */
+      const unitsxx = (unidad) => {
+        if (!unidad) {
+          return <>
+            <Center mt="5%">
+              <p>Seleccione la UNIDAD</p>
+            </Center>            
+          </>
+          
+        }
+        return <Week unitsx={unidad} others="50"/>};
+
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -122,6 +133,8 @@ export default function Form03() {
               </TabPanel>
             </TabPanels>
           </Tabs>
+
+          
         {/* </SimpleGrid>  */}
 
         {/* <Week weeksx={weekkx} others= {value}/> */}
