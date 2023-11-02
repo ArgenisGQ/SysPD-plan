@@ -45,9 +45,13 @@ export default function Form03() {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('0')
+      const [value, setValue] = useState(null)
       /* const unitsx = (unidad) => {<Unit unitsx="UNIDAD I" others="50"/>}; */
-      const unitsxx = (unidad) => {return <Unit unitsx={unidad} others="50"/>};
+      const unitsxx = (unidad) => {
+        if (!unidad) {
+          return <p>Seleccione la UNIDAD</p>
+        }
+        return <Unit unitsx={unidad} others="50"/>};
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -70,9 +74,7 @@ export default function Form03() {
             </Select>
           </Stack>
         </Center>
-
-        <p>{value}</p>
-        {console.log(value)}
+               
         {unitsxx(value)}
 
         {/* {if ({value!=0}) {
