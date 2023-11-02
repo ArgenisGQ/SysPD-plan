@@ -45,14 +45,44 @@ export default function Form03() {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('1')
+      const [value, setValue] = useState('0')
+      /* const unitsx = (unidad) => {<Unit unitsx="UNIDAD I" others="50"/>}; */
+      const unitsxx = (unidad) => {return <Unit unitsx={unidad} others="50"/>};
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
           III. Plan de evaluacion
         </Heading>
 
-        <Tabs position="relative" variant="unstyled" mt="5%">
+        <Center mt="5%">
+          <Stack spacing={3} mt="2%"  w='50%' mr="5%">
+            {/* <Select variant='outline' placeholder='Outline' /> */}
+            {/* <Select variant='filled' placeholder='Filled' /> */}
+            {/* <Select variant='flushed' placeholder='Flushed' /> */}
+            {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
+
+            <Select variant='flushed' placeholder='Seleccione la Unidad'
+                    value={ value } onChange={ (event) => setValue( event.target.value ) }>
+              <option value='unit01'>Unidad I</option>
+              <option value='unit02'>Unidad II</option>
+              <option value='unit03'>Unidad III</option>
+              <option value='unit04'>Unidad IV</option>
+            </Select>
+          </Stack>
+        </Center>
+
+        <p>{value}</p>
+        {console.log(value)}
+        {unitsxx(value)}
+
+        {/* {if ({value!=0}) {
+          
+          <Unit unitsx="UNIDAD I" others="50"/>
+        }} */}
+
+        {/* <Unit unitsx="UNIDAD I" others="50"/> */}
+
+        {/* <Tabs position="relative" variant="unstyled" mt="5%">
           <Center>
             <TabList>
               <Tab>Unidad I</Tab>
@@ -93,7 +123,7 @@ export default function Form03() {
               <Unit unitsx="UNIDAD IV" others="50"/>
             </TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs> */}
 
         
 
