@@ -110,7 +110,7 @@ export default function Form03() {
               </TabPanel>
               <TabPanel>
                 <Center>
-                  <p>tree!</p>                  
+                  <p>three!</p>                  
                 </Center>
                 <Week weeksx="Semana 3" others={value}/>
               </TabPanel>

@@ -26,7 +26,8 @@ import {
   Stack,
   StackDivider,  
   Radio, RadioGroup,
-  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator 
+  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator,
+  Center 
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -52,12 +53,14 @@ export default function Form03() {
         </Heading>
 
         <Tabs position="relative" variant="unstyled" mt="5%">
-          <TabList>
-            <Tab>Unidad I</Tab>
-            <Tab>Unidad II</Tab>
-            <Tab>Unidad III</Tab>
-            <Tab>Unidad IV</Tab>
-          </TabList>
+          <Center>
+            <TabList>
+              <Tab>Unidad I</Tab>
+              <Tab>Unidad II</Tab>
+              <Tab>Unidad III</Tab>
+              <Tab>Unidad IV</Tab>
+            </TabList>
+          </Center>          
           <TabIndicator
             mt="-1.5px"
             height="2px"
@@ -66,19 +69,27 @@ export default function Form03() {
           />
           <TabPanels>
             <TabPanel>
-              <p>one!</p>
+            <Center>
+                <p>one!</p>
+              </Center>              
               <Unit unitsx="UNIDAD I" others="50"/>
             </TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <Center>
+                <p>two!</p>
+              </Center> 
               <Unit unitsx="UNIDAD II" others="50"/>
             </TabPanel>
             <TabPanel>
-              <p>three!</p>
+              <Center>
+                <p>three!</p>
+              </Center> 
               <Unit unitsx="UNIDAD III" others="50"/>
             </TabPanel>
             <TabPanel>
-              <p>four!</p>
+              <Center>
+                <p>four!</p>
+              </Center> 
               <Unit unitsx="UNIDAD IV" others="50"/>
             </TabPanel>
           </TabPanels>
