@@ -26,12 +26,16 @@ import {
   Stack,
   StackDivider,
   Radio, RadioGroup,
-  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator,  
+  Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator,
+  Center, Square, Circle  
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
+
+import Week  from './weeks'
+import { functionalUpdate } from 'react-table'
 
 export default function Form03() {
       // Chakra color mode
@@ -43,34 +47,45 @@ export default function Form03() {
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
       const [value, setValue] = useState('1')
+      const [unitt, setUnitt] = useState("");
+      const [weekk, setWeekk] = useState("");
+      /* const weekkk = (semana) => {setWeekk(semana)}; */
+      /* const weekkk = (semana) => {weekkx=semana};
+      let weekkx; */
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
         IV. Desarrollo de las unidades de contenidos
         </Heading>
 
-        <SimpleGrid columns={2} spacing={6} mt="5%">
-          <Stack spacing={3} mt="2%"  w='100%' mr="5%">
+        {/* <SimpleGrid columns={2} spacing={6} mt="5%"> */}
+        <Center mt="5%">
+          <Stack spacing={3} mt="2%"  w='50%' mr="5%">
             {/* <Select variant='outline' placeholder='Outline' /> */}
             {/* <Select variant='filled' placeholder='Filled' /> */}
             {/* <Select variant='flushed' placeholder='Flushed' /> */}
             {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
 
-            <Select variant='flushed' placeholder='Seleccione la Unidad'>
-              <option value='option1'>Unidad I</option>
-              <option value='option2'>Unidad II</option>
-              <option value='option3'>Unidad III</option>
-              <option value='option3'>Unidad IV</option>
+            <Select variant='flushed' placeholder='Seleccione la Unidad'
+                    value={ value } onChange={ (event) => setValue( event.target.value ) }>
+              <option value='unit01'>Unidad I</option>
+              <option value='unit02'>Unidad II</option>
+              <option value='unit03'>Unidad III</option>
+              <option value='unit04'>Unidad IV</option>
             </Select>
           </Stack>
+        </Center>
 
-          <Tabs position="relative" variant="unstyled" mt="2%">
-            <TabList>
-              <Tab>Semana 1</Tab>
-              <Tab>Semana 2</Tab>
-              <Tab>Semana 3</Tab>
-              <Tab>Semana 4</Tab>            
-            </TabList>
+      
+          <Tabs position="relative" variant="unstyled" mt="5%">
+            <Center>
+              <TabList>
+                <Tab>Semana 1</Tab>
+                <Tab>Semana 2</Tab>
+                <Tab>Semana 3</Tab>
+                <Tab>Semana 4</Tab>            
+              </TabList>
+            </Center>
             <TabIndicator
               mt="-1.5px"
               height="2px"
@@ -79,145 +94,45 @@ export default function Form03() {
             />
             <TabPanels>
               <TabPanel>
-                <p>one!</p>
+                <Center>
+                  <p>one!</p>                  
+                </Center>               
+                {/* {setWeekk("Semana 111")} */}                
+                {/* {weekkk("semana 1111")} */}
+                {/* {weekkx = "semanaaaaa 1"} */}
+                <Week weeksx="Semana 1" others= {value}/>
               </TabPanel>
               <TabPanel>
-                <p>two!</p>
+                <Center>
+                  <p>two!</p>                  
+                </Center>
+                <Week weeksx="Semana 2" others={value}/>
               </TabPanel>
               <TabPanel>
-                <p>three!</p>
+                <Center>
+                  <p>tree!</p>                  
+                </Center>
+                <Week weeksx="Semana 3" others={value}/>
               </TabPanel>
               <TabPanel>
-                <p>four!</p>
+                <Center>
+                  <p>four!</p>                  
+                </Center>
+                <Week weeksx="Semana 4" others={value}/>
               </TabPanel>
             </TabPanels>
           </Tabs>
-        </SimpleGrid> 
+        {/* </SimpleGrid>  */}
+
+        {/* <Week weeksx={weekkx} others= {value}/> */}
+             
+      
+        {/* if (condition) {
+          
+        } else {
+          
+        } */}
         
-        
-
-        <Flex mt="5%">
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Contenido
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Competencia Especifica
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Flex /* mt="2%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Criterio de Desempeño
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Estrategia Didacticas
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Flex /* mt="5%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Evaluacion/Realimentacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Recursos de Aprendizaje/Bibliografia
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-        <Box position='relative' padding='10'>
-          <Divider />
-          {/* <AbsoluteCenter bg='white' px='4'>
-            Content
-          </AbsoluteCenter> */}
-        </Box>
-
-        <Flex /* mt="3%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Lapso/Entrega
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Ponderacion/Calificacion
-            </FormLabel>
-            <Textarea rows={4} resize="none" />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-
         {/* <SimpleGrid columns={1} spacing={6}>
           <FormControl as={GridItem} colSpan={[3, 2]}>
             <FormLabel
