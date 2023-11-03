@@ -46,22 +46,68 @@ export default function Form03() {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('1')
-      const [unitt, setUnitt] = useState("");
-      const [weekk, setWeekk] = useState("");
+      const [value, setValue] = useState(null)
+      const [unitt, setUnitt] = useState(null);
+      const [weekk, setWeekk] = useState("");      
       /* const weekkk = (semana) => {setWeekk(semana)}; */
       /* const weekkk = (semana) => {weekkx=semana};
       let weekkx; */
-      const unitsxx = (unidad) => {
+      const weekx = [1, 2, 3];
+
+      const weekly = (weeks) => {
+        return weeks.map((weeksxx, index) => {
+          return(
+          <>
+            <Tab key={index}>Semana {weeksxx}</Tab>            
+          </> )                   
+        })
+      };
+      
+      const tabs = (weeks) =>{
+        return weeks.map((weeksxx, index) => {
+          return(
+            <>
+              <TabPanel key={index}>
+                <Center key={index}>
+                      <p>Semana {weeksxx}</p>                  
+                </Center> 
+                <Week key={index} weeksx={"Semana "+weeksxx} others= {value}/>
+              </TabPanel>              
+            </> )
+        })
+      };
+
+      
+      const unitsxx = (unidad,weekx) => {
         if (!unidad) {
           return <>
             <Center mt="5%">
               <p>Seleccione la UNIDAD</p>
             </Center>            
-          </>
-          
-        }
-        return <Week unitsx={unidad} others="50"/>};
+          </>          
+        }        
+        return( 
+          <>
+            <Tabs position="relative" variant="unstyled" mt="5%">
+              <Center>
+                <TabList>                
+                  {weekly(weekx)}           
+                </TabList>
+              </Center>
+              <TabIndicator
+                mt="-1.5px"
+                height="2px"
+                bg="blue.500"
+                borderRadius="1px"
+              />
+              <TabPanels>
+                {tabs(weekx)}
+              </TabPanels>
+            </Tabs>
+          </>)
+        };          
+
+        /* return <Week unitsx={unidad} others="50"/>}; */
 
     return (
       <>
@@ -87,14 +133,16 @@ export default function Form03() {
           </Stack>
         </Center>
 
+        {unitsxx(value,weekx)}
+
       
-          <Tabs position="relative" variant="unstyled" mt="5%">
+          {/* <Tabs position="relative" variant="unstyled" mt="5%">
             <Center>
               <TabList>
                 <Tab>Semana 1</Tab>
                 <Tab>Semana 2</Tab>
                 <Tab>Semana 3</Tab>
-                <Tab>Semana 4</Tab>            
+                <Tab>Semana 4</Tab>                        
               </TabList>
             </Center>
             <TabIndicator
@@ -107,12 +155,11 @@ export default function Form03() {
               <TabPanel>
                 <Center>
                   <p>one!</p>                  
-                </Center>               
-                {/* {setWeekk("Semana 111")} */}                
-                {/* {weekkk("semana 1111")} */}
-                {/* {weekkx = "semanaaaaa 1"} */}
+                </Center>  
                 <Week weeksx="Semana 1" others= {value}/>
+                {tabs(weekx)}
               </TabPanel>
+              {tabs(weekx)}
               <TabPanel>
                 <Center>
                   <p>two!</p>                  
@@ -132,8 +179,9 @@ export default function Form03() {
                 <Week weeksx="Semana 4" others={value}/>
               </TabPanel>
             </TabPanels>
-          </Tabs>
-
+          </Tabs> */}
+          
+          
           
         {/* </SimpleGrid>  */}
 
