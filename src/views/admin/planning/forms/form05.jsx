@@ -48,10 +48,7 @@ export default function Form03() {
       const handleClick = () => setShow(!show)
       const [value, setValue] = useState(null)
       const [unitt, setUnitt] = useState(null);
-      const [weekk, setWeekk] = useState("");      
-      /* const weekkk = (semana) => {setWeekk(semana)}; */
-      /* const weekkk = (semana) => {weekkx=semana};
-      let weekkx; */
+      const [weekk, setWeekk] = useState("");
       const weekx = [1, 2, 3];
 
       const weekly = (weeks) => {

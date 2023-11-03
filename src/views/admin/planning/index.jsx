@@ -60,7 +60,10 @@ export default function Multistep() {
         as="form"
         >      
         <Progress /* hasStripe */ value={progress} mb="5%" mx="5%" size="xs" width /* isAnimated *//>{/* </Progress> */}
-        {step === 1 ? <Form01 /> :step === 2 ? <Form02 />:step === 3 ? <Form03 /> : step === 4 ? <Form04 /> : <Form05 />}
+        {step === 1 ? <Form01 /> : step === 2 
+                    ? <Form02 /> : step === 3 
+                    ? <Form03 /> : step === 4 
+                    ? <Form04 /> : <Form05 />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
             <Flex>
