@@ -38,14 +38,7 @@ const routes = [
     layout: "/reference",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[ 
-              {
-                name: "Formulario next",
-                layout: "/admin",
-                path: "/nextform",
-                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
-                component: "Nextform",
-              },
+    subitem:[               
               {
                 name: "Usuarios",
                 layout: "/admin",
