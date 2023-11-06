@@ -62,7 +62,11 @@ export default function Form01() {
             color={textColor}>
             Nombre de la asignatura
           </FormLabel>
-          <Input id="course" /* type="email" */ />
+          <Input 
+            id="course" 
+            /* value=""  */
+            /* type="email" */
+            defaultValue="testing" />
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
           {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
         </FormControl>
@@ -74,8 +78,8 @@ export default function Form01() {
           color={textColor}>
             Proposito
           </FormLabel>
-          <Textarea rows={3} resize="none" />
-          <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText>
+          <Textarea rows={3} resize="none" defaultValue="testing"/>
+          <FormHelperText color="subtle"  >Escriba el proposito de la asignatura</FormHelperText>
         </FormControl>
 
         <Flex>
@@ -94,7 +98,8 @@ export default function Form01() {
             </FormLabel>
             <Input 
               id="first-name" 
-              placeholder="Codigo de la asignatura" />
+              placeholder="Codigo de la asignatura"
+              defaultValue="testing" />
           </FormControl>
   
           <FormControl mt="2%" mr="5%">
@@ -109,7 +114,10 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Seccion
             </FormLabel>
-            <Input id="last-name" placeholder="Seccion" />
+            <Input 
+              id="last-name" 
+              placeholder="Seccion"
+              defaultValue="testing" />
           </FormControl>
 
           <FormControl mt="2%">
@@ -124,14 +132,12 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Prelacion
             </FormLabel>
-            <Input id="last-name" placeholder="Prelacion" />
+            <Input 
+              id="last-name" 
+              placeholder="Prelacion"
+              defaultValue="testing" />
           </FormControl>
         </Flex>
-
-        
-
-        
-
 
         {/* <FormControl mt="2%">
           <FormLabel htmlFor="email" fontWeight={'normal'}>
@@ -176,7 +182,8 @@ export default function Form01() {
               </FormLabel>
               <Input 
                 id="hours-total" 
-                placeholder="Total de horas" />
+                placeholder="Total de horas"
+                defaultValue="2" />
             </FormControl>
     
             <FormControl mt="2%" mr="1%">
