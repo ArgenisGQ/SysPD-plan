@@ -32,62 +32,102 @@ const routes = [
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: "MainDashboardUsers",
   },
-  {
+  { 
+    submenu: "submenu",
+    name: "Usuarios",    
+    layout: "/reference",
+    /* path: "/profile", */
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    subitem:[ 
+              {
+                name: "Formulario next",
+                layout: "/admin",
+                path: "/nextform",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Nextform",
+              },
+              {
+                name: "Usuarios",
+                layout: "/admin",
+                path: "/users",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Users",
+              },
+              {
+                name: "Gestion de Usuarios",
+                layout: "/admin",
+                path: "/userform",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+              },
+              {
+                name: "Create/Edit de Usuarios",
+                layout: "/admin",
+                path: "/usercreate",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+              },             
+            ]
+  },
+  /* {
     name: "Usuarios",
     layout: "/admin",
     path: "/users",
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Users",
-  },
-  {
+  }, */
+  /* {
     name: "Gestion de Usuarios",
     layout: "/admin",
     path: "/userform",
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Userform",
-  },
-  {
+  }, */
+  /* {
     name: "Create/Edit de Usuarios",
     layout: "/admin",
     path: "/usercreate",
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Userform",
-  },
-  {
-    name: "Carga masiva de datos",
-    layout: "/admin",
-    path: "/uploads",
-    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
-    component: "Uploads",
-  },
-  {
-    name: "Roles del sistema",
-    layout: "/admin",
-    path: "/role",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-    component: "Role",
-  },
-  {
-    name: "Periodos",
-    layout: "/admin",
-    path: "/periods",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-    component: "Periods",
-  },
+  }, */
+  { 
+    submenu: "submenu",
+    name: "Sistema",    
+    layout: "/reference",
+    /* path: "/profile", */
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    subitem:[                           
+              {
+                name: "Carga masiva de datos",
+                layout: "/admin",
+                path: "/uploads",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Uploads",
+              },
+              {
+                name: "Roles del sistema",
+                layout: "/admin",
+                path: "/role",
+                icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+                component: "Role",
+              },
+              {
+                name: "Periodos",
+                layout: "/admin",
+                path: "/periods",
+                icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+                component: "Periods",
+              },            
+            ]
+  }, 
+  
   {
     name: "Planificacion Didactica",
     layout: "/admin",
     path: "/planning",
     icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
     component: "Planning",
-  },
-  {
-    name: "Formulario next",
-    layout: "/admin",
-    path: "/nextform",
-    icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
-    component: "Nextform",
-  },
+  },  
   /* {
     name: "NFT Marketplace",
     layout: "/reference",
@@ -117,10 +157,28 @@ const routes = [
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
     component: "MyProfile",
     /* items: "ITEMS", */
-  },  
+  },
+
   { 
     submenu: "submenu",
-    name: "Referencias",    
+    name: "Ejemplo Formatos",    
+    layout: "/reference",
+    /* path: "/profile", */
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    subitem:[ 
+              {
+                name: "Formulario next",
+                layout: "/admin",
+                path: "/nextform",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Nextform",
+              },             
+            ]
+  },
+
+  { 
+    submenu: "submenu",
+    name: "Ejemplo Referencias",    
     layout: "/reference",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
@@ -227,7 +285,7 @@ const routes = [
   },
   { 
     submenu: "submenu2",
-    name: "SubMenu2",    
+    name: "Ejemplo SubMenu",    
     layout: "/reference",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
