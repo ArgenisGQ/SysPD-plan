@@ -1,4 +1,4 @@
-'use client'
+/* 'use client' */
 
 import { useState } from 'react'
 import {
@@ -77,7 +77,7 @@ export default function Multistep() {
                 variant="solid"
                 w="7rem"
                 mr="5%">
-                Back
+                Anterior
               </Button>
               <Button
                 w="7rem"
@@ -92,7 +92,7 @@ export default function Multistep() {
                 }}
                 colorScheme="teal"
                 variant="outline">
-                Next
+                Siguiente
               </Button>
             </Flex>
             {step === 5 ? (
@@ -109,7 +109,7 @@ export default function Multistep() {
                     isClosable: true,
                   })
                 }}>
-                Submit
+                Enviar
               </Button>
             ) : null}
           </Flex>
