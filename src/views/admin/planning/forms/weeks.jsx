@@ -39,7 +39,7 @@ export default function Week(props) {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('1')
+      const [value, setValue] = useState(null)
     return (
       <>      
         <Flex mt="5%">
@@ -51,7 +51,10 @@ export default function Week(props) {
             color={textColor}>
               Contenido <h1>W: {weeksx}</h1>
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -62,7 +65,10 @@ export default function Week(props) {
             color={textColor}>
               Competencia Especifica <h1>U: {others}</h1>
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>
@@ -83,7 +89,10 @@ export default function Week(props) {
             color={textColor}>
               Criterio de Desempeño
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -94,7 +103,10 @@ export default function Week(props) {
             color={textColor}>
               Estrategia Didacticas
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>
@@ -115,7 +127,10 @@ export default function Week(props) {
             color={textColor}>
               Evaluacion/Realimentacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -126,7 +141,10 @@ export default function Week(props) {
             color={textColor}>
               Recursos de Aprendizaje/Bibliografia
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>

@@ -68,7 +68,7 @@ export default function Form03() {
                 <Center key={index}>
                       <p>Semana {weeksxx}</p>                  
                 </Center> 
-                <Week key={index} weeksx={"Semana "+weeksxx} others= {value}/>
+                <Week key={index} weeksx={"Semana " + weeksxx} others= {value}/>
               </TabPanel>              
             </> )
         })
