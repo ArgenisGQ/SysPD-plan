@@ -47,7 +47,7 @@ export default function Form01() {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('1')
+      const [value, setValue] = useState(null)
     return (
 /* export default function Form01(props) { */
       <>    
@@ -66,7 +66,8 @@ export default function Form01() {
             id="course" 
             /* value=""  */
             /* type="email" */
-            defaultValue="testing" />
+            defaultValue="testing"
+            color={textColorSecondary} />
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
           {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
         </FormControl>
@@ -78,7 +79,7 @@ export default function Form01() {
           color={textColor}>
             Proposito
           </FormLabel>
-          <Textarea rows={3} resize="none" defaultValue="testing"/>
+          <Textarea rows={3} resize="none" defaultValue="testing" color={textColorSecondary}/>
           <FormHelperText color="subtle"  >Escriba el proposito de la asignatura</FormHelperText>
         </FormControl>
 
@@ -99,7 +100,8 @@ export default function Form01() {
             <Input 
               id="first-name" 
               placeholder="Codigo de la asignatura"
-              defaultValue="testing" />
+              defaultValue="testing"
+              color={textColorSecondary} />
           </FormControl>
   
           <FormControl mt="2%" mr="5%">
@@ -117,7 +119,8 @@ export default function Form01() {
             <Input 
               id="last-name" 
               placeholder="Seccion"
-              defaultValue="testing" />
+              defaultValue="testing"
+              color={textColorSecondary} />
           </FormControl>
 
           <FormControl mt="2%">
@@ -135,7 +138,8 @@ export default function Form01() {
             <Input 
               id="last-name" 
               placeholder="Prelacion"
-              defaultValue="testing" />
+              defaultValue="testing"
+              color={textColorSecondary} />
           </FormControl>
         </Flex>
 
@@ -183,7 +187,8 @@ export default function Form01() {
               <Input 
                 id="hours-total" 
                 placeholder="Total de horas"
-                defaultValue="2" />
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
     
             <FormControl mt="2%" mr="1%">
@@ -198,7 +203,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 HD
               </FormLabel>
-              <Input id="hours-total" placeholder="Horas docentes" />
+              <Input 
+                id="hours-total" 
+                placeholder="Horas docentes"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="1%">
@@ -213,7 +222,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 T
               </FormLabel>
-              <Input id="last-name" placeholder="Horas teoricas" />
+              <Input 
+                id="last-name" 
+                placeholder="Horas teoricas"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="1%">
@@ -228,7 +241,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 L/T
               </FormLabel>
-              <Input id="hours-total" placeholder="Laboratorio/Taller" />
+              <Input 
+                id="hours-total" 
+                placeholder="Laboratorio/Taller"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="4%">
@@ -243,7 +260,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 I/SC/P
               </FormLabel>
-              <Input id="iscp" placeholder="Intervencion/Servicio Comunitario/Proyecto" />
+              <Input 
+              id="iscp" 
+              placeholder="Intervencion/Servicio Comunitario/Proyecto"
+              defaultValue="2"
+              color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="1%">
@@ -258,7 +279,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 HIV S
               </FormLabel>
-              <Input id="hiv-s" placeholder="HIV S" />
+              <Input 
+                id="hiv-s" 
+                placeholder="HIV S"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="5%">
@@ -273,7 +298,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 HIV A
               </FormLabel>
-              <Input id="hiv-a" placeholder="HIV-A" />
+              <Input 
+                id="hiv-a" 
+                placeholder="HIV-A"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" >
@@ -288,7 +317,11 @@ export default function Form01() {
                 /* fontWeight={'normal'} */>
                 HDE
               </FormLabel>
-              <Input id="hde" placeholder="HDE" />
+              <Input 
+                id="hde" 
+                placeholder="HDE"
+                defaultValue="2"
+                color={textColorSecondary} />
             </FormControl>
           </Flex>
 
@@ -326,7 +359,9 @@ export default function Form01() {
                       id="hours-total" 
                       placeholder="General"
                       /* w='50%'  */
-                      /* size="sm" */ />
+                      /* size="sm" */
+                      defaultValue="3"
+                      color={textColorSecondary} />
                   </FormControl>
           
                   <FormControl mt="2%" mr="1%" w='50%'>
@@ -344,7 +379,9 @@ export default function Form01() {
                     <Input 
                     id="hours-total" 
                     placeholder="Basica"
-                    /* w='50%' */ />
+                    /* w='50%' */
+                    defaultValue="3"
+                    color={textColorSecondary} />
                   </FormControl>
 
                   <FormControl mt="2%" mr="1%" w='50%'>
@@ -362,7 +399,9 @@ export default function Form01() {
                     <Input 
                     id="last-name" 
                     placeholder="Profesional"
-                    /* w='50%' */ />
+                    /* w='50%' */
+                    defaultValue="3"
+                    color={textColorSecondary} />
                   </FormControl>
 
                   <FormControl mt="2%" mr="1%">
@@ -377,7 +416,11 @@ export default function Form01() {
                       /* fontWeight={'normal'} */>
                       Investigacion/Pasantia
                     </FormLabel>
-                    <Input id="hours-total" placeholder="Investigacion/Pasantia" />
+                    <Input 
+                      id="hours-total" 
+                      placeholder="Investigacion/Pasantia"
+                      defaultValue="3"
+                      color={textColorSecondary} />
                   </FormControl>
                 </Flex>
 
@@ -444,7 +487,9 @@ export default function Form01() {
                       id="hours-total" 
                       placeholder="---"
                       /* w='50%'  */
-                      /* size="sm" */ />
+                      /* size="sm" */
+                      defaultValue="3"
+                      color={textColorSecondary} />
                   </FormControl>
           
                   <FormControl mt="2%" mr="1%" w='50%'>
@@ -462,7 +507,9 @@ export default function Form01() {
                     <Input 
                     id="hours-total" 
                     placeholder="--"
-                    /* w='50%' */ />
+                    /* w='50%' */
+                    defaultValue="3"
+                    color={textColorSecondary} />
                   </FormControl>
 
                   <FormControl mt="2%" mr="1%" w='50%'>
@@ -480,7 +527,9 @@ export default function Form01() {
                     <Input 
                     id="last-name" 
                     placeholder="---"
-                    /* w='50%' */ />
+                    /* w='50%' */
+                    defaultValue="3"
+                    color={textColorSecondary} />
                   </FormControl>                  
                 </Flex>
 
@@ -519,7 +568,6 @@ export default function Form01() {
               /* color='gray.400' */
               color={textColor} 
               mx='14px'>
-                
             </Text>
             <HSeparator />
           </Flex>
@@ -540,7 +588,9 @@ export default function Form01() {
             </FormLabel>
             <Input 
               id="hours-total" 
-              placeholder="2023-3" />
+              placeholder="2023-3"
+              defaultValue="2023-3"
+              color={textColorSecondary} />
           </FormControl> 
           
           <FormControl mt="2%" mr="1%" w='50%'>
@@ -555,7 +605,11 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Faculdad/Carrera
             </FormLabel>
-            <Input id="iscp" placeholder="---" />
+            <Input 
+              id="iscp" 
+              placeholder="---"
+              defaultValue="FACAD/Administracion"
+              color={textColorSecondary} />
           </FormControl>
 
           <FormControl mt="2%" mr="1%" w='50%'>
@@ -570,7 +624,11 @@ export default function Form01() {
               /* fontWeight={'normal'} */>
               Programa/Postgrado
             </FormLabel>
-            <Input id="hiv-s" placeholder="---" />
+            <Input 
+              id="hiv-s" 
+              placeholder="---"
+              defaultValue="Post"
+              color={textColorSecondary} />
           </FormControl>
           
           <FormControl>
@@ -583,11 +641,10 @@ export default function Form01() {
               </CardHeader>
 
               <CardBody>
-
-                  <RadioGroup onChange={setValue} value={value}>
+                  <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
                     <Stack direction='row'>
                       <Radio value='1'>Presencial</Radio>
-                      <Radio value='2'>Mixta</Radio>
+                      <Radio value='2' isChecked>Mixta</Radio> {/* isChecked is only for testing */}
                       <Radio value='3'>Virtual</Radio>
                     </Stack>
                   </RadioGroup>   
