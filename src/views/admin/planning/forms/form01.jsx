@@ -67,6 +67,7 @@ export default function Form01() {
             /* value=""  */
             /* type="email" */
             defaultValue="testing"
+            focusBorderColor="brand.400"
             color={textColorSecondary} />
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
           {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
@@ -79,7 +80,8 @@ export default function Form01() {
           color={textColor}>
             Proposito
           </FormLabel>
-          <Textarea rows={3} resize="none" defaultValue="testing" color={textColorSecondary}/>
+          <Textarea rows={3} resize="none" defaultValue="testing" color={textColorSecondary}
+            focusBorderColor="brand.400"/>
           <FormHelperText color="subtle"  >Escriba el proposito de la asignatura</FormHelperText>
         </FormControl>
 
@@ -101,6 +103,7 @@ export default function Form01() {
               id="first-name" 
               placeholder="Codigo de la asignatura"
               defaultValue="testing"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl>
   
@@ -120,6 +123,7 @@ export default function Form01() {
               id="last-name" 
               placeholder="Seccion"
               defaultValue="testing"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl>
 
@@ -139,6 +143,7 @@ export default function Form01() {
               id="last-name" 
               placeholder="Prelacion"
               defaultValue="testing"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl>
         </Flex>
@@ -188,6 +193,7 @@ export default function Form01() {
                 id="hours-total" 
                 placeholder="Total de horas"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
     
@@ -207,6 +213,7 @@ export default function Form01() {
                 id="hours-total" 
                 placeholder="Horas docentes"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
 
@@ -226,6 +233,7 @@ export default function Form01() {
                 id="last-name" 
                 placeholder="Horas teoricas"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
 
@@ -245,6 +253,7 @@ export default function Form01() {
                 id="hours-total" 
                 placeholder="Laboratorio/Taller"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
 
@@ -264,6 +273,7 @@ export default function Form01() {
               id="iscp" 
               placeholder="Intervencion/Servicio Comunitario/Proyecto"
               defaultValue="2"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
             </FormControl>
 
@@ -283,6 +293,7 @@ export default function Form01() {
                 id="hiv-s" 
                 placeholder="HIV S"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
 
@@ -302,6 +313,7 @@ export default function Form01() {
                 id="hiv-a" 
                 placeholder="HIV-A"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
 
@@ -321,6 +333,7 @@ export default function Form01() {
                 id="hde" 
                 placeholder="HDE"
                 defaultValue="2"
+                focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>
           </Flex>
@@ -361,6 +374,7 @@ export default function Form01() {
                       /* w='50%'  */
                       /* size="sm" */
                       defaultValue="3"
+                      focusBorderColor="brand.400"
                       color={textColorSecondary} />
                   </FormControl>
           
@@ -381,6 +395,7 @@ export default function Form01() {
                     placeholder="Basica"
                     /* w='50%' */
                     defaultValue="3"
+                    focusBorderColor="brand.400"
                     color={textColorSecondary} />
                   </FormControl>
 
@@ -401,6 +416,7 @@ export default function Form01() {
                     placeholder="Profesional"
                     /* w='50%' */
                     defaultValue="3"
+                    focusBorderColor="brand.400"
                     color={textColorSecondary} />
                   </FormControl>
 
@@ -420,6 +436,7 @@ export default function Form01() {
                       id="hours-total" 
                       placeholder="Investigacion/Pasantia"
                       defaultValue="3"
+                      focusBorderColor="brand.400"
                       color={textColorSecondary} />
                   </FormControl>
                 </Flex>
@@ -489,6 +506,7 @@ export default function Form01() {
                       /* w='50%'  */
                       /* size="sm" */
                       defaultValue="3"
+                      focusBorderColor="brand.400"
                       color={textColorSecondary} />
                   </FormControl>
           
@@ -509,6 +527,7 @@ export default function Form01() {
                     placeholder="--"
                     /* w='50%' */
                     defaultValue="3"
+                    focusBorderColor="brand.400"
                     color={textColorSecondary} />
                   </FormControl>
 
@@ -529,6 +548,7 @@ export default function Form01() {
                     placeholder="---"
                     /* w='50%' */
                     defaultValue="3"
+                    focusBorderColor="brand.400"
                     color={textColorSecondary} />
                   </FormControl>                  
                 </Flex>
@@ -590,6 +610,7 @@ export default function Form01() {
               id="hours-total" 
               placeholder="2023-3"
               defaultValue="2023-3"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl> 
           
@@ -609,6 +630,7 @@ export default function Form01() {
               id="iscp" 
               placeholder="---"
               defaultValue="FACAD/Administracion"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl>
 
@@ -628,6 +650,7 @@ export default function Form01() {
               id="hiv-s" 
               placeholder="---"
               defaultValue="Post"
+              focusBorderColor="brand.400"
               color={textColorSecondary} />
           </FormControl>
           

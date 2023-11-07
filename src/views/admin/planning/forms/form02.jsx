@@ -80,14 +80,16 @@ export default function Form02() {
           </FormLabel>
           <Input
             type="text"
-            name="street_address"
+            /* name="name" */
             id="user"
             autoComplete="user"
             focusBorderColor="brand.400"
-            shadow="sm"
+            /* shadow="sm"
             size="sm"
-            w="full"
-            rounded="md"
+            w="full" */
+            /* rounded="md" */
+            defaultValue="testing"
+            color={textColorSecondary} 
           />
         </FormControl>
 
@@ -107,7 +109,10 @@ export default function Form02() {
             </FormLabel>
             <Input 
               id="cedula" 
-              placeholder="Nro de Cedula" />
+              placeholder="Nro de Cedula"
+              focusBorderColor="brand.400"              
+              defaultValue="testing"
+              color={textColorSecondary} />
           </FormControl>
   
           <FormControl mt="2%" mr="5%">
@@ -122,7 +127,12 @@ export default function Form02() {
               /* fontWeight={'normal'} */>
               Telefono
             </FormLabel>
-            <Input id="phone" placeholder="Numero de Telefono" />
+            <Input 
+            id="phone" 
+            placeholder="Numero de Telefono"
+            focusBorderColor="brand.400"              
+            defaultValue="testing"
+            color={textColorSecondary} />
           </FormControl>
 
           <FormControl mt="2%" >
@@ -137,7 +147,12 @@ export default function Form02() {
               /* fontWeight={'normal'} */>
               Correo electronico
             </FormLabel>
-            <Input id="email" placeholder="my@email.com" />
+            <Input 
+              id="email" 
+              placeholder="my@email.com"
+              focusBorderColor="brand.400"              
+              defaultValue="testing"
+              color={textColorSecondary} />
           </FormControl>
         </Flex>
 
@@ -150,7 +165,10 @@ export default function Form02() {
             color={textColor}>
               Horario de clases
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              focusBorderColor="brand.400"              
+              defaultValue="testing"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" mr="2%">
@@ -161,7 +179,10 @@ export default function Form02() {
             color={textColor}>
               Horario de Tutoria Docente
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              focusBorderColor="brand.400"              
+              defaultValue="testing"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="t-hours" >
@@ -172,7 +193,10 @@ export default function Form02() {
             color={textColor}>
               Total, horas docentes
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              focusBorderColor="brand.400"              
+              defaultValue="testing"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
         </Flex>
