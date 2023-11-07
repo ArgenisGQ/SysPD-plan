@@ -29,14 +29,19 @@ const routes = [
     name: "Panel Principal",
     layout: "/admin",
     path: "/dashboard",
+    /* category: "Category",
+    items: "ITEMS", */
+    /* category: "uno", */
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: "MainDashboardUsers",
   },
   { 
     submenu: "submenu",
     name: "Usuarios",    
-    layout: "/reference",
+    layout: "/admin",
+    /* category: "uno", */
     /* path: "/profile", */
+    
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     subitem:[               
               {

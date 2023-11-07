@@ -66,6 +66,7 @@ export default function Form01() {
             id="course" 
             /* value=""  */
             /* type="email" */
+            disabled={false}
             defaultValue="testing"
             focusBorderColor="brand.400"
             color={textColorSecondary} />
