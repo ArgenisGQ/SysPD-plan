@@ -29,7 +29,7 @@ export default function Unit(props) {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      const [value, setValue] = useState('1')
+      const [value, setValue] = useState(null)
     return (
       <> 
 
@@ -42,7 +42,10 @@ export default function Unit(props) {
             color={textColor}>
               Competencia especifica <h1>U: {unitsx}</h1>
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -53,7 +56,10 @@ export default function Unit(props) {
             color={textColor}>
               Criterio de Desempeño
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>
@@ -74,7 +80,10 @@ export default function Unit(props) {
             color={textColor}>
               Estrategia de Evaluacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -85,7 +94,10 @@ export default function Unit(props) {
             color={textColor}>
               Instrumento de Evaluacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>
@@ -106,7 +118,10 @@ export default function Unit(props) {
             color={textColor}>
               Evidencia de Evaluacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -117,7 +132,10 @@ export default function Unit(props) {
             color={textColor}>
               Retroalimentacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>
@@ -136,7 +154,7 @@ export default function Unit(props) {
                   <RadioGroup onChange={setValue} value={value}>
                     <Stack direction='row'>
                       <Radio value='1'>Diagnostica</Radio>
-                      <Radio value='2'>Formativa</Radio>
+                      <Radio value='2' isChecked>Formativa</Radio> {/* isChecked is only for testing */}
                       <Radio value='3'>Sumativa</Radio>
                     </Stack>
                   </RadioGroup>   
@@ -153,7 +171,10 @@ export default function Unit(props) {
             color={textColor}>
               Lapso/Entrega
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -164,7 +185,10 @@ export default function Unit(props) {
             color={textColor}>
               Ponderacion/Calificacion
             </FormLabel>
-            <Textarea rows={4} resize="none" />
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
         </Flex>   
