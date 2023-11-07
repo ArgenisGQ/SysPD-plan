@@ -51,7 +51,12 @@ export default function Form03() {
             color={textColor}>
             Nombre de la asignatura
           </FormLabel>
-          <Input id="course" /* type="email" */ />
+          <Input 
+            id="course" 
+            /* type="email" */
+            defaultValue="Post"
+            focusBorderColor="brand.400"
+            color={textColorSecondary} />
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
           {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
         </FormControl>
@@ -71,7 +76,10 @@ export default function Form03() {
             </FormLabel>
             <Input 
               id="first-name" 
-              placeholder="Codigo de la asignatura" />
+              placeholder="Codigo de la asignatura"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
           </FormControl>
   
           <FormControl mt="2%" mr="5%">
@@ -86,7 +94,12 @@ export default function Form03() {
               /* fontWeight={'normal'} */>
               Seccion
             </FormLabel>
-            <Input id="last-name" placeholder="Seccion" />
+            <Input 
+              id="last-name" 
+              placeholder="Seccion"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
           </FormControl>
 
           <FormControl mt="2%">
@@ -101,7 +114,12 @@ export default function Form03() {
               /* fontWeight={'normal'} */>
               Unidades de Asignatura
             </FormLabel>
-            <Input id="last-name" placeholder="Unidades" />
+            <Input 
+              id="last-name" 
+              placeholder="Unidades"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
           </FormControl>
         </Flex>
 
@@ -121,7 +139,10 @@ export default function Form03() {
               </FormLabel>
               <Input 
                 id="unit-1" 
-                placeholder="%" />
+                placeholder="%"
+                defaultValue="Post"
+                focusBorderColor="brand.400"
+                color={textColorSecondary} />
             </FormControl>
     
             
@@ -140,7 +161,10 @@ export default function Form03() {
               </FormLabel>
               <Input 
                 id="unit-2" 
-                placeholder="%" />
+                placeholder="%"
+                defaultValue="Post"
+                focusBorderColor="brand.400"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="4%">
@@ -158,7 +182,10 @@ export default function Form03() {
               </FormLabel>
               <Input 
                 id="unit-3" 
-                placeholder="%" />
+                placeholder="%"
+                defaultValue="Post"
+                focusBorderColor="brand.400"
+                color={textColorSecondary} />
             </FormControl>
 
             <FormControl mt="2%" mr="4%">
@@ -176,7 +203,10 @@ export default function Form03() {
               </FormLabel>
               <Input 
                 id="unit-4" 
-                placeholder="%" />
+                placeholder="%"
+                defaultValue="Post"
+                focusBorderColor="brand.400"
+                color={textColorSecondary} />
             </FormControl>        
           </Flex>
 
@@ -209,7 +239,10 @@ export default function Form03() {
                         id="hours-total" 
                         placeholder="---"
                         /* w='50%'  */
-                        /* size="sm" */ />
+                        /* size="sm" */
+                        defaultValue="Post"
+                        focusBorderColor="brand.400"
+                        color={textColorSecondary} />
                     </FormControl>
             
                                      
