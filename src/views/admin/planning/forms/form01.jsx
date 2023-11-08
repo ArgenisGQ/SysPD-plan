@@ -521,7 +521,7 @@ export default function Form01() {
                       /* mb='8px' */
                       htmlFor="hours-user" 
                       /* fontWeight={'normal'} */>
-                      Mixta
+                      Electiva
                     </FormLabel>
                     <Input 
                     id="hours-total" 

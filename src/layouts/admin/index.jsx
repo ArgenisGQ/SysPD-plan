@@ -10,7 +10,7 @@ import { /* Redirect, */ Outlet, Route, Routes, useNavigate } from 'react-router
 import routes from '../../routes'; //routes.js
 
 // Admin Imports
-import MainDashboard from "../../views/admin/default";
+import MainDashboard from "../../views/admin/dashboard";
 import NFTMarketplace from "../../views/admin/marketplace";
 import Register from '../../components/register';
 

@@ -34,7 +34,8 @@ import AuthLayout from '../layouts/auth/index';
 import AdminLayout from '../layouts/admin/index';
 import LayoutAdmin from '../pages/layout/LayoutAdmin'; 
 // Admin Imports
-import MainDashboardUsers from "../views/admin/default";
+/* import MainDashboardUsers from "../views/admin/default"; */
+import MainDashboardUsers from "../views/admin/dashboard";
 import Users from "../views/admin/users";
 import MyProfile from "../views/admin/myprofile";
 import UserForm from "../views/admin/userForm";

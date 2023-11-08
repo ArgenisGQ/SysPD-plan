@@ -11,7 +11,7 @@ import {
 } from "react-icons/md";
 
 // Admin Imports
-import MainDashboardUsers from "./views/admin/default";
+import MainDashboardUsers from "./views/admin/dashboard";
 import Users from "./views/admin/users";
 import MyProfile from "./views/admin/myprofile";
 import MainDashboard from "./views/reference/default";

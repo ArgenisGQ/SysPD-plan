@@ -44,19 +44,19 @@ import {
   MdBarChart,
   MdFileCopy,
 } from "react-icons/md";
-import CheckTable from "../../../views/admin/default/components/CheckTable";
-import ComplexTable from "../../../views/admin/default/components/ComplexTable";
-import DailyTraffic from "../../../views/admin/default/components/DailyTraffic";
-import PieCard from "../../../views/admin/default/components/PieCard";
-import Tasks from "../../../views/admin/default/components/Tasks";
-import TotalSpent from "../../../views/admin/default/components/TotalSpent";
-import WeeklyRevenue from "../../../views/admin/default/components/WeeklyRevenue";
+import CheckTable from "../../../views/reference/default/components/CheckTable";
+import ComplexTable from "../../../views/reference/default/components/ComplexTable";
+import DailyTraffic from "../../../views/reference/default/components/DailyTraffic";
+import PieCard from "../../../views/reference/default/components/PieCard";
+import Tasks from "../../../views/reference/default/components/Tasks";
+import TotalSpent from "../../../views/reference/default/components/TotalSpent";
+import WeeklyRevenue from "../../../views/reference/default/components/WeeklyRevenue";
 import {
   columnsDataCheck,
   columnsDataComplex,
-} from "../../../views/admin/default/variables/columnsData";
-import tableDataCheck from "../../../views/admin/default/variables/tableDataCheck.json";
-import tableDataComplex from "../../../views/admin/default/variables/tableDataComplex.json";
+} from "../../../views/reference/default/variables/columnsData";
+import tableDataCheck from "../../../views/reference/default/variables/tableDataCheck.json";
+import tableDataComplex from "../../../views/reference/default/variables/tableDataComplex.json";
 
 export default function UserReports() {
   // Chakra Color Mode
