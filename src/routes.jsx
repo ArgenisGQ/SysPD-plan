@@ -30,7 +30,7 @@ const routes = [
     layout: "/admin",
     path: "/dashboard",
     /* category: "Category",
-    items: "ITEMS", */
+    items: "ITEMS",  */   
     /* category: "uno", */
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: "MainDashboardUsers",
@@ -39,17 +39,21 @@ const routes = [
     submenu: "submenu",
     name: "Usuarios",    
     layout: "/admin",
+    category: "/category",
+    /* items: "ITEMS",  */
     /* category: "uno", */
     /* path: "/profile", */
     
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[               
+    items:[               
               {
                 name: "Usuarios",
                 layout: "/admin",
                 path: "/users",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
+                /* category: "Category",
+                items: "ITEMS",  */
               },
               {
                 name: "Gestion de Usuarios",
@@ -92,9 +96,10 @@ const routes = [
     submenu: "submenu",
     name: "Sistema",    
     layout: "/reference",
+    category: "Category",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[                           
+    items:[                           
               {
                 name: "Carga masiva de datos",
                 layout: "/admin",
@@ -161,9 +166,10 @@ const routes = [
     submenu: "submenu",
     name: "Ejemplo Formatos",    
     layout: "/reference",
+    category: "/category",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[ 
+    items:[ 
               {
                 name: "Formulario next",
                 layout: "/admin",
@@ -178,9 +184,10 @@ const routes = [
     submenu: "submenu",
     name: "Ejemplo Referencias",    
     layout: "/reference",
+    category: "Category",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[ /* {
+    items:[ /* {
                 name: "Perfil 1",
                 layout: "/reference",
                 path: "/data-tables",
@@ -285,9 +292,10 @@ const routes = [
     submenu: "submenu2",
     name: "Ejemplo SubMenu",    
     layout: "/reference",
+    category: "Category",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    subitem:[ {
+    items:[ {
                 name: "Perfil 3",
                 layout: "/reference",
                 path: "/data-tables",
@@ -321,6 +329,7 @@ const routes = [
                 subsub: "SUB",
                 name: "Perfil 5",
                 layout: "/reference",
+                category: "Category",
                 path: "/nft-marketplace",
                 icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
@@ -329,7 +338,7 @@ const routes = [
                           d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                         />
                       </Icon>,
-                subitem: [ {
+                items: [ {
                             name: "Perfil 6",
                             layout: "/reference",
                             path: "/data-tables",
