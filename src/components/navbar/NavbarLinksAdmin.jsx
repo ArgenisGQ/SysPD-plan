@@ -190,15 +190,15 @@ export default function HeaderLinks(props) {
 							fontSize="sm"
 							fontWeight="700"
 							color={textColor}>
-							👋&nbsp; Hey, Adela
+							👋&nbsp; Hola, Martina
 						</Text>
 					</Flex>
 					<Flex flexDirection="column" p="10px">
 						<MenuItem _hover={{ bg: 'none' }} _focus={{ bg: 'none' }} borderRadius="8px" px="14px">
-							<Text fontSize="sm">Profile Settings</Text>
+							<Text fontSize="sm">Configuracion de Perfil</Text>
 						</MenuItem>
 						<MenuItem _hover={{ bg: 'none' }} _focus={{ bg: 'none' }} borderRadius="8px" px="14px">
-							<Text fontSize="sm">Newsletter Settings</Text>
+							<Text fontSize="sm">Configuracion de informacion</Text>
 						</MenuItem>
 						<MenuItem
 							_hover={{ bg: 'none' }}
@@ -206,7 +206,7 @@ export default function HeaderLinks(props) {
 							color="red.400"
 							borderRadius="8px"
 							px="14px">
-							<Text fontSize="sm">Log out</Text>
+							<Text fontSize="sm">Desconecar</Text>
 						</MenuItem>
 					</Flex>
 				</MenuList>

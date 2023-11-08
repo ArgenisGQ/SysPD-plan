@@ -39,7 +39,7 @@ const routes = [
     submenu: "submenu",
     name: "Usuarios",    
     layout: "/admin",
-    category: "/category",
+    category: "category",
     /* items: "ITEMS",  */
     /* category: "uno", */
     /* path: "/profile", */
