@@ -685,8 +685,8 @@ export function SidebarLinks(props) {
                 </AccordionButton>
                 <AccordionPanel pb={4}>  
                   {/* {createLinks(route.subitem)} */}
-                  {route.subitem                     
-                    ?createLinks(route.subitem)
+                  {route.items                    
+                    ?createLinks(route.items)
                     :console.log('error - no subitems')
                   } 
                 </AccordionPanel>

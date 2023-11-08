@@ -329,7 +329,7 @@ const routes = [
                 subsub: "SUB",
                 name: "Perfil 5",
                 layout: "/reference",
-                category: "Category",
+                category: "category",
                 path: "/nft-marketplace",
                 icon1: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
                 icon2: <Icon viewBox="0 0 200 200" boxSize={3}  color="inherit">
