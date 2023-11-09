@@ -61,17 +61,31 @@ import {
             }}
             gap={{ base: "20px", xl: "20px" }}>
             <Banner
-            gridArea='1 / 1 / 2 / 2'
-            banner={banner}
-            avatar={avatar}
-            name='Martina Velaquez'
-            job='Profesora'
-            courses='5'
-            made='2'
-            absence='3'
-            />           
+                gridArea='1 / 1 / 2 / 2'
+                banner={banner}
+                avatar={avatar}
+                name='Martina Velaquez'
+                job='Profesora'
+                courses='5'
+                made='2'
+                absence='3'
+            />
+            <ComplexTable
+                gridArea={{ base: "2 / 1 / 3 / 2", lg: "1 / 2 / 2 / 3" }}
+                columnsData={columnsDataComplex}
+                tableData={tableDataComplex}
+            />
+            <ComplexTable
+                gridArea={{
+                    base: "3 / 1 / 4 / 2",
+                    lg: "1 / 3 / 2 / 4",
+                  }}                  
+                columnsData={columnsDataComplex}
+                tableData={tableDataComplex}
+            />            
         </Grid>
-        <SimpleGrid
+
+        {/* <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
           gap='20px'
           mb='20px'>
@@ -151,29 +165,29 @@ import {
             name='Total Projects'
             value='2935'
           />
-        </SimpleGrid>
+        </SimpleGrid> */}
   
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
-          {/* <TotalSpent /> */}
-          {/* <WeeklyRevenue /> */}
-        </SimpleGrid>
-        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-          {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
+        {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+          <TotalSpent />
+          <WeeklyRevenue />
+        </SimpleGrid> */}
+        {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+          <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
           <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-            {/* <DailyTraffic /> */}
-            {/* <PieCard /> */}
+            <DailyTraffic />
+            <PieCard />
           </SimpleGrid>
-        </SimpleGrid>
-        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-          {/* <ComplexTable
+        </SimpleGrid> */}
+        {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+          <ComplexTable
             columnsData={columnsDataComplex}
             tableData={tableDataComplex}
-          /> */}
+          />
           <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-            {/* <Tasks /> */}
-            {/* <MiniCalendar h='100%' minW='100%' selectRange={false} /> */}
+            <Tasks />
+            <MiniCalendar h='100%' minW='100%' selectRange={false} />
           </SimpleGrid>
-        </SimpleGrid>
+        </SimpleGrid> */}
       </Box>
     );
   }
