@@ -497,7 +497,6 @@ export function SidebarLinks(props) {
   const createLinks = (routes) => {
     return routes.map((route, index) => {
       if (route.submenu) {
-        
         return (
           <>
             <Accordion allowMultiple width="100%" maxW="lg" rounded="lg" key={index}>
