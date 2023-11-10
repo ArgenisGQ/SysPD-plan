@@ -34,3 +34,21 @@ export const columnsDataComplex = [
     accessor: "progress",
   },
 ];
+export const columnsDataCourses = [
+  {
+    Header: "ASIGNATURA",
+    accessor: "asignatura",
+  },
+  {
+    Header: "CODIGO",
+    accessor: "codigo",
+  },
+  {
+    Header: "SECCION",
+    accessor: "seccion",
+  },
+  {
+    Header: "PLAN",
+    accessor: "plan",
+  },
+];

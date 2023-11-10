@@ -1,0 +1,51 @@
+[
+  {
+    "asignatura":"Analisis de Datos Cuantitavos I",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I0V",
+    "plan": "Realizado" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos II",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I1V",
+    "plan": "Falta" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos III",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I2V",
+    "plan": "Error" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos IV",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I3V",
+    "plan": "Realizado" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos I",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I0V",
+    "plan": "Realizado" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos II",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I1V",
+    "plan": "Falta" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos III",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I2V",
+    "plan": "Error" 
+  },
+  {
+    "asignatura":"Analisis de Datos Cuantitavos IV",
+    "codigo": "JMKC-304",
+    "seccion": "MT01I3V",
+    "plan": "Realizado" 
+  }
+  
+]

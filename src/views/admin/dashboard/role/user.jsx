@@ -27,6 +27,7 @@ import {
   } from "react-icons/md";
   import CheckTable from "../../../../views/admin/dashboard/components/CheckTable";
   import ComplexTable from "../../../../views/admin/dashboard/components/ComplexTable";
+  import CoursesTable from "../../../../views/admin/dashboard/components/CoursesTable";
   import DailyTraffic from "../../../../views/admin/dashboard/components/DailyTraffic";
   import PieCard from "../../../../views/admin/dashboard/components/PieCard";
   import Tasks from "../../../../views/admin/dashboard/components/Tasks";
@@ -34,10 +35,10 @@ import {
   import WeeklyRevenue from "../../../../views/admin/dashboard/components/WeeklyRevenue";
   import {
     columnsDataCheck,
-    columnsDataComplex,
+    columnsDataCourses,
   } from "../../../../views/admin/dashboard/variables/columnsData";
   import tableDataCheck from "../../../../views/admin/dashboard/variables/tableDataCheck.json";
-  import tableDataComplex from "../../../../views/admin/dashboard/variables/tableDataComplex.json";
+  import tableDataCourses from "../../../../views/admin/dashboard/variables/tableDataCourses.json";
   // Assets
   import banner from "../../../../assets/img/auth/banner.png";
   import avatar from "../../../../assets/img/avatars/avatar4.png";
@@ -53,7 +54,8 @@ import {
         <Grid            
             templateColumns={{
             base: "1fr",
-            lg: "1.34fr 1fr 1.62fr",
+            lg: "1fr 1.5fr",
+            /* lg: "1.34fr 1fr 1.62fr", */
             }}
             templateRows={{
             base: "repeat(1 , 1fr)",
@@ -61,7 +63,7 @@ import {
             }}
             gap={{ base: "20px", xl: "20px" }}>
             <Banner
-                gridArea='1 / 1 / 2 / 2'
+                /* gridArea='1 / 1 / 2 / 2' */
                 banner={banner}
                 avatar={avatar}
                 name='Martina Velaquez'
@@ -69,20 +71,22 @@ import {
                 courses='5'
                 made='2'
                 absence='3'
+            />            
+            <CoursesTable
+                /* gridArea={{ 
+                    base: "2 / 1 / 3 / 2", 
+                    lg: "1 / 2 / 2 / 3" }}  */               
+                columnsData={columnsDataCourses}
+                tableData={tableDataCourses}
             />
-            <ComplexTable
-                gridArea={{ base: "2 / 1 / 3 / 2", lg: "1 / 2 / 2 / 3" }}
-                columnsData={columnsDataComplex}
-                tableData={tableDataComplex}
-            />
-            <ComplexTable
+            {/* <ComplexTable
                 gridArea={{
                     base: "3 / 1 / 4 / 2",
                     lg: "1 / 3 / 2 / 4",
                   }}                  
                 columnsData={columnsDataComplex}
                 tableData={tableDataComplex}
-            />            
+            />    */}         
         </Grid>
 
         {/* <SimpleGrid
