@@ -48,6 +48,17 @@ export default function UserReports() {
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
   const [value, setValue] = useState('user');
+  const selectx = (views) => {
+      if (views === 'admin' ) {
+        return <>
+          <p>ADMIN</p>          
+        </>
+      } else if (views === 'user') {
+        return <>
+          <User/> 
+        </>
+      }              
+  };
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -67,7 +78,9 @@ export default function UserReports() {
         </Center>
       {/* --------------------------------------------------- */}
 
-      <User/>      
+      {/* <User/> */}
+
+      {selectx(value)}     
 
       {/* <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
