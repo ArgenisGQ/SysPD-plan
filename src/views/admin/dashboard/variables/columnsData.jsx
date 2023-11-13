@@ -47,6 +47,28 @@ export const columnsDataCourses = [
     Header: "SECCION",
     accessor: "seccion",
   },
+  /* {
+    Header: "PLAN",
+    accessor: "plan",
+  }, */
+];
+export const columnsDataPlan = [
+  {
+    Header: "ASIGNATURA",
+    accessor: "asignatura",
+  },
+  {
+    Header: "CODIGO",
+    accessor: "codigo",
+  },
+  {
+    Header: "SECCION",
+    accessor: "seccion",
+  },
+  {
+    Header: "PDF",
+    accessor: "pdf",
+  },
   {
     Header: "PLAN",
     accessor: "plan",

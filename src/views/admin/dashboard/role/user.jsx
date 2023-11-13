@@ -28,6 +28,7 @@ import {
   import CheckTable from "../../../../views/admin/dashboard/components/CheckTable";
   import ComplexTable from "../../../../views/admin/dashboard/components/ComplexTable";
   import CoursesTable from "../../../../views/admin/dashboard/components/CoursesTable";
+  import PlanTable from "../../../../views/admin/dashboard/components/PlanTable";
   import DailyTraffic from "../../../../views/admin/dashboard/components/DailyTraffic";
   import PieCard from "../../../../views/admin/dashboard/components/PieCard";
   import Tasks from "../../../../views/admin/dashboard/components/Tasks";
@@ -36,9 +37,11 @@ import {
   import {
     columnsDataCheck,
     columnsDataCourses,
+    columnsDataPlan,
   } from "../../../../views/admin/dashboard/variables/columnsData";
   import tableDataCheck from "../../../../views/admin/dashboard/variables/tableDataCheck.json";
   import tableDataCourses from "../../../../views/admin/dashboard/variables/tableDataCourses.json";
+  import tableDataPlan from "../../../../views/admin/dashboard/variables/tableDataPlan.json";
   // Assets
   import banner from "../../../../assets/img/auth/banner.png";
   import avatar from "../../../../assets/img/avatars/avatar4.png";
@@ -88,6 +91,20 @@ import {
                 tableData={tableDataComplex}
             />    */}         
         </Grid>
+
+        <SimpleGrid 
+          /* columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }} */
+          mt= '25px'
+          gap='20px'
+          mb='20px'>
+            <PlanTable
+                /* gridArea={{ 
+                    base: "2 / 1 / 3 / 2", 
+                    lg: "1 / 2 / 2 / 3" }}  */               
+                columnsData={columnsDataPlan}
+                tableData={tableDataPlan}
+            />
+        </SimpleGrid>
 
         {/* <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
