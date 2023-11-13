@@ -1,0 +1,44 @@
+[
+  {
+    "usuario":"USUARIO I",
+    "documento": "12456789",
+    "status": "PROFESOR"        
+  },
+  {
+    "usuario":"USUARIO II",
+    "documento": "22456789",
+    "status": "ADMIN"    
+  },
+  {
+    "usuario":"USUARIO III",
+    "documento": "32456789",
+    "status": "JEFE"    
+  },
+  {
+    "usuario":"USUARIO IV",
+    "documento": "42456789",
+    "status": "DIRECTOR"    
+  },
+  {
+    "usuario":"USUARIO V",
+    "documento": "52456789",
+    "status": "ROL-ASIGNADO"    
+  },
+  {
+    "usuario":"USUARIO VI",
+    "documento": "62456789",
+    "status": "PROFESOR"    
+  },
+  {
+    "usuario":"USUARIO VII",
+    "documento": "72456789",
+    "status": "ROL-ASIGNADO"    
+  },
+  {
+    "usuario":"USUARIO VIII",
+    "documento": "82456789",
+    "status": "ROL-ASIGNADO"    
+  }
+  
+  
+]

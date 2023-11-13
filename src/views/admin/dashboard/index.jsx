@@ -42,6 +42,7 @@ import {
 import tableDataCheck from "../../../views/admin/dashboard/variables/tableDataCheck.json";
 import tableDataComplex from "../../../views/admin/dashboard/variables/tableDataComplex.json";
 import User from "./role/user";
+import Admin from "./role/admin";
 
 export default function UserReports() {
   // Chakra Color Mode
@@ -50,8 +51,8 @@ export default function UserReports() {
   const [value, setValue] = useState('user');
   const selectx = (views) => {
       if (views === 'admin' ) {
-        return <>
-          <p>ADMIN</p>          
+        return <>          
+          <Admin/>          
         </>
       } else if (views === 'user') {
         return <>

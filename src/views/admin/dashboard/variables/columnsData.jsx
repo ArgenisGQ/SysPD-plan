@@ -74,3 +74,17 @@ export const columnsDataPlan = [
     accessor: "plan",
   },
 ];
+export const columnsDataUsers = [
+  {
+    Header: "USUARIO",
+    accessor: "usuario",
+  },
+  {
+    Header: "DOCUMENTO",
+    accessor: "documento",
+  },
+  {
+    Header: "STATUS",
+    accessor: "status",
+  },  
+];
