@@ -297,7 +297,7 @@ export default function ColumnsTable(props) {
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-          <Select
+          {/* <Select
             w={32}
             value={pageSize}
             onChange={(e) => {
@@ -309,7 +309,7 @@ export default function ColumnsTable(props) {
                 Mostrar {pageSize}
               </option>
             ))}
-          </Select>
+          </Select> */}
         </Flex>
 
         <Flex>
