@@ -95,18 +95,123 @@ import {
             />    */}         
         </Grid>
 
-        <SimpleGrid 
-          /* columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }} */
+        {/* <SimpleGrid 
+          
           mt= '25px'
           gap='20px'
           mb='20px'>
             <PlanTable
-                /* gridArea={{ 
-                    base: "2 / 1 / 3 / 2", 
-                    lg: "1 / 2 / 2 / 3" }}  */               
+                              
                 columnsData={columnsDataPlan}
                 tableData={tableDataPlan}
             />
+        </SimpleGrid> */}
+
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
+          mt= '25px'
+          gap='20px'
+          mb='20px'>
+          <MiniStatistics
+            startContent={
+              <IconBox
+                w='56px'
+                h='56px'
+                bg={boxBg}
+                icon={
+                  <Icon w='32px' h='32px' as={MdBarChart} color={brandColor} />
+                }
+              />
+            }
+            name='Usuarios en Total'
+            value='352'
+          />        
+          <MiniStatistics
+            startContent={
+              <IconBox
+                w='56px'
+                h='56px'
+                bg={boxBg}
+                icon={
+                  <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
+                }
+              />
+            }
+            name='Usuarios Conectados'
+            value='20'
+          />
+          {/* <MiniStatistics 
+            growth='+23%' 
+            name='Sales' 
+            value='$574.34' /> */}
+          <MiniStatistics
+            endContent={
+              <Flex me='-16px' mt='10px'>
+                <FormLabel htmlFor='balance'>
+                  <Avatar src={Usa} />
+                </FormLabel>
+                <Select
+                  id='balance'
+                  variant='mini'
+                  mt='5px'
+                  me='0px'
+                  defaultValue='usd'>
+                  <option value='usd'>USD</option>
+                  <option value='eur'>EUR</option>
+                  <option value='gba'>GBA</option>
+                </Select>
+              </Flex>
+            }
+            name='Plan Didactico Realizados'
+            value='%23'
+          />
+          {/* <MiniStatistics
+            endContent={
+              <Flex me='-16px' mt='10px'>
+                <FormLabel htmlFor='balance'>
+                  <Avatar src={Usa} />
+                </FormLabel>
+                <Select
+                  id='balance'
+                  variant='mini'
+                  mt='5px'
+                  me='0px'
+                  defaultValue='usd'>
+                  <option value='usd'>USD</option>
+                  <option value='eur'>EUR</option>
+                  <option value='gba'>GBA</option>
+                </Select>
+              </Flex>
+            }
+            name='Your balance'
+            value='$1,000'
+          />
+          <MiniStatistics
+            startContent={
+              <IconBox
+                w='56px'
+                h='56px'
+                bg='linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)'
+                icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
+              />
+            }
+            name='New Tasks'
+            value='154'
+          />
+          <MiniStatistics
+            startContent={
+              <IconBox
+                w='56px'
+                h='56px'
+                bg={boxBg}
+                icon={
+                  <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />
+                }
+              />
+            }
+            name='Total Projects'
+            value='2935'
+          /> */}
         </SimpleGrid>
 
         {/* <SimpleGrid
