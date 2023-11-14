@@ -165,6 +165,8 @@ import {
             name='Plan Didactico Realizados'
             value='%23'
           />
+
+          
           {/* <MiniStatistics
             endContent={
               <Flex me='-16px' mt='10px'>
@@ -212,6 +214,27 @@ import {
             name='Total Projects'
             value='2935'
           /> */}
+        </SimpleGrid>
+
+        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+          {/* <ComplexTable
+            columnsData={columnsDataComplex}
+            tableData={tableDataComplex}
+          /> */}
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+            {/* <Tasks /> */}
+            <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            {/* <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            <MiniCalendar h='100%' minW='100%' selectRange={true} /> */}
+          </SimpleGrid>
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+            {/* <Tasks /> */}
+            <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            {/* <MiniCalendar h='100%' minW='100%' selectRange={true} />
+            <MiniCalendar h='100%' minW='100%' selectRange={true} /> */}
+          </SimpleGrid>
         </SimpleGrid>
 
         {/* <SimpleGrid
