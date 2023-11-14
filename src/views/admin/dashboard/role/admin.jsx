@@ -18,6 +18,7 @@ import {
   import MiniCalendar from "../../../../components/calendar/MiniCalendar";
   import MiniStatistics from "../../../../components/card/MiniStatistics";
   import IconBox from "../../../../components/icons/IconBox";
+  import FullCalendarx from "../../../../components/fullCalendar/FullCalendar";
   import React, { useState }  from "react";
   import {
     MdAddTask,
@@ -34,7 +35,7 @@ import {
   import PieCard from "../components/PieCard";
   import Tasks from "../components/Tasks";
   import TotalSpent from "../components/TotalSpent";
-  import WeeklyRevenue from "../components/WeeklyRevenue";
+  import WeeklyRevenue from "../components/WeeklyRevenue";  
   import {
     columnsDataCheck,
     columnsDataCourses,
@@ -48,6 +49,7 @@ import {
   // Assets
   import banner from "../../../../assets/img/auth/banner.png";
   import avatar from "../../../../assets/img/avatars/avatar4.png";
+  /* import { SimpleScrollGrid } from "@fullcalendar/core/internal"; */
   
   export default function User() {
     // Chakra Color Mode
@@ -236,6 +238,11 @@ import {
             <MiniCalendar h='100%' minW='100%' selectRange={true} /> */}
           </SimpleGrid>
         </SimpleGrid>
+
+        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+          <FullCalendarx/>
+        </SimpleGrid>
+        
 
         {/* <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
