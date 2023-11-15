@@ -40,9 +40,10 @@ export default function FullCalendarx(props) {
   };
   return (
     <FullCalendar
+        /* BASE */
         /* plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth" */
-
+        
         /* headerToolbar={{
           start: "today prev next",
           end: "dayGridMonth dayGridWeek dayGridDay",
