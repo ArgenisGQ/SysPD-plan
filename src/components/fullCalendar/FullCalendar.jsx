@@ -5,18 +5,73 @@ import "../../assets/css/MiniCalendar.css";
 import { Text, Icon } from "@chakra-ui/react";
 
 import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from "@fullcalendar/interaction";
+import { v4 as uuid } from "uuid";
 // Chakra imports
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 // Custom components
 import Card from "../card/Card";
 
 export default function FullCalendarx(props) {
-
+  const [events, setEvents] = useState([]);
+  const handleSelect = (info) => {
+    const { start, end } = info;
+    const eventNamePrompt = prompt("Enter, event name");
+    if (eventNamePrompt) {
+      setEvents([
+        ...events,
+        {
+          start,
+          end,
+          title: eventNamePrompt,
+          id: uuid(),
+        },
+      ]);
+    }
+    const EventItem = ({ info }) => {
+      const { event } = info;
+      return (
+        <div>
+          <p>{event.title}</p>
+        </div>
+      );
+    };
+  };
   return (
     <FullCalendar
-        plugins={[ dayGridPlugin ]}
-        initialView="dayGridMonth"
+        /* plugins={[ dayGridPlugin ]}
+        initialView="dayGridMonth" */
+
+        /* headerToolbar={{
+          start: "today prev next",
+          end: "dayGridMonth dayGridWeek dayGridDay",
+        }}
+        plugins={[dayGridPlugin]}
+        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]} */
+
+        /* editable
+        selectable
+        events={events}
+        select={handleSelect}
+        headerToolbar={{
+          start: "today prev next",
+          end: "dayGridMonth dayGridWeek dayGridDay",
+        }}
+        plugins={[dayGridPlugin, interactionPlugin]}
+        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]} */
+
+        editable
+        selectable
+        events={events}
+        select={handleSelect}
+        headerToolbar={{
+          start: "today prev next",
+          end: "dayGridMonth dayGridWeek dayGridDay",
+        }}
+        /* eventContent={(info) => <EventItem info={info} />} */
+        plugins={[dayGridPlugin, interactionPlugin]}
+        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
       />
   )
 

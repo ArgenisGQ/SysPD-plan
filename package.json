@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@fullcalendar/core": "^6.1.9",
     "@fullcalendar/daygrid": "^6.1.9",
+    "@fullcalendar/interaction": "^6.1.9",
     "@fullcalendar/react": "^6.1.9",
     "@heroicons/react": "^1.0.6",
     "@hypertheme-editor/chakra-ui": "^0.1.6-rc.0",
@@ -41,7 +42,8 @@
     "react-router-dom": "^6.14.2",
     "react-table": "^7.8.0",
     "stylis": "^4.3.0",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
