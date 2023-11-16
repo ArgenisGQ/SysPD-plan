@@ -28,15 +28,19 @@ export default function FullCalendarx(props) {
           id: uuid(),
         },
       ]);
-    }
-    const EventItem = ({ info }) => {
-      const { event } = info;
-      return (
-        <div>
-          <p>{event.title}</p>
-        </div>
-      );
-    };
+    }    
+  };
+  const EventItem = ({ info }) => {
+    const { event } = info;
+    return (
+        <p>{event.title}</p>
+    );
+  };
+  const WeekItem = ({ info }) => {
+    const { event } = info;
+    return (
+        <p>{event.title}</p>
+    );
   };
   return (
     <FullCalendar
@@ -66,11 +70,19 @@ export default function FullCalendarx(props) {
         selectable
         events={events}
         select={handleSelect}
+        /* columnFormat= {
+          month: 'ddd',
+          week: 'ddd',
+          day: 'dddd M/d'
+        } */
+        weekNumbers={true}
+        weekNumberCalculation={-40}
         headerToolbar={{
           start: "today prev next",
           end: "dayGridMonth dayGridWeek dayGridDay",
         }}
-        /* eventContent={(info) => <EventItem info={info} />} */
+        eventContent={(info) => <EventItem info={info} />}        
+        /* eventContent={console.log(events)} */
         plugins={[dayGridPlugin, interactionPlugin]}
         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
       />
