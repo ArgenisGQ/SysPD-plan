@@ -9,6 +9,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction";
 import { v4 as uuid } from "uuid";
 import esLocale from '@fullcalendar/core/locales/es';
+import multiMonthPlugin from '@fullcalendar/multimonth';
 // Chakra imports
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 // Custom components
@@ -70,6 +71,10 @@ export default  function FullCalendarx(props) {
         month: 1,
       },
     },
+    multiMonthFourMonth: {
+      type: 'multiMonth',
+      duration: { months: 4 }
+    }
   });  
   const views = getCalendarViews();
   
@@ -108,6 +113,7 @@ export default  function FullCalendarx(props) {
         locale={esLocale}
         fixedWeekCount={false} //cantidad de semanas por mes
         weekText = ""
+        /* initialView = 'multiMonthFourMonth' */
         /* dayMinWidth={96} */
         /* columnFormat= {
           month: 'ddd',
