@@ -49,6 +49,7 @@ import PieCard from "../periods/components/PieCard";
 import Tasks from "../periods/components/Tasks";
 import TotalSpent from "../periods/components/TotalSpent";
 import WeeklyRevenue from "../periods/components/WeeklyRevenue";
+import Datapiker from "./components/Datapiker";
 import {
   columnsDataCheck,
   columnsDataComplex,
@@ -199,6 +200,8 @@ export default function UserReports() {
           <MiniCalendar h='100%' minW='100%' selectRange={true} /> */}
         </SimpleGrid>
       </SimpleGrid>
+
+      <Datapiker></Datapiker>
     </Box>
   );
 }
