@@ -36,6 +36,13 @@ import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
+/* import {
+  AsyncCreatableSelect,
+  AsyncSelect,
+  CreatableSelect,
+  Select,
+} from "chakra-react-select"; */
+
 /* const Form1 = () => { */    
 
 export default function Form01() {
@@ -48,6 +55,9 @@ export default function Form01() {
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
       const [value, setValue] = useState(null)
+      const [valuePre, setValuePre] = useState(null)
+      const [valuePos, setValuePos] = useState(null)
+      const [valueMod, setValueMod] = useState(null)
     return (
 /* export default function Form01(props) { */
       <>    
@@ -361,7 +371,7 @@ export default function Form01() {
                       <Radio value='1' mr="12%">General</Radio>
                       <Radio value='2' mr="12%">Basica</Radio> {/* isChecked is only for testing */}
                       <Radio value='3' mr="12%"isChecked>Profesional</Radio>
-                      <Radio value='3' >Investigacion/Pasantias</Radio>
+                      <Radio value='4' >Investigacion/Pasantias</Radio>
                     </Stack>
                   </RadioGroup>   
               </CardBody>
@@ -493,7 +503,10 @@ export default function Form01() {
             </Card>
           </FormControl>
         </Flex>
-
+        {console.log("valuesPre: ", valuePre )}
+        {console.log("valuesPos: ", valuePos )}
+        {console.log("valuesMod: ", valueMod )}
+        {console.log("values: ", value )}
 
 
       </>

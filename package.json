@@ -29,7 +29,7 @@
     "apexcharts": "^3.42.0",
     "axios": "^1.4.0",
     "chakra-dayzed-datepicker": "^0.2.10",
-    "chakra-react-select": "^4.7.5",
+    "chakra-react-select": "^4.7.6",
     "date-fns": "^2.30.0",
     "dayzed": "^3.2.3",
     "framer-motion": "^10.16.4",
