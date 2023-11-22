@@ -27,7 +27,7 @@ import {
   CardBody,
   Stack,
   StackDivider,
-  Radio, RadioGroup, Center     
+  Radio, RadioGroup     
 } from '@chakra-ui/react'
 
 import { HSeparator } from "../../../../components/separator/Separator";
@@ -357,11 +357,11 @@ export default function Form01() {
 
               <CardBody>
                   <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
-                    <Stack direction='row'>                                              
-                      <Radio value='1' mr="12%">General</Radio>
-                      <Radio value='2' mr="12%">Basica</Radio> {/* isChecked is only for testing */}
-                      <Radio value='3' mr="12%"isChecked>Profesional</Radio>
-                      <Radio value='3' >Investigacion/Pasantias</Radio>
+                    <Stack direction='row'>
+                      <Radio value='1'>General</Radio>
+                      <Radio value='2' isChecked>Basica</Radio> {/* isChecked is only for testing */}
+                      <Radio value='3'>Profesional</Radio>
+                      <Radio value='3'>Investigacion/Pasantias</Radio>
                     </Stack>
                   </RadioGroup>   
               </CardBody>
@@ -377,28 +377,110 @@ export default function Form01() {
           </AbsoluteCenter> */}
         </Box>
 
-        <FormControl>
-            <Card
-              direction={{ base: 'column', sm: 'row' }}
-              /* overflow='hidden' */
-              /* variant='outline' */>
-              <CardHeader>
-                <Heading size='md'>Componente Postgrado</Heading>
-              </CardHeader>
+        <Card
+          direction={{ base: 'column', sm: 'row' }}
+          /* overflow='hidden' */
+          /* variant='outline' */>
+          <CardHeader>
+            <Heading size='md'>Componente Postgrado</Heading>
+          </CardHeader>
 
-              <CardBody>
-                  <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
-                    <Stack direction='row'>
-                      <Radio value='1' mr="25%">Obligatorio</Radio>
-                      <Radio value='2' mr="25%" isChecked>Electiva</Radio> {/* isChecked is only for testing */}
-                      <Radio value='3' >Investigacion</Radio>                      
-                    </Stack>
-                  </RadioGroup>   
-              </CardBody>
-            </Card>
-        </FormControl>
+          <CardBody>
+          <Flex>
+                <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      
+                      htmlFor="hours-total" 
+                      /* fontWeight={'normal'} */>
+                      Obligatorio
+                    </FormLabel>
+                    <Input 
+                      id="hours-total" 
+                      placeholder="---"
+                      /* w='50%'  */
+                      /* size="sm" */
+                      defaultValue="3"
+                      focusBorderColor="brand.400"
+                      color={textColorSecondary} />
+                  </FormControl>
+          
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-user" 
+                      /* fontWeight={'normal'} */>
+                      Electiva
+                    </FormLabel>
+                    <Input 
+                    id="hours-total" 
+                    placeholder="--"
+                    /* w='50%' */
+                    defaultValue="3"
+                    focusBorderColor="brand.400"
+                    color={textColorSecondary} />
+                  </FormControl>
 
-        
+                  <FormControl mt="2%" mr="1%" w='50%'>
+                    <FormLabel 
+                      display='flex'
+                      /* ms='4px' */
+                      fontSize='sm'
+                      fontWeight='500'
+                      color={textColor}
+                      /* mb='8px' */
+                      htmlFor="hours-teory" 
+                      /* fontWeight={'normal'} */>
+                      Investigacion
+                    </FormLabel>
+                    <Input 
+                    id="last-name" 
+                    placeholder="---"
+                    /* w='50%' */
+                    defaultValue="3"
+                    focusBorderColor="brand.400"
+                    color={textColorSecondary} />
+                  </FormControl>                  
+                </Flex>
+
+            {/* <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Summary
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  View a summary of all your clients over the last month.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the overview of your clients.
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Analysis
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  See a detailed analysis of all your business clients.
+                </Text>
+              </Box>
+            </Stack> */}
+          </CardBody>
+        </Card>
 
           <Flex align='center' mb='20px' padding='10'>
             <HSeparator />
