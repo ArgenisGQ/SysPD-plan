@@ -58,6 +58,7 @@ export default function Form01() {
       const [valuePre, setValuePre] = useState(null)
       const [valuePos, setValuePos] = useState(null)
       const [valueMod, setValueMod] = useState(null)
+      let valuex = null;
     return (
 /* export default function Form01(props) { */
       <>    
@@ -373,7 +374,8 @@ export default function Form01() {
                       <Radio value='3' mr="12%"isChecked>Profesional</Radio>
                       <Radio value='4' >Investigacion/Pasantias</Radio>
                     </Stack>
-                  </RadioGroup>   
+                  </RadioGroup>
+                  {valuex === value}   
               </CardBody>
             </Card>
         </FormControl>
@@ -506,6 +508,7 @@ export default function Form01() {
         {console.log("valuesPre: ", valuePre )}
         {console.log("valuesPos: ", valuePos )}
         {console.log("valuesMod: ", valueMod )}
+        {console.log("valuex: ", valuex )}
         {console.log("values: ", value )}
 
 
