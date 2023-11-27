@@ -367,7 +367,7 @@ export default function Form01() {
               </CardHeader>
 
               <CardBody>
-                  <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
+                  <RadioGroup onChange={(event) => setValuePre( event)} value={valuePre} /* defaultValue='2' */>
                     <Stack direction='row'>                                              
                       <Radio value='1' mr="12%">General</Radio>
                       <Radio value='2' mr="12%">Basica</Radio> {/* isChecked is only for testing */}
@@ -375,7 +375,8 @@ export default function Form01() {
                       <Radio value='4' >Investigacion/Pasantias</Radio>
                     </Stack>
                   </RadioGroup>
-                  {valuex === value}   
+                  {/* {valuex === value} */}
+                  {/* {console.log("value: ", valuex)}  */}  
               </CardBody>
             </Card>
         </FormControl>
@@ -399,7 +400,7 @@ export default function Form01() {
               </CardHeader>
 
               <CardBody>
-                  <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
+                  <RadioGroup onChange={(event) => setValuePos( event)} value={valuePos} /* defaultValue='2' */>
                     <Stack direction='row'>
                       <Radio value='1' mr="25%">Obligatorio</Radio>
                       <Radio value='2' mr="25%" isChecked>Electiva</Radio> {/* isChecked is only for testing */}
@@ -493,8 +494,8 @@ export default function Form01() {
                 <Heading size='md'>Modalidad</Heading>
               </CardHeader>
 
-              <CardBody>
-                  <RadioGroup onChange={setValue} value={value} /* defaultValue='2' */>
+              <CardBody> {/* {(event) => setValue( event.target.value )} -- valueMod -- console.log("event:", event) */}
+                  <RadioGroup onChange={(event) => setValueMod( event)} value={valueMod} /* defaultValue='2' */>
                     <Stack direction='row'>
                       <Radio value='1'>Presencial</Radio>
                       <Radio value='2' isChecked>Mixta</Radio> {/* isChecked is only for testing */}
@@ -507,9 +508,9 @@ export default function Form01() {
         </Flex>
         {console.log("valuesPre: ", valuePre )}
         {console.log("valuesPos: ", valuePos )}
-        {console.log("valuesMod: ", valueMod )}
-        {console.log("valuex: ", valuex )}
-        {console.log("values: ", value )}
+        {console.log("valuesM: ", valueMod )}
+        {/* {console.log("valuex: ", valuex )} */}
+        {/* {console.log("values: ", value )} */}
 
 
       </>
