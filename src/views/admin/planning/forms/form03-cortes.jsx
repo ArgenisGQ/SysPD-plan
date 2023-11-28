@@ -46,16 +46,12 @@ export default function Form03() {
     const cortes = (unidades) => {
       if (!unidades) {
         return <>
-         <p>NO CONTIENE UNIDADES</p>         
-        </>        
-      } else {
-        return <>
-         <p>SI CONTIENE UNIDADES</p>
-         {console.log("unidades: ", unidades)}  
+                    
         </>
+        
       }
-      /* return <Unit unitsx={unidades} others="50"/>}; */
-    }
+      return <Unit unitsx={unidades} others="50"/>};
+
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -151,8 +147,6 @@ export default function Form03() {
 
           </FormControl>
         </Flex>
-
-        {cortes(valueSel)}
 
         <Flex mt="5%">
             <FormControl mt="2%" mr="4%">

@@ -44,10 +44,7 @@ export default function Corts(props) {
     if (unidades === 3) {
         
     } else if (unidades === 4) {
-        
-    }
-
-    return (
+      return (
         <>
         <Flex mt="5%">
             <FormControl mt="2%" mr="4%">
@@ -245,9 +242,13 @@ export default function Corts(props) {
                 focusBorderColor="brand.400"
                 color={textColorSecondary} />
             </FormControl>        
-          </Flex>.    
-
+          </Flex> 
         </>
     )
+    } else if (unidades >= 5) {
+
+    }
+    	
+    
 
 }
