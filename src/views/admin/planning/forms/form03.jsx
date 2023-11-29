@@ -28,6 +28,8 @@ import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
+import Corts  from './corts'
+
 export default function Form03() {
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
@@ -51,7 +53,8 @@ export default function Form03() {
       } else {
         return <>
          <p>SI CONTIENE UNIDADES</p>
-         {console.log("unidades: ", unidades)}  
+         {/* {console.log("unidades: ", unidades)} */}
+         <Corts unidades = {unidades}/>  
         </>
       }
       /* return <Unit unitsx={unidades} others="50"/>}; */
@@ -154,203 +157,7 @@ export default function Form03() {
 
         {cortes(valueSel)}
 
-        <Flex mt="5%">
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-1" 
-                /* fontWeight={'normal'} */>
-                Corte 1
-              </FormLabel>
-              {/* <Input 
-                id="unit-1" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <Select placeholder='Seleccione UNIDAD'
-                    value={ valueC1 } onChange={ (event) => setValueC1( event.target.value ) }>
-                <option value='unit01'>Unidad I</option>
-                <option value='unit02'>Unidad II</option>
-                <option value='unit03'>Unidad III</option>              
-              </Select>
-            </FormControl>
-    
-            
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-2" 
-                /* fontWeight={'normal'} */>
-                Corte 2
-              </FormLabel>
-              {/* <Input 
-                id="unit-2" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <Select placeholder='Seleccione UNIDAD'
-                    value={ valueC2 } onChange={ (event) => setValueC2( event.target.value ) }>
-                <option value='unit01'>Unidad I</option>
-                <option value='unit02'>Unidad II</option>
-                <option value='unit03'>Unidad III</option>              
-              </Select>
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-3" 
-                /* fontWeight={'normal'} */>
-                Corte 3
-              </FormLabel>
-              {/* <Input 
-                id="unit-3" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <Select placeholder='Seleccione UNIDAD'
-                    value={ valueC3 } onChange={ (event) => setValueC3( event.target.value ) }>
-                <option value='unit01'>Unidad I</option>
-                <option value='unit02'>Unidad II</option>
-                <option value='unit03'>Unidad III</option>              
-              </Select>
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-4" 
-                /* fontWeight={'normal'} */>
-                Corte 4
-              </FormLabel>
-              {/* <Input 
-                id="unit-4" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <Select placeholder='Seleccione UNIDAD'
-                    value={ valueC4 } onChange={ (event) => setValueC4( event.target.value ) }>
-                <option value='unit01'>Unidad I</option>
-                <option value='unit02'>Unidad II</option>
-                <option value='unit03'>Unidad III</option>              
-              </Select>
-            </FormControl>        
-          </Flex>
-
-        <Flex mt="5%">
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-1" 
-                /* fontWeight={'normal'} */>
-                Unidad 1
-              </FormLabel>
-              <Input 
-                id="unit-1" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} />
-            </FormControl>
-    
-            
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-2" 
-                /* fontWeight={'normal'} */>
-                Unidad 2
-              </FormLabel>
-              <Input 
-                id="unit-2" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} />
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-3" 
-                /* fontWeight={'normal'} */>
-                Unidad 3
-              </FormLabel>
-              <Input 
-                id="unit-3" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} />
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-4" 
-                /* fontWeight={'normal'} */>
-                Unidad 4
-              </FormLabel>
-              <Input 
-                id="unit-4" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} />
-            </FormControl>        
-          </Flex>
+        
 
           <Card
             direction={{ base: 'column', sm: 'row' }}
