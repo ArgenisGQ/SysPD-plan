@@ -47,11 +47,14 @@ export default function Corts(props) {
     const [valueC3, setValueC3] = useState("unit03")
     const [valueC4, setValueC4] = useState("unit04")
 
-    const [valueCor1, setValueCor1] = useState("")
+    const [valueCor1, setValueCor1] = useState("25")
+    const [valueCor2, setValueCor2] = useState("25")
+    const [valueCor3, setValueCor3] = useState("25")
+    const [valueCor4, setValueCor4] = useState("25")
 
-    const formatX = (val) => `$` + val
+    const formatX = (val) => `% ` + val
     const parseX = (val) => val.replace(/^\$/, '')
-    const [valueX, setValueX] = useState('1.53')
+    
 
     {console.log("UNIDADES: ",unidades)}
 
@@ -368,7 +371,7 @@ export default function Corts(props) {
                 /* fontWeight={'normal'} */>
                 Valor de Corte 1
               </FormLabel>
-              <Text mb='8px'>Value: {valueCor1}</Text>
+              {/* <Text mb='8px'>Value: {valueCor1}</Text> */}
               {/* <Input 
                 id="unit-1" 
                 placeholder="%"
@@ -378,14 +381,15 @@ export default function Corts(props) {
                 focusBorderColor="brand.400"
                 color={textColorSecondary} /> */}
               <NumberInput 
-                defaultValue={25} 
+                /* defaultValue={25}  */
                 precision={0} 
                 step={1}
                 min={10} 
                 max={30}
-                onChange={(valueString) => setValueCor1(parseX(valueString))}
-                /* onChange={ (event) => setValueCor1( event.target.value ) } */
+                onChange={(valueString) => setValueCor1(parseX(valueString))}                
                 value={formatX(valueCor1)}
+                focusBorderColor="brand.400"
+                color={textColorSecondary} 
                 /* keepWithinRange={false} */
                 /* clampValueOnBlur={false} */>
                 <NumberInputField />
@@ -410,12 +414,30 @@ export default function Corts(props) {
                 /* fontWeight={'normal'} */>
                 Valor de Corte 2
               </FormLabel>
-              <Input 
+              {/* <Input 
                 id="unit-2" 
                 placeholder="%"
                 defaultValue="Post"
                 focusBorderColor="brand.400"
-                color={textColorSecondary} />
+                color={textColorSecondary} /> */}
+              <NumberInput 
+                /* defaultValue={25}  */
+                precision={0} 
+                step={1}
+                min={10} 
+                max={30}
+                onChange={(valueString) => setValueCor2(parseX(valueString))}                
+                value={formatX(valueCor2)}
+                focusBorderColor="brand.400"
+                color={textColorSecondary} 
+                /* keepWithinRange={false} */
+                /* clampValueOnBlur={false} */>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
             </FormControl>
 
             <FormControl mt="2%" mr="4%">
@@ -431,12 +453,30 @@ export default function Corts(props) {
                 /* fontWeight={'normal'} */>
                 Valor de Corte 3
               </FormLabel>
-              <Input 
+              {/* <Input 
                 id="unit-3" 
                 placeholder="%"
                 defaultValue="Post"
                 focusBorderColor="brand.400"
-                color={textColorSecondary} />
+                color={textColorSecondary} /> */}
+              <NumberInput 
+                /* defaultValue={25}  */
+                precision={0} 
+                step={1}
+                min={10} 
+                max={30}
+                onChange={(valueString) => setValueCor3(parseX(valueString))}                
+                value={formatX(valueCor3)}
+                focusBorderColor="brand.400"
+                color={textColorSecondary} 
+                /* keepWithinRange={false} */
+                /* clampValueOnBlur={false} */>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
             </FormControl>
 
             <FormControl mt="2%" mr="4%">
@@ -452,12 +492,30 @@ export default function Corts(props) {
                 /* fontWeight={'normal'} */>
                 Valor de Corte 4
               </FormLabel>
-              <Input 
+              {/* <Input 
                 id="unit-4" 
                 placeholder="%"
                 defaultValue="Post"
                 focusBorderColor="brand.400"
-                color={textColorSecondary} />
+                color={textColorSecondary} /> */}
+              <NumberInput 
+                /* defaultValue={25}  */
+                precision={0} 
+                step={1}
+                min={10} 
+                max={30}
+                onChange={(valueString) => setValueCor4(parseX(valueString))}                
+                value={formatX(valueCor4)}
+                focusBorderColor="brand.400"
+                color={textColorSecondary} 
+                /* keepWithinRange={false} */
+                /* clampValueOnBlur={false} */>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
             </FormControl>        
           </Flex> 
         </>
