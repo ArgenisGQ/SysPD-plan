@@ -40,11 +40,16 @@ export default function Form03() {
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
     const [value, setValue] = useState(null)
-    const [valueC1, setValueC1] = useState("unit01")
-    const [valueC2, setValueC2] = useState("unit02")
-    const [valueC3, setValueC3] = useState("unit03")
-    const [valueC4, setValueC4] = useState("unit03")
+    /* const [valueC1, setValueC1] = useState(25)
+    const [valueC2, setValueC2] = useState(25)
+    const [valueC3, setValueC3] = useState(25)
+    const [valueC4, setValueC4] = useState(25) */
+    const [valueCor1, setValueCor1] = useState("25")
+    const [valueCor2, setValueCor2] = useState(25)
+    const [valueCor3, setValueCor3] = useState(25)
+    const [valueCor4, setValueCor4] = useState(25)
     const [valueSel, setValueSel] = useState("4")
+    const [valueTotal, setValueTotal ] = useState("15")       
     const cortes = (unidades) => {
       if (!unidades) {
         return <>
@@ -168,7 +173,8 @@ export default function Form03() {
             <CardHeader>
               <Heading size='md'>Total de puntos de la Asignatura</Heading>
             </CardHeader>
-
+            {/* {setValueTotal(valueC1 + valueC2 + valueC3 + valueC4)} */}
+            {console.log("TOTAL: ", valueCor1)}
             <CardBody>
             <Flex>
                   <FormControl mt="2%" mr="1%" /* w='50%' */>
@@ -187,9 +193,11 @@ export default function Form03() {
                       <Input 
                         id="hours-total" 
                         placeholder="---"
+                        disabled
                         /* w='50%'  */
                         /* size="sm" */
-                        defaultValue="Post"
+                        /* defaultValue="Post" */
+                        value={valueCor1}
                         focusBorderColor="brand.400"
                         color={textColorSecondary} />
                     </FormControl>
