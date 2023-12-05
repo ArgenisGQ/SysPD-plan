@@ -48,6 +48,11 @@ export default function Form03() {
     const [valueCor2, setValueCor2] = useState(25)
     const [valueCor3, setValueCor3] = useState(25)
     const [valueCor4, setValueCor4] = useState(25)
+
+    const courtC11 = (court) => {
+          console.log("corteee 1:", court)
+    }
+
     const [valueSel, setValueSel] = useState("4")
     const [valueTotal, setValueTotal ] = useState("15")       
     const cortes = (unidades) => {
@@ -59,7 +64,7 @@ export default function Form03() {
         return <>
          <p>SI CONTIENE UNIDADES</p>
          {/* {console.log("unidades: ", unidades)} */}
-         <Corts unidades = {unidades}/>  
+         <Corts unidades = {unidades} courtC11 = {courtC11} />  
         </>
       }
       /* return <Unit unitsx={unidades} others="50"/>}; */

@@ -31,7 +31,7 @@ import {
 } from '@chakra-ui/react'
 
 export default function Corts(props) {
-    const { unidades } = props;
+    const { unidades, courtC11 } = props;
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
     const textColorSecondary = "gray.400";
@@ -52,11 +52,34 @@ export default function Corts(props) {
     const [valueCor3, setValueCor3] = useState("25")
     const [valueCor4, setValueCor4] = useState("25")
 
+    const courtC1 = (valueString) => {
+      setValueCor1(parseX(valueString));
+      courtC11(valueCor1);
+      /* console.log("corte 1: ", parseInt(valueCor1)) */      
+    }
+    const courtC2 = (valueString) => {
+      setValueCor2(parseX(valueString));
+      /* console.log("corte 1: ", parseInt(valueCor1)) */      
+    }
+    const courtC3 = (valueString) => {
+      setValueCor3(parseX(valueString));
+      /* console.log("corte 1: ", parseInt(valueCor1)) */      
+    }
+    const courtC4 = (valueString) => {
+      setValueCor4(parseX(valueString));
+      /* console.log("corte 1: ", parseInt(valueCor1)) */      
+    }
+     
     const formatX = (val) => `% ` + val
     const parseX = (val) => val.replace(/^\$/, '')
     
 
-    {console.log("UNIDADES: ",unidades)}
+    {console.log("UNIDADES: ",unidades)
+     console.log("corte 1: ", valueCor1)
+     console.log("corte 2: ", valueCor2)
+     console.log("corte 3: ", valueCor3)
+     console.log("corte 4: ", valueCor4) 
+    }
 
     if (unidades === "3") {
       return (
@@ -203,7 +226,8 @@ export default function Corts(props) {
                 step={1}
                 min={10} 
                 max={30}
-                onChange={(valueString) => setValueCor1(parseX(valueString))}                
+                onChange={(valueString) => setValueCor1(parseX(valueString))}
+                /* onChange={courtC1()}    */               
                 value={formatX(valueCor1)}
                 focusBorderColor="brand.400"
                 color={textColorSecondary} 
@@ -486,12 +510,14 @@ export default function Corts(props) {
                 step={1}
                 min={10} 
                 max={30}
-                onChange={(valueString) => setValueCor1(parseX(valueString))}                
+                /* onChange={(valueString) => setValueCor1(parseX(valueString))} */
+                onChange={courtC1}                
                 value={formatX(valueCor1)}
                 focusBorderColor="brand.400"
                 color={textColorSecondary} 
                 /* keepWithinRange={false} */
                 /* clampValueOnBlur={false} */>
+                {console.log("corte 1-2: ", parseInt(valueCor1))}
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
