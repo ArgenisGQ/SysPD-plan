@@ -44,13 +44,26 @@ export default function Form03() {
     const [valueC2, setValueC2] = useState(25)
     const [valueC3, setValueC3] = useState(25)
     const [valueC4, setValueC4] = useState(25) */
-    const [valueCor1, setValueCor1] = useState("25")
+    const [valueCor1, setValueCor1] = useState(25)
     const [valueCor2, setValueCor2] = useState(25)
     const [valueCor3, setValueCor3] = useState(25)
     const [valueCor4, setValueCor4] = useState(25)
 
-    const courtC11 = (court) => {
-          console.log("corteee 1:", court)
+    const courtC11 = (court11) => {
+          /* setValueCor1(court11) */
+          console.log("CORTE 1:", court11)
+    }
+    const courtC22 = (court22) => {
+          /* setValueCor2(court22)  */  
+          console.log("CORTE 2:", court22)
+    }
+    const courtC33 = (court33) => {
+          /* setValueCor3(court33) */
+          console.log("CORTE 3:", court33)
+    }
+    const courtC44 = (court44) => {
+          /* setValueCor4(court44) */
+          console.log("CORTE 4:", court44)
     }
 
     const [valueSel, setValueSel] = useState("4")
@@ -64,7 +77,17 @@ export default function Form03() {
         return <>
          <p>SI CONTIENE UNIDADES</p>
          {/* {console.log("unidades: ", unidades)} */}
-         <Corts unidades = {unidades} courtC11 = {courtC11} />  
+         <Corts 
+            unidades = {unidades} 
+            courtC11 = {courtC11}
+            courtC22 = {courtC22}
+            courtC33 = {courtC33}
+            courtC44 = {courtC44}
+            setValueCor1 = {setValueCor1}
+            setValueCor2 = {setValueCor2}
+            setValueCor3 = {setValueCor3}
+            setValueCor4 = {setValueCor4} />
+          {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} 
         </>
       }
       /* return <Unit unitsx={unidades} others="50"/>}; */
@@ -165,9 +188,7 @@ export default function Form03() {
           </FormControl>
         </Flex>
 
-        {cortes(valueSel)}
-
-        
+        {cortes(valueSel)}    
 
           <Card
             direction={{ base: 'column', sm: 'row' }}
@@ -177,9 +198,11 @@ export default function Form03() {
             /* variant='outline' */>
             <CardHeader>
               <Heading size='md'>Total de puntos de la Asignatura</Heading>
+              <p>C1: {valueCor1},C2: {valueCor2},C3: {valueCor3},C4: {valueCor4},</p>
             </CardHeader>
             {/* {setValueTotal(valueC1 + valueC2 + valueC3 + valueC4)} */}
             {console.log("TOTAL: ", valueCor1)}
+            {/* {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} */} 
             <CardBody>
             <Flex>
                   <FormControl mt="2%" mr="1%" /* w='50%' */>
