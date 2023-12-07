@@ -31,8 +31,7 @@ import {
 } from '@chakra-ui/react'
 
 export default function Corts(props) {
-    const { unidades, courtC11, courtC22, courtC33, courtC44,
-            setValueCor1, setValueCor2, setValueCor3, setValueCor4 } = props;
+    const { unidades, setValueCor1, setValueCor2, setValueCor3, setValueCor4 } = props;
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
     const textColorSecondary = "gray.400";

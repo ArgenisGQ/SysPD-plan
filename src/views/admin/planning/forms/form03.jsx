@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Progress,
   Box,
@@ -48,26 +48,19 @@ export default function Form03() {
     const [valueCor2, setValueCor2] = useState(25)
     const [valueCor3, setValueCor3] = useState(25)
     const [valueCor4, setValueCor4] = useState(25)
-
-    const courtC11 = (court11) => {
-          /* setValueCor1(court11) */
-          console.log("CORTE 1:", court11)
-    }
-    const courtC22 = (court22) => {
-          /* setValueCor2(court22)  */  
-          console.log("CORTE 2:", court22)
-    }
-    const courtC33 = (court33) => {
-          /* setValueCor3(court33) */
-          console.log("CORTE 3:", court33)
-    }
-    const courtC44 = (court44) => {
-          /* setValueCor4(court44) */
-          console.log("CORTE 4:", court44)
-    }
-
+    
     const [valueSel, setValueSel] = useState("4")
-    const [valueTotal, setValueTotal ] = useState("15")       
+    const [valueTotal, setValueTotal ] = useState("15")
+    const Total = (C1, C2, C3, C4) => {
+      const TotalT = parseInt(C1)+parseInt(C2)+parseInt(C3)+parseInt(C4)
+      setValueTotal(TotalT)
+      console.log("TT: ",TotalT)      
+    }
+    /* {Total(valueCor1,valueCor2,valueCor3,valueCor4)} */
+    useEffect(()=>{
+      Total(valueCor1,valueCor2,valueCor3,valueCor4)
+    },[valueCor1,valueCor2,valueCor3,valueCor4])
+
     const cortes = (unidades) => {
       if (!unidades) {
         return <>
@@ -78,15 +71,12 @@ export default function Form03() {
          <p>SI CONTIENE UNIDADES</p>
          {/* {console.log("unidades: ", unidades)} */}
          <Corts 
-            unidades = {unidades} 
-            courtC11 = {courtC11}
-            courtC22 = {courtC22}
-            courtC33 = {courtC33}
-            courtC44 = {courtC44}
+            unidades = {unidades}
             setValueCor1 = {setValueCor1}
             setValueCor2 = {setValueCor2}
             setValueCor3 = {setValueCor3}
             setValueCor4 = {setValueCor4} />
+          {/* {setValueTotal(parseInt(valueCor1)+parseInt(valueCor2)+parseInt(valueCor3)+parseInt(valueCor4))} */}
           {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} 
         </>
       }
@@ -198,10 +188,12 @@ export default function Form03() {
             /* variant='outline' */>
             <CardHeader>
               <Heading size='md'>Total de puntos de la Asignatura</Heading>
-              <p>C1: {valueCor1},C2: {valueCor2},C3: {valueCor3},C4: {valueCor4},</p>
+              {/* <p>C1: {valueCor1},C2: {valueCor2},C3: {valueCor3},C4: {valueCor4},</p> */}
             </CardHeader>
             {/* {setValueTotal(valueC1 + valueC2 + valueC3 + valueC4)} */}
-            {console.log("TOTAL: ", valueCor1)}
+            
+            {/* {Total(valueCor1,valueCor2,valueCor3,valueCor4)} */}
+            {console.log("TOTAL: ", valueTotal)}
             {/* {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} */} 
             <CardBody>
             <Flex>
@@ -218,14 +210,14 @@ export default function Form03() {
                         /* fontWeight={'normal'} */>
                         %
                       </FormLabel>
-                      <Input 
+                      <Input
                         id="hours-total" 
-                        placeholder="---"
+                        /* placeholder="---" */
                         disabled
+                        value={valueTotal}
                         /* w='50%'  */
                         /* size="sm" */
-                        /* defaultValue="Post" */
-                        value={valueCor1}
+                        /* defaultValue="Post" */                        
                         focusBorderColor="brand.400"
                         color={textColorSecondary} />
                     </FormControl>
