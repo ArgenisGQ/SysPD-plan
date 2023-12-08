@@ -108,8 +108,7 @@ export default function Form03() {
         setMessage("Supera el 100% de puntuacion");
         console.log("C1: ",C1,"C2: ",C2,"C3: ",C3,"C4: ",C4)
         if (C1 == 30 ) {
-          setValueCor1(25)
-          console.log("sobrepasar")
+          setValueCor1(25)          
         } else if (C2 == 30) {
           setValueCor2(25)
         } else if (C3 == 30) {
