@@ -21,13 +21,7 @@ import {
   useColorModeValue,
   Card,
   CardHeader,
-  CardBody,
-  Text,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,  
+  CardBody, 
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -54,34 +48,6 @@ export default function Form03() {
     const [valueCor2, setValueCor2] = useState(25)
     const [valueCor3, setValueCor3] = useState(25)
     const [valueCor4, setValueCor4] = useState(25)
-
-    const courtC1 = (valueString) => {
-      setValueCor1(parseX(valueString));
-      /* setValueCor11(parseX(valueString)); */
-      /* courtC11(valueCor1); */
-      /* console.log("corte 1: ", parseInt(valueCor1)) */      
-    }
-    const courtC2 = (valueString) => {
-      setValueCor2(parseX(valueString));
-      /* setValueCor22(parseX(valueString)); */
-      /* courtC22(valueCor2); */
-      /* console.log("corte 1: ", parseInt(valueCor1)) */      
-    }
-    const courtC3 = (valueString) => {
-      setValueCor3(parseX(valueString));
-      /* setValueCor33(parseX(valueString)); */
-      /* courtC33(valueCor3); */
-      /* console.log("corte 1: ", parseInt(valueCor1)) */      
-    }
-    const courtC4 = (valueString) => {
-      setValueCor4(parseX(valueString));
-      /* setValueCor44(parseX(valueString)); */
-      /* courtC44(valueCor4); */
-      /* console.log("corte 1: ", parseInt(valueCor1)) */      
-    }
-
-    const formatX = (val) => `% ` + val
-    const parseX = (val) => val.replace(/^\$/, '')
     
     const [valueSel, setValueSel] = useState("4")
     const [valueTotal, setValueTotal ] = useState("15")
@@ -106,7 +72,10 @@ export default function Form03() {
          {/* {console.log("unidades: ", unidades)} */}
          <Corts 
             unidades = {unidades}
-             />
+            setValueCor1 = {setValueCor1}
+            setValueCor2 = {setValueCor2}
+            setValueCor3 = {setValueCor3}
+            setValueCor4 = {setValueCor4} />
           {/* {setValueTotal(parseInt(valueCor1)+parseInt(valueCor2)+parseInt(valueCor3)+parseInt(valueCor4))} */}
           {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} 
         </>
@@ -209,177 +178,7 @@ export default function Form03() {
           </FormControl>
         </Flex>
 
-        {cortes(valueSel)}
-
-        <Flex mt="5%">
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-1" 
-                /* fontWeight={'normal'} */>
-                Valor de Corte 1
-              </FormLabel>
-              {/* <Text mb='8px'>Value: {valueCor1}</Text> */}
-              {/* <Input 
-                id="unit-1" 
-                placeholder="%"
-                defaultValue="Post"
-                onChange={ (event) => setValueU01( event.target.value ) }
-                value={ valueU01 } 
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <NumberInput 
-                /* defaultValue={25}  */
-                precision={0} 
-                step={1}
-                min={10} 
-                max={30}
-                /* onChange={(valueString) => setValueCor1(parseX(valueString))} */
-                onChange={courtC1}                
-                value={formatX(valueCor1)}
-                focusBorderColor="brand.400"
-                color={textColorSecondary} 
-                /* keepWithinRange={false} */
-                /* clampValueOnBlur={false} */>
-                {/* {console.log("corte 1-2: ", parseInt(valueCor1))} */}
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </FormControl>
-    
-            
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-2" 
-                /* fontWeight={'normal'} */>
-                Valor de Corte 2
-              </FormLabel>
-              {/* <Input 
-                id="unit-2" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <NumberInput 
-                /* defaultValue={25}  */
-                precision={0} 
-                step={1}
-                min={10} 
-                max={30}
-                onChange={courtC2}
-                /* onChange={(valueString) => setValueCor2(parseX(valueString))}   */              
-                value={formatX(valueCor2)}
-                focusBorderColor="brand.400"
-                color={textColorSecondary} 
-                /* keepWithinRange={false} */
-                /* clampValueOnBlur={false} */>
-                {/* {console.log("corte 2-2: ", parseInt(valueCor2))} */}
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-3" 
-                /* fontWeight={'normal'} */>
-                Valor de Corte 3
-              </FormLabel>
-              {/* <Input 
-                id="unit-3" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <NumberInput 
-                /* defaultValue={25}  */
-                precision={0} 
-                step={1}
-                min={10} 
-                max={30}
-                onChange={courtC3}
-                /* onChange={(valueString) => setValueCor3(parseX(valueString))}  */               
-                value={formatX(valueCor3)}
-                focusBorderColor="brand.400"
-                color={textColorSecondary} 
-                /* keepWithinRange={false} */
-                /* clampValueOnBlur={false} */>
-                {/* {console.log("corte 3-2: ", parseInt(valueCor3))} */}
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </FormControl>
-
-            <FormControl mt="2%" mr="4%">
-              <FormLabel
-                display='flex'
-                /* ms='4px' */
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                /* mb='8px' */
-                
-                htmlFor="unit-4" 
-                /* fontWeight={'normal'} */>
-                Valor de Corte 4
-              </FormLabel>
-              {/* <Input 
-                id="unit-4" 
-                placeholder="%"
-                defaultValue="Post"
-                focusBorderColor="brand.400"
-                color={textColorSecondary} /> */}
-              <NumberInput 
-                /* defaultValue={25}  */
-                precision={0} 
-                step={1}
-                min={10} 
-                max={30}
-                onChange={courtC4}
-                /* onChange={(valueString) => setValueCor4(parseX(valueString))} */                
-                value={formatX(valueCor4)}
-                focusBorderColor="brand.400"
-                color={textColorSecondary} 
-                /* keepWithinRange={false} */
-                /* clampValueOnBlur={false} */>
-                {/* {console.log("corte 4-2: ", parseInt(valueCor4))} */}
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </FormControl>        
-          </Flex>     
+        {cortes(valueSel)}    
 
           <Card
             direction={{ base: 'column', sm: 'row' }}
