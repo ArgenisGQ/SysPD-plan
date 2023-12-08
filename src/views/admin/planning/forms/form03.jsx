@@ -27,7 +27,15 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper,  
+  NumberDecrementStepper,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,    
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -35,6 +43,8 @@ import InputField from '../../../../components/fields/InputField'
 import { useToast } from '@chakra-ui/react'
 
 import Corts  from './corts'
+
+
 
 export default function Form03() {
     // Chakra color mode
@@ -85,14 +95,46 @@ export default function Form03() {
     
     const [valueSel, setValueSel] = useState("4")
     const [valueTotal, setValueTotal ] = useState("15")
+
+    const [totalOver, setTotalOver] = useState("");
+    const [totalLower, setTotalLower] = useState("");
+    const [message, setMessage] = useState("");
+
     const Total = (C1, C2, C3, C4) => {
       const TotalT = parseInt(C1)+parseInt(C2)+parseInt(C3)+parseInt(C4)
       setValueTotal(TotalT)
-      console.log("TT: ",TotalT)      
+      console.log("TT: ",TotalT)
+      if (TotalT > 100) {
+        setMessage("Supera el 100% de puntuacion");
+        console.log("C1: ",C1,"C2: ",C2,"C3: ",C3,"C4: ",C4)
+        if (C1 == 30 ) {
+          setValueCor1(25)
+          console.log("sobrepasar")
+        } else if (C2 == 30) {
+          setValueCor2(25)
+        } else if (C3 == 30) {
+          setValueCor3(25)
+        } else if (C4 == 30) {
+          setValueCor4(25)
+        }
+        onOpen()
+        console.log("C1: ",C1,"C2: ",C2,"C3: ",C3,"C4: ",C4)
+        const TotalT = parseInt(C1)+parseInt(C2)+parseInt(C3)+parseInt(C4)
+        setValueTotal(TotalT)
+      }
+      if (TotalT < 100) {
+        const FaltaP = 100 - parseInt(TotalT) 
+        setMessage("Falta colocar: "+ FaltaP + " %")
+        onOpen()
+      }
+      /* if (TotalT != 100) {
+        onOpen()
+      } */
+            
     }
     /* {Total(valueCor1,valueCor2,valueCor3,valueCor4)} */
     useEffect(()=>{
-      Total(valueCor1,valueCor2,valueCor3,valueCor4)
+      Total(valueCor1,valueCor2,valueCor3,valueCor4)      
     },[valueCor1,valueCor2,valueCor3,valueCor4])
 
     const cortes = (unidades) => {
@@ -111,8 +153,10 @@ export default function Form03() {
           {console.log("C1: ", valueCor1, "C2: ", valueCor2, "C3: ", valueCor3, "C4: ", valueCor4)} 
         </>
       }
-      /* return <Unit unitsx={unidades} others="50"/>}; */
+      /* return <Unit unitsx={unidades} others="50"/>}; */      
     }
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -237,7 +281,7 @@ export default function Form03() {
               <NumberInput 
                 /* defaultValue={25}  */
                 precision={0} 
-                step={1}
+                step={5}
                 min={10} 
                 max={30}
                 /* onChange={(valueString) => setValueCor1(parseX(valueString))} */
@@ -279,7 +323,7 @@ export default function Form03() {
               <NumberInput 
                 /* defaultValue={25}  */
                 precision={0} 
-                step={1}
+                step={5}
                 min={10} 
                 max={30}
                 onChange={courtC2}
@@ -320,7 +364,7 @@ export default function Form03() {
               <NumberInput 
                 /* defaultValue={25}  */
                 precision={0} 
-                step={1}
+                step={5}
                 min={10} 
                 max={30}
                 onChange={courtC3}
@@ -361,7 +405,7 @@ export default function Form03() {
               <NumberInput 
                 /* defaultValue={25}  */
                 precision={0} 
-                step={1}
+                step={5}
                 min={10} 
                 max={30}
                 onChange={courtC4}
@@ -455,6 +499,28 @@ export default function Form03() {
               </Stack> */}
             </CardBody>
           </Card>
+
+          {/* <Button onClick={onOpen}>Open Modal</Button> */}
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Modal Title</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                {/* <Lorem count={2} /> */}
+                {/* <p>PRUEBAS</p> */}
+                <p>{message}</p>
+              </ModalBody>
+
+              <ModalFooter>
+                <Button colorScheme='blue' mr={3} onClick={onClose}>
+                  Cerrar
+                </Button>
+                {/* <Button variant='ghost'>Secondary Action</Button> */}
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
 
 
 
