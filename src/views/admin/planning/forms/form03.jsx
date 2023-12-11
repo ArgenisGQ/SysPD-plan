@@ -35,7 +35,12 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,    
+  useDisclosure,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  CloseButton,    
 } from '@chakra-ui/react'
 
 import InputField from '../../../../components/fields/InputField'
@@ -43,6 +48,8 @@ import InputField from '../../../../components/fields/InputField'
 import { useToast } from '@chakra-ui/react'
 
 import Corts  from './corts'
+
+import Alerts from './alerts'
 
 
 
@@ -99,6 +106,9 @@ export default function Form03() {
     const [totalOver, setTotalOver] = useState("");
     const [totalLower, setTotalLower] = useState("");
     const [message, setMessage] = useState("");
+    const [control, setControl] = useState(false)
+    const [boton, setBoton] = useState(false)
+    const [isVisible, setIsVisble] = useState(false)
 
     const Total = (C1, C2, C3, C4) => {
       const TotalT = parseInt(C1)+parseInt(C2)+parseInt(C3)+parseInt(C4)
@@ -116,15 +126,32 @@ export default function Form03() {
         } else if (C4 == 30) {
           setValueCor4(25)
         }
+        /* setControl(true) */
+        setIsVisble(false)
+        setBoton(true)
         onOpen()
+        /* warning(control,message) */
+        
         console.log("C1: ",C1,"C2: ",C2,"C3: ",C3,"C4: ",C4)
         const TotalT = parseInt(C1)+parseInt(C2)+parseInt(C3)+parseInt(C4)
         setValueTotal(TotalT)
+
+        /* return <><Alerts message={message}/></> */
+      }
+      if (TotalT == 100) {
+        setIsVisble(false)
+        setBoton(true)
       }
       if (TotalT < 100) {
         const FaltaP = 100 - parseInt(TotalT) 
         setMessage("Falta colocar: "+ FaltaP + " %")
-        onOpen()
+        /* setControl(false) */
+        setBoton(false)
+        setIsVisble(true)
+        
+        /* onOpen() */
+        /* warning(control,message) */
+        /* return <><Alerts message={message}/></> */
       }
       /* if (TotalT != 100) {
         onOpen()
@@ -155,9 +182,19 @@ export default function Form03() {
       /* return <Unit unitsx={unidades} others="50"/>}; */      
     }
 
+    const warning = (boton,isVisible,message) => {
+      console.log("visible:",isVisible)
+      console.log("BOTON: ", boton)
+      return <>
+        <Alerts message={message} boton={boton} isVisible={isVisible}/> 
+      </>
+      
+    }
+
     const { isOpen, onOpen, onClose } = useDisclosure()
+    /* const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true }) */
     return (
-      <>
+      <>        
         <Heading w="100%" textAlign={'center'} fontWeight="normal">
           Ajustes de puntos de las unidades 
         </Heading>
@@ -253,6 +290,9 @@ export default function Form03() {
         </Flex>
 
         {cortes(valueSel)}
+
+        
+        {warning(boton,isVisible,message)}
 
         <Flex mt="5%">
             <FormControl mt="2%" mr="4%">
@@ -422,7 +462,7 @@ export default function Form03() {
                 </NumberInputStepper>
               </NumberInput>
             </FormControl>        
-          </Flex>     
+          </Flex>              
 
           <Card
             direction={{ base: 'column', sm: 'row' }}
@@ -520,7 +560,7 @@ export default function Form03() {
               </ModalFooter>
             </ModalContent>
           </Modal>
-
+          
 
 
 
