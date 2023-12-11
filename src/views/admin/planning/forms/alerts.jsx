@@ -44,9 +44,8 @@ import {
     AlertDescription,
     CloseButton,    
   } from '@chakra-ui/react'
-
 const Alerts = (props) => {
-    const { message, control, isVisible, boton } = props;
+    const { message, isVisible, boton } = props;
     const {
         /* isOpen: isVisible, */
         isOpen,
@@ -54,18 +53,15 @@ const Alerts = (props) => {
         onOpen,
       /* } = useDisclosure() */
       } = useDisclosure({ defaultIsOpen: false })
-
       return isVisible ? (
-        <Alert status='success'  mt="5%">
+        <Alert status='warning'  mt="5%">
           <AlertIcon />
           <Box>
-            <AlertTitle>Success!</AlertTitle>
+            <AlertTitle>Warning!</AlertTitle>
             <AlertDescription>
               {message}
             </AlertDescription>
-          </Box>
-          {console.log("visiblex: ", isVisible)}
-          {console.log("botonx: ", boton)}
+          </Box>          
           {boton ? 
                 (<CloseButton
                     alignSelf='flex-start'
@@ -75,14 +71,10 @@ const Alerts = (props) => {
                     onClick={onClose}
                 />):
                 (<></>)}
-          
-          
         </Alert>
-      ) : (   
-           
+      ) : (              
         <Box>
-        {console.log("visiblex: ", isVisible)}
-        {console.log("botonx: ", boton)}
+        
         </Box>
       )
 }
