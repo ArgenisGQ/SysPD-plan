@@ -69,7 +69,7 @@ export default function Unit(props) {
         <Box position='relative' padding='10'>
           <Divider />
           <AbsoluteCenter /* bg='white' */ px='4'>
-            <UnitFiels/>
+            <UnitFiels/> {/* boton de crear actividad */}
           </AbsoluteCenter>
         </Box>
 
