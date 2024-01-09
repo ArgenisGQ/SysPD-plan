@@ -66,11 +66,31 @@ export default function Unit(props) {
           </FormControl>          
         </Flex>
 
+
+        {/* boton de crear actividad */}        
         <Box position='relative' padding='10'>
-          <Divider />
-          <AbsoluteCenter /* bg='white' */ px='4'>
-            <UnitFiels/> {/* boton de crear actividad */}
-          </AbsoluteCenter>
+          <Flex alignItems="center" gap={6}>
+            <Divider size={10} />
+              <UnitFiels/>
+            <Divider/>
+          </Flex>
+          
+
+          {/* <Divider />
+          <AbsoluteCenter  px='4' >
+            <UnitFiels/> 
+          </AbsoluteCenter> */}
+        
+
+
+          <Flex alignItems="center" gap={6}>
+            {/* <Heading as="h4" size="lg" sx={{ whiteSpace: "nowrap" }}>
+              About the Department
+            </Heading> */}
+            {/* <Divider border="2px" borderRadius={"2xl"} />
+            <UnitFiels/>
+            <Divider border="2px" borderRadius={"2xl"} /> */}
+          </Flex>
         </Box>
 
         <Flex /* mt="2%" */>

@@ -45,7 +45,7 @@ const UnitFiels = (props) => {
     
     const [value, setValue] = useState(null)
   return (<>
-    <Button onClick={onOpen}>Crear Actividad</Button>
+    <Button onClick={onOpen} height='48px' width='400px'>Crear Actividad</Button>
       {/* <Button ml={4} ref={finalRef}>
         I'll receive focus on close
       </Button> */}
