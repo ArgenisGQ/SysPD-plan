@@ -32,6 +32,15 @@ export default function Unit(props) {
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
       const [value, setValue] = useState(null)
+      const numbers = [1, 2, 3, 4, 5];
+      const listItems = numbers.map((number,index) =>
+        <>
+          {/* <li key={number.toString()}> */}
+          <li key={index}>
+            {number}
+          </li>
+        </>        
+      );
     return (
       <> 
 
@@ -42,10 +51,12 @@ export default function Unit(props) {
             fontSize='sm' 
             fontWeight={'normal'}
             color={textColor}>
-              Competencia especifica <h1>U: {unitsx}</h1>
+              {/* Competencia especifica <h1>U: {unitsx}</h1> */}
+              Competencia especifica --- U: {unitsx}
             </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
+            {console.log(numbers)}
+            <Textarea rows={4} resize="none"              
+              defaultValue={listItems}
               focusBorderColor="brand.400"
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
@@ -73,24 +84,7 @@ export default function Unit(props) {
             <Divider size={10} />
               <UnitFiels/>
             <Divider/>
-          </Flex>
-          
-
-          {/* <Divider />
-          <AbsoluteCenter  px='4' >
-            <UnitFiels/> 
-          </AbsoluteCenter> */}
-        
-
-
-          <Flex alignItems="center" gap={6}>
-            {/* <Heading as="h4" size="lg" sx={{ whiteSpace: "nowrap" }}>
-              About the Department
-            </Heading> */}
-            {/* <Divider border="2px" borderRadius={"2xl"} />
-            <UnitFiels/>
-            <Divider border="2px" borderRadius={"2xl"} /> */}
-          </Flex>
+          </Flex> 
         </Box>
 
         <Flex /* mt="2%" */>
@@ -162,28 +156,40 @@ export default function Unit(props) {
           </FormControl>          
         </Flex>
 
-          <FormControl mt="2%" w='50%' >
-            <Card
-              /* direction={{ base: 'column', sm: 'row' }} */
-              /* overflow='hidden' */
-              /* variant='outline' */>
+          {/* <FormControl mt="2%" w='50%' >
+            <Card>
               <CardHeader>
                 <Heading size='md'>Tipo de Evaluacion</Heading>
               </CardHeader>
-
               <CardBody>
-
                   <RadioGroup onChange={setValue} value={value}>
                     <Stack direction='row'>
                       <Radio value='1'>Diagnostica</Radio>
-                      <Radio value='2' isChecked>Formativa</Radio> {/* isChecked is only for testing */}
+                      <Radio value='2' isChecked>Formativa</Radio>
                       <Radio value='3'>Sumativa</Radio>
                     </Stack>
                   </RadioGroup>   
               </CardBody>
             </Card>
-          </FormControl>
+          </FormControl> */}
 
+
+        <Flex /* mt="5%" */>
+          <FormControl  mt="2%" id="proposito" mr="0%">
+            <FormLabel
+            htmlFor="course"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+              Evidencia de Evaluacion
+            </FormLabel>
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
+            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+          </FormControl>                    
+        </Flex>
            
 
         <Flex /* mt="3%" */>
