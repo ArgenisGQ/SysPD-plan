@@ -15,7 +15,9 @@ import {
   Divider,  
   Stack,  
   Radio, RadioGroup,
-  AbsoluteCenter  
+  AbsoluteCenter,
+  Image,
+  Badge,  
 } from '@chakra-ui/react'
 
 import UnitFiels from './unitFiels'
@@ -32,15 +34,55 @@ export default function Unit(props) {
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
       const [value, setValue] = useState(null)
-      const numbers = [1, 2, 3, 4, 5];
-      const listItems = numbers.map((number,index) =>
+      const property = {
+        imageUrl: 'https://bit.ly/2Z4KKcF',
+        imageAlt: 'Rear view of modern home with pool',
+        beds: 3,
+        baths: 2,
+        title: 'Modern home in city center in the heart of historic Los Angeles',
+        formattedPrice: '$1,900.00',
+        reviewCount: 34,
+        rating: 4,
+      }
+      const numbers = ["1 - uno dos tres",
+                       "2 - uno dos tres",
+                       "3 - uno dos tres",
+                       "4 - uno dos tres",
+                       "5 - uno dos tres"];
+      const listItems = numbers.map((number) =>
         <>
           {/* <li key={number.toString()}> */}
-          <li key={index}>
+          {/* <li key={index}>
+            {number}
+          </li> */}
+          <li>
             {number}
           </li>
         </>        
       );
+
+      function List2() {
+        /* const listItemsx = numbers.map(number =>
+          <li key={number.toString()}>
+            {number}
+          </li>
+        ); */
+        return <>
+                <h1>FUNCION2</h1>                
+                {/* <ul>{listItemsx}</ul> */}
+               </>;
+      }
+      function List() {
+        const listItemsx = numbers.map((number) =>
+          <li key={number.toString()}>
+            {number}
+          </li>
+        );
+        return <>
+                <h1>FUNCION</h1>                
+                <ul>{listItemsx}</ul>
+               </>;
+      }
     return (
       <> 
 
@@ -54,9 +96,9 @@ export default function Unit(props) {
               {/* Competencia especifica <h1>U: {unitsx}</h1> */}
               Competencia especifica --- U: {unitsx}
             </FormLabel>
-            {console.log(numbers)}
+            {console.log()}
             <Textarea rows={4} resize="none"              
-              defaultValue={listItems}
+              defaultValue={List}
               focusBorderColor="brand.400"
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
@@ -75,6 +117,95 @@ export default function Unit(props) {
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
+        </Flex>
+
+        <Flex mt="5%">
+          <Box  mt="2%" mr="2%" w='100%'
+                maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+            <Box p='6'>
+              {/* <Box display='flex' alignItems='baseline'>
+                <Badge borderRadius='full' px='2' colorScheme='teal'>
+                  New
+                </Badge>
+                <Box
+                  color='gray.500'
+                  fontWeight='semibold'
+                  letterSpacing='wide'
+                  fontSize='xs'
+                  textTransform='uppercase'
+                  ml='2'
+                >
+                  {property.beds} beds &bull; {property.baths} baths
+                </Box>
+              </Box> */}
+              <Box
+                mt='1'
+                fontWeight='semibold'
+                as='h4'
+                lineHeight='tight'
+                noOfLines={1}                
+              >
+                {/* {property.title} */}
+                {/* <ul> */}
+                  {/* {listItems} */}
+                  <h1>LISTA</h1>
+                  {List}
+                  {List2}
+                {/* </ul>  */}               
+              </Box>
+              {/* <Box>
+                {property.formattedPrice}
+                <Box as='span' color='gray.600' fontSize='sm'>
+                  / wk
+                </Box>
+              </Box> */}
+              {/* <Box display='flex' mt='2' alignItems='center'>                
+                <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+                  {property.reviewCount} reviews
+                </Box>
+              </Box> */}
+            </Box>
+          </Box>
+          <Box  mt="2%" mr="0%" w='100%'
+                maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+            <Box p='6'>
+              <Box display='flex' alignItems='baseline'>
+                <Badge borderRadius='full' px='2' colorScheme='teal'>
+                  New
+                </Badge>
+                <Box
+                  color='gray.500'
+                  fontWeight='semibold'
+                  letterSpacing='wide'
+                  fontSize='xs'
+                  textTransform='uppercase'
+                  ml='2'
+                >
+                  {property.beds} beds &bull; {property.baths} baths
+                </Box>
+              </Box>
+              <Box
+                mt='1'
+                fontWeight='semibold'
+                as='h4'
+                lineHeight='tight'
+                noOfLines={1}
+              >
+                {property.title}
+              </Box>
+              <Box>
+                {property.formattedPrice}
+                <Box as='span' color='gray.600' fontSize='sm'>
+                  / wk
+                </Box>
+              </Box>
+              <Box display='flex' mt='2' alignItems='center'>                
+                <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+                  {property.reviewCount} reviews
+                </Box>
+              </Box>
+            </Box>
+          </Box>
         </Flex>
 
 
