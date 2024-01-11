@@ -1,6 +1,4 @@
-import { 
-  useState, userReview,
-  setUserReview, } from 'react'
+import { useState } from 'react'
 import {  
   Box,
   ButtonGroup,
@@ -36,7 +34,7 @@ export default function Unit(props) {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
-      /* const [value, setValue] = useState(property.beds) */
+      const [value, setValue] = useState(null)
       const property = {
         imageUrl: 'https://bit.ly/2Z4KKcF',
         imageAlt: 'Rear view of modern home with pool',
@@ -47,28 +45,54 @@ export default function Unit(props) {
         reviewCount: 34,
         rating: 4,
       }
-      const [value, setValue] = useState(<ul>
-        <li>uno</li>
-        <li>dos</li>
-        <li>tres</li>
-      </ul>)
-      function handleChange(e) {
-        setUserReview(e.target.value);
-      }
-      const onChangex = (e) => {
-        setValue(e)
-      } 
-    return (
-      <>  
+      const numbers = ["1 - uno dos tres",
+                       "2 - uno dos tres",
+                       "3 - uno dos tres",
+                       "4 - uno dos tres",
+                       "5 - uno dos tres"];
+      const listItems = numbers.map((number) =>
+        <>
+          {/* <li key={number.toString()}> */}
+          {/* <li key={index}>
+            {number}
+          </li> */}
+          <li>
+            {number}
+          </li>
+        </>        
+      );
 
-        {/* {() => setValue(<>
-        <ul>
-          <li>uno</li>
-          <li>dos</li>
-          <li>tres</li>
-        </ul>
-        </>)} */}
-        
+      const list3 = () => (
+        <>
+          <h1>LISTA 3</h1>
+        </>
+      )
+
+      function List2() {
+        /* const listItemsx = numbers.map(number =>
+          <li key={number.toString()}>
+            {number}
+          </li>
+        ); */
+        return <>
+                <h1>FUNCION2</h1>                
+                {/* <ul>{listItemsx}</ul> */}
+               </>;
+      }
+      function List() {
+        const listItemsx = numbers.map((number) =>
+          <li key={number.toString()}>
+            {number}
+          </li>
+        );
+        return <>
+                <h1>FUNCION</h1>                
+                <ul>{listItemsx}</ul>
+                
+               </>;
+      }
+    return (
+      <> 
 
         <Flex mt="5%">
           <FormControl  mt="2%" id="proposito" mr="2%">
@@ -81,8 +105,8 @@ export default function Unit(props) {
               Competencia especifica --- U: {unitsx}
             </FormLabel>
             {console.log()}
-            <Textarea rows={4} resize="none"                           
-              defaultValue="escribir aqui.."
+            <Textarea rows={4} resize="none"              
+              defaultValue="nada"
               focusBorderColor="brand.400"
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
@@ -103,43 +127,91 @@ export default function Unit(props) {
           </FormControl>          
         </Flex>        
 
-        <Flex mt="0%">
+        <Flex mt="5%">
           <Box  mt="2%" mr="2%" w='100%'
                 maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
-            <Box p='6'>              
+            <Box p='6'>
+              {/* <Box display='flex' alignItems='baseline'>
+                <Badge borderRadius='full' px='2' colorScheme='teal'>
+                  New
+                </Badge>
+                <Box
+                  color='gray.500'
+                  fontWeight='semibold'
+                  letterSpacing='wide'
+                  fontSize='xs'
+                  textTransform='uppercase'
+                  ml='2'
+                >
+                  {property.beds} beds &bull; {property.baths} baths
+                </Box>
+              </Box> */}
               <Box
-                mt='0'
+                mt='1'
                 fontWeight='semibold'
                 as='h4'
                 lineHeight='tight'
                 noOfLines={3}                
-              >              
-              <ListActivities/>
+              >
+              
+                  <ListActivities/>
+                               
               </Box>
+              {/* <Box>
+                {property.formattedPrice}
+                <Box as='span' color='gray.600' fontSize='sm'>
+                  / wk
+                </Box>
+              </Box> */}
+              {/* <Box display='flex' mt='2' alignItems='center'>                
+                <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+                  {property.reviewCount} reviews
+                </Box>
+              </Box> */}
             </Box>
           </Box>
           <Box  mt="2%" mr="0%" w='100%'
-                /* bg="gray.50" */
-                _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                transition="background-color 1s"
-                /* _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                transition="background-color 1s" */
-                /* _hover={{ bg: 'blue.500' }}
-                transition="background-color 1s" */
                 maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
             <Box p='6'>
+              <Box display='flex' alignItems='baseline'>
+                <Badge borderRadius='full' px='2' colorScheme='teal'>
+                  New
+                </Badge>
+                <Box
+                  color='gray.500'
+                  fontWeight='semibold'
+                  letterSpacing='wide'
+                  fontSize='xs'
+                  textTransform='uppercase'
+                  ml='2'
+                >
+                  {property.beds} beds &bull; {property.baths} baths
+                </Box>
+              </Box>
               <Box
-                mt='0'
+                mt='1'
                 fontWeight='semibold'
                 as='h4'
                 lineHeight='tight'
-                noOfLines={3}
+                noOfLines={1}
               >
-                <ListActivities/>
+                {property.title}
+              </Box>
+              <Box>
+                {property.formattedPrice}
+                <Box as='span' color='gray.600' fontSize='sm'>
+                  / wk
+                </Box>
+              </Box>
+              <Box display='flex' mt='2' alignItems='center'>                
+                <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+                  {property.reviewCount} reviews
+                </Box>
               </Box>
             </Box>
           </Box>
         </Flex>
+
 
         {/* boton de crear actividad */}        
         <Box position='relative' padding='10'>
@@ -160,16 +232,11 @@ export default function Unit(props) {
               Estrategia de Evaluacion
             </FormLabel>
             <Textarea rows={4} resize="none"
-              /* isReadOnly  */
-              /* value={value} */
-              /* onchange={handleChange} */
-              /* onchange={onChangex}  */
               defaultValue="Post"
               focusBorderColor="brand.400"
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>
-          {console.log(value)}
           <FormControl  mt="2%" id="proposito" /* mr="2%" */>
             <FormLabel
             htmlFor="course"
