@@ -24,7 +24,8 @@ import {
     ModalBody,
     ModalCloseButton,
     useDisclosure,  
-    Input,  
+    Input,
+    SimpleGrid,  
   } from '@chakra-ui/react'
 
 const UnitFiels = (props) => {
@@ -34,7 +35,8 @@ const UnitFiels = (props) => {
     const initialRef = useRef(null)
     const finalRef = useRef(null)
 
-    const sizes = 'full'
+    /* const sizes = 'full' */
+    const sizes = '6xl'
     const scrollBehavior = 'inside'
 
     const textColor = useColorModeValue("navy.700", "white");
@@ -43,7 +45,7 @@ const UnitFiels = (props) => {
     const textColorBrand = useColorModeValue("brand.500", "white");
     const brandStars = useColorModeValue("brand.500", "brand.400");
     
-    const [value, setValue] = useState(null)
+    const [value, setValue] = useState(null);    
   return (<>
     <Button onClick={onOpen} height='48px' width='400px'>Crear Actividad</Button>
       {/* <Button ml={4} ref={finalRef}>
@@ -72,19 +74,20 @@ const UnitFiels = (props) => {
               <FormLabel>Instrumento de Evaluacion</FormLabel>
               <Input placeholder='--' />
             </FormControl> */}
-            <Flex mt="5%">
+            <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' mt="5%" >
               <FormControl  mt="2%" id="proposito" mr="2%">
                 <FormLabel
                 htmlFor="course"
                 fontSize='sm' 
                 fontWeight={'normal'}
                 color={textColor}>
-                  Competencia especifica <h1>U: {unitsx}</h1>
+                  Competencia especifica{/*  <h1>U: {unitsx}</h1> */}
                 </FormLabel>
                 <Textarea rows={4} resize="none"
                   defaultValue="Post"
                   focusBorderColor="brand.400"
-                  color={textColorSecondary} />
+                  color={textColorSecondary}
+                  ref={initialRef}  />
                 {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
               </FormControl>
               <FormControl  mt="2%" id="proposito" /* mr="2%" */>
@@ -101,7 +104,7 @@ const UnitFiels = (props) => {
                   color={textColorSecondary} />
                 {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
               </FormControl>          
-            </Flex>
+            </SimpleGrid>
 
             <Box position='relative' padding='10'>
               <Divider />
@@ -110,36 +113,36 @@ const UnitFiels = (props) => {
               </AbsoluteCenter> */}
             </Box>
 
-            <Flex /* mt="5%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Evidencia de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Retroalimentacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
+            <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' /* mt="5%" */>
+              <FormControl  mt="2%" id="proposito" mr="2%">
+                <FormLabel
+                htmlFor="course"
+                fontSize='sm' 
+                fontWeight={'normal'}
+                color={textColor}>
+                  Evidencia de Evaluacion
+                </FormLabel>
+                <Textarea rows={4} resize="none"
+                  defaultValue="Post"
+                  focusBorderColor="brand.400"
+                  color={textColorSecondary} />
+                {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+              </FormControl>
+              <FormControl  mt="2%" id="proposito" /* mr="2%" */>
+                <FormLabel
+                htmlFor="course"
+                fontSize='sm' 
+                fontWeight={'normal'}
+                color={textColor}>
+                  Retroalimentacion
+                </FormLabel>
+                <Textarea rows={4} resize="none"
+                  defaultValue="Post"
+                  focusBorderColor="brand.400"
+                  color={textColorSecondary} />
+                {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+              </FormControl>          
+            </SimpleGrid>
 
           <FormControl mt="2%" w='50%' >
             <Card
@@ -163,7 +166,7 @@ const UnitFiels = (props) => {
             </Card>
           </FormControl>         
 
-        <Flex /* mt="3%" */>
+        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))'>
           <FormControl  mt="2%" id="proposito" mr="2%">
             <FormLabel
             htmlFor="course"
@@ -192,7 +195,7 @@ const UnitFiels = (props) => {
               color={textColorSecondary} />
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>          
-        </Flex>
+        </SimpleGrid>
           </ModalBody>
 
           <ModalFooter>
