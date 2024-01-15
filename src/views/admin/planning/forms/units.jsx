@@ -317,7 +317,7 @@ export default function Unit(props) {
                   transition="background-color 1s" */
                   /* _hover={{ bg: 'blue.500' }}
                   transition="background-color 1s" */
-                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+                  maxW='6xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
               <Box p='6'>
                 <Box
                   mt='0'
