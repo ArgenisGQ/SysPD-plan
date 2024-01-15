@@ -1,6 +1,6 @@
 import { 
   useState, userReview,
-  setUserReview, } from 'react'
+  setUserReview, useMemo, } from 'react'
 import {  
   Box,
   ButtonGroup,
@@ -28,6 +28,8 @@ import {
 import UnitFiels from './unitFiels'
 import ListActivities from './listActivities';
 
+import tableDataUnitsActivities from '../../../admin/planning/variables/tableDataUnitsActivities.json'
+
 export default function Unit(props) {
       const { unitsx, others } = props;
       /* const { ...rest } = props; */
@@ -39,28 +41,18 @@ export default function Unit(props) {
       const brandStars = useColorModeValue("brand.500", "brand.400");    
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
+      const [variable, setVariable] = useState('BASE')
       /* const [value, setValue] = useState(property.beds) */
-      const property = {
-        imageUrl: 'https://bit.ly/2Z4KKcF',
-        imageAlt: 'Rear view of modern home with pool',
-        beds: 3,
-        baths: 2,
-        title: 'Modern home in city center in the heart of historic Los Angeles',
-        formattedPrice: '$1,900.00',
-        reviewCount: 34,
-        rating: 4,
-      }
-      const [value, setValue] = useState(<ul>
-        <li>uno</li>
-        <li>dos</li>
-        <li>tres</li>
-      </ul>)
-      function handleChange(e) {
-        setUserReview(e.target.value);
-      }
-      const onChangex = (e) => {
-        setValue(e)
-      } 
+      /* const datos = useMemo(() => tableDataUnitsActivities, [tableDataUnitsActivities]); */
+
+      const datos = useMemo(() => {console.log('Calculando paridad...');
+                                   setVariable('otro');   
+                                   return variable %2 === 0;
+                                }, [variable]);
+
+      
+      
+      
     return (
       <>  
 
@@ -72,6 +64,10 @@ export default function Unit(props) {
         </ul>
         </>)} */}
         
+        {datos} 
+
+        <h1>VARIABLE : {variable} </h1>
+               
 
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
                     mt="5%">
