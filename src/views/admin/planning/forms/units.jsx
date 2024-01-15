@@ -107,47 +107,7 @@ export default function Unit(props) {
           </FormControl>          
         </SimpleGrid>        
 
-        <Flex mt="0%">
-          <Box  mt="2%" mr="2%" w='100%'
-                _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                transition="background-color 1s"
-                maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
-            <Box p='6'>              
-              <Box
-                mt='0'
-                fontWeight='semibold'
-                as='h4'
-                lineHeight='tight'
-                noOfLines={[3,5,7]}                
-              >              
-                <ListActivities/>
-              </Box>
-            </Box>
-          </Box>
-          <Box  mt="2%" mr="0%" w='100%'
-                /* bg="gray.50" */
-                _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                transition="background-color 1s"
-                /* _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                transition="background-color 1s" */
-                /* _hover={{ bg: 'blue.500' }}
-                transition="background-color 1s" */
-                maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
-            <Box p='6'>
-              <Box
-                mt='0'
-                fontWeight='semibold'
-                as='h4'
-                lineHeight='tight'
-                noOfLines={[3,5,7]}
-              > 
-                <Text isTruncated>
-                  <ListActivities/>
-                </Text>                
-              </Box>
-            </Box>
-          </Box>
-        </Flex>
+        
 
         {/* boton de crear actividad */}        
         <Box position='relative' padding='10'>
@@ -159,9 +119,13 @@ export default function Unit(props) {
         </Box>
         {/* ------------------------------- */}
 
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' mt="0%">
-          {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}
-          <SimpleGrid>
+        {/* <Flex mt="2%"> */}
+          {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}          
+          <SimpleGrid /* autoRows="100px" */
+                      /* gridTemplateColumns="repeat(3, 1fr)" */
+                      maxW="1280px"
+                      /* gap="4px" */
+                      /* margin="0 auto" */>
             <Heading size='md' /* fontSize='50px' */
                     htmlFor="course"
                     fontSize='sm' 
@@ -170,33 +134,7 @@ export default function Unit(props) {
                     mb="2%">
               Estrategia de Evaluacion
             </Heading>
-            <Box  mt="0%" mr="2%" w='100%'
-                  _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
-                  transition="background-color 1s"
-                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
-              <Box p='6'>              
-                <Box
-                  mt='0'
-                  fontWeight='semibold'
-                  as='h4'
-                  lineHeight='tight'
-                  noOfLines={[3,5,7]}                
-                >              
-                  <ListActivities/>
-                </Box>
-              </Box>
-            </Box>
-          </SimpleGrid>
-          <SimpleGrid>
-            <Heading size='md' /* fontSize='50px' */
-                    htmlFor="course"
-                    fontSize='sm' 
-                    fontWeight={'normal'}
-                    color={textColor}
-                    mb="2%">
-              Instrumento de Evaluacion
-            </Heading>
-            <Box  mt="0%" mr="0%" w='100%'
+            <Box  mt="0%" mr="0%" w='100%' 
                   /* bg="gray.50" */
                   _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
                   transition="background-color 1s"
@@ -204,7 +142,7 @@ export default function Unit(props) {
                   transition="background-color 1s" */
                   /* _hover={{ bg: 'blue.500' }}
                   transition="background-color 1s" */
-                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+                  maxW='6xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
               <Box p='6'>
                 <Box
                   mt='0'
@@ -221,7 +159,7 @@ export default function Unit(props) {
               </Box>
             </Box>
           </SimpleGrid>
-        </SimpleGrid>
+        {/* </Flex> */}
 
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' mt="2%">
           {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}
@@ -232,7 +170,7 @@ export default function Unit(props) {
                     fontWeight={'normal'}
                     color={textColor}
                     mb="2%">
-              Evidencia de Evaluacion
+              Instrumento de Evaluacion
             </Heading>
             <Box  mt="0%" mr="2%" w='100%'
                   _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
@@ -258,7 +196,7 @@ export default function Unit(props) {
                     fontWeight={'normal'}
                     color={textColor}
                     mb="2%">
-              Retroalimentacion
+              Tipo de Evaluacion
             </Heading>
             <Box  mt="0%" mr="0%" w='100%'
                   /* bg="gray.50" */
@@ -294,13 +232,35 @@ export default function Unit(props) {
           </AbsoluteCenter> */}
         </Box>
 
-        {/* <Flex mt="2%"> */}
-          {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}          
-          <SimpleGrid /* autoRows="100px" */
-                      /* gridTemplateColumns="repeat(3, 1fr)" */
-                      maxW="1280px"
-                      /* gap="4px" */
-                      /* margin="0 auto" */>
+        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' mt="0%">
+          {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}
+          <SimpleGrid>
+            <Heading size='md' /* fontSize='50px' */
+                    htmlFor="course"
+                    fontSize='sm' 
+                    fontWeight={'normal'}
+                    color={textColor}
+                    mb="2%">
+              Evidencia de Evaluacion
+            </Heading>
+            <Box  mt="0%" mr="2%" w='100%'
+                  _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
+                  transition="background-color 1s"
+                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+              <Box p='6'>              
+                <Box
+                  mt='0'
+                  fontWeight='semibold'
+                  as='h4'
+                  lineHeight='tight'
+                  noOfLines={[3,5,7]}                
+                >              
+                  <ListActivities/>
+                </Box>
+              </Box>
+            </Box>
+          </SimpleGrid>
+          <SimpleGrid>
             <Heading size='md' /* fontSize='50px' */
                     htmlFor="course"
                     fontSize='sm' 
@@ -309,7 +269,7 @@ export default function Unit(props) {
                     mb="2%">
               Retroalimentacion
             </Heading>
-            <Box  mt="0%" mr="0%" w='100%' 
+            <Box  mt="0%" mr="0%" w='100%'
                   /* bg="gray.50" */
                   _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
                   transition="background-color 1s"
@@ -317,7 +277,7 @@ export default function Unit(props) {
                   transition="background-color 1s" */
                   /* _hover={{ bg: 'blue.500' }}
                   transition="background-color 1s" */
-                  maxW='6xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
               <Box p='6'>
                 <Box
                   mt='0'
@@ -334,105 +294,72 @@ export default function Unit(props) {
               </Box>
             </Box>
           </SimpleGrid>
-        {/* </Flex> */}
+        </SimpleGrid>    
 
-        <Flex /* mt="5%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Evidencia de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Retroalimentacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
-
-          {/* <FormControl mt="2%" w='50%' >
-            <Card>
-              <CardHeader>
-                <Heading size='md'>Tipo de Evaluacion</Heading>
-              </CardHeader>
-              <CardBody>
-                  <RadioGroup onChange={setValue} value={value}>
-                    <Stack direction='row'>
-                      <Radio value='1'>Diagnostica</Radio>
-                      <Radio value='2' isChecked>Formativa</Radio>
-                      <Radio value='3'>Sumativa</Radio>
-                    </Stack>
-                  </RadioGroup>   
-              </CardBody>
-            </Card>
-          </FormControl> */}
-
-
-        <Flex /* mt="5%" */>
-          <FormControl  mt="2%" id="proposito" mr="0%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Tipo de Evaluacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>                    
-        </Flex>
-           
-
-        <Flex /* mt="3%" */>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
+        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))' mt="2%">
+          {/* <Heading as='h1' size='md' noOfLines={1}>I'm a Heading</Heading> */}
+          <SimpleGrid>
+            <Heading size='md' /* fontSize='50px' */
+                    htmlFor="course"
+                    fontSize='sm' 
+                    fontWeight={'normal'}
+                    color={textColor}
+                    mb="2%">
               Lapso/Entrega
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
+            </Heading>
+            <Box  mt="0%" mr="2%" w='100%'
+                  _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
+                  transition="background-color 1s"
+                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+              <Box p='6'>              
+                <Box
+                  mt='0'
+                  fontWeight='semibold'
+                  as='h4'
+                  lineHeight='tight'
+                  noOfLines={[3,5,7]}                
+                >              
+                  <ListActivities/>
+                </Box>
+              </Box>
+            </Box>
+          </SimpleGrid>
+          <SimpleGrid>
+            <Heading size='md' /* fontSize='50px' */
+                    htmlFor="course"
+                    fontSize='sm' 
+                    fontWeight={'normal'}
+                    color={textColor}
+                    mb="2%">
               Ponderacion/Calificacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </Flex>
+            </Heading>
+            <Box  mt="0%" mr="0%" w='100%'
+                  /* bg="gray.50" */
+                  _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
+                  transition="background-color 1s"
+                  /* _hover={{ bg: 'gray.800', transition: "background-color 3s" }}
+                  transition="background-color 1s" */
+                  /* _hover={{ bg: 'blue.500' }}
+                  transition="background-color 1s" */
+                  maxW='xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>           
+              <Box p='6'>
+                <Box
+                  mt='0'
+                  fontWeight='semibold'
+                  as='h4'
+                  lineHeight='tight'
+                  noOfLines={[3,5,7]}
+                > 
+                  {/* <Text isTruncated> */}
+                  <Text>
+                    <ListActivities/>
+                  </Text>                
+                </Box>
+              </Box>
+            </Box>
+          </SimpleGrid>
+        </SimpleGrid>      
+
 
           
       </>

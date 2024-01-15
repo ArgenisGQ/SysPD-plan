@@ -325,6 +325,23 @@ export default function Unit(props) {
             {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
           </FormControl>                    
         </Flex>
+
+        <Flex /* mt="5%" */>
+          <FormControl  mt="2%" id="proposito" mr="0%">
+            <FormLabel
+            htmlFor="course"
+            fontSize='sm' 
+            fontWeight={'normal'}
+            color={textColor}>
+              Tipo de Evaluacion
+            </FormLabel>
+            <Textarea rows={4} resize="none"
+              defaultValue="Post"
+              focusBorderColor="brand.400"
+              color={textColorSecondary} />
+            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+          </FormControl>                    
+        </Flex>
            
 
         <Flex /* mt="3%" */>
