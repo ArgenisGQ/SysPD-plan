@@ -34,6 +34,17 @@ export default function Unit(props) {
       const { unitsx, others } = props;
       /* const { ...rest } = props; */
       // Chakra color mode
+      const units = (unitsx - 1);
+      const datax = {
+        idd:        tableDataUnitsActivities[units].idd,
+        strategy:   tableDataUnitsActivities[units].strategy,
+        instrument: tableDataUnitsActivities[units].instrument,
+        type:       tableDataUnitsActivities[units].type,
+        evidence:   tableDataUnitsActivities[units].evidence,
+        feedback:   tableDataUnitsActivities[units].feedback,
+        lapse:      tableDataUnitsActivities[units].lapse,
+        weighing:   tableDataUnitsActivities[units].weighing
+     }
       const textColor = useColorModeValue("navy.700", "white");
       const textColorSecondary = "gray.400";
       const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -42,6 +53,7 @@ export default function Unit(props) {
       const [show, setShow] = useState(false)
       const handleClick = () => setShow(!show)
       const [variable, setVariable] = useState('BASE')
+      const [data, setData] = useState('no data')
       /* const [value, setValue] = useState(property.beds) */
       /* const datos = useMemo(() => tableDataUnitsActivities, [tableDataUnitsActivities]); */
 
@@ -50,7 +62,23 @@ export default function Unit(props) {
                                    return variable %2 === 0;
                                 }, [variable]);
 
+      /* dont work */
+      const dataLoad = useMemo(() =>{console.log('Cargando data..')
+                                     setData({
+                                        idd:        tableDataUnitsActivities[0].idd,
+                                        strategy:   tableDataUnitsActivities[units].strategy,
+                                        instrument: tableDataUnitsActivities[0].instrument,
+                                        type:       tableDataUnitsActivities[0].type,
+                                        evidence:   tableDataUnitsActivities[0].evidence,
+                                        feedback:   tableDataUnitsActivities[0].feedback,
+                                        lapse:      tableDataUnitsActivities[0].lapse,
+                                        weighing:   tableDataUnitsActivities[0].weighing
+                                     })
+                                     },[] )
+      /* -------- */                                 
       
+
+                                    
       
       
     return (
@@ -62,11 +90,12 @@ export default function Unit(props) {
           <li>dos</li>
           <li>tres</li>
         </ul>
-        </>)} */}
+        </>)} */} 
         
-        {datos} 
+        {datos}
+        {dataLoad}  
 
-        <h1>VARIABLE : {variable} </h1>
+        <h1>VARIABLE : {datax.strategy} </h1>
                
 
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
@@ -149,7 +178,7 @@ export default function Unit(props) {
                 > 
                   {/* <Text isTruncated> */}
                   <Text>
-                    <ListActivities/>
+                    <ListActivities units={unitsx} others="50"/>
                   </Text>                
                 </Box>
               </Box>

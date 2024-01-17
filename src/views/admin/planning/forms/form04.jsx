@@ -75,10 +75,10 @@ export default function Form03() {
 
             <Select variant='flushed' placeholder='Seleccione la Unidad'
                     value={ value } onChange={ (event) => setValue( event.target.value ) }>
-              <option value='unit01'>Unidad I</option>
-              <option value='unit02'>Unidad II</option>
-              <option value='unit03'>Unidad III</option>
-              <option value='unit04'>Unidad IV</option>
+              <option value='1'>Unidad I</option>
+              <option value='2'>Unidad II</option>
+              <option value='3'>Unidad III</option>
+              <option value='4'>Unidad IV</option>
             </Select>
           </Stack>
         </Center>
