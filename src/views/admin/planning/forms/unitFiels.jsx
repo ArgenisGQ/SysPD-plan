@@ -30,10 +30,21 @@ import {
 
 const UnitFiels = (props) => {
     const { unitsx, others } = props;
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    /* const { isOpen, onOpen, onClose } = useDisclosure() */
+    /* const { isOpenACtivities, onOpen, onClose } = useDisclosure() */
+
+    const modalCreate = useDisclosure();
+    const modalEdit = useDisclosure();
+    const modalDelete = useDisclosure();
 
     const initialRef = useRef(null)
     const finalRef = useRef(null)
+
+    const initialRefActivities = useRef(null)
+    const finalRefActivities = useRef(null)
+
+    const initialRefDelete = useRef(null)
+    const finalRefDelete = useRef(null)
 
     /* const sizes = 'full' */
     const sizes = '6xl'
@@ -47,9 +58,9 @@ const UnitFiels = (props) => {
     
     const [value, setValue] = useState(null);    
   return (<>
-    <Button onClick={onOpen} height='48px' width='450px'>Crear</Button>
-    <Button  height='48px' width='450px'>Editar</Button>
-    <Button  height='48px' width='450px'>Borrar</Button>
+    <Button onClick={modalCreate.onOpen} height='48px' width='450px'>Crear</Button>
+    <Button onClick={modalEdit.onOpen} height='48px' width='450px'>Editar</Button>
+    <Button onClick={modalDelete.onOpen} height='48px' width='450px'>Borrar</Button>
       {/* <Button ml={4} ref={finalRef}>
         I'll receive focus on close
       </Button> */}
@@ -57,8 +68,8 @@ const UnitFiels = (props) => {
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={modalCreate.isOpen}
+        onClose={modalCreate.onClose}
         size={sizes}
         scrollBehavior={scrollBehavior}
       >
@@ -204,9 +215,59 @@ const UnitFiels = (props) => {
             <Button colorScheme='blue' mr={3}>
               Guardar
             </Button>
-            <Button onClick={onClose}>Cancelar</Button>
+            <Button onClick={modalCreate.onClose}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
+      </Modal>
+
+      {/* ------------------------------------------------------------------------------- */}
+
+      <Modal
+        initialFocusRef={initialRefActivities}
+        finalFocusRef={finalRefActivities}
+        isOpen={modalEdit.isOpen}
+        onClose={modalEdit.onClose}
+        size={sizes}
+        scrollBehavior={scrollBehavior}>
+        <ModalOverlay/>
+        <ModalContent>
+          <ModalHeader>Seleccionar actividad a editar</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+              <h1>lista de actvidades para editar</h1>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3}>
+              Seleccion
+            </Button>
+            <Button onClick={modalEdit.onClose}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>        
+      </Modal>
+
+      {/* ------------------------------------------------------------------------------- */}
+
+      <Modal
+        initialFocusRef={initialRefDelete}
+        finalFocusRef={finalRefDelete}
+        isOpen={modalDelete.isOpen}
+        onClose={modalDelete.onClose}
+        size={sizes}
+        scrollBehavior={scrollBehavior}>
+        <ModalOverlay/>
+        <ModalContent>
+          <ModalHeader>Seleccionar actividad a editar</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+              <h1>lista de actvidades para borrar</h1>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3}>
+              Seleccion
+            </Button>
+            <Button onClick={modalDelete.onClose}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>        
       </Modal>
   </>)
 }
