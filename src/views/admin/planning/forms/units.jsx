@@ -145,7 +145,8 @@ export default function Unit(props) {
             fontWeight={'normal'}
             color={textColor}>
               {/* Competencia especifica <h1>U: {unitsx}</h1> */}
-              Competencia especifica --- U: {unitsx}
+              {/* Competencia especifica --- U: {unitsx} */}
+              Competencia especifica
             </FormLabel>
             {console.log()}
             <Textarea rows={4} resize="none"                           
