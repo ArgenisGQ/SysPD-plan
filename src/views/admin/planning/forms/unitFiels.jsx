@@ -47,7 +47,9 @@ const UnitFiels = (props) => {
     
     const [value, setValue] = useState(null);    
   return (<>
-    <Button onClick={onOpen} height='48px' width='400px'>Crear Actividad</Button>
+    <Button onClick={onOpen} height='48px' width='450px'>Crear</Button>
+    <Button  height='48px' width='450px'>Editar</Button>
+    <Button  height='48px' width='450px'>Borrar</Button>
       {/* <Button ml={4} ref={finalRef}>
         I'll receive focus on close
       </Button> */}
@@ -144,58 +146,58 @@ const UnitFiels = (props) => {
               </FormControl>          
             </SimpleGrid>
 
-          <FormControl mt="2%" w='50%' >
-            <Card
-              /* direction={{ base: 'column', sm: 'row' }} */
-              /* overflow='hidden' */
-              /* variant='outline' */>
-              <CardHeader>
-                <Heading size='md'>Tipo de Evaluacion</Heading>
-              </CardHeader>
+            <FormControl mt="2%" w='50%' >
+              <Card
+                /* direction={{ base: 'column', sm: 'row' }} */
+                /* overflow='hidden' */
+                /* variant='outline' */>
+                <CardHeader>
+                  <Heading size='md'>Tipo de Evaluacion</Heading>
+                </CardHeader>
 
-              <CardBody>
+                <CardBody>
 
-                  <RadioGroup onChange={setValue} value={value}>
-                    <Stack direction='row'>
-                      <Radio value='1'>Diagnostica</Radio>
-                      <Radio value='2' isChecked>Formativa</Radio> {/* isChecked is only for testing */}
-                      <Radio value='3'>Sumativa</Radio>
-                    </Stack>
-                  </RadioGroup>   
-              </CardBody>
-            </Card>
-          </FormControl>         
+                    <RadioGroup onChange={setValue} value={value}>
+                      <Stack direction='row'>
+                        <Radio value='1'>Diagnostica</Radio>
+                        <Radio value='2' isChecked>Formativa</Radio> {/* isChecked is only for testing */}
+                        <Radio value='3'>Sumativa</Radio>
+                      </Stack>
+                    </RadioGroup>   
+                </CardBody>
+              </Card>
+            </FormControl>         
 
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))'>
-          <FormControl  mt="2%" id="proposito" mr="2%">
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Lapso/Entrega
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>
-          <FormControl  mt="2%" id="proposito" /* mr="2%" */>
-            <FormLabel
-            htmlFor="course"
-            fontSize='sm' 
-            fontWeight={'normal'}
-            color={textColor}>
-              Ponderacion/Calificacion
-            </FormLabel>
-            <Textarea rows={4} resize="none"
-              defaultValue="Post"
-              focusBorderColor="brand.400"
-              color={textColorSecondary} />
-            {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-          </FormControl>          
-        </SimpleGrid>
+            <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(380px, 1fr))'>
+              <FormControl  mt="2%" id="proposito" mr="2%">
+                <FormLabel
+                htmlFor="course"
+                fontSize='sm' 
+                fontWeight={'normal'}
+                color={textColor}>
+                  Lapso/Entrega
+                </FormLabel>
+                <Textarea rows={4} resize="none"
+                  defaultValue="Post"
+                  focusBorderColor="brand.400"
+                  color={textColorSecondary} />
+                {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+              </FormControl>
+              <FormControl  mt="2%" id="proposito" /* mr="2%" */>
+                <FormLabel
+                htmlFor="course"
+                fontSize='sm' 
+                fontWeight={'normal'}
+                color={textColor}>
+                  Ponderacion/Calificacion
+                </FormLabel>
+                <Textarea rows={4} resize="none"
+                  defaultValue="Post"
+                  focusBorderColor="brand.400"
+                  color={textColorSecondary} />
+                {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
+              </FormControl>          
+            </SimpleGrid>
           </ModalBody>
 
           <ModalFooter>

@@ -131,9 +131,9 @@ export default function Unit(props) {
         {datos}
         {dataLoad}
         {/* {console.log(datay.activity)} */}
-        {console.log(unitsx)}  
 
-        <h1>VARIABLE : {datax.strategy} </h1>
+        {/* {console.log(unitsx)}   */}
+        {/* <h1>VARIABLE : {datax.strategy} </h1> */}
                
 
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(400px, 1fr))'
@@ -172,7 +172,15 @@ export default function Unit(props) {
 
         
 
-        {/* boton de crear actividad */}        
+        {/* boton de crear actividad */}
+        <Box position='relative' mt="4%">
+          <Flex alignItems="center" gap={6}>
+            <Divider size={10} />
+              <h1>ACTIVIDADES</h1>
+            <Divider/>
+          </Flex> 
+        </Box>
+
         <Box position='relative' padding='10'>
           <Flex alignItems="center" gap={6}>
             <Divider size={10} />

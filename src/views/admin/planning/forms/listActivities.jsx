@@ -4,7 +4,9 @@ import tableDataUnitsActivities from '../../../admin/planning/variables/tableDat
 
 import tableDataUnitsActivities2 from '../../../admin/planning/variables/tableDataUnitsActivities2.json'
 
-
+import {
+  Tooltip,  
+} from "@chakra-ui/react";
   
 const ListActivities= (props) => {
     const { units, data } = props;
@@ -53,9 +55,16 @@ const ListActivities= (props) => {
                    ); */
 
     const listItems = data.map((unitx) =>
-                      <li key={unitx}>
-                        {unitx}
-                      </li>
+                      <>
+                        <Tooltip  label={unitx}
+                                  openDelay={500}
+                                  closeDelay={500}
+                                  hasArrow arrowSize={15} >
+                          <li key={unitx}>
+                              {unitx}           
+                          </li>
+                        </Tooltip>
+                      </>
                       );
     return (<>
         {/* {console.log([datoy])}
