@@ -30,6 +30,8 @@ import ListActivities from './listActivities';
 
 import tableDataUnitsActivities from '../../../admin/planning/variables/tableDataUnitsActivities.json'
 
+import tableDataUnitsActivities2 from '../../../admin/planning/variables/tableDataUnitsActivities2.json'
+
 export default function Unit(props) {
       const { unitsx, others } = props;
       /* const { ...rest } = props; */
@@ -44,7 +46,41 @@ export default function Unit(props) {
         feedback:   tableDataUnitsActivities[units].feedback,
         lapse:      tableDataUnitsActivities[units].lapse,
         weighing:   tableDataUnitsActivities[units].weighing
-     }
+      }
+      const datay = {
+        activity:   [   tableDataUnitsActivities2[units].activity[0].activity,
+                        tableDataUnitsActivities2[units].activity[1].activity,
+                        tableDataUnitsActivities2[units].activity[2].activity
+                    ],
+        strategy:   [   tableDataUnitsActivities2[units].activity[0].strategy,
+                        tableDataUnitsActivities2[units].activity[1].strategy,
+                        tableDataUnitsActivities2[units].activity[2].strategy
+                    ],
+        instrument: [   tableDataUnitsActivities2[units].activity[0].instrument,
+                        tableDataUnitsActivities2[units].activity[1].instrument,
+                        tableDataUnitsActivities2[units].activity[2].instrument
+                    ], 
+        type:       [   tableDataUnitsActivities2[units].activity[0].type,
+                        tableDataUnitsActivities2[units].activity[1].type,
+                        tableDataUnitsActivities2[units].activity[2].type
+                    ],
+        evidence:   [   tableDataUnitsActivities2[units].activity[0].evidence,
+                        tableDataUnitsActivities2[units].activity[1].evidence,
+                        tableDataUnitsActivities2[units].activity[2].evidence
+                    ],
+        feedback:   [   tableDataUnitsActivities2[units].activity[0].feedback,
+                        tableDataUnitsActivities2[units].activity[1].feedback,
+                        tableDataUnitsActivities2[units].activity[2].feedback
+                    ],
+        lapse:      [   tableDataUnitsActivities2[units].activity[0].lapse,
+                        tableDataUnitsActivities2[units].activity[1].lapse,
+                        tableDataUnitsActivities2[units].activity[2].lapse
+                    ],
+        weighing:   [   tableDataUnitsActivities2[units].activity[0].weighing,
+                        tableDataUnitsActivities2[units].activity[1].weighing,
+                        tableDataUnitsActivities2[units].activity[2].weighing
+                    ],
+      }
       const textColor = useColorModeValue("navy.700", "white");
       const textColorSecondary = "gray.400";
       const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -77,7 +113,7 @@ export default function Unit(props) {
                                      },[] )
       /* -------- */                                 
       
-
+                                       
                                     
       
       
@@ -93,7 +129,9 @@ export default function Unit(props) {
         </>)} */} 
         
         {datos}
-        {dataLoad}  
+        {dataLoad}
+        {/* {console.log(datay.activity)} */}
+        {console.log(unitsx)}  
 
         <h1>VARIABLE : {datax.strategy} </h1>
                
@@ -178,7 +216,7 @@ export default function Unit(props) {
                 > 
                   {/* <Text isTruncated> */}
                   <Text>
-                    <ListActivities units={unitsx} others="50"/>
+                    <ListActivities units={unitsx} data={datay.strategy}/>
                   </Text>                
                 </Box>
               </Box>
@@ -209,7 +247,7 @@ export default function Unit(props) {
                   lineHeight='tight'
                   noOfLines={[3,5,7]}                
                 >              
-                  <ListActivities/>
+                  <ListActivities units={unitsx} data={datay.instrument}/>
                 </Box>
               </Box>
             </Box>
@@ -242,7 +280,7 @@ export default function Unit(props) {
                 > 
                   {/* <Text isTruncated> */}
                   <Text>
-                    <ListActivities/>
+                    <ListActivities units={unitsx} data={datay.type}/>
                   </Text>                
                 </Box>
               </Box>
@@ -280,7 +318,7 @@ export default function Unit(props) {
                   lineHeight='tight'
                   noOfLines={[3,5,7]}                
                 >              
-                  <ListActivities/>
+                  <ListActivities units={unitsx} data={datay.evidence}/>
                 </Box>
               </Box>
             </Box>
@@ -313,7 +351,7 @@ export default function Unit(props) {
                 > 
                   {/* <Text isTruncated> */}
                   <Text>
-                    <ListActivities/>
+                    <ListActivities units={unitsx} data={datay.feedback}/>
                   </Text>                
                 </Box>
               </Box>
@@ -344,7 +382,7 @@ export default function Unit(props) {
                   lineHeight='tight'
                   noOfLines={[3,5,7]}                
                 >              
-                  <ListActivities/>
+                  <ListActivities units={unitsx} data={datay.lapse}/>
                 </Box>
               </Box>
             </Box>
@@ -377,7 +415,7 @@ export default function Unit(props) {
                 > 
                   {/* <Text isTruncated> */}
                   <Text>
-                    <ListActivities/>
+                    <ListActivities units={unitsx} data={datay.weighing}/>
                   </Text>                
                 </Box>
               </Box>

@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, { useState, useMemo } from 'react' 
 
 import tableDataUnitsActivities from '../../../admin/planning/variables/tableDataUnitsActivities.json'
 
@@ -7,7 +7,11 @@ import tableDataUnitsActivities2 from '../../../admin/planning/variables/tableDa
 
   
 const ListActivities= (props) => {
-    const { units, others } = props;
+    const { units, data } = props;
+
+    /* const [unitsx,useUnitsx] = useState({units}); */
+
+    const unitx = useMemo(() => units, [units]);
     
     const numbers = ["1 - uno dos tres uno dos tres uno dos tres uno dos tres ",
                      "2 - uno dos tres uno dos tres",
@@ -48,15 +52,17 @@ const ListActivities= (props) => {
                      </li>
                    ); */
 
-    const listItems = datoyy.map((unitx) =>
+    const listItems = data.map((unitx) =>
                       <li key={unitx}>
-                        {unitx} - abc
+                        {unitx}
                       </li>
                       );
     return (<>
-        {console.log([datoy])}
+        {/* {console.log([datoy])}
         {console.log(datoxx[0][0].activity[0].strategy)}
-        {console.log(datoyy)}
+        {console.log(datoyy)} */}
+        {console.log("datos :",{data})}
+        {console.log("unidad :",{units})}
         <ul>{listItems}</ul>
     </>        
     )
