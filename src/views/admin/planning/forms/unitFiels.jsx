@@ -227,7 +227,7 @@ const UnitFiels = (props) => {
         finalFocusRef={finalRefActivities}
         isOpen={modalEdit.isOpen}
         onClose={modalEdit.onClose}
-        size={sizes}
+        size="sm"
         scrollBehavior={scrollBehavior}>
         <ModalOverlay/>
         <ModalContent>
@@ -252,7 +252,7 @@ const UnitFiels = (props) => {
         finalFocusRef={finalRefDelete}
         isOpen={modalDelete.isOpen}
         onClose={modalDelete.onClose}
-        size={sizes}
+        size="sm"
         scrollBehavior={scrollBehavior}>
         <ModalOverlay/>
         <ModalContent>
