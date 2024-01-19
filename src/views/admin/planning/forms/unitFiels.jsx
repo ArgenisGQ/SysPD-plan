@@ -174,7 +174,7 @@ const UnitFiels = (props) => {
         finalFocusRef={finalRefDelete}
         isOpen={modalDelete.isOpen}
         onClose={modalDelete.onClose}
-        size="sm"
+        size="md"
         scrollBehavior={scrollBehavior}>
         <ModalOverlay/>
         <ModalContent>
@@ -188,8 +188,9 @@ const UnitFiels = (props) => {
                   {/* <Select variant='flushed' placeholder='Flushed' /> */}
                   {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
 
-                  <Select variant='flushed' placeholder='Seleccione la Unidad'
-                          value={ valueEdit } onChange={ (event) => setValueEdit( event.target.value ) }>
+                  <Select variant='flushed' placeholder='Seleccione la Unidad' w='160%'
+                          value={ valueEdit } 
+                          onChange={ (event) => setValueEdit( event.target.value ) }>
                     <option value='1'>Actividad 1</option>
                     <option value='2'>Actividad 2</option>
                     <option value='3'>Actividad 3</option>                    

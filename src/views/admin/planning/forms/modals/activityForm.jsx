@@ -202,7 +202,7 @@ const ActivityForm = (props) => {
                 {console.log({valueWeek})}
                 {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
               </FormControl>
-              <FormControl  mt="2%" id="proposito" /* mr="2%" */>
+              <FormControl  mt="2%" id="propositooo" /* mr="2%" */>
                 <FormLabel
                 htmlFor="course"
                 fontSize='sm' 
@@ -235,6 +235,7 @@ const ActivityForm = (props) => {
                     color={textColorSecondary} /> */}
                       
                 </FormControl>
+
                       <NumberInput 
                         /* defaultValue={25}  */
                         size='lg' 
@@ -251,6 +252,7 @@ const ActivityForm = (props) => {
                         /* clampValueOnBlur={false} */>
                         {/* {console.log("corte 4-2: ", parseInt(valueCor4))} */}
                         {console.log({valuePoints})}
+
                         <NumberInputField />
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -258,7 +260,8 @@ const ActivityForm = (props) => {
                         </NumberInputStepper>
                       </NumberInput>
                 {/* <FormHelperText color="subtle">Escriba el proposito de la asignatura</FormHelperText> */}
-              </FormControl>          
+              </FormControl>
+                        
             </SimpleGrid>
   </>)
 }
