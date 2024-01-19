@@ -37,16 +37,7 @@ export default function Unit(props) {
       /* const { ...rest } = props; */
       // Chakra color mode
       const units = (unitsx - 1);
-      const datax = {
-        idd:        tableDataUnitsActivities[units].idd,
-        strategy:   tableDataUnitsActivities[units].strategy,
-        instrument: tableDataUnitsActivities[units].instrument,
-        type:       tableDataUnitsActivities[units].type,
-        evidence:   tableDataUnitsActivities[units].evidence,
-        feedback:   tableDataUnitsActivities[units].feedback,
-        lapse:      tableDataUnitsActivities[units].lapse,
-        weighing:   tableDataUnitsActivities[units].weighing
-      }
+     
       const datay = {
         activity:   [   tableDataUnitsActivities2[units].activity[0].activity,
                         tableDataUnitsActivities2[units].activity[1].activity,
@@ -91,45 +82,9 @@ export default function Unit(props) {
       const [variable, setVariable] = useState('BASE')
       const [data, setData] = useState('no data')
       /* const [value, setValue] = useState(property.beds) */
-      /* const datos = useMemo(() => tableDataUnitsActivities, [tableDataUnitsActivities]); */
-
-      const datos = useMemo(() => {console.log('Calculando paridad...');
-                                   setVariable('otro');   
-                                   return variable %2 === 0;
-                                }, [variable]);
-
-      /* dont work */
-      const dataLoad = useMemo(() =>{console.log('Cargando data..')
-                                     setData({
-                                        idd:        tableDataUnitsActivities[0].idd,
-                                        strategy:   tableDataUnitsActivities[units].strategy,
-                                        instrument: tableDataUnitsActivities[0].instrument,
-                                        type:       tableDataUnitsActivities[0].type,
-                                        evidence:   tableDataUnitsActivities[0].evidence,
-                                        feedback:   tableDataUnitsActivities[0].feedback,
-                                        lapse:      tableDataUnitsActivities[0].lapse,
-                                        weighing:   tableDataUnitsActivities[0].weighing
-                                     })
-                                     },[] )
-      /* -------- */                                 
-      
-                                       
-                                    
-      
       
     return (
       <>  
-
-        {/* {() => setValue(<>
-        <ul>
-          <li>uno</li>
-          <li>dos</li>
-          <li>tres</li>
-        </ul>
-        </>)} */} 
-        
-        {datos}
-        {dataLoad}
         {/* {console.log(datay.activity)} */}
 
         {/* {console.log(unitsx)}   */}

@@ -25,7 +25,9 @@ import {
     ModalCloseButton,
     useDisclosure,  
     Input,
-    SimpleGrid,  
+    SimpleGrid,
+    Center,
+    Select  
   } from '@chakra-ui/react'
 
 const UnitFiels = (props) => {
@@ -56,7 +58,8 @@ const UnitFiels = (props) => {
     const textColorBrand = useColorModeValue("brand.500", "white");
     const brandStars = useColorModeValue("brand.500", "brand.400");
     
-    const [value, setValue] = useState(null);    
+    const [value, setValue] = useState(null);
+    const [valueEdit, setValueEdit] = useState(null);      
   return (<>
     <Button onClick={modalCreate.onOpen} height='48px' width='450px'>Crear</Button>
     <Button onClick={modalEdit.onOpen} height='48px' width='450px'>Editar</Button>
@@ -234,7 +237,25 @@ const UnitFiels = (props) => {
           <ModalHeader>Seleccionar actividad a editar</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-              <h1>lista de actvidades para editar</h1>
+              <Center>
+                <h1>lista de actividades para editar</h1>
+              </Center>               
+              <Center mt="5%">               
+                <Stack spacing={3} mt="2%"  w='50%' mr="5%">
+                  {/* <Select variant='outline' placeholder='Outline' /> */}
+                  {/* <Select variant='filled' placeholder='Filled' /> */}
+                  {/* <Select variant='flushed' placeholder='Flushed' /> */}
+                  {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
+
+                  <Select variant='flushed' placeholder='Seleccione la Unidad'
+                          value={ valueEdit } onChange={ (event) => setValueEdit( event.target.value ) }>
+                    <option value='1'>Actividad 1</option>
+                    <option value='2'>Actividad 2</option>
+                    <option value='3'>Actividad 3</option>                    
+                  </Select>
+                </Stack>
+              </Center>
+              {console.log({valueEdit})}
           </ModalBody>
           <ModalFooter>
             <Button colorScheme='blue' mr={3}>
