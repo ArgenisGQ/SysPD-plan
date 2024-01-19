@@ -27,7 +27,11 @@ import {
     Input,
     SimpleGrid,
     Center,
-    Select  
+    Select,
+    Editable,
+    EditableInput,
+    EditableTextarea,
+    EditablePreview,  
   } from '@chakra-ui/react'
 
 const ActivityForm = (props) => {
@@ -70,6 +74,15 @@ const ActivityForm = (props) => {
                 color={textColor}>
                   Competencia especifica{/*  <h1>U: {unitsx}</h1> */}
                 </FormLabel>
+                {/* <Editable defaultValue='Take some chakra'
+                  rows={4} resize="none"
+                  borderWidth='1px' borderRadius='lg'                 
+                  focusBorderColor="brand.400"
+                  color={textColorSecondary}
+                  >
+                  <EditablePreview />
+                  <EditableTextarea />
+                </Editable> */}
                 <Textarea rows={4} resize="none"
                   defaultValue="Post"
                   focusBorderColor="brand.400"

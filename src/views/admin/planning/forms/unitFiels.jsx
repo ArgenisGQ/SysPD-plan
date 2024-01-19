@@ -159,7 +159,7 @@ const UnitFiels = (props) => {
            {/*  <Button onClick={modalActivityEdit.onOpen} colorScheme='blue' mr={3}>
               Seleccion aa
             </Button>  */}
-            <Button onClick={modalActivityEdit.onOpen} colorScheme='blue' mr={3}>
+            <Button  colorScheme='blue' mr={3}>
               Guardar
             </Button>  
             <Button onClick={modalEdit.onClose}>Cancelar</Button>
@@ -174,18 +174,32 @@ const UnitFiels = (props) => {
         finalFocusRef={finalRefDelete}
         isOpen={modalDelete.isOpen}
         onClose={modalDelete.onClose}
-        size={sizes}
+        size="sm"
         scrollBehavior={scrollBehavior}>
         <ModalOverlay/>
         <ModalContent>
-          <ModalHeader>Seleccionar actividad a editar</ModalHeader>
+          <ModalHeader>Seleccionar actividad a borrar</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-              <h1>lista de actividades para borrar</h1>
-          </ModalBody>
+              <Center mt="1%">               
+                <Stack spacing={3} mt="2%"  w='30%' mr="5%">
+                  {/* <Select variant='outline' placeholder='Outline' /> */}
+                  {/* <Select variant='filled' placeholder='Filled' /> */}
+                  {/* <Select variant='flushed' placeholder='Flushed' /> */}
+                  {/* <Select variant='unstyled' placeholder='Unstyled' /> */}
+
+                  <Select variant='flushed' placeholder='Seleccione la Unidad'
+                          value={ valueEdit } onChange={ (event) => setValueEdit( event.target.value ) }>
+                    <option value='1'>Actividad 1</option>
+                    <option value='2'>Actividad 2</option>
+                    <option value='3'>Actividad 3</option>                    
+                  </Select>
+                </Stack>
+              </Center>
+          </ModalBody> 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
-              Seleccion
+            <Button colorScheme='red' mr={3}>
+              borrar
             </Button>
             <Button onClick={modalDelete.onClose}>Cancelar</Button>
           </ModalFooter>
