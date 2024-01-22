@@ -12,6 +12,7 @@ import {
   Button,
   Checkbox,
   Flex,
+  FormErrorMessage,
   FormControl,
   FormLabel,
   Heading,
@@ -161,8 +162,10 @@ function SignIn() {
                   /* maxLength: 10 */
                 })}
               />
-              {errors.email?.type === 'required' && <p>El campo nombre es requerido</p>}
-              {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
+              <FormErrorMessage>
+                {errors.email?.type === 'required' && <p>Email requerido!</p>}
+                {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
+              </FormErrorMessage>
               <FormLabel
                 ms='4px'
                 fontSize='sm'
@@ -186,7 +189,9 @@ function SignIn() {
                     maxLength: 10
                   })}
                 />
-                {errors.password?.type === 'required' && <p>El campo nombre es requerido</p>}
+                <FormErrorMessage>
+                  {errors.password?.type === 'required' && <p>Password requerido!</p>}
+                </FormErrorMessage>
                 <InputRightElement display='flex' alignItems='center' mt='4px'>
                   <Icon
                     color={textColorSecondary}

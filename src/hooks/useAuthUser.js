@@ -112,10 +112,15 @@ const useAuthUser = (data) => {
               /* setUserAuth('user'); */
               setUserStatus(status);
               setUserToken(token);
-              navigate('/');
+              if (status === "success") {
+                navigate('/');
+              } else { 
+                navigate('/login');
+              }              
             },
             onError: (error) => {
-              console.log(error);
+              console.log("Errores(hook):",error);
+              /* navigate('/login'); */
             },
             onSettled: (response) => {
               queryClient.setQueryData("status",response.status);

@@ -74,11 +74,12 @@ function AppRouter() {
                 {/* <Route path='/' element={<LayoutAdmin />} >  */}
                       
                       <Route exact path='/'           element={< HomePages/>}/>                      
-                      <Route exact path='/login'      element={< Login/>}/>
+                      {/* <Route exact path='/login'      element={< Login/>}/> */}
+                      <Route exact path='/login'      element={< SignInCentered/>}/>
                       {/* <Route path='/login01'    element={< Login01Base/>}/> */}
-                      <Route exact path='/login02'    element={< Login02Base/>}/>
-                      <Route exact path='/login03'    element={< Login03Base/>}/>
-                      <Route exact path='/login04'    element={< Login04Base/>}/>
+                      {/* <Route exact path='/login02'    element={< Login02Base/>}/> */}
+                      {/* <Route exact path='/login03'    element={< Login03Base/>}/> */}
+                      {/* <Route exact path='/login04'    element={< Login04Base/>}/> */}
                       <Route exact path='/pagination'    element={< Pagination/>}/>
                       {/* <Route path='/register'   element={< Register/>}/> */}
                       {/* <Route exact path='/all'        element={< AllUsers/>}/> */}
