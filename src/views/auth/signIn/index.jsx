@@ -1,28 +1,11 @@
 /* eslint-disable */
 /*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
-
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2023 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
 
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import {NavLink}  from "react-router-dom";
+import {useForm} from "react-hook-form";
 // Chakra imports
 import {
   Box,
@@ -48,6 +31,7 @@ import illustration from "../../../assets/img/auth/home-bg.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
+import useAuthUser from '../../../hooks/useAuthUser';
 
 function SignIn() {
   // Chakra color mode
@@ -68,6 +52,27 @@ function SignIn() {
   );
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  /* ---------------------------------- */
+  const { 
+    register, handleSubmit,watch,  
+    formState: { errors, isSubmitting },                
+                } = useForm({
+    /* defaultValues: {
+        email: 'email@email.com',
+        password: 'password'
+    } */      
+    });
+  const onSubmit = (data) => {
+    console.log("Loging...!!");
+
+    Login5(data);
+
+    console.log("user: ",userAuth);
+    console.log("status: ",userStatus);
+    console.log("token: ",userToken);
+  }
+  const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();
+  /* ---------------------------------- */
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -128,90 +133,108 @@ function SignIn() {
             </Text> */}
             <HSeparator />
           </Flex>
-          <FormControl>
-            <FormLabel
-              display='flex'
-              ms='4px'
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              mb='8px'>
-              Email<Text color={brandStars}>*</Text>
-            </FormLabel>
-            <Input
-              isRequired={true}
-              variant='auth'
-              fontSize='sm'
-              ms={{ base: "0px", md: "0px" }}
-              type='email'
-              placeholder='mail@uny.edu.ve'
-              mb='24px'
-              fontWeight='500'
-              size='lg'
-            />
-            <FormLabel
-              ms='4px'
-              fontSize='sm'
-              fontWeight='500'
-              color={textColor}
-              display='flex'>
-              Contraseña<Text color={brandStars}>*</Text>
-            </FormLabel>
-            <InputGroup size='md'>
-              <Input
-                isRequired={true}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <FormControl>
+              <FormLabel
+                display='flex'
+                ms='4px'
                 fontSize='sm'
-                placeholder='Minimo 8 caracteres'
-                mb='24px'
-                size='lg'
-                type={show ? "text" : "password"}
+                fontWeight='500'
+                color={textColor}
+                mb='8px'>
+                Email<Text color={brandStars}>*</Text>
+              </FormLabel>
+              <Input
+                id="email"
+                /* isRequired={true} */
                 variant='auth'
+                fontSize='sm'
+                ms={{ base: "0px", md: "0px" }}
+                type='email'
+                placeholder='mail@uny.edu.ve'
+                mb='24px'
+                fontWeight='500'
+                size='lg'
+                {...register('email', {
+                  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                  required: true,
+                  /* maxLength: 10 */
+                })}
               />
-              <InputRightElement display='flex' alignItems='center' mt='4px'>
-                <Icon
-                  color={textColorSecondary}
-                  _hover={{ cursor: "pointer" }}
-                  as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
-                  onClick={handleClick}
-                />
-              </InputRightElement>
-            </InputGroup>
-            <Flex justifyContent='space-between' align='center' mb='24px'>
-              <FormControl display='flex' alignItems='center'>
-                <Checkbox
-                  id='remember-login'
-                  colorScheme='brandScheme'
-                  me='10px'
-                />
-                <FormLabel
-                  htmlFor='remember-login'
-                  mb='0'
-                  fontWeight='normal'
-                  color={textColor}
-                  fontSize='sm'>
-                  Mantenerse conectado
-                </FormLabel>
-              </FormControl>
-              <NavLink to='/auth/forgot-password'>
-                <Text
-                  color={textColorBrand}
+              {errors.email?.type === 'required' && <p>El campo nombre es requerido</p>}
+              {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='500'
+                color={textColor}
+                display='flex'>
+                Contraseña<Text color={brandStars}>*</Text>
+              </FormLabel>
+              <InputGroup size='md'>
+                <Input
+                  id="password"
+                  /* isRequired={true} */
                   fontSize='sm'
-                  w='124px'
-                  fontWeight='500'>
-                  Olvido la clave?
-                </Text>
-              </NavLink>
-            </Flex>
-            <Button
-              fontSize='sm'
-              variant='brand'
-              fontWeight='500'
-              w='100%'
-              h='50'
-              mb='24px'>
-              Conectar
-            </Button>
-          </FormControl>
+                  placeholder='Minimo 8 caracteres'
+                  mb='24px'
+                  size='lg'
+                  type={show ? "text" : "password"}
+                  variant='auth'
+                  {...register('password', {
+                    required: true,
+                    maxLength: 10
+                  })}
+                />
+                {errors.password?.type === 'required' && <p>El campo nombre es requerido</p>}
+                <InputRightElement display='flex' alignItems='center' mt='4px'>
+                  <Icon
+                    color={textColorSecondary}
+                    _hover={{ cursor: "pointer" }}
+                    as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
+                    onClick={handleClick}
+                  />
+                </InputRightElement>
+              </InputGroup>
+              <Flex justifyContent='space-between' align='center' mb='24px'>
+                <FormControl display='flex' alignItems='center'>
+                  <Checkbox
+                    id='remember-login'
+                    colorScheme='brandScheme'
+                    me='10px'
+                  />
+                  <FormLabel
+                    htmlFor='remember-login'
+                    mb='0'
+                    fontWeight='normal'
+                    color={textColor}
+                    fontSize='sm'>
+                    Mantenerse conectado
+                  </FormLabel>
+                </FormControl>
+                <NavLink to='/auth/forgot-password'>
+                  <Text
+                    color={textColorBrand}
+                    fontSize='sm'
+                    w='124px'
+                    fontWeight='500'>
+                    Olvido la clave?
+                  </Text>
+                </NavLink>
+              </Flex>
+              <Button
+                fontSize='sm'
+                variant='brand'
+                fontWeight='500'
+                w='100%'
+                h='50'
+                mb='24px'
+                isLoading={isSubmitting}
+                type='submit'>
+                Conectar
+              </Button>
+            </FormControl>
+          </form>  
           <Flex
             flexDirection='column'
             justifyContent='center'
