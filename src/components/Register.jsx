@@ -4,6 +4,7 @@ import axios from '../services/axios';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
 import UserContext from '../context/UserContext';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 function Register() {
     const [username, setUsername] = useState("");
@@ -22,6 +23,7 @@ function Register() {
         
     }, []); */
 
+    const queryClient = useQueryClient();
     const dato  = useContext(UserContext);
     console.log('dato de prueba:',dato);
 
@@ -52,40 +54,42 @@ function Register() {
         } */        
     });
     const onRegister = async data => {
-    console.log(data);
-    const [username, name, email, password ] = [data.username, 
-                                                data.name, 
-                                                data.email, 
-                                                data.password ];    
-    /* data.preventDefault(); */
-    try {
-      await axios.post('/register', 
-      {username, name, email, password},
-      {
-          headers: {
-            'Authorization': `Bearer ${sessionStorage.accessToken}` 
-          }
-      });
-      setUsername('');
-      setName('');
-      setEmail('');
-      setPassword('');
-      navigate('/all');
-      console.log("registrado...");    
-    } catch (e) {
-      /* console.log(e.response.data.message); */
-      /* if (e.response.status === 401) {
-        setErrors(e.response.data.message);
-      } */
-      /* setErrors(e.response.status) */
-      /* setErrors(e.response.data.message) */
-      /* console.log(register);   */    
-      /* console.log(errors.email); */
-      
-      swal(e.response.data.message);
-    }
-    console.log(errors.password);
-  };
+            console.log(data);
+            const [username, name, email, password ] = [data.username, 
+                                                        data.name, 
+                                                        data.email, 
+                                                        data.password ];    
+            /* data.preventDefault(); */
+            try {
+            await axios.post('/register', 
+            {username, name, email, password},
+            {
+                headers: {
+                    /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
+                    'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
+                }
+            });
+            setUsername('');
+            setName('');
+            setEmail('');
+            setPassword('');
+            navigate('/all');
+            console.log("registrado...");    
+            } catch (e) {
+            /* console.log(e.response.data.message); */
+            /* if (e.response.status === 401) {
+                setErrors(e.response.data.message);
+            } */
+            /* setErrors(e.response.status) */
+            /* setErrors(e.response.data.message) */
+            /* console.log(register);   */    
+            /* console.log(errors.email); */
+            
+            swal(e.response.data.message);
+            }
+            console.log("error: ",errors.password);
+        };
+
   return (
     <div className='min-h-screen flex flex-col items-center justify-center bg-gray-300'>
         <form className="w-full max-w-lg" onSubmit={handleSubmit(onRegister)}>

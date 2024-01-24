@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 const endpoint = 'http://127.0.0.1:8000/api'
 
 
 function AllUsers() {
 /* const AllUsersre = () => { */
     const [ users, setUsers ] = useState( [] )
+    const queryClient = useQueryClient();
     /* console.log('hi');  */
     /* useEffect( ()=>{
         getAllUsers()
@@ -28,7 +30,8 @@ function AllUsers() {
             const result = await axios.get(`${endpoint}/index`,
             {
                 headers: {
-                  'Authorization': `Bearer ${sessionStorage.accessToken}` 
+                  /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
+                  'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
                 }
             })
             /* console.log(result.data); */
