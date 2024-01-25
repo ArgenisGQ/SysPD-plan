@@ -11,7 +11,9 @@ function HomePages() {
     const { userAuth, Logout5 } = useAuthUser(); 
     const queryClient = useQueryClient();
     const statusLogg = queryClient.getQueryData(["status"]);
-    console.log("status en homepage: ",statusLogg);    
+    const tokenLogg = queryClient.getQueryData(["userAuth"]);
+    console.log("status en homepage: ",statusLogg);
+    console.log("token en homepage: ",tokenLogg);     
 
     const logout = () => {
         console.log("iniciando logout...");

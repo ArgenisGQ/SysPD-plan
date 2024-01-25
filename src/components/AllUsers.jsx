@@ -27,6 +27,7 @@ function AllUsers() {
         try {
             /* const result = await axios.get('https://jsonplaceholder.typicode.com/posts'); */
             /* const result = await axios.get('http://127.0.0.1:8000/api/index'); */
+            {console.log("token de entrada: ",queryClient.getQueryData(["userAuth"]))}
             const result = await axios.get(`${endpoint}/index`,
             {
                 headers: {
