@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import axios from '../config/axios';
 import { useNavigate } from 'react-router-dom';
+import { localStorageManager } from '@chakra-ui/system';
 
 
 
@@ -100,15 +101,28 @@ const useAuthUser = (data) => {
             },
             onSuccess: (response) => {
               console.log("response (hooks):", response);
-              queryClient.setQueryData("userAuth",response?.accessToken);
-              queryClient.setQueryData("status",response?.status);
-              queryClient.setQueryData("user",response?.user);
-              const token  = queryClient.getQueryData(["userAuth"]);
+              /* queryClient.setQueryData("userAuth",response?.accessToken);
+              queryClient.setQueryData("status",response?.status); */
+              queryClient.setQueryData("userQ",response?.user);
+              localStorage.setItem("userAuth",response?.accessToken);
+              localStorage.setItem("status",response?.status);
+              localStorage.setItem("user",[response?.user]);
+              localStorage.setItem("userString",JSON.stringify(response?.user));
+              /* const token  = queryClient.getQueryData(["userAuth"]);
               const status = queryClient.getQueryData(["status"]);
-              const user   = queryClient.getQueryData(["user"]);
+              const user   = queryClient.getQueryData(["user"]); */
+              const token  = localStorage.getItem(["userAuth"]);
+              const status = localStorage.getItem(["status"]);
+              const user   = localStorage.getItem(["user"]);
+              const userQ   = localStorage.getItem(["userQ"]);
+              const userString = localStorage.getItem(["userString"])
+              const userObject = JSON.parse(localStorage.getItem('userString'))
               console.log ("token (en hooks): ", token);
               console.log ("status (en hooks): ", status);
-              console.log ("user (en hooks): ", user);
+              console.log ("user (en hooks): ", user); 
+              console.log ("user (en hooks - CACHE): ", userQ);
+              console.log ("user String (en hooks): ", userString);
+              console.log ("user Object (en hooks): ", userObject);                
               /* setUserAuth('user'); */
               setUserStatus(status);
               setUserToken(token);
@@ -123,8 +137,10 @@ const useAuthUser = (data) => {
               /* navigate('/login'); */
             },
             onSettled: (response) => {
-              queryClient.setQueryData("status",response.status);
-              const status = queryClient.getQueryData(["status"]);
+              /* queryClient.setQueryData("status",response.status);
+              const status = queryClient.getQueryData(["status"]); */
+              localStorage.setItem("status",response?.status);
+              const status = localStorage.getItem(["status"]);
               console.log ("status (en otro hooks): ", status);
               console.log("Terminada la mutacion (en hooks)")
             }
@@ -156,7 +172,7 @@ const useAuthUser = (data) => {
             },
             onSettled: (response) => {
               
-              const status = queryClient.getQueryData(["status"]);
+              const status = localStorage.getItem(["status"]);
               console.log ("status (en otro hooks -- out): ", status);
               console.log("Terminada la mutacion (en hooks) -- out")
             }

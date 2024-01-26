@@ -10,10 +10,16 @@ import useAuthUser from "../hooks/useAuthUser";
 function HomePages() {    
     const { userAuth, Logout5 } = useAuthUser(); 
     const queryClient = useQueryClient();
-    const statusLogg = queryClient.getQueryData(["status"]);
+    /* const statusLogg = queryClient.getQueryData(["status"]);
     const tokenLogg = queryClient.getQueryData(["userAuth"]);
+    const tokenLogOut = queryClient.getQueryData(["userAuth"]); */
+    const statusLogg = localStorage.getItem(["status"]);
+    const tokenLogg = localStorage.getItem(["userAuth"]);
+    const tokenLogOut = localStorage.getItem(["userAuth"]);
     console.log("status en homepage: ",statusLogg);
-    console.log("token en homepage: ",tokenLogg);     
+    console.log("token en homepage: ",tokenLogg);
+    console.log("usuario en homepage: ",localStorage.getItem(["user"]))
+    console.log("usuario en home Cache: ",localStorage.getItem(["userQ"]))      
 
     const logout = () => {
         console.log("iniciando logout...");
@@ -65,7 +71,14 @@ function HomePages() {
                 className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
                 >
                 Registro
-                </Link>                
+                </Link>
+                <Link
+                to= "/all"
+                /* href="#" */
+                className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+                >
+                Listado de usuarios
+                </Link>                 
                 {/* <button className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" 
                 onClick={this.Logout}>
                     Click me!

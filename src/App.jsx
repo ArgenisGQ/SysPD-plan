@@ -45,6 +45,12 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme/theme';
 import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
 
+import {  QueryClient,
+  QueryClientProvider,
+  useQuery, } from 'react-query';
+  
+const queryClient = new QueryClient();
+
 function App() {  
   /* console.log("usuario:"); */
   return (
@@ -54,13 +60,13 @@ function App() {
         <UserProvider>        
             {/* <Layout> */}
               
-
+            <QueryClientProvider client={queryClient}>
             <ChakraProvider theme={theme}>
               <ThemeEditorProvider>
                 <AppRouter />
               </ThemeEditorProvider>
             </ChakraProvider>
-
+            </QueryClientProvider>
                          
             
 

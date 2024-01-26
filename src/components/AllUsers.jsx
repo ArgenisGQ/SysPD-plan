@@ -18,6 +18,7 @@ function AllUsers() {
         const response = await axios.get ('${endpoint}/all')
         setUsers(response)       
     } */
+    console.log("Token in all: ",queryClient.getQueryData(["userAuth"]));
     ////////////////////////////////
     useEffect(() => {
         getAllUsers();
@@ -27,22 +28,25 @@ function AllUsers() {
         try {
             /* const result = await axios.get('https://jsonplaceholder.typicode.com/posts'); */
             /* const result = await axios.get('http://127.0.0.1:8000/api/index'); */
-            {console.log("token de entrada: ",queryClient.getQueryData(["userAuth"]))}
+            /* {console.log("token de entrada: ",queryClient.getQueryData(["userAuth"]))} */
+            {console.log("token de entrada LOCALSTORAGE: ",localStorage.getItem(["userAuth"]))}
             const result = await axios.get(`${endpoint}/index`,
             {
                 headers: {
                   /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
-                  'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
+                  /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` */
+                  'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}`  
                 }
             })
             /* console.log(result.data); */
             setUsers(result.data);
         } catch (err) {
             console.log('something wrong');
+            console.log("error: ",err)
         }         
     }
 
-    console.log(sessionStorage.accessToken);
+    console.log("Token out all: ",queryClient.getQueryData(["userAuth"]));
 
     /* console.log('usuarios');
     console.log(users); */

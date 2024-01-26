@@ -25,6 +25,7 @@
     "@heroicons/react": "^1.0.6",
     "@hypertheme-editor/chakra-ui": "^0.1.6-rc.0",
     "@orange_digital/chakra-datepicker": "^1.0.3",
+    "@tanstack/react-query": "^5.17.19",
     "@tremor/react": "^3.4.1",
     "apexcharts": "^3.42.0",
     "axios": "^1.4.0",

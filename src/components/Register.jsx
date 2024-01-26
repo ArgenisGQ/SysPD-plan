@@ -26,6 +26,7 @@ function Register() {
     const queryClient = useQueryClient();
     const dato  = useContext(UserContext);
     console.log('dato de prueba:',dato);
+    console.log("token home: ",queryClient.getQueryData(["userAuth"]))
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -54,6 +55,8 @@ function Register() {
         } */        
     });
     const onRegister = async data => {
+            /* console.log("token dentro OnRegister: ",queryClient.getQueryData(["userAuth"])) */
+            console.log("token dentro OnRegister: ",localStorage.getItem(["userAuth"]))
             console.log(data);
             const [username, name, email, password ] = [data.username, 
                                                         data.name, 
@@ -66,7 +69,8 @@ function Register() {
             {
                 headers: {
                     /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
-                    'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
+                    /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` */
+                    'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}`  
                 }
             });
             setUsername('');
