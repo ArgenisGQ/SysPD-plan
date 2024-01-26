@@ -78,7 +78,7 @@ function Register() {
             setEmail('');
             setPassword('');
             navigate('/all');
-            console.log("registrado...");    
+            console.log("registrado.....");    
             } catch (e) {
             /* console.log(e.response.data.message); */
             /* if (e.response.status === 401) {
