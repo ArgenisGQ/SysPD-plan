@@ -75,15 +75,14 @@ const useAuthUser = (data) => {
           await axios.get('/logout',           
           {
               headers: {                
-                'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` 
+                /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
+                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
               }
           })
           .then((response) => {        
-            console.log("token antes2 - out:")
-            console.log(queryClient.getQueryData(["userAuth"]));
+            console.log("token antes2 - out:",localStorage.getItem(["userAuth"]))
             queryClient.removeQueries();
-            console.log("token despues2 - out:")
-            console.log(queryClient.getQueryData(["userAuth"]));
+            console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))           
           });
           console.log("cache borrada...2 - out");   
         } catch (e) {
@@ -165,6 +164,13 @@ const useAuthUser = (data) => {
             },
             onSuccess: (response) => {
               console.log("onSucc -- logout");
+              /* await axios.get('/logout',           
+              {
+                  headers: {   
+                    'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+                  }
+              }) */
+              localStorage.clear();
               navigate('/');
             },
             onError: (error) => {

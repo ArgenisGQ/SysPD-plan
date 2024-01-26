@@ -8,7 +8,7 @@ import useAuthUser from "../hooks/useAuthUser";
 
 
 function HomePages() {    
-    const { userAuth, Logout5 } = useAuthUser(); 
+    const { userAuth, Logout5  } = useAuthUser(); 
     const queryClient = useQueryClient();
     /* const statusLogg = queryClient.getQueryData(["status"]);
     const tokenLogg = queryClient.getQueryData(["userAuth"]);
@@ -24,6 +24,7 @@ function HomePages() {
     const logout = () => {
         console.log("iniciando logout...");
         Logout5();
+        /* mutLogout(); */
         console.log("desconexion realizada...")
     }
      
