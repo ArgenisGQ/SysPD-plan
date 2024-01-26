@@ -173,7 +173,7 @@ const useAuthUser = (data) => {
               localStorage.clear();
               navigate('/');
             },
-            onError: (error) => {
+            onError: (error) => { 
               console.log(error);
             },
             onSettled: (response) => {
