@@ -106,6 +106,7 @@ const useAuthUser = (data) => {
               console.log("response (hooks):", response);
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
+              
               queryClient.setQueryData("userQ",response?.user);
               localStorage.setItem("userAuth",response?.accessToken);
               localStorage.setItem("status",response?.status);
@@ -137,15 +138,17 @@ const useAuthUser = (data) => {
               }              
             },
             onError: (error) => {
-              console.log("Errores(hook):",error);
+              /* const err =  JSON.parse(error);
+              console.log("Errores(hook):",err); */
               /* navigate('/login'); */
             },
             onSettled: (response) => {
               /* queryClient.setQueryData("status",response.status);
               const status = queryClient.getQueryData(["status"]); */
-              localStorage.setItem("status",response?.status);
+              console.log("RESPONSE(out): ",response.message )
+              /* localStorage.setItem("status",response?.status);
               const status = localStorage.getItem(["status"]);
-              console.log ("status (en otro hooks): ", status);
+              console.log ("status (en otro hooks): ", status); */
               console.log("Terminada la mutacion (en hooks)")
             }
           });    
