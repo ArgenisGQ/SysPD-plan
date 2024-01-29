@@ -12,6 +12,8 @@ const useAuthUser = (data) => {
     const [userStatus, setUserStatus]  = useState(null);
     const [userToken,  setUserToken]   = useState(null);    
     const queryClient = useQueryClient();
+
+
     const mutLogin    = useMutation(
         async (data) => {    
           const [email, password ] = [data.email, data.password];
@@ -81,7 +83,9 @@ const useAuthUser = (data) => {
           })
           .then((response) => {        
             console.log("token antes2 - out:",localStorage.getItem(["userAuth"]))
-            queryClient.removeQueries();
+            /* queryClient.removeQueries(); */
+            localStorage.clear();
+            /* localStorage.removeItem(["userAuth"]); */
             console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))           
           });
           console.log("cache borrada...2 - out");   
@@ -106,6 +110,7 @@ const useAuthUser = (data) => {
               localStorage.setItem("userAuth",response?.accessToken);
               localStorage.setItem("status",response?.status);
               localStorage.setItem("user",[response?.user]);
+              localStorage.setItem("message",response?.message);
               localStorage.setItem("userString",JSON.stringify(response?.user));
               /* const token  = queryClient.getQueryData(["userAuth"]);
               const status = queryClient.getQueryData(["status"]);
@@ -113,13 +118,13 @@ const useAuthUser = (data) => {
               const token  = localStorage.getItem(["userAuth"]);
               const status = localStorage.getItem(["status"]);
               const user   = localStorage.getItem(["user"]);
-              const userQ   = localStorage.getItem(["userQ"]);
+              const message  = localStorage.getItem(["message"]);
               const userString = localStorage.getItem(["userString"])
               const userObject = JSON.parse(localStorage.getItem('userString'))
               console.log ("token (en hooks): ", token);
               console.log ("status (en hooks): ", status);
               console.log ("user (en hooks): ", user); 
-              console.log ("user (en hooks - CACHE): ", userQ);
+              console.log ("message (en hooks - CACHE): ", message);
               console.log ("user String (en hooks): ", userString);
               console.log ("user Object (en hooks): ", userObject);                
               /* setUserAuth('user'); */
@@ -156,14 +161,16 @@ const useAuthUser = (data) => {
     } 
     
     function Logout5(data) {
-        console.log("--en hooks--(out)")
+        console.log("--en hooks--(out)");
         mutLogout.mutate(data,
           {
             onMutate: () => {
               console.log("Ïnicia la mutacion (en hooks -- out)");
             },
             onSuccess: (response) => {
+              console.log("response(mutate out): ",response)
               console.log("onSucc -- logout");
+              console.log("redireccionando a HOME -- logout");
               /* await axios.get('/logout',           
               {
                   headers: {   
@@ -171,6 +178,7 @@ const useAuthUser = (data) => {
                   }
               }) */
               localStorage.clear();
+              localStorage.removeItem(["userAuth"]);
               navigate('/');
             },
             onError: (error) => { 
@@ -179,7 +187,9 @@ const useAuthUser = (data) => {
             onSettled: (response) => {
               
               const status = localStorage.getItem(["status"]);
+              const message = localStorage.getItem(["message"]);
               console.log ("status (en otro hooks -- out): ", status);
+              console.log ("message (en otro hooks -- out): ", message);
               console.log("Terminada la mutacion (en hooks) -- out")
             }
           });
