@@ -4,7 +4,7 @@
 */
 
 import React, { useEffect, useState } from "react";
-import {NavLink}  from "react-router-dom";
+import {NavLink, useNavigate}  from "react-router-dom";
 import {useForm} from "react-hook-form";
 // Chakra imports
 import {
@@ -22,6 +22,14 @@ import {
   InputRightElement,
   Text,
   useColorModeValue,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 // Custom components
 import { HSeparator } from "../../../components/separator/Separator";
@@ -54,6 +62,7 @@ function SignIn() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   /* ---------------------------------- */
+  const navigate = useNavigate(); 
   const { 
     register, handleSubmit,watch,  
     formState: { errors, isSubmitting },                
@@ -63,16 +72,58 @@ function SignIn() {
         password: 'password'
     } */      
     });
+  
+  const [modalControl, setModalControl] = useState(false);
+
+  const modalErroConex = () => {
+    
+  }
+  
   const onSubmit = (data) => {
     console.log("Loging...!!");
 
     Login5(data);
 
+    /* const responseFull = localStorage.getItem("responseF"); */
+    const responseFull = localStorage.getItem("responseF"); 
+    console.log("response full (login): ", responseFull)
+    const responseFullObj = JSON.parse(responseFull);
+    console.log("response full obj (login): ",responseFullObj.status)
+
+    console.log("data: ",data)
+
     console.log("user: ",userAuth);
     console.log("status: ",userStatus);
     console.log("token: ",userToken);
+
+    const controlModal = false;
+    const openModal = () => ({isOpen})
+    
+    if (responseFullObj.status === "success") {
+      navigate('/');
+    } else {
+      
+      /* navigate('/login'); */
+      console.log("falla de usuario")
+      openModal();
+      
+      /* const { isOpen, onOpen, onClose } = useDisclosure() */
+      /* isOpen() */
+      /* return {isOpen};  */
+      /* modalErroConex(); */
+      
+      
+          
+      }
+    
   }
+  /* const [modalControl, setModalControl] = useState(false); */
   const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();
+  {console.log("modal: ",modalControl)}
+  /* const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: modalControl }); */
+  const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
+  /* {setModalControl(false)} */
+   
   /* ---------------------------------- */
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
@@ -261,6 +312,24 @@ function SignIn() {
           </Flex>
         </Flex>
       </Flex>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+             
+            </ModalBody>
+  
+            <ModalFooter>
+              <Button colorScheme='blue' mr={3} onClick={onClose}>
+                Close
+              </Button>
+              <Button variant='ghost'>Secondary Action</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+
     </DefaultAuth>
   );
 }

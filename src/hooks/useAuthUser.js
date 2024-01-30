@@ -50,8 +50,9 @@ const useAuthUser = (data) => {
              
               /* swal(err.response.data.message); */
   
-              /* console.log("Error de conexx2:", err); */
-              return err.response.data.message;
+              console.log("Error de conexx2:", err);
+              /* return err.response.data.message; */
+              return err.response;
             }
           /* return outfit.json(); */
         },
@@ -106,6 +107,11 @@ const useAuthUser = (data) => {
               console.log("response (hooks):", response);
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
+              localStorage.setItem("responseF",JSON.stringify(response));
+              const responseFull =localStorage.getItem("responseF");              
+              console.log("response full: ", responseFull);
+              const responseFullObj = JSON.parse(responseFull);
+              console.log("response Full Obj: ", responseFullObj)
               
               queryClient.setQueryData("userQ",response?.user);
               localStorage.setItem("userAuth",response?.accessToken);
@@ -116,30 +122,32 @@ const useAuthUser = (data) => {
               /* const token  = queryClient.getQueryData(["userAuth"]);
               const status = queryClient.getQueryData(["status"]);
               const user   = queryClient.getQueryData(["user"]); */
+
               const token  = localStorage.getItem(["userAuth"]);
               const status = localStorage.getItem(["status"]);
               const user   = localStorage.getItem(["user"]);
               const message  = localStorage.getItem(["message"]);
               const userString = localStorage.getItem(["userString"])
-              const userObject = JSON.parse(localStorage.getItem('userString'))
+              /* const userObject = JSON.parse(localStorage.getItem('userString')) */
+
               console.log ("token (en hooks): ", token);
               console.log ("status (en hooks): ", status);
               console.log ("user (en hooks): ", user); 
               console.log ("message (en hooks - CACHE): ", message);
               console.log ("user String (en hooks): ", userString);
-              console.log ("user Object (en hooks): ", userObject);                
-              /* setUserAuth('user'); */
+              /* console.log ("user Object (en hooks): ", userObject); */                
+              setUserAuth(user);
               setUserStatus(status);
               setUserToken(token);
-              if (status === "success") {
+              /* if (status === "success") {
                 navigate('/');
               } else { 
                 navigate('/login');
-              }              
+              }           */    
             },
             onError: (error) => {
-              /* const err =  JSON.parse(error);
-              console.log("Errores(hook):",err); */
+              /* const err =  JSON.parse(error); */
+              console.log("Errores(hook):",error);
               /* navigate('/login'); */
             },
             onSettled: (response) => {
