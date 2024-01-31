@@ -114,6 +114,7 @@ const useAuthUser = (data) => {
               console.log("response Full Obj: ", responseFullObj)
               
               queryClient.setQueryData("userQ",response?.user);
+              
               localStorage.setItem("userAuth",response?.accessToken);
               localStorage.setItem("status",response?.status);
               localStorage.setItem("user",[response?.user]);

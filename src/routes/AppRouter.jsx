@@ -2,6 +2,7 @@
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
+import { useState } from 'react';
 import TremuTest from '../components/TremuTest';
 import FormBase from '../components/FormBase';
 import LoginBase from '../components/LoginBase';
@@ -58,10 +59,25 @@ import DataTables from "../views/reference/dataTables";
 
 // Auth Imports
 import SignInCentered from "../views/auth/signIn";
+import { useLocalStorage } from 'react-use';
 
 function AppRouter() { 
   const navigate = useNavigate();
+  const [activeUser, setActiveUser] = useState(false);
+  const [user, setUser] = useLocalStorage('responseF');
+  /* const userData = user.user
+  console.log("usar localStorage: ", userData) */
   /* console.log("usuario:"); */
+  
+  const userActiveStr = localStorage.getItem("responseF");
+  const userActiveObj = JSON.parse(userActiveStr);
+    if (userActiveObj) {
+      const userActive = userActiveObj.user;
+      /* setActiveUser(true); */
+      console.log("datos full: ", userActive)
+    }
+  console.log("verdadero o falso: ", activeUser)
+
   return (
     <>
     {/*< BrowserRouter>
@@ -86,7 +102,7 @@ function AppRouter() {
                       <Route exact path='/LoginTest'  element={< LoginTest/>}/>
                       {/* <Route path="*" element={<Page404 />}   */}
 
-                      <Route path="/" element={<ProtectedRoute />}>
+                      <Route path="/" element={<ProtectedRoute canActive={user} />}>
                         <Route exact path="/register" element={<Register />} />
                         {/* <Route exact path="/login01" element={<Login01Base />} /> */}
                         <Route exact path='/all'        element={< AllUsers/>}/>
