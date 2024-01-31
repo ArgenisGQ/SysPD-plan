@@ -82,6 +82,11 @@ function SignIn() {
   const onSubmit = (data) => {
     console.log("Loging...!!");
 
+    /* const responseFullAntes = localStorage?.getItem("responseF"); 
+    console.log("response full (login ANTES): ", responseFullAntes) */
+    /* const responseFullObjAntes = JSON.parse(responseFullAntes);
+    console.log("response full obj (login ANTES): ",responseFullObjAntes.status) */
+
     Login5(data);
 
     /* const responseFull = localStorage.getItem("responseF"); */
@@ -96,25 +101,19 @@ function SignIn() {
     console.log("status: ",userStatus);
     console.log("token: ",userToken);
 
-    const controlModal = false;
-    const openModal = () => ({isOpen})
+    /* const controlModal = false;
+    const openModal = () => ({isOpen}) */
     
-    if (responseFullObj.status === "success") {
+    /* if (responseFullObj.status === "success") {
       navigate('/');
     } else {
-      
-      /* navigate('/login'); */
       console.log("falla de usuario")
-      openModal();
-      
-      /* const { isOpen, onOpen, onClose } = useDisclosure() */
-      /* isOpen() */
-      /* return {isOpen};  */
-      /* modalErroConex(); */
-      
-      
-          
-      }
+      } */
+
+    if (responseFullObj.status === 401) {
+      console.log("datos erroneos")
+      onOpen();
+    }
     
   }
   /* const [modalControl, setModalControl] = useState(false); */

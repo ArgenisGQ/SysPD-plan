@@ -139,11 +139,11 @@ const useAuthUser = (data) => {
               setUserAuth(user);
               setUserStatus(status);
               setUserToken(token);
-              /* if (status === "success") {
+              if (status === "success") {
                 navigate('/');
               } else { 
                 navigate('/login');
-              }           */    
+              }              
             },
             onError: (error) => {
               /* const err =  JSON.parse(error); */
