@@ -30,6 +30,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Center
 } from "@chakra-ui/react";
 // Custom components
 import { HSeparator } from "../../../components/separator/Separator";
@@ -73,11 +74,7 @@ function SignIn() {
     } */      
     });
   
-  const [modalControl, setModalControl] = useState(false);
-
-  const modalErroConex = () => {
-    
-  }
+  const [modalMessage, setModalMessage] = useState();  
   
   const onSubmit = (data) => {
     console.log("Loging...!!");
@@ -94,12 +91,14 @@ function SignIn() {
     console.log("response full (login): ", responseFull)
     const responseFullObj = JSON.parse(responseFull);
     console.log("response full obj (login): ",responseFullObj.status)
+    console.log("message (login): ",responseFullObj.data.data.error)
 
     console.log("data: ",data)
 
     console.log("user: ",userAuth);
     console.log("status: ",userStatus);
     console.log("token: ",userToken);
+    
 
     /* const controlModal = false;
     const openModal = () => ({isOpen}) */
@@ -112,13 +111,13 @@ function SignIn() {
 
     if (responseFullObj.status === 401) {
       console.log("datos erroneos")
+      setModalMessage(responseFullObj.data.data.error)
       onOpen();
     }
     
   }
   /* const [modalControl, setModalControl] = useState(false); */
-  const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();
-  {console.log("modal: ",modalControl)}
+  const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();  
   /* const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: modalControl }); */
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
   /* {setModalControl(false)} */
@@ -314,17 +313,39 @@ function SignIn() {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            {/* <ModalHeader>Alerta</ModalHeader> */}
+            <ModalHeader></ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-             
-            </ModalBody>
-  
+              {/* <Center> */}
+                <Text
+                  mb='36px'
+                  ms='4px'
+                  color={textColorSecondary}
+                  fontWeight='400'
+                  fontSize='md'
+                  textAlign={[ 'left', 'center' ]}>
+                  {/* Coloque su email y su clave para ingresar! */}
+                  {modalMessage}            
+                </Text>
+              {/* </Center> */}  
+            </ModalBody>  
             <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onClose}>
-                Close
+              <Button
+                fontSize='sm'
+                variant='brand'
+                fontWeight='500'
+                w='50%'
+                h='50'
+                mb='24px'                
+                onClick={onClose}
+                type='submit'>
+                Ok
               </Button>
-              <Button variant='ghost'>Secondary Action</Button>
+              {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
+                Ok
+              </Button> */}
+              {/* <Button variant='ghost'>Secondary Action</Button> */}
             </ModalFooter>
           </ModalContent>
         </Modal>
