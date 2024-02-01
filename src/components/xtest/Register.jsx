@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import axios from '../services/axios';
+import axios from '../../services/axios';
 import {useForm} from "react-hook-form";
 import swal from "sweetalert";
-import UserContext from '../context/UserContext';
+import UserContext from '../../context/UserContext';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 function Register() {

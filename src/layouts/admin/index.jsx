@@ -12,7 +12,7 @@ import routes from '../../routes'; //routes.js
 // Admin Imports
 import MainDashboard from "../../views/admin/dashboard";
 import NFTMarketplace from "../../views/admin/marketplace";
-import Register from '../../components/register';
+import Register from '../../components/xtest/register';
 
 // Custom Chakra theme
 export default function Dashboard(props) {

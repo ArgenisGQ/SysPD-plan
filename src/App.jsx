@@ -3,23 +3,22 @@
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
 /* import AppRouter from '.AppRouter'; */
-
-import TremuTest from './components/TremuTest';
-import FormBase from './components/FormBase';
-import LoginBase from './components/LoginBase';
-import Login01Base from './components/Login01Base';
-import Login02Base from './components/Login02Base';
-import Login03Base from './components/Login03Base';
-import Login04Base from './components/Login04Base';
-import Register from './components/register';
-import Page404 from './components/Page404';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import TremuTest from './components/xtest/TremuTest';
+import FormBase from './components/xtest/FormBase';
+import LoginBase from './components/xtest/LoginBase';
+import Login01Base from './components/xtest/Login01Base';
+import Login02Base from './components/xtest/Login02Base';
+import Login03Base from './components/xtest/Login03Base';
+import Login04Base from './components/xtest/Login04Base';
+import Register from './components/xtest/register';
+import Page404 from './components/xtest/Page404';
 /* import HomePages from './scenes/HomePages'; */
 import HomePages from './pages/HomePages';
 import Login from './pages/login/Login';
 import Layout from './pages/layout/Layout';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import AllUsers from './components/AllUsers';
-import LoginTest from './components/LoginTest';
+import AllUsers from './components/xtest/AllUsers';
+import LoginTest from './components/xtest/LoginTest';
 /* import { ProtectedRoute } from './routes/ProtectedRoute'; */
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
@@ -61,11 +60,11 @@ function App() {
             {/* <Layout> */}
               
             <QueryClientProvider client={queryClient}>
-            <ChakraProvider theme={theme}>
-              <ThemeEditorProvider>
-                <AppRouter />
-              </ThemeEditorProvider>
-            </ChakraProvider>
+              <ChakraProvider theme={theme}>
+                <ThemeEditorProvider>
+                  <AppRouter />
+                </ThemeEditorProvider>
+              </ChakraProvider>
             </QueryClientProvider>
                          
             
