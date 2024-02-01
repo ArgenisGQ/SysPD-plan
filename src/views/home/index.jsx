@@ -35,7 +35,8 @@ import {
 } from "@chakra-ui/react";
 // Custom components
 import { HSeparator } from "../../components/separator/Separator";
-import DefaultAuth from "../../layouts/auth/Default";
+/* import DefaultAuth from "../../layouts/auth/Default"; */
+import DefaultAuth from "../../layouts/home";
 // Assets
 /* import illustration from "../../../assets/img/auth/auth.png"; */
 import illustration from "../../assets/img/auth/home-bg.jpg";
