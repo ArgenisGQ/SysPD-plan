@@ -44,6 +44,7 @@ import AuthLayout         from '../layouts/auth/index';
 import AdminLayout        from '../layouts/admin/index';
 import LayoutAdmin        from '../pages/layout/LayoutAdmin'; 
 // Admin Imports
+import HomePage           from '../views/home';
 /* import MainDashboardUsers from "../views/admin/default"; */
 import MainDashboardUsers from "../views/admin/dashboard";
 import Users              from "../views/admin/users";
@@ -100,7 +101,8 @@ function AppRouter() {
                 <Route path='/' element={<Layout />} >
                 {/* <Route path='/' element={<LayoutAdmin />} >  */}
                       
-                      <Route exact path='/'           element={< HomePages/>}/>                      
+                      {/* <Route exact path='/'           element={< HomePages/>}/> */}
+                      <Route exact path='/'           element={< HomePage/>}/>                       
                       {/* <Route exact path='/login'      element={< Login/>}/> */}
                       <Route exact path='/login'      element={< SignInCentered/>}/>
                       {/* <Route path='/login01'    element={< Login01Base/>}/> */}
