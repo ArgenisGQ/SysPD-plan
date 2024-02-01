@@ -63,20 +63,22 @@ import { useLocalStorage } from 'react-use';
 
 function AppRouter() { 
   const navigate = useNavigate();
-  const [activeUser, setActiveUser] = useState(false);
-  const [user, setUser] = useLocalStorage('responseF');
-  /* const userData = user.user
-  console.log("usar localStorage: ", userData) */
-  /* console.log("usuario:"); */
-  
-  const userActiveStr = localStorage.getItem("responseF");
-  const userActiveObj = JSON.parse(userActiveStr);
-    if (userActiveObj) {
-      const userActive = userActiveObj.user;
-      /* setActiveUser(true); */
-      console.log("datos full: ", userActive)
-    }
-  console.log("verdadero o falso: ", activeUser)
+  /* const [userActive, setUserActive] = useState(); */
+  const [user, setUser] = useLocalStorage('responseF');  
+  console.log("user(localStorage): ", user)
+
+  const dataStorageStr = localStorage.getItem("responseF");
+  const dataStorage = JSON.parse(dataStorageStr);
+  const userActive = dataStorage?.user;
+  /* setUserActive(dataStorage?.user); */
+
+  /* const userActiveStr = localStorage.getItem("responseF");
+  const userActiveObj = JSON.parse(userActiveStr); */
+
+  /* const userActive = userActiveObj?.user; */
+  console.log("datos usario full: ", userActive)
+
+ 
 
   return (
     <>
@@ -102,7 +104,7 @@ function AppRouter() {
                       <Route exact path='/LoginTest'  element={< LoginTest/>}/>
                       {/* <Route path="*" element={<Page404 />}   */}
 
-                      <Route path="/" element={<ProtectedRoute canActive={user} />}>
+                      <Route path="/" element={<ProtectedRoute canActive={userActive} />}>
                         <Route exact path="/register" element={<Register />} />
                         {/* <Route exact path="/login01" element={<Login01Base />} /> */}
                         <Route exact path='/all'        element={< AllUsers/>}/>
