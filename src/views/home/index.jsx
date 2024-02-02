@@ -31,7 +31,8 @@ import {
   ModalCloseButton,
   useDisclosure,
   Center,
-  Button, ButtonGroup
+  Button, ButtonGroup,
+  Stack, VStack, useBreakpointValue
 } from "@chakra-ui/react";
 // Custom components
 import { HSeparator } from "../../components/separator/Separator";
@@ -124,6 +125,17 @@ function homePage() {
   /* const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: modalControl }); */
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
   /* {setModalControl(false)} */
+  const innerBoxStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    boxSize: '100%',
+    color: 'white',
+    textShadow: '0 0 20px black',
+    fontWeight: 'bold',
+    fontSize: '20px',
+  }
   const logout = () => {
     console.log("iniciando logout...");
     Logout5();
@@ -133,8 +145,10 @@ function homePage() {
    
   /* ---------------------------------- */
   return (
-    <DefaultAuth illustrationBackground={illustration} image={illustration}>
-      <Flex
+    <>
+   
+      <DefaultAuth illustrationBackground={illustration} image={illustration}>
+      <Flex 
         maxW={{ base: "100%", md: "max-content" }}
         w='100%'
         mx={{ base: "auto", lg: "0px" }}
@@ -145,10 +159,11 @@ function homePage() {
         mb={{ base: "30px", md: "60px" }}
         px={{ base: "25px", md: "0px" }}
         mt={{ base: "40px", md: "14vh" }}
-        flexDirection='column'>
+        flexDirection='column'     
+        >
         <Box me='auto'>
           <Heading color={textColor} fontSize='36px' mb='10px'>
-            Iniciar Sesión
+          Sistema de Planificacion Didactica
           </Heading>
           <Text
             mb='36px'
@@ -156,7 +171,7 @@ function homePage() {
             color={textColorSecondary}
             fontWeight='400'
             fontSize='md'>
-            Coloque su email y su clave para ingresar!            
+            Diseño Instruccional de la Universidad Yacambu -- proyecto en desarrollo (DEMTec) --            
           </Text>
         </Box>
         <Flex
@@ -169,22 +184,7 @@ function homePage() {
           mx={{ base: "auto", lg: "unset" }}
           me='auto'
           mb={{ base: "20px", md: "auto" }}>
-          {/* <Button
-            fontSize='sm'
-            me='0px'
-            mb='26px'
-            py='15px'
-            h='50px'
-            borderRadius='16px'
-            bg={googleBg}
-            color={googleText}
-            fontWeight='500'
-            _hover={googleHover}
-            _active={googleActive}
-            _focus={googleActive}>
-            <Icon as={FcGoogle} w='20px' h='20px' me='10px' />
-            Sign in with Google
-          </Button> */}
+          
           <Flex align='center' mb='25px'>
             <HSeparator />
            
@@ -195,14 +195,11 @@ function homePage() {
             <Link to= "/login" >
               <Button
                 fontSize='sm'
-                /* variant='brand' */
+                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                /* isLoading={isSubmitting} */
-                /* type='submit' */
-                /* colorScheme='whiteAlpha'  */
                 colorScheme='brand'>
                 Login
               </Button>
@@ -210,13 +207,12 @@ function homePage() {
             <Link to='/register'>
               <Button
                 fontSize='sm'
-                /* variant='brand' */
+                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                /* isLoading={isSubmitting} */
-                /* type='submit'  */
+                
                 colorScheme='brand'>
                 Registro
               </Button>
@@ -224,13 +220,12 @@ function homePage() {
             <Link to='/all'>
               <Button
                 fontSize='sm'
-                /* variant='brand' */
+                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                /* isLoading={isSubmitting} */
-                /* type='submit' */ 
+                
                 colorScheme='brand'>
                 Lista
               </Button>
@@ -238,13 +233,12 @@ function homePage() {
             
               <Button
                 fontSize='sm'
-                /* variant='brand' */
+                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                /* isLoading={isSubmitting} */
-                /* type='submit'  */
+                
                 colorScheme='brand'
                 onClick={logout}>
                 Logout
@@ -253,112 +247,7 @@ function homePage() {
             
           </ButtonGroup>
           </Box>
-          {/* <form onSubmit={handleSubmit(onSubmit)}>
-            <FormControl>
-              <FormLabel
-                display='flex'
-                ms='4px'
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                mb='8px'>
-                Email<Text color={brandStars}>*</Text>
-              </FormLabel>
-              <Input
-                id="email"
-                
-                variant='auth'
-                fontSize='sm'
-                ms={{ base: "0px", md: "0px" }}
-                type='email'
-                placeholder='mail@uny.edu.ve'
-                mb='24px'
-                fontWeight='500'
-                size='lg'
-                {...register('email', {
-                  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-                  required: true,
-                  
-                })}
-              />
-              <FormErrorMessage>
-                {errors.email?.type === 'required' && <p>Email requerido!</p>}
-                {errors.email?.type === 'pattern' && <p>El formato del email es incorrecto</p>}
-              </FormErrorMessage>
-              <FormLabel
-                ms='4px'
-                fontSize='sm'
-                fontWeight='500'
-                color={textColor}
-                display='flex'>
-                Contraseña<Text color={brandStars}>*</Text>
-              </FormLabel>
-              <InputGroup size='md'>
-                <Input
-                  id="password"
-                  
-                  fontSize='sm'
-                  placeholder='Minimo 8 caracteres'
-                  mb='24px'
-                  size='lg'
-                  type={show ? "text" : "password"}
-                  variant='auth'
-                  {...register('password', {
-                    required: true,
-                    maxLength: 10
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.password?.type === 'required' && <p>Password requerido!</p>}
-                </FormErrorMessage>
-                <InputRightElement display='flex' alignItems='center' mt='4px'>
-                  <Icon
-                    color={textColorSecondary}
-                    _hover={{ cursor: "pointer" }}
-                    as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
-                    onClick={handleClick}
-                  />
-                </InputRightElement>
-              </InputGroup>
-              <Flex justifyContent='space-between' align='center' mb='24px'>
-                <FormControl display='flex' alignItems='center'>
-                  <Checkbox
-                    id='remember-login'
-                    colorScheme='brandScheme'
-                    me='10px'
-                  />
-                  <FormLabel
-                    htmlFor='remember-login'
-                    mb='0'
-                    fontWeight='normal'
-                    color={textColor}
-                    fontSize='sm'>
-                    Mantenerse conectado
-                  </FormLabel>
-                </FormControl>
-                <NavLink to='/auth/forgot-password'>
-                  <Text
-                    color={textColorBrand}
-                    fontSize='sm'
-                    w='124px'
-                    fontWeight='500'>
-                    Olvido la clave?
-                  </Text>
-                </NavLink>
-              </Flex>
-              <Button
-                fontSize='sm'
-                variant='brand'
-                fontWeight='500'
-                w='100%'
-                h='50'
-                mb='24px'
-                isLoading={isSubmitting}
-                type='submit'>
-                Conectar
-              </Button>
-            </FormControl>
-          </form>   */}
+          
           <Flex
             flexDirection='column'
             justifyContent='center'
@@ -369,9 +258,87 @@ function homePage() {
           </Flex>
         </Flex>
       </Flex>
-        
+      </DefaultAuth>  
+    {/* </DefaultAuth> */}
 
-    </DefaultAuth>
+    {/* <Flex
+      w={'full'}
+      h={'100vh'}
+      backgroundImage={
+        'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
+      }
+      backgroundSize={'cover'}
+      backgroundPosition={'center center'}>
+      <VStack
+        w={'full'}
+        justify={'center'}
+        px={useBreakpointValue({ base: 4, md: 8 })}
+        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+          <Text
+            color={'white'}
+            fontWeight={700}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor
+          </Text>
+          <Stack direction={'row'}>
+            <Button
+              bg={'blue.400'}
+              rounded={'full'}
+              color={'white'}
+              _hover={{ bg: 'blue.500' }}>
+              Show me more
+            </Button>
+            <Button
+              bg={'whiteAlpha.300'}
+              rounded={'full'}
+              color={'white'}
+              _hover={{ bg: 'whiteAlpha.500' }}>
+              Show me more
+            </Button>
+          </Stack>
+        </Stack>
+      </VStack>
+    </Flex> */}
+
+    {/* <DefaultAuth illustrationBackground={illustration} image={illustration}>
+      <Box sx={innerBoxStyles} >
+      <VStack
+        w={'full'}
+        justify={'center'}
+        px={useBreakpointValue({ base: 4, md: 8 })}
+        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+          <p>PARRAFO DE PRUEBA</p>
+        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+          <Text
+            color={'white'}
+            fontWeight={700}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor
+          </Text>
+          <Stack direction={'row'}>
+            <Button
+              bg={'blue.400'}
+              rounded={'full'}
+              color={'white'}
+              _hover={{ bg: 'blue.500' }}>
+              Show me more
+            </Button>
+            <Button
+              bg={'whiteAlpha.300'}
+              rounded={'full'}
+              color={'white'}
+              _hover={{ bg: 'whiteAlpha.500' }}>
+              Show me more
+            </Button>
+          </Stack>
+        </Stack>
+      </VStack>
+      </Box>      
+    </DefaultAuth>  */}   
+    </>
   );
 }
 

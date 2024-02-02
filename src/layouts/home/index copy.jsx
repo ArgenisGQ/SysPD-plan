@@ -1,6 +1,5 @@
 // Chakra imports
-import { Box, Flex, Icon, Text,
-         Stack, Button,VStack, useBreakpointValue, Center} from "@chakra-ui/react";
+import { Box, Flex, Icon, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React from "react";
 import Footer from "../../components/footer/FooterAuth";
@@ -14,10 +13,9 @@ function HomeIllustration(props) {
   const { children, illustrationBackground } = props;
   // Chakra color mode
   return (
-    <>
-    {/* <Flex position='relative' h='max-content'>
+    <Flex position='relative' h='max-content'>
       <Flex
-        h={{
+        /* h={{
           sm: "initial",
           md: "unset",
           lg: "100vh",
@@ -30,10 +28,32 @@ function HomeIllustration(props) {
         px={{ lg: "30px", xl: "0px" }}
         ps={{ xl: "70px" }}
         justifyContent='start'
-        direction='column'>
-        
+        direction='column' */>
+        {/* <NavLink
+          to='/admin/dashboard'
+          style={() => ({
+            width: "fit-content",
+            marginTop: "40px",
+          })}>
+          <Flex
+            align='center'
+            ps={{ base: "25px", lg: "0px" }}
+            pt={{ lg: "0px", xl: "0px" }}
+            w='fit-content'>
+            <Icon
+              as={FaChevronLeft}
+              me='12px'
+              h='13px'
+              w='8px'
+              color='secondaryGray.600'
+            />
+            <Text ms='0px' fontSize='sm' color='secondaryGray.600'>
+              Retornar a inicio
+            </Text>
+          </Flex>
+        </NavLink> */}
         {children}
-        <Box
+        {/* <Box
           display={{ base: "none", md: "block" }}
           h='100%'
           minH='100vh'
@@ -55,30 +75,12 @@ function HomeIllustration(props) {
             right='50'
             borderBottomLeftRadius={{ lg: "120px", xl: "200px" }}>
           </Flex>
-        </Box>
+        </Box> */}
         <Footer />
       </Flex>
       <FixedPlugin />
-    </Flex> */}
-    <Flex
-      w={'100%'}
-      h={'100vh'}
-      /* backgroundImage={
-        'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
-      } */      
-      bg={`url(${illustrationBackground})`}      
-      /* backgroundSize={'contain '} */
-      backgroundSize='100%'
-      /* backgroundPosition={'center center'} */
-      backgroundPosition={'center'}
-      backgroundRepeat={'no-repeat'}
-      >
-      <Center>
-        {children}
-        <Footer />
-      </Center>      
     </Flex>
-    </>
+    
   );
 }
 // PROPS
