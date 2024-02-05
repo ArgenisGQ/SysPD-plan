@@ -1,6 +1,7 @@
 // Chakra imports
 import { Box, Flex, Icon, Text,
-         Stack, Button,VStack, useBreakpointValue, Center} from "@chakra-ui/react";
+         Stack, Button,VStack, useBreakpointValue, Center,
+         SimpleGrid} from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React from "react";
 import Footer from "../../components/footer/FooterAuth";
@@ -60,7 +61,7 @@ function HomeIllustration(props) {
       </Flex>
       <FixedPlugin />
     </Flex> */}
-    <Flex
+    <Box
       w={'100%'}
       h={'100vh'}
       /* backgroundImage={
@@ -73,11 +74,22 @@ function HomeIllustration(props) {
       backgroundPosition={'center'}
       backgroundRepeat={'no-repeat'}
       >
-      <Center>
-        {children}
-        <Footer />
-      </Center>      
-    </Flex>
+      <SimpleGrid columns={1} spacing={10}>
+        {/* <Center> */}
+          <Box height='500px'>
+            <Center>
+              {children}
+            </Center>
+          </Box>
+          <Box height='20px'>
+            <Center>
+              <Footer />
+            </Center>
+          </Box>
+        {/* </Center> */} 
+      </SimpleGrid>
+           
+    </Box>
     </>
   );
 }

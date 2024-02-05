@@ -146,7 +146,6 @@ function homePage() {
   /* ---------------------------------- */
   return (
     <>
-   
       <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex 
         maxW={{ base: "100%", md: "max-content" }}
@@ -162,7 +161,7 @@ function homePage() {
         flexDirection='column'     
         >
         <Box me='auto'>
-          <Heading color={textColor} fontSize='36px' mb='10px'>
+          <Heading color={textColor} fontSize='36px' mb='10px'align="center" justify="center">
           Sistema de Planificacion Didactica
           </Heading>
           <Text
@@ -176,26 +175,25 @@ function homePage() {
         </Box>
         <Flex
           zIndex='2'
+          align="center" justify="center"
           direction='column'
-          w={{ base: "100%", md: "420px" }}
+          w={{ base: "100%", md: "400" }}
           maxW='100%'
           background='transparent'
           borderRadius='15px'
           mx={{ base: "auto", lg: "unset" }}
           me='auto'
           mb={{ base: "20px", md: "auto" }}>
-          
-          <Flex align='center' mb='25px'>
+          {/* <Flex align='center' mb='25px' >
             <HSeparator />
            
             <HSeparator />
-          </Flex>
-          <Box>
-          <ButtonGroup gap='4'>
+          </Flex> */}
+          {/* <Box align="center" justify="center"> */}
+          <ButtonGroup gap='2' >
             <Link to= "/login" >
               <Button
                 fontSize='sm'
-                
                 fontWeight='500'
                 w='100%'
                 h='50'
@@ -204,58 +202,71 @@ function homePage() {
                 Login
               </Button>
             </Link>
-            <Link to='/register'>
+            <Link to= "/admin/dashboard" >
               <Button
                 fontSize='sm'
-                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                
                 colorScheme='brand'>
-                Registro
+                Dashboard - SYS
+              </Button>
+            </Link>
+            <Link to='/admin/users'>
+              <Button
+                fontSize='sm'
+                fontWeight='500'
+                w='100%'
+                h='50'
+                mb='24px'
+                colorScheme='brand'>
+                Registro - SYS
+              </Button>
+            </Link>
+            <Link to='/register'>
+              <Button
+                fontSize='sm'
+                fontWeight='500'
+                w='100%'
+                h='50'
+                mb='24px'
+                colorScheme='brand'>
+                Registro - TEST
               </Button>
             </Link> 
             <Link to='/all'>
               <Button
                 fontSize='sm'
-                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                
                 colorScheme='brand'>
                 Lista
               </Button>
             </Link>
-            
               <Button
                 fontSize='sm'
-                
                 fontWeight='500'
                 w='100%'
                 h='50'
                 mb='24px'
-                
                 colorScheme='brand'
                 onClick={logout}>
                 Logout
               </Button>
-            
-            
           </ButtonGroup>
-          </Box>
+          {/* </Box> */}
           
-          <Flex
+          {/* <Flex
             flexDirection='column'
             justifyContent='center'
             alignItems='start'
             maxW='100%'
             mt='0px'>
             
-          </Flex>
+          </Flex> */}
         </Flex>
       </Flex>
       </DefaultAuth>  
