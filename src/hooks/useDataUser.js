@@ -73,7 +73,7 @@ const useAuthUser = (data) => {
 
     const mutDataUsers = useMutation(
       async (data)  => {  
-        console.log('listado de usuarios');
+        console.log('listado de usuarios -- 050224');
         try {
           await axios.get('/index',           
           {
@@ -83,7 +83,8 @@ const useAuthUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("datausers: ", response)        
+            console.log("datausers: ", response.data)
+            localStorage.setItem("dataUsers",JSON.stringify(response?.data));        
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
             /* queryClient.removeQueries(); */
             /* localStorage.clear(); */
@@ -92,7 +93,7 @@ const useAuthUser = (data) => {
           });
           console.log("terminado de cargar listado de usuarios");   
         } catch (e) {
-          console.log(e.response.message);
+          console.log("error - DATA: ",e.response.message);
         }       
       }    
     )
@@ -225,7 +226,8 @@ const useAuthUser = (data) => {
             console.log("Ïnicia la mutacion (en hooks -- DATOS)");
           },
           onSuccess: (response) => {
-            console.log("response(DATOS USER out): ",response)
+            console.log("response(DATOS USER out): ",response?.data)
+            console.log("storage de datos USUARIOS --", localStorage.getItem("dataUsers"))
            /*  console.log("onSucc -- logout");
             console.log("redireccionando a HOME -- logout"); */
             /* await axios.get('/logout',           

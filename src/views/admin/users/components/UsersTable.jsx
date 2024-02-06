@@ -27,7 +27,7 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon
 } from "@chakra-ui/icons";
-import React, { useMemo } from "react";
+import React,  { useMemo, useEffect } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -44,14 +44,29 @@ import useDataUser from '../../../../hooks/useDataUser'; //050224 DATOS DE USUAR
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 export default function ColumnsTable(props) {
+
+
   const { columnsData, tableData } = props;
 
-  const {DataUsers}   = useDataUser();  
+  console.log("01 datos head!!: ",columnsData)
 
-  /* DataUsers(); */
+  console.log("01 datos primera parte en componente!!: ",tableData)
+
+  /* const {DataUsers}   = useDataUser();
+  
+  useEffect(() => {
+    console.log("EFECTO....");
+    DataUsers();
+    const DataFullUsers = JSON.parse(localStorage.getItem("dataUsers"));
+    console.log("datos en LOCAL de USUARIOS FULL: ", DataFullUsers);
+  }, []); */
+
+  /* ; */
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
+
+  console.log("02 data dentro de la tabla: ",data)
 
   const tableInstance = useTable(
     {
@@ -85,6 +100,8 @@ export default function ColumnsTable(props) {
   initialState.pageSize = 10;
   initialState.pageIndex = 0;
 
+  console.log("PAGE ==== ",page)
+
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   return (
@@ -105,7 +122,7 @@ export default function ColumnsTable(props) {
       </Flex>
       <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>
         <Thead>
-          {headerGroups.map((headerGroup, index) => (
+          {headerGroups?.map((headerGroup, index) => (
             <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
               {headerGroup.headers.map((column, index) => (
                 <Th
@@ -126,7 +143,7 @@ export default function ColumnsTable(props) {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
+          {page?.map((row, index) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
@@ -271,7 +288,8 @@ export default function ColumnsTable(props) {
           })}
         </Tbody>
       </Table>
-      {/* Paginacion */}
+
+      {/* Paginacion */}{/* --------------------------------------------------------------------- */}
       <Flex justifyContent="space-between" m={4} alignItems="center">
         <Flex>
           <Tooltip label="Primera página">

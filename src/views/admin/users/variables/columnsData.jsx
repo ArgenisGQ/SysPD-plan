@@ -81,24 +81,24 @@ export const columnsDataUsers = [
   },
   {
     Header: "USUARIO",
-    accessor: "user",
+    accessor: "username",
   },
   {
     Header: "NOMBRE",
     accessor: "name",
   },
-  {
+  /* {
     Header: "DOCUMENTO",
     accessor: "document",
-  },
+  }, */
   {
     Header: "EMAIL",
     accessor: "email",
   },
-  {
+  /* {
     Header: "ROL",
     accessor: "rol",
-  },    
+  },  */   
   /* {
     Header: "FECHA",
     accessor: "date",
