@@ -30,14 +30,10 @@ export default function Settings() {
   const {DataUsers} = useDataUser();
   const [dataFullUsers,setDataFullUsers] = useState([])
 
-  
-
   useEffect(() => {
     console.log("EFECTO....");
     DataUsers();
     LoadData();
-    /* localStorage.getItem("dataUsers");
-    console.log("datos en LOCAL de USUARIOS FULL: ", DataFullUsers); */
   }, []);
 
   const LoadData = () => {
@@ -45,11 +41,8 @@ export default function Settings() {
     setDataFullUsers(loadDataFullUsers)
   }
   
-  /* const dataFullUsers = JSON.parse(localStorage.getItem("dataUsers")); */
-  /* setDataFullUsers(JSON.parse(localStorage.getItem("dataUsers"))) */
-  /* console.log("datos en LOCAL de USUARIOS FULL: ", dataFullUsers); */
-  console.log("datos en LOCAL de USUARIOS FULL: ", dataFullUsers);
-  console.log("datos de archivo JSON original de listado: ", tableDataUsers)
+  /* console.log("datos en LOCAL de USUARIOS FULL: ", dataFullUsers);
+  console.log("datos de archivo JSON original de listado: ", tableDataUsers) */
 
   // Chakra Color Mode
   return (
