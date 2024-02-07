@@ -240,6 +240,7 @@ function SignIn() {
                 />
                 <FormErrorMessage>
                   {errors.password?.type === 'required' && <p>Password requerido!</p>}
+                  PASSWORD
                 </FormErrorMessage>
                 <InputRightElement display='flex' alignItems='center' mt='4px'>
                   <Icon
