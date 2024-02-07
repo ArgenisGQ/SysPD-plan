@@ -100,20 +100,29 @@ const useAuthUser = (data) => {
 
     const mutCreateUser = useMutation(
       async (data) => {    
-        const [username, idcard, user, lastname, email, password ] = [data.username,
+        const [username, idcard, firstname, lastname, email, password ] = [data.username,
                                                             data.idcard,
-                                                            data.user,
+                                                            data.firstname,
                                                             data.lastname,
                                                             data.email];
         try {
-            const response = await axios.post('/login', {email, password})                       
-            const status = response?.data?.status;
-            const accessToken = response?.data?.accessToken;
-            setUserAuth(response?.data?.user);
+            /* const response = await axios.post('/login', {email, password}) */
+            const name = firstname + ', ' + lastname;
+            console.log("nombre concatenado: ", name)
+            /* await axios.post('/register', 
+            { username, email, name, password }); */ 
+            
+            const response = await axios.post('/register', 
+            { username, /* idcard, */ email, name, password })
+            
+            /* const status = response?.data?.status; */
+            /* const accessToken = response?.data?.accessToken; */
+            /* setUserAuth(response?.data?.user); */
             /* navigate('/'); */
-            return response.data;
+            console.log('datos de usuarios enviados..')
+            return response;            
           } catch (err) {
-            console.log("Error de conexx2:", err);
+            console.log("Error de envio o registro de usuario: ", err);
             /* return err.response.data.message; */
             return err.response;
           }
@@ -264,7 +273,7 @@ const useAuthUser = (data) => {
           },
           onSuccess: (response) => {
             console.log("response(DATOS USER out): ",response?.data)
-            console.log("storage de datos USUARIOS --", localStorage.getItem("dataUsers"))
+            /* console.log("storage de datos USUARIOS --", localStorage.getItem("dataUsers")) */
            /*  console.log("onSucc -- logout");
             console.log("redireccionando a HOME -- logout"); */
             /* await axios.get('/logout',           
@@ -309,54 +318,58 @@ const useAuthUser = (data) => {
         }); */
     }
     function CreateUser(data) {
-        console.log("--en hooks--")
+        console.log("crean do usuario--en hooks--")
         mutCreateUser.mutate(data,
           {
             onMutate: () => {
-              console.log("Ïnicia la mutacion (en hooks)");
+              console.log("Ïnicia creacion de usuario(en hooks)");
             },
             onSuccess: (response) => {
-              console.log("response (hooks):", response);
+              console.log("response (hooks):", response.message);
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
-              localStorage.setItem("responseF",JSON.stringify(response));
+              /* localStorage.setItem("responseF",JSON.stringify(response));
               const responseFull =localStorage.getItem("responseF");              
               console.log("response full: ", responseFull);
               const responseFullObj = JSON.parse(responseFull);
-              console.log("response Full Obj: ", responseFullObj)
+              console.log("response Full Obj: ", responseFullObj) */
               
               
               
-              localStorage.setItem("userAuth",response?.accessToken);
+              /* localStorage.setItem("userAuth",response?.accessToken);
               localStorage.setItem("status",response?.status);
               localStorage.setItem("user",[response?.user]);
               localStorage.setItem("message",response?.message);
-              localStorage.setItem("userString",JSON.stringify(response?.user));
+              localStorage.setItem("userString",JSON.stringify(response?.user)); */
+
               /* const token  = queryClient.getQueryData(["userAuth"]);
               const status = queryClient.getQueryData(["status"]);
               const user   = queryClient.getQueryData(["user"]); */
 
-              const token  = localStorage.getItem(["userAuth"]);
+              /* const token  = localStorage.getItem(["userAuth"]);
               const status = localStorage.getItem(["status"]);
               const user   = localStorage.getItem(["user"]);
               const message  = localStorage.getItem(["message"]);
-              const userString = localStorage.getItem(["userString"])
+              const userString = localStorage.getItem(["userString"]) */
+
               /* const userObject = JSON.parse(localStorage.getItem('userString')) */
 
-              console.log ("token (en hooks): ", token);
+              /* console.log ("token (en hooks): ", token);
               console.log ("status (en hooks): ", status);
               console.log ("user (en hooks): ", user); 
               console.log ("message (en hooks - CACHE): ", message);
-              console.log ("user String (en hooks): ", userString);
+              console.log ("user String (en hooks): ", userString); */
+
               /* console.log ("user Object (en hooks): ", userObject); */                
-              setUserAuth(user);
+              /* setUserAuth(user);
               setUserStatus(status);
-              setUserToken(token);
-              if (status === "success") {
+              setUserToken(token); */
+              
+              /* if (status === "success") {
                 navigate('/');
               } else { 
                 navigate('/login');
-              }              
+              } */              
             },
             onError: (error) => {
               /* const err =  JSON.parse(error); */
