@@ -35,6 +35,14 @@ export const ProfileCard = (props) => {
   const textColorBrand = useColorModeValue("brand.500", "white");
   const brandStars = useColorModeValue("brand.500", "brand.400");
 
+  //Estados inciales para usar el formulario en edicion.
+  const [userName, setUserName] = useState("");
+  const [idCard, setIdCard] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const form = useRef(); //PARA RESET EL FORMULARIO
 
   const {CreateUser} = useDataUser();
@@ -92,7 +100,7 @@ export const ProfileCard = (props) => {
               <Input
                   id = "username" 
                   type='text'
-                  /* defaultValue="Usuario unico" */
+                  defaultValue= {userName}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -116,7 +124,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "idcard" 
                   type='text'
-                  /* defaultValue="Usuario unico" */
+                  defaultValue={idCard}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -163,7 +171,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "firstName" 
                   type='text'
-                  /* defaultValue="Usuario unico" */
+                  defaultValue={firstName}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -185,7 +193,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "lastname" 
                   type='text'
-                  /* defaultValue="Usuario unico" */
+                  defaultValue={lastName}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -215,7 +223,7 @@ export const ProfileCard = (props) => {
             <Input 
                 id = "email" 
                 type='email'
-                /* defaultValue="Usuario unico" */
+                defaultValue={email}
                 /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}
@@ -239,7 +247,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "password" 
                   type={show ? "text" : "password"}
-                  /* defaultValue="Usuario unico" */
+                  defaultValue={password}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
