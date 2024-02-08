@@ -18,7 +18,7 @@ import {
   InputRightElement,
   Icon,
 } from '@chakra-ui/react'
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import {useForm} from "react-hook-form";
 import { Dropzone } from './Dropzone'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
@@ -35,6 +35,8 @@ export const ProfileCard = (props) => {
   const textColorBrand = useColorModeValue("brand.500", "white");
   const brandStars = useColorModeValue("brand.500", "brand.400");
 
+  const form = useRef(); //PARA RESET EL FORMULARIO
+
   const {CreateUser} = useDataUser();
 
   const { 
@@ -50,6 +52,7 @@ export const ProfileCard = (props) => {
   const onSubmit = (data) => {
     console.log("datos dentro del formulario: ", data);
     CreateUser(data);
+    form.current.reset();//PARA RESET EL FORMULARIO
     
   }
 
@@ -64,7 +67,7 @@ export const ProfileCard = (props) => {
       flex="1"
       {...props}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form  ref={form} onSubmit={handleSubmit(onSubmit)}>
         <Stack
           spacing="5"
           px={{

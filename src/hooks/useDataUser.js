@@ -110,7 +110,7 @@ const useAuthUser = (data) => {
         try {
             /* const response = await axios.post('/login', {email, password}) */
             const name = firstname + ', ' + lastname;
-            console.log("nombre concatenado: ", name)
+            /* console.log("nombre concatenado: ", name) */
             /* await axios.post('/register', 
             { username, email, name, password }); */ 
             
@@ -328,14 +328,16 @@ const useAuthUser = (data) => {
         }); */
     }
     function CreateUser(data) {
-        console.log("crean do usuario--en hooks--")
+        console.log("creando usuario--en hooks--")
         mutCreateUser.mutate(data,
           {
             onMutate: () => {
               console.log("Ïnicia creacion de usuario(en hooks)");
             },
             onSuccess: (response) => {
-              console.log("response (hooks):", response.message);
+              console.log("response PROCESANDO CREAR USuARIO(hooks):", response);
+              console.log("datos del registro de usuario: ",response.data);
+              console.log("mensaje del registro de usuario: ",response.message);
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -383,17 +385,17 @@ const useAuthUser = (data) => {
             },
             onError: (error) => {
               /* const err =  JSON.parse(error); */
-              console.log("Errores(hook):",error);
+              console.log("Errores creando usuarios(hook):",error);
               /* navigate('/login'); */
             },
             onSettled: (response) => {
               /* queryClient.setQueryData("status",response.status);
               const status = queryClient.getQueryData(["status"]); */
-              console.log("RESPONSE(out): ",response.message )
+              console.log("RESPONSE creando usuarios (out): ",response )
               /* localStorage.setItem("status",response?.status);
               const status = localStorage.getItem(["status"]);
               console.log ("status (en otro hooks): ", status); */
-              console.log("Terminada la mutacion (en hooks)")
+              console.log("Terminado el proceso de crear usuario (en hooks)")
             }
           });    
     } 
