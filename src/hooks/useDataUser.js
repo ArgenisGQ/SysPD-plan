@@ -123,7 +123,9 @@ const useAuthUser = (data) => {
                   'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}`  
               }
             });
-            
+              console.log("data en create user: ", response)
+              localStorage.setItem("dataCreateUser",JSON.stringify(response));
+              console.log("dataCreateUser en origen: ",localStorage.getItem("dataCreateUser"))
             /* const status = response?.data?.status; */
             /* const accessToken = response?.data?.accessToken; */
             /* setUserAuth(response?.data?.user); */

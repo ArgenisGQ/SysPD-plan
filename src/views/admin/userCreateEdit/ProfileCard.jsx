@@ -17,6 +17,15 @@ import {
   FormErrorMessage,
   InputRightElement,
   Icon,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Text
 } from '@chakra-ui/react'
 import {useState, useRef} from 'react'
 import {useForm} from "react-hook-form";
@@ -57,13 +66,23 @@ export const ProfileCard = (props) => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
+  const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
+  
   const onSubmit = (data) => {
     console.log("datos dentro del formulario: ", data);
     CreateUser(data);
+    console.log("data create front: ",localStorage.getItem("dataCreateUser"));
+    const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
+    console.log("data dataCreateUser en obj: ", dataCreateUserLocal)
+    /* if (responseFullObj.status === 401) {
+      console.log("datos erroneos")
+      setModalMessage(responseFullObj.data.data.error)
+      onOpen();
+    } */
     form.current.reset();//PARA RESET EL FORMULARIO
-    
+    onOpen();
   }
-
+  
 
   return(
   <>
@@ -322,6 +341,46 @@ export const ProfileCard = (props) => {
             Guardar
           </Button>
         </Flex>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            {/* <ModalHeader>Alerta</ModalHeader> */}
+            <ModalHeader></ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              {/* <Center> */}
+                <Text
+                  mb='36px'
+                  ms='4px'
+                  color={textColorSecondary}
+                  fontWeight='400'
+                  fontSize='md'
+                  textAlign={[ 'left', 'center' ]}>
+                  {/* Coloque su email y su clave para ingresar! */}
+                  {/* {modalMessage}     */}   
+                  <p>TEXTO DE PRUEBA</p>     
+                </Text>
+              {/* </Center> */}  
+            </ModalBody>  
+            <ModalFooter>
+              <Button
+                fontSize='sm'
+                variant='brand'
+                fontWeight='500'
+                w='50%'
+                h='50'
+                mb='24px'                
+                onClick={onClose}
+                type='submit'>
+                Ok
+              </Button>
+              {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
+                Ok
+              </Button> */}
+              {/* <Button variant='ghost'>Secondary Action</Button> */}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </form>
     </Box>
   
