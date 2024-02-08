@@ -24,6 +24,8 @@ import { Dropzone } from './Dropzone'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 
+import useDataUser from '../../../hooks/useDataUser'; 
+
 
 
 export const ProfileCard = (props) => {
@@ -32,6 +34,8 @@ export const ProfileCard = (props) => {
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
   const textColorBrand = useColorModeValue("brand.500", "white");
   const brandStars = useColorModeValue("brand.500", "brand.400");
+
+  const {CreateUser} = useDataUser();
 
   const { 
   register, handleSubmit, watch,  
@@ -44,7 +48,8 @@ export const ProfileCard = (props) => {
   const handleClick = () => setShow(!show);
 
   const onSubmit = (data) => {
-    console.log("datos denro del formulario: ", data)
+    console.log("datos dentro del formulario: ", data);
+    CreateUser(data);
     
   }
 

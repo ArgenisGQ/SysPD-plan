@@ -99,12 +99,14 @@ const useAuthUser = (data) => {
     )
 
     const mutCreateUser = useMutation(
-      async (data) => {    
+      async (data) => { 
+        console.log("datos para enviar: ", data)   
         const [username, idcard, firstname, lastname, email, password ] = [data.username,
-                                                            data.idcard,
-                                                            data.firstname,
-                                                            data.lastname,
-                                                            data.email];
+                                                                           data.idcard,
+                                                                           data.firstname,
+                                                                           data.lastname,
+                                                                           data.email,
+                                                                           data.password];
         try {
             /* const response = await axios.post('/login', {email, password}) */
             const name = firstname + ', ' + lastname;
@@ -113,19 +115,27 @@ const useAuthUser = (data) => {
             { username, email, name, password }); */ 
             
             const response = await axios.post('/register', 
-            { username, /* idcard, */ email, name, password })
+            { username, name, email, password },
+            {
+              headers: {
+                  /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
+                  /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}` */
+                  'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}`  
+              }
+            });
             
             /* const status = response?.data?.status; */
             /* const accessToken = response?.data?.accessToken; */
             /* setUserAuth(response?.data?.user); */
             /* navigate('/'); */
-            console.log('datos de usuarios enviados..')
-            return response;            
-          } catch (err) {
-            console.log("Error de envio o registro de usuario: ", err);
-            /* return err.response.data.message; */
-            return err.response;
-          }
+              console.log('datos de usuarios enviados..')
+              return response;            
+            } catch (err) {
+              console.log("Error de envio o registro de usuario: ", err);
+              /* return err.response.data.message; */
+              console.log("Tipo de error: ", err )
+              return err.response;
+            }
         /* return outfit.json(); */
       },
       {

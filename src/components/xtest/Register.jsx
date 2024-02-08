@@ -92,7 +92,7 @@ function Register() {
             swal(e.response.data.message);
             }
             console.log("error: ",errors.password);
-        };
+    };
 
   return (
     <div className='min-h-screen flex flex-col items-center justify-center bg-gray-300'>
