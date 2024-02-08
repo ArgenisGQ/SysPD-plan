@@ -114,6 +114,7 @@ const useAuthUser = (data) => {
               console.log("response Full Obj: ", responseFullObj)
               
               queryClient.setQueryData("userQ",response?.user);
+              
               localStorage.setItem("userAuth",response?.accessToken);
               localStorage.setItem("status",response?.status);
               localStorage.setItem("user",[response?.user]);
@@ -139,11 +140,11 @@ const useAuthUser = (data) => {
               setUserAuth(user);
               setUserStatus(status);
               setUserToken(token);
-              /* if (status === "success") {
+              if (status === "success") {
                 navigate('/');
               } else { 
                 navigate('/login');
-              }           */    
+              }              
             },
             onError: (error) => {
               /* const err =  JSON.parse(error); */

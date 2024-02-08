@@ -27,7 +27,7 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon
 } from "@chakra-ui/icons";
-import React, { useMemo } from "react";
+import React,  { useMemo, useEffect } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -38,14 +38,21 @@ import {
 // Custom components
 import Card from "../../../../components/card/Card";
 import Menu from "../../../../components/menu/MainMenu";
-
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
+
 export default function ColumnsTable(props) {
+  
   const { columnsData, tableData } = props;
+
+  console.log("01 datos head!!: ",columnsData)
+
+  console.log("01 datos primera parte en componente!!: ",tableData)
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
+
+  console.log("02 data dentro de la tabla: ",data)
 
   const tableInstance = useTable(
     {
@@ -265,7 +272,8 @@ export default function ColumnsTable(props) {
           })}
         </Tbody>
       </Table>
-      {/* Paginacion */}
+
+      {/* Paginacion */}{/* --------------------------------------------------------------------- */}
       <Flex justifyContent="space-between" m={4} alignItems="center">
         <Flex>
           <Tooltip label="Primera página">

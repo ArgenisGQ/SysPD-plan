@@ -21,9 +21,29 @@ import tableDataCheck from "../../../views/admin/users/variables/tableDataCheck.
 import tableDataColumns from "../../../views/admin/users/variables/tableDataColumns.json";
 import tableDataComplex from "../../../views/admin/users/variables/tableDataComplex.json";
 import tableDataUsers from "../../../views/admin/users/variables/tableDataUsers.json";
-import React from "react";
+
+import useDataUser from '../../../hooks/useDataUser'; 
+import { useEffect, useState } from "react";
 
 export default function Settings() {
+
+  const {DataUsers} = useDataUser();
+  const [dataFullUsers,setDataFullUsers] = useState([])
+
+  useEffect(() => {
+    console.log("EFECTO....");
+    DataUsers();
+    LoadData();
+  }, []);
+
+  const LoadData = () => {
+    const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
+    setDataFullUsers(loadDataFullUsers)
+  }
+  
+  /* console.log("datos en LOCAL de USUARIOS FULL: ", dataFullUsers);
+  console.log("datos de archivo JSON original de listado: ", tableDataUsers) */
+
   // Chakra Color Mode
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -49,7 +69,8 @@ export default function Settings() {
         /> */}
         <UsersTable
           columnsData={columnsDataUsers}
-          tableData={tableDataUsers}
+          /* tableData={tableDataUsers} */
+          tableData={dataFullUsers}
         />
       </SimpleGrid>
     </Box>

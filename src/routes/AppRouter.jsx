@@ -2,66 +2,94 @@
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
-import TremuTest from '../components/TremuTest';
-import FormBase from '../components/FormBase';
-import LoginBase from '../components/LoginBase';
-import Login01Base from '../components/Login01Base';
-import Login02Base from '../components/Login02Base';
-import Login03Base from '../components/Login03Base';
-import Login04Base from '../components/Login04Base';
-import Register from '../components/register';
+import { useState }      from 'react';
+import TremuTest         from '../components/xtest/TremuTest';
+import FormBase          from '../components/xtest/FormBase';
+import LoginBase         from '../components/xtest/LoginBase';
+import Login01Base       from '../components/xtest/Login01Base';
+import Login02Base       from '../components/xtest/Login02Base';
+import Login03Base       from '../components/xtest/Login03Base';
+import Login04Base       from '../components/xtest/Login04Base';
+
+import Register          from '../components/xtest/register';
+import AllUsers          from '../components/xtest/AllUsers';
+import LoginTest         from '../components/xtest/LoginTest';
 /* import HomePages from './scenes/HomePages'; */
-import Pagination from '../pages/Pagination';
-import HomePages from '../pages/HomePages';
-import Login from '../pages/login/Login';
-import Layout from '../pages/layout/Layout';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import AllUsers from '../components/AllUsers';
-import LoginTest from '../components/LoginTest';
-import ProtectedRoute from './ProtectedRoute';
+import Pagination       from '../pages/Pagination';
+import HomePages        from '../pages/HomePages';
+import Login            from '../pages/login/Login';
+import Layout           from '../pages/layout/Layout';
+import { BrowserRouter,
+         Routes,
+         Route,
+         useNavigate,
+         createBrowserRouter,
+         RouterProvider,
+                       } from 'react-router-dom';
+
+//--Routes protegidas--//
+import ProtectedRoute    from './ProtectedRoute';
 
 /* import UserProvider, {UserContext} from './context/UserProvider'; */
 /* import { UserContext } from "../context/UserProvider"; */
-import { UserProvider } from "../context/UserContext";
-import { AuthProvider } from "../context/AuthContext";
+import { UserProvider }  from "../context/UserContext";
+import { AuthProvider }  from "../context/AuthContext";
 /* import { isAuthenticated } from "./services/Login"; */
 
 //--solo para pruebas--//
-import Spiners from "../forUse/spiners";
+import Spiners            from "../forUse/spiners";
 /* import Burguer from "../forUse/burguer"; */
 
-import AuthLayout from '../layouts/auth/index';
-import AdminLayout from '../layouts/admin/index';
-import LayoutAdmin from '../pages/layout/LayoutAdmin'; 
+import AuthLayout         from '../layouts/auth/index';
+import AdminLayout        from '../layouts/admin/index';
+import LayoutAdmin        from '../pages/layout/LayoutAdmin'; 
 // Admin Imports
+import HomePage           from '../views/home';
 /* import MainDashboardUsers from "../views/admin/default"; */
 import MainDashboardUsers from "../views/admin/dashboard";
-import Users from "../views/admin/users";
-import MyProfile from "../views/admin/myprofile";
-import UserForm from "../views/admin/userForm";
-import UserCreate from "../views/admin/userCreateEdit";
-import NextForm from "../views/admin/nextForm";
-import Uploads from "../views/admin/uploads";
-import Role from "../views/admin/role";
-import Periods from "../views/admin/periods";
-import Planning from "../views/admin/planning";
+import Users              from "../views/admin/users";
+import MyProfile          from "../views/admin/myprofile";
+import UserForm           from "../views/admin/userForm";
+import UserCreate         from "../views/admin/userCreateEdit";
+import NextForm           from "../views/admin/nextForm";
+import Uploads            from "../views/admin/uploads";
+import Role               from "../views/admin/role";
+import Periods            from "../views/admin/periods";
+import Planning           from "../views/admin/planning";
 
 /* import NFTMarketplace from "../views/admin/marketplace"; */
 
 /* import DataTables from "../views/admin/dataTables"; */
 // Reference Imports 
-import MainDashboard from "../views/reference/default";
-import NFTMarketplace from "../views/reference/marketplace";
-import Profile from "../views/reference/profile";
-import DataTables from "../views/reference/dataTables";
+import MainDashboard      from "../views/reference/default";
+import NFTMarketplace     from "../views/reference/marketplace";
+import Profile            from "../views/reference/profile";
+import DataTables         from "../views/reference/dataTables";
 /* import RTL from "./views/admin/rtl"; */
 
 // Auth Imports
-import SignInCentered from "../views/auth/signIn";
+import SignInCentered      from "../views/auth/signIn";
+import { useLocalStorage } from 'react-use';
 
 function AppRouter() { 
   const navigate = useNavigate();
-  /* console.log("usuario:"); */
+  /* const [userActive, setUserActive] = useState(); */
+  const [user, setUser] = useLocalStorage('responseF');  
+  console.log("user(localStorage): ", user)
+
+  const dataStorageStr = localStorage.getItem("responseF");
+  const dataStorage = JSON.parse(dataStorageStr);
+  const userActive = dataStorage?.user;
+  /* setUserActive(dataStorage?.user); */
+
+  /* const userActiveStr = localStorage.getItem("responseF");
+  const userActiveObj = JSON.parse(userActiveStr); */
+
+  /* const userActive = userActiveObj?.user; */
+  console.log("datos usario full: ", userActive)
+
+ 
+
   return (
     <>
     {/*< BrowserRouter>
@@ -73,7 +101,8 @@ function AppRouter() {
                 <Route path='/' element={<Layout />} >
                 {/* <Route path='/' element={<LayoutAdmin />} >  */}
                       
-                      <Route exact path='/'           element={< HomePages/>}/>                      
+                      {/* <Route exact path='/'           element={< HomePages/>}/> */}
+                      <Route exact path='/'           element={< HomePage/>}/>                       
                       {/* <Route exact path='/login'      element={< Login/>}/> */}
                       <Route exact path='/login'      element={< SignInCentered/>}/>
                       {/* <Route path='/login01'    element={< Login01Base/>}/> */}
@@ -86,7 +115,7 @@ function AppRouter() {
                       <Route exact path='/LoginTest'  element={< LoginTest/>}/>
                       {/* <Route path="*" element={<Page404 />}   */}
 
-                      <Route path="/" element={<ProtectedRoute />}>
+                      <Route path="/" element={<ProtectedRoute canActive={userActive} redirectPath='/' />}>
                         <Route exact path="/register" element={<Register />} />
                         {/* <Route exact path="/login01" element={<Login01Base />} /> */}
                         <Route exact path='/all'        element={< AllUsers/>}/>
