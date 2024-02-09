@@ -57,6 +57,8 @@ import Role               from "../views/admin/role";
 import Periods            from "../views/admin/periods";
 import Planning           from "../views/admin/planning";
 
+import UserProfile        from "../views/admin/userCreateEdit/myprofile";
+
 /* import NFTMarketplace from "../views/admin/marketplace"; */
 
 /* import DataTables from "../views/admin/dataTables"; */
@@ -147,7 +149,8 @@ function AppRouter() {
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
                         {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}
-                        <Route path='/admin/myprofile'            element={< MyProfile/>}/>                          
+                        <Route path='/admin/myprofile'            element={< MyProfile/>}/>
+                        <Route path='/admin/userprofile'          element={< UserProfile/>}/>                          
                       </Route>
 
                       <Route path="/reference" element={<AdminLayout />}>

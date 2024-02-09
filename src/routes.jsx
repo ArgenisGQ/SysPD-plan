@@ -68,6 +68,13 @@ const routes = [
                 path: "/usercreate",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
+              },
+              {
+                name: "Perfil de Usuario",
+                layout: "/admin",
+                path: "/userprofile",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
               },             
             ]
   },
