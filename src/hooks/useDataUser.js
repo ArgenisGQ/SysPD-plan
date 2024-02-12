@@ -75,7 +75,7 @@ const useAuthUser = (data) => {
       async (data)  => {  
         console.log('creacion de usuario -- 070224');
         try {
-          await axios.get('/index',           
+          await axios.get('/users/',           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -102,7 +102,7 @@ const useAuthUser = (data) => {
       async (data)  => {  
         console.log('Datos de usuario -- 090224');
         try {
-          await axios.get('/show'+data.id,           
+          await axios.get('/users/show'+data.id,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-const endpoint = 'http://127.0.0.1:8000/api'
+const endpoint = 'http://127.0.0.1:8000/api/users'
 
 
 function AllUsers() {
@@ -30,7 +30,7 @@ function AllUsers() {
             /* const result = await axios.get('http://127.0.0.1:8000/api/index'); */
             /* {console.log("token de entrada: ",queryClient.getQueryData(["userAuth"]))} */
             {console.log("token de entrada LOCALSTORAGE: ",localStorage.getItem(["userAuth"]))}
-            const result = await axios.get(`${endpoint}/index`,
+            const result = await axios.get(`${endpoint}/`,
             {
                 headers: {
                   /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
