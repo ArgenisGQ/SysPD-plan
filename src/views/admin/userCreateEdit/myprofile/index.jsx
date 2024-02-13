@@ -27,7 +27,7 @@ export default function Overview() {
 
   useEffect(() => {
     ShowUser(2);
-    console.log("datos de id user: ")
+    console.log("datos de id user: ------")
     /* console.log("EFECTO....");
     DataUsers();
     LoadData(); */

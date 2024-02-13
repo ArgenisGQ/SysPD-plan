@@ -101,8 +101,9 @@ const useAuthUser = (data) => {
     const mutShowUser  = useMutation(
       async (data)  => {  
         console.log('Datos de usuario -- 090224');
+        console.log('Datos de entrada SHOW: ', data)
         try {
-          await axios.get('/users/show'+data.id,           
+          await axios.get('/users/'+data,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -431,7 +432,7 @@ const useAuthUser = (data) => {
     }
     function ShowUser(data) {
         console.log("Mostrando usuario--en hooks--")
-        mutCreateUser.mutate(data,
+        mutShowUser.mutate(data,
           {
             onMutate: () => {
               console.log("Ïnicia Muestra de usuario(en hooks)");
@@ -487,17 +488,17 @@ const useAuthUser = (data) => {
             },
             onError: (error) => {
               /* const err =  JSON.parse(error); */
-              console.log("Errores creando usuarios(hook):",error);
+              console.log("Errores MOSTRANDO usuarios(hook):",error);
               /* navigate('/login'); */
             },
             onSettled: (response) => {
               /* queryClient.setQueryData("status",response.status);
               const status = queryClient.getQueryData(["status"]); */
-              console.log("RESPONSE creando usuarios (out): ",response )
+              console.log("RESPONSE MOSTRANDOusuarios (out): ",response )
               /* localStorage.setItem("status",response?.status);
               const status = localStorage.getItem(["status"]);
               console.log ("status (en otro hooks): ", status); */
-              console.log("Terminado el proceso de crear usuario (en hooks)")
+              console.log("Terminado el proceso de MOSTRAR usuario (en hooks)")
             }
           });    
     }  
