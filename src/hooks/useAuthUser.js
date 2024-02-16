@@ -85,7 +85,7 @@ const useAuthUser = (data) => {
           .then((response) => {        
             console.log("token antes2 - out:",localStorage.getItem(["userAuth"]))
             /* queryClient.removeQueries(); */
-            localStorage.clear();
+            localStorage.clear();            
             /* localStorage.removeItem(["userAuth"]); */
             console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))           
           });

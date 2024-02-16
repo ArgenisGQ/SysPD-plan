@@ -143,7 +143,7 @@ const useAuthUser = (data) => {
             /* await axios.post('/register', 
             { username, email, name, password }); */ 
             
-            const response = await axios.post('/store', 
+            const response = await axios.post('/users', 
             { username, name, email, password },
             {
               headers: {
