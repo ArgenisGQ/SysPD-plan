@@ -2,7 +2,7 @@
 /* import { Grid, Col, TMetric } from "@tremor/react"; */
 /* import React from 'react'; */
 /* import { useContext } from "react"; */
-import { useState }      from 'react';
+import { useState, useEffect }      from 'react';
 import TremuTest         from '../components/xtest/TremuTest';
 import FormBase          from '../components/xtest/FormBase';
 import LoginBase         from '../components/xtest/LoginBase';
@@ -75,20 +75,30 @@ import { useLocalStorage } from 'react-use';
 
 function AppRouter() { 
   const navigate = useNavigate();
-  /* const [userActive, setUserActive] = useState(); */
+  const [userActive, setUserActive] = useState(false);
   const [user, setUser] = useLocalStorage('responseF');  
   console.log("user(localStorage): ", user)
 
   const dataStorageStr = localStorage.getItem("responseF");
-  const dataStorage = JSON.parse(dataStorageStr);
-  const userActive = dataStorage?.user;
+  /* const dataStorage = JSON.parse(dataStorageStr);
+  console.log('CONTROL: ', dataStorage.user) */
+   //control de usuario activo para accesos  canActive={true}
+
+  useEffect(() => {
+    const dataStorage = JSON.parse(dataStorageStr);
+    if (dataStorage?.user) {
+      setUserActive(true);
+    }     
+  },[]);
+
+  /* const userActive = dataStorage?.user; */
   /* setUserActive(dataStorage?.user); */
 
   /* const userActiveStr = localStorage.getItem("responseF");
   const userActiveObj = JSON.parse(userActiveStr); */
 
   /* const userActive = userActiveObj?.user; */
-  console.log("datos usario full: ", userActive)
+  console.log("datos usUario full: ", userActive)
 
  
 
