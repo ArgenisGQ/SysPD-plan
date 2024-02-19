@@ -183,8 +183,62 @@ const useAuthUser = (data) => {
           console.log("Terminada la mutacion")
         } */
       }
-  )
+    )
 
+    const mutEditLoadUser = useMutation(
+      async (data)  => {  
+        console.log('Editor Conector: ',data);
+        try {
+          const response = await axios.get('/users/'+data,           
+          {
+              headers: { 
+                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+              }
+          })
+          return response
+          
+          /* .then((response) => {
+            console.log("Edit Data User full: ", response.data.users)            
+            localStorage.setItem('userForEdit',JSON.stringify(response.data.users))
+          }); 
+          console.log("Terminado DATA DE USUARIO");*/
+        } catch (e) {
+          console.log("error - DATA PARA EDITAR: ",e.response.message)
+        }       
+      } 
+    )
+
+    const mutEditUser = useMutation(
+      async (data)  => {  
+        console.log('Editor Conector: ',data);
+        try {
+          await axios.get('/users/'+data,           
+          {
+              headers: {                
+                /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
+                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+              }
+          })
+          .then((response) => {
+            console.log("show user: ", response)
+            /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
+
+            /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
+            /* queryClient.removeQueries(); */
+            /* localStorage.clear(); */
+            /* localStorage.removeItem(["userAuth"]); */
+            /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
+          });
+          console.log("Terminado EDITAR USUARIO");   
+        } catch (e) {
+          console.log("error - EDITAR: ",e.response.message);
+        }       
+      } 
+    )
+
+    const mutDeleteUser = useMutation(
+
+    )
     function Login5(data) {
         console.log("--en hooks--")
         mutLogin.mutate(data,
@@ -501,7 +555,158 @@ const useAuthUser = (data) => {
               console.log("Terminado el proceso de MOSTRAR usuario (en hooks)")
             }
           });    
-    }  
+    }
+    function EditLoadUser(data) {
+      console.log("Precarga de datos para edicion-")
+      mutEditLoadUser.mutate(data,
+        {
+          onMutate: () => {
+            console.log("Ïnicia LOAD -HOOKS-)");
+          },
+          onSuccess: (response) => {
+            console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response.data.users);
+            localStorage.setItem("userForEdit",JSON.stringify(response.data.users));
+            console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("userForEdit"));
+            /* queryClient.setQueriesData('userForEdit',JSON.stringify(response)) */
+            /* console.log('DATOS A EDITAR - HOOK: ', queryClient.getItem('userForEdit')) */
+
+
+
+            /* console.log("datos del USUARIO: ",response.data);
+            console.log("mensaje de LA MUESTRA DE USUARIO: ",response.message); */
+            /* queryClient.setQueryData("userAuth",response?.accessToken);
+            queryClient.setQueryData("status",response?.status); */
+            /* localStorage.setItem("responseF",JSON.stringify(response));
+            const responseFull =localStorage.getItem("responseF");              
+            console.log("response full: ", responseFull);
+            const responseFullObj = JSON.parse(responseFull);
+            console.log("response Full Obj: ", responseFullObj) */
+            
+            
+            
+            /* localStorage.setItem("userAuth",response?.accessToken);
+            localStorage.setItem("status",response?.status);
+            localStorage.setItem("user",[response?.user]);
+            localStorage.setItem("message",response?.message);
+            localStorage.setItem("userString",JSON.stringify(response?.user)); */
+
+            /* const token  = queryClient.getQueryData(["userAuth"]);
+            const status = queryClient.getQueryData(["status"]);
+            const user   = queryClient.getQueryData(["user"]); */
+
+            /* const token  = localStorage.getItem(["userAuth"]);
+            const status = localStorage.getItem(["status"]);
+            const user   = localStorage.getItem(["user"]);
+            const message  = localStorage.getItem(["message"]);
+            const userString = localStorage.getItem(["userString"]) */
+
+            /* const userObject = JSON.parse(localStorage.getItem('userString')) */
+
+            /* console.log ("token (en hooks): ", token);
+            console.log ("status (en hooks): ", status);
+            console.log ("user (en hooks): ", user); 
+            console.log ("message (en hooks - CACHE): ", message);
+            console.log ("user String (en hooks): ", userString); */
+
+            /* console.log ("user Object (en hooks): ", userObject); */                
+            /* setUserAuth(user);
+            setUserStatus(status);
+            setUserToken(token); */
+            
+            /* if (status === "success") {
+              navigate('/');
+            } else { 
+              navigate('/login');
+            } */              
+          },
+          onError: (error) => {
+            /* const err =  JSON.parse(error); */
+            console.log("Errores LOAD EDIT usuarios(hook):",error);
+            /* navigate('/login'); */
+          },
+          onSettled: (response) => {
+            /* queryClient.setQueryData("status",response.status);
+            const status = queryClient.getQueryData(["status"]); */
+            /* console.log("RESPONSE LOAD EDIT (out): ",response ) */
+            /* localStorage.setItem("status",response?.status);
+            const status = localStorage.getItem(["status"]);
+            console.log ("status (en otro hooks): ", status); */
+            console.log("Terminado el proceso de LOAD EDIT (en hooks)")
+          }
+        });    
+    }
+    function EditUser(data) {
+      console.log("Mostrando usuario--en hooks--")
+      mutShowUser.mutate(data,
+        {
+          onMutate: () => {
+            console.log("Ïnicia Muestra de usuario(en hooks)");
+          },
+          onSuccess: (response) => {
+            console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
+            console.log("datos del USUARIO: ",response.data);
+            console.log("mensaje de LA MUESTRA DE USUARIO: ",response.message);
+            /* queryClient.setQueryData("userAuth",response?.accessToken);
+            queryClient.setQueryData("status",response?.status); */
+            /* localStorage.setItem("responseF",JSON.stringify(response));
+            const responseFull =localStorage.getItem("responseF");              
+            console.log("response full: ", responseFull);
+            const responseFullObj = JSON.parse(responseFull);
+            console.log("response Full Obj: ", responseFullObj) */
+            
+            
+            
+            /* localStorage.setItem("userAuth",response?.accessToken);
+            localStorage.setItem("status",response?.status);
+            localStorage.setItem("user",[response?.user]);
+            localStorage.setItem("message",response?.message);
+            localStorage.setItem("userString",JSON.stringify(response?.user)); */
+
+            /* const token  = queryClient.getQueryData(["userAuth"]);
+            const status = queryClient.getQueryData(["status"]);
+            const user   = queryClient.getQueryData(["user"]); */
+
+            /* const token  = localStorage.getItem(["userAuth"]);
+            const status = localStorage.getItem(["status"]);
+            const user   = localStorage.getItem(["user"]);
+            const message  = localStorage.getItem(["message"]);
+            const userString = localStorage.getItem(["userString"]) */
+
+            /* const userObject = JSON.parse(localStorage.getItem('userString')) */
+
+            /* console.log ("token (en hooks): ", token);
+            console.log ("status (en hooks): ", status);
+            console.log ("user (en hooks): ", user); 
+            console.log ("message (en hooks - CACHE): ", message);
+            console.log ("user String (en hooks): ", userString); */
+
+            /* console.log ("user Object (en hooks): ", userObject); */                
+            /* setUserAuth(user);
+            setUserStatus(status);
+            setUserToken(token); */
+            
+            /* if (status === "success") {
+              navigate('/');
+            } else { 
+              navigate('/login');
+            } */              
+          },
+          onError: (error) => {
+            /* const err =  JSON.parse(error); */
+            console.log("Errores MOSTRANDO usuarios(hook):",error);
+            /* navigate('/login'); */
+          },
+          onSettled: (response) => {
+            /* queryClient.setQueryData("status",response.status);
+            const status = queryClient.getQueryData(["status"]); */
+            console.log("RESPONSE MOSTRANDOusuarios (out): ",response )
+            /* localStorage.setItem("status",response?.status);
+            const status = localStorage.getItem(["status"]);
+            console.log ("status (en otro hooks): ", status); */
+            console.log("Terminado el proceso de MOSTRAR usuario (en hooks)")
+          }
+        });    
+    }    
   return {
         userAuth,
         userStatus,
@@ -510,7 +715,9 @@ const useAuthUser = (data) => {
         Logout5,
         DataUsers,
         CreateUser,
-        ShowUser, 
+        ShowUser,
+        EditLoadUser,
+        EditUser, 
         mutLogin,
         mutLogout,
         

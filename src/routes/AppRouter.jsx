@@ -151,6 +151,7 @@ function AppRouter() {
                         <Route path='/admin/users'                element={< Users/>}/>
                         <Route path='/admin/userform'             element={< UserForm/>}/>
                         <Route path='/admin/usercreate'           element={< UserCreate/>}/>
+                        <Route path='/admin/useredit'             element={< UserCreate editActive={true}/>}/>
                         <Route path='/admin/nextform'             element={< NextForm/>}/>
                         <Route path='/admin/uploads'              element={< Uploads/>}/>
                         <Route path='/admin/role'                 element={< Role/>}/>

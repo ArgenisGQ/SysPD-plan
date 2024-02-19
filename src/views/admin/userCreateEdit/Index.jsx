@@ -1,3 +1,4 @@
+import { useState, useEffect }      from 'react';
 import { Box, 
         Container, 
         Stack, 
@@ -11,7 +12,15 @@ import { PwdUserCard } from './PwdUserCard';
 import { CourseCard } from './CourseCard';
 import Card from "../../../components/card/Card";
 
-export default function Settings() {
+
+
+export default function Settings(props) {
+
+const { editActive } = props;
+/* const [activeEdit, setActiveEdit] = useState(false); */
+/* setActiveEdit({editActive}); */
+console.log("props de ruta: ", editActive);
+
 /* export const App = () => ( */
 return (
   <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -43,6 +52,7 @@ return (
               </Text>
             </Box>
             <ProfileCard
+              edit={editActive}
               maxW={{
                 lg: '3xl',
               }}

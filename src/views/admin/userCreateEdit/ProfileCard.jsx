@@ -27,7 +27,7 @@ import {
   useDisclosure,
   Text
 } from '@chakra-ui/react'
-import {useState, useRef} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import {useForm} from "react-hook-form";
 import { Dropzone } from './Dropzone'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
@@ -38,6 +38,7 @@ import useDataUser from '../../../hooks/useDataUser';
 
 
 export const ProfileCard = (props) => {
+  const { edit } = props;
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -54,7 +55,7 @@ export const ProfileCard = (props) => {
 
   const form = useRef(); //PARA RESET EL FORMULARIO
 
-  const {CreateUser} = useDataUser();
+  const {CreateUser,EditLoadUser,EditUser} = useDataUser();
 
   const { 
   register, handleSubmit, watch,  
@@ -69,18 +70,57 @@ export const ProfileCard = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
   
   const onSubmit = (data) => {
-    console.log("datos dentro del formulario: ", data);
+    /* console.log("datos dentro del formulario: ", data);
     CreateUser(data);
     console.log("data create front: ",localStorage.getItem("dataCreateUser"));
     const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
     console.log("data dataCreateUser en obj: ", dataCreateUserLocal)
-    /* if (responseFullObj.status === 401) {
-      console.log("datos erroneos")
-      setModalMessage(responseFullObj.data.data.error)
-      onOpen();
-    } */
     form.current.reset();//PARA RESET EL FORMULARIO
-    onOpen();
+    onOpen(); */
+
+    if (edit) {
+      console.log("Control EDITAR");
+      EditOnUser(data);
+      onOpen();      
+    } else {
+      console.log("datos dentro del formulario: ", data);
+      CreateUser(data);
+      console.log("data create front: ",localStorage.getItem("dataCreateUser"));
+      const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
+      console.log("data dataCreateUser en obj: ", dataCreateUserLocal)
+      /* if (responseFullObj.status === 401) {
+        console.log("datos erroneos")
+        setModalMessage(responseFullObj.data.data.error)
+        onOpen();
+      } */
+      form.current.reset();//PARA RESET EL FORMULARIO
+      onOpen();
+    }
+  }
+
+  useEffect(() => {
+    if (edit) {
+      ShowForEditData(2);
+    } 
+  }, []); 
+
+  console.log('FRONT control de editor: ', edit)
+  
+  const ShowForEditData = (data) => {
+    console.log('FRONT control..');
+    EditLoadUser(data);
+    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+    console.log("FRONT full user para editar es: ", userForEdit);
+    setUserName(userForEdit.username);
+    /* setIdCard(userForEdit.id); */
+    setFirstName();
+    setLastName();
+    setEmail(userForEdit.email);
+    /* setPassword(); */
+  }
+  
+  const EditOnUser = (data) => {
+    console.log("DATA para enviar a editar: ",data)
   }
   
 
@@ -338,7 +378,7 @@ export const ProfileCard = (props) => {
               mb='24px'
               isLoading={isSubmitting}
               /* type='submit' */>
-            Guardar
+            { edit?'Editar':'Guardar'}
           </Button>
         </Flex>
         <Modal isOpen={isOpen} onClose={onClose}>
@@ -358,7 +398,8 @@ export const ProfileCard = (props) => {
                   textAlign={[ 'left', 'center' ]}>
                   {/* Coloque su email y su clave para ingresar! */}
                   {/* {modalMessage}     */}   
-                  <p>TEXTO DE PRUEBA</p>     
+                  {/* <p>USUARIO CREADO</p> */}
+                  {edit ? 'Usuario Editado' : 'Usuario Creado'}     
                 </Text>
               {/* </Center> */}  
             </ModalBody>  
