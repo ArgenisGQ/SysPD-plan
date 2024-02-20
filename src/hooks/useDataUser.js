@@ -194,14 +194,14 @@ const useAuthUser = (data) => {
               headers: { 
                 'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
               }
-          })
-          return response
+          })          
+          /* return response */
           
-          /* .then((response) => {
+          .then((response) => {
             console.log("Edit Data User full: ", response.data.users)            
             localStorage.setItem('userForEdit',JSON.stringify(response.data.users))
           }); 
-          console.log("Terminado DATA DE USUARIO");*/
+          console.log("Terminado DATA DE USUARIO");
         } catch (e) {
           console.log("error - DATA PARA EDITAR: ",e.response.message)
         }       
@@ -557,15 +557,15 @@ const useAuthUser = (data) => {
           });    
     }
     function EditLoadUser(data) {
-      console.log("Precarga de datos para edicion-")
+      console.log("Precarga de datos para edicion-HOOKS")
       mutEditLoadUser.mutate(data,
         {
           onMutate: () => {
             console.log("Ïnicia LOAD -HOOKS-)");
           },
           onSuccess: (response) => {
-            console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response.data.users);
-            localStorage.setItem("userForEdit",JSON.stringify(response.data.users));
+            /* console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response.data.users);
+            localStorage.setItem("userForEdit",JSON.stringify(response.data.users)); */
             console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("userForEdit"));
             /* queryClient.setQueriesData('userForEdit',JSON.stringify(response)) */
             /* console.log('DATOS A EDITAR - HOOK: ', queryClient.getItem('userForEdit')) */

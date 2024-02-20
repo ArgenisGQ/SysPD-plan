@@ -38,7 +38,12 @@ import useDataUser from '../../../hooks/useDataUser';
 
 
 export const ProfileCard = (props) => {
-  const { edit } = props;
+  const { edit,
+          userNameL,
+          firstNameL,
+          lastNameL,
+          idCardL,
+          emailL } = props;
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -46,11 +51,11 @@ export const ProfileCard = (props) => {
   const brandStars = useColorModeValue("brand.500", "brand.400");
 
   //Estados inciales para usar el formulario en edicion.
-  const [userName, setUserName] = useState("");
-  const [idCard, setIdCard] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState(userNameL);
+  const [idCard, setIdCard] = useState(idCardL);
+  const [firstName, setFirstName] = useState(firstNameL);
+  const [lastName, setLastName] = useState(lastNameL);
+  const [email, setEmail] = useState(emailL);
   const [password, setPassword] = useState("");
 
   const form = useRef(); //PARA RESET EL FORMULARIO
@@ -97,33 +102,31 @@ export const ProfileCard = (props) => {
       onOpen();
     }
   }
-
-  useEffect(() => {
+  /* console.log("datos de usuario a editar:",userName) */
+  /* useEffect(() => {
     if (edit) {
-      ShowForEditData(2);
+      ShowForEditData(25);
+      console.log("efecto-load: ", load)
     } 
   }, []); 
 
   console.log('FRONT control de editor: ', edit)
   
   const ShowForEditData = (data) => {
-    console.log('FRONT control..');
-    EditLoadUser(data);
     const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
     console.log("FRONT full user para editar es: ", userForEdit);
-    setUserName(userForEdit.username);
-    /* setIdCard(userForEdit.id); */
-    setFirstName();
-    setLastName();
+    setUserName(userNameL);
+    const name = (userForEdit.name).split(',')
+    console.log("nombre EDIT: ",name )
+    setFirstName(name[0]);
+    setLastName(name[1]);
     setEmail(userForEdit.email);
-    /* setPassword(); */
-  }
+  } */
   
   const EditOnUser = (data) => {
     console.log("DATA para enviar a editar: ",data)
   }
   
-
   return(
   <>
   
@@ -159,7 +162,7 @@ export const ProfileCard = (props) => {
               <Input
                   id = "username" 
                   type='text'
-                  defaultValue= {userName}
+                  defaultValue= {userNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -183,7 +186,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "idcard" 
                   type='text'
-                  defaultValue={idCard}
+                  defaultValue={idCardL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -230,7 +233,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "firstName" 
                   type='text'
-                  defaultValue={firstName}
+                  defaultValue={firstNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -252,7 +255,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "lastname" 
                   type='text'
-                  defaultValue={lastName}
+                  defaultValue={lastNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -282,7 +285,7 @@ export const ProfileCard = (props) => {
             <Input 
                 id = "email" 
                 type='email'
-                defaultValue={email}
+                defaultValue={emailL}
                 /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}

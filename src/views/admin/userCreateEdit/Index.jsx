@@ -11,15 +11,50 @@ import { PasswordCard } from './PasswordCard';
 import { PwdUserCard } from './PwdUserCard';
 import { CourseCard } from './CourseCard';
 import Card from "../../../components/card/Card";
+import useDataUser from '../../../hooks/useDataUser'; 
 
 
 
 export default function Settings(props) {
 
 const { editActive } = props;
+const {CreateUser,EditLoadUser,EditUser} = useDataUser();
+/* const [loadData, setLoadData] = useState(false) */
 /* const [activeEdit, setActiveEdit] = useState(false); */
 /* setActiveEdit({editActive}); */
+//Estados inciales para usar el formulario en edicion.
+const [userName, setUserName] = useState("");
+const [idCard, setIdCard] = useState("");
+const [firstName, setFirstName] = useState("");
+const [lastName, setLastName] = useState("");
+const [email, setEmail] = useState("");
 console.log("props de ruta: ", editActive);
+
+//Cargar info del usuario en caso de editar.
+
+/* const idUser = 27 */
+useEffect(() => {
+  if (editActive) {
+    ShowForEditData(27);
+    console.log("DENTRO DEL EFECTO")
+  } 
+},[]); 
+
+const ShowForEditData = (data) => {
+  console.log('FRONT control..',data);
+  EditLoadUser(data);
+  console.log("datos a editar en storage(index): ",localStorage.getItem("userForEdit"))
+  /* setLoadData(true); */
+  const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+  console.log("FRONT full user para editar es(index): ", userForEdit);
+  setUserName(userForEdit.username);
+  const name = (userForEdit.name).split(',')
+  console.log("nombre EDIT(index): ",name )
+  setFirstName(name[0]);
+  setLastName(name[1]);
+  setEmail(userForEdit.email);
+}
+console.log("LoadData(index)")
 
 /* export const App = () => ( */
 return (
@@ -44,19 +79,25 @@ return (
             justify="space-between"
           >
             <Box flexShrink={0}>
-              <Text fontSize="lg" fontWeight="medium">
+              <Text fontSize="lg" fontWeight="medium">    
                 Perfil
               </Text>
               <Text color="muted" fontSize="sm">
                 Perfil basico del usuario.
               </Text>
             </Box>
-            <ProfileCard
-              edit={editActive}
-              maxW={{
-                lg: '3xl',
-              }}
-            />
+              <ProfileCard
+                edit={editActive}
+               /*  load={loadData} */
+                userNameL={userName}
+                firsNameL={firstName}
+                lastNameL={lastName}
+                idCardL={idCard}
+                emailL={email}
+                maxW={{
+                  lg: '3xl',
+                }}
+              />
           </Stack>
         </Card>
 
