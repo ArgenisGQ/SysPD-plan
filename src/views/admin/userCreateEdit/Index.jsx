@@ -18,7 +18,7 @@ import useDataUser from '../../../hooks/useDataUser';
 export default function Settings(props) {
 
 const { editActive } = props;
-const {CreateUser,EditLoadUser,EditUser} = useDataUser();
+const {CreateUser,EditLoadUser,EditUser,mutEditLoadUser} = useDataUser();
 /* const [loadData, setLoadData] = useState(false) */
 /* const [activeEdit, setActiveEdit] = useState(false); */
 /* setActiveEdit({editActive}); */
@@ -30,33 +30,43 @@ const [lastName, setLastName] = useState("");
 const [email, setEmail] = useState("");
 console.log("props de ruta: ", editActive);
 
-//Cargar info del usuario en caso de editar.
+//Cargar info del usuariO.
+const LocalEditLoadUser = (data) => {
+  console.log("Precarga INDEX")
+  mutEditLoadUser.mutate(data,
+    {
+      onMutate: () => {
+        console.log("Ïnicia INDEX-)");
+        return <div>LOADING...</div>
+      },
+      onSuccess: (response) => {
+
+        const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+        console.log("FRONT (index): ", userForEdit);
+        setUserName(userForEdit.username);
+        const name = (userForEdit.name).split(',')
+        console.log("nombre EDIT(index): ",name )
+        setFirstName(name[0]);
+        setLastName(name[1]);
+        setEmail(userForEdit.email);
+        console.log('ON SUCCESS!!!')
+      },
+      onError: (error) => {
+        console.log("Errores LOAD EDIT usuarios(hook):",error);
+      },
+      onSettled: (response) => {
+        console.log("Terminado el proceso de LOAD EDIT (en hooks)")
+      }
+    });
+}
 
 /* const idUser = 27 */
 useEffect(() => {
   if (editActive) {
-    ShowForEditData(27);
-    console.log("DENTRO DEL EFECTO")
+    LocalEditLoadUser(27);
   } 
 },[]); 
 
-const ShowForEditData = (data) => {
-  console.log('FRONT control..',data);
-  EditLoadUser(data);
-  console.log("datos a editar en storage(index): ",localStorage.getItem("userForEdit"))
-  /* setLoadData(true); */
-  const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-  console.log("FRONT full user para editar es(index): ", userForEdit);
-  setUserName(userForEdit.username);
-  const name = (userForEdit.name).split(',')
-  console.log("nombre EDIT(index): ",name )
-  setFirstName(name[0]);
-  setLastName(name[1]);
-  setEmail(userForEdit.email);
-}
-console.log("LoadData(index)")
-
-/* export const App = () => ( */
 return (
   <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
     <Box
@@ -90,7 +100,7 @@ return (
                 edit={editActive}
                /*  load={loadData} */
                 userNameL={userName}
-                firsNameL={firstName}
+                firstNameL={firstName}
                 lastNameL={lastName}
                 idCardL={idCard}
                 emailL={email}

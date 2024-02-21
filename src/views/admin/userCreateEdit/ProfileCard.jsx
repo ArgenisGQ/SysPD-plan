@@ -60,7 +60,7 @@ export const ProfileCard = (props) => {
 
   const form = useRef(); //PARA RESET EL FORMULARIO
 
-  const {CreateUser,EditLoadUser,EditUser} = useDataUser();
+  const {CreateUser,EditUser} = useDataUser();
 
   const { 
   register, handleSubmit, watch,  
@@ -122,7 +122,8 @@ export const ProfileCard = (props) => {
     setLastName(name[1]);
     setEmail(userForEdit.email);
   } */
-  
+  console.log("primer nombre(error?): ", firstNameL)
+  console.log("apellido(error?):", lastNameL)
   const EditOnUser = (data) => {
     console.log("DATA para enviar a editar: ",data)
   }

@@ -12,6 +12,7 @@ const useAuthUser = (data) => {
     const [userStatus, setUserStatus]  = useState(null);
     const [userToken,  setUserToken]   = useState(null);    
     const queryClient = useQueryClient();
+    const [out, setOut] = useState("base")
 
 
     const mutLogin      = useMutation(
@@ -189,7 +190,7 @@ const useAuthUser = (data) => {
       async (data)  => {  
         console.log('Editor Conector: ',data);
         try {
-          const response = await axios.get('/users/'+data,           
+          await axios.get('/users/'+data,           
           {
               headers: { 
                 'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
@@ -200,8 +201,10 @@ const useAuthUser = (data) => {
           .then((response) => {
             console.log("Edit Data User full: ", response.data.users)            
             localStorage.setItem('userForEdit',JSON.stringify(response.data.users))
-          }); 
+            /* return response */
+          });
           console.log("Terminado DATA DE USUARIO");
+          /* return response */
         } catch (e) {
           console.log("error - DATA PARA EDITAR: ",e.response.message)
         }       
@@ -564,13 +567,14 @@ const useAuthUser = (data) => {
             console.log("Ïnicia LOAD -HOOKS-)");
           },
           onSuccess: (response) => {
-            /* console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response.data.users);
-            localStorage.setItem("userForEdit",JSON.stringify(response.data.users)); */
+            /* console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response); */
+            /* localStorage.setItem("userForEdit",JSON.stringify(response.data.users)); */
             console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("userForEdit"));
             /* queryClient.setQueriesData('userForEdit',JSON.stringify(response)) */
             /* console.log('DATOS A EDITAR - HOOK: ', queryClient.getItem('userForEdit')) */
+           
 
-
+            /* setOut('SALIDA ONSUCCESS') */
 
             /* console.log("datos del USUARIO: ",response.data);
             console.log("mensaje de LA MUESTRA DE USUARIO: ",response.message); */
@@ -633,7 +637,8 @@ const useAuthUser = (data) => {
             console.log ("status (en otro hooks): ", status); */
             console.log("Terminado el proceso de LOAD EDIT (en hooks)")
           }
-        });    
+        });
+        /* return {out} */   
     }
     function EditUser(data) {
       console.log("Mostrando usuario--en hooks--")
@@ -720,6 +725,7 @@ const useAuthUser = (data) => {
         EditUser, 
         mutLogin,
         mutLogout,
+        mutEditLoadUser,
         
         /* Logout1, */
         
