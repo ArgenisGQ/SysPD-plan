@@ -27,23 +27,41 @@ import { useEffect, useState } from "react";
 
 export default function Settings() {
 
-  const {DataUsers} = useDataUser();
+  const {mutDataUsers} = useDataUser();
   const [dataFullUsers,setDataFullUsers] = useState([])
+
+  const LocalDataUsers = (data) => {
+    /* console.log("datos de usuario -- 050224"); */
+    mutDataUsers.mutate(data,
+    {
+      onMutate: () => {
+        /* console.log("Ïnicia la mutacion (en hooks -- DATOS)"); */
+      },
+      onSuccess: (response) => {
+        /* console.log("response(DATOS USER out): ",response?.data) */
+        const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
+        setDataFullUsers(loadDataFullUsers)
+      },
+      onError: (error) => { 
+        console.log(error);
+      },
+      onSettled: (response) => {
+        
+        /* const status = localStorage.getItem(["status"]);
+        const message = localStorage.getItem(["message"]);
+        console.log ("status (test -- out): ", status);
+        console.log ("message (test -- otro hooks -- out): ", message); */
+        
+      }
+    });    
+  }
 
   useEffect(() => {
     console.log("EFECTO....");
-    DataUsers();
-    LoadData();
+    LocalDataUsers();
   }, []);
 
-  const LoadData = () => {
-    const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
-    setDataFullUsers(loadDataFullUsers)
-  }
   
-  /* console.log("datos en LOCAL de USUARIOS FULL: ", dataFullUsers);
-  console.log("datos de archivo JSON original de listado: ", tableDataUsers) */
-
   // Chakra Color Mode
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>

@@ -6,7 +6,7 @@ import { localStorageManager } from '@chakra-ui/system';
 
 
 
-const useAuthUser = (data) => {
+const useDataUser = (data) => {
     const navigate = useNavigate();    
     const [userAuth,   setUserAuth]    = useState(null);
     const [userStatus, setUserStatus]  = useState(null);
@@ -726,6 +726,7 @@ const useAuthUser = (data) => {
         mutLogin,
         mutLogout,
         mutEditLoadUser,
+        mutDataUsers,
         
         /* Logout1, */
         
@@ -733,4 +734,4 @@ const useAuthUser = (data) => {
     
 }
 
-export default useAuthUser
+export default useDataUser
