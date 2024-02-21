@@ -75,29 +75,120 @@ function SignIn() {
     });
   
   const [modalMessage, setModalMessage] = useState();  
+  const {mutLogin }   = useAuthUser();
   
   const onSubmit = (data) => {
     console.log("Loging...!!");
+    /* const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();  */
+      
 
     /* const responseFullAntes = localStorage?.getItem("responseF"); 
     console.log("response full (login ANTES): ", responseFullAntes) */
     /* const responseFullObjAntes = JSON.parse(responseFullAntes);
     console.log("response full obj (login ANTES): ",responseFullObjAntes.status) */
 
-    Login5(data);
+    /* Login5(data); */
+
+
+    const LocalLogin5 = (data) => {
+      console.log("--LOGIN")
+      mutLogin.mutate(data,
+        {
+          onMutate: () => {
+            console.log("Ïnicia LOGIN");
+          },
+          onSuccess: (response) => {
+            console.log("EN LOGIN:", response);
+            /* queryClient.setQueryData("userAuth",response?.accessToken);
+            queryClient.setQueryData("status",response?.status); */
+            localStorage.setItem("responseF",JSON.stringify(response));
+            const responseFull =localStorage.getItem("responseF");              
+            console.log("response full LOGIN: ", responseFull);
+            const responseFullObj = JSON.parse(responseFull);
+            console.log("response Full Obj LOGIN: ", responseFullObj)
+
+            localStorage.setItem("userAuth",responseFullObj.accessToken);
+            localStorage.setItem("status",responseFullObj.status);
+            localStorage.setItem("user",responseFullObj.user);
+            localStorage.setItem("message",responseFullObj.message);
+            localStorage.setItem("userString",JSON.stringify(responseFullObj.user));
+
+
+
+
+            
+            /* queryClient.setQueryData("userQ",response?.user); */
+            
+            /* localStorage.setItem("userAuth",response?.accessToken);
+            localStorage.setItem("status",response?.status);
+            localStorage.setItem("user",[response?.user]);
+            localStorage.setItem("message",response?.message);
+            localStorage.setItem("userString",JSON.stringify(response?.user)); */
+            /* const token  = queryClient.getQueryData(["userAuth"]);
+            const status = queryClient.getQueryData(["status"]);
+            const user   = queryClient.getQueryData(["user"]); */
+
+            const token  = localStorage.getItem(["userAuth"]);
+            const status = localStorage.getItem(["status"]);
+            const user   = localStorage.getItem(["user"]);
+            const message  = localStorage.getItem(["message"]);
+            const userString = localStorage.getItem(["userString"])
+            /* const userObject = JSON.parse(localStorage.getItem('userString')) */
+
+            console.log ("token  LOGIN: ", token);
+            console.log ("status  LOGIN: ", status);
+            console.log ("user  LOGIN: ", user); 
+            console.log ("message  LOGIN: ", message);
+            console.log ("user String  LOGIN: ", userString);
+            /* console.log ("user Object (en hooks): ", userObject); */                
+            /* setUserAuth(user);
+            setUserStatus(status);
+            setUserToken(token); */
+            if (status === 401) {
+              console.log("datos erroneos")
+              setModalMessage(responseFullObj.data.data.error)
+              onOpen();
+            }
+
+            if (status === "success") {
+              navigate('/');
+            } else { 
+              navigate('/login');
+            }              
+          },
+          onError: (error) => {
+            
+            /* const err =  JSON.parse(error); */
+            console.log("Errores -- LOGIN:",error);
+            /* navigate('/login'); */
+          },
+          onSettled: (response) => {
+            /* queryClient.setQueryData("status",response.status);
+            const status = queryClient.getQueryData(["status"]); */
+            console.log("RESPONSE -- LOGIN: ",response.message )
+            /* localStorage.setItem("status",response?.status);
+            const status = localStorage.getItem(["status"]);
+            console.log ("status (en otro hooks): ", status); */
+            console.log("Terminada la mutacion -- LOGIN")
+          }
+        });    
+    } 
+
+    console.log("datos login: ",data)
+    LocalLogin5(data)
 
     /* const responseFull = localStorage.getItem("responseF"); */
     const responseFull = localStorage.getItem("responseF"); 
     console.log("response full (login): ", responseFull)
     const responseFullObj = JSON.parse(responseFull);
-    console.log("response full obj (login): ",responseFullObj.status)
+    /* console.log("response full obj (login): ",responseFullObj.status)
     console.log("message (login): ",responseFullObj.data.data.error)
 
     console.log("data: ",data)
 
     console.log("user: ",userAuth);
     console.log("status: ",userStatus);
-    console.log("token: ",userToken);
+    console.log("token: ",userToken); */
     
 
     /* const controlModal = false;
@@ -117,7 +208,7 @@ function SignIn() {
     
   }
   /* const [modalControl, setModalControl] = useState(false); */
-  const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();  
+  /* const {userAuth, userStatus, userToken, Login5, mutLogin  }   = useAuthUser();   */
   /* const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: modalControl }); */
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
   /* {setModalControl(false)} */

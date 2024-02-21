@@ -18,9 +18,14 @@ const useAuthUser = (data) => {
         async (data) => {    
           const [email, password ] = [data.email, data.password];
           try {
-              const response = await axios.post('/login', {email, password})                       
-              const status = response?.data?.status;
-              const accessToken = response?.data?.accessToken;
+              const response = await axios.post('/login', {email, password})
+              
+              
+
+              
+              /* const status = response?.data?.status;
+              const accessToken = response?.data?.accessToken; */
+
               /* const roles = response?.data?.roles;
               setAuth({ user, pwd, roles, accessToken });
               setUser("");
@@ -34,7 +39,7 @@ const useAuthUser = (data) => {
               /* navigate('/'); */
   
               /* console.log("token:::::2",accessToken); */
-              setUserAuth(response?.data?.user);
+              /* setUserAuth(response?.data?.user); */
               /* navigate('/'); */
               return response.data;
             } catch (err) {

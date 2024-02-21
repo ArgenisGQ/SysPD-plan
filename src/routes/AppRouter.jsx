@@ -76,17 +76,30 @@ import { useLocalStorage } from 'react-use';
 function AppRouter() { 
   const navigate = useNavigate();
   const [userActive, setUserActive] = useState(false);
-  const [user, setUser] = useLocalStorage('responseF');  
-  console.log("user(localStorage): ", user)
+  /* const [user, setUser] = useLocalStorage('responseF'); */
+  /* const [user, setUser] = useState('') */
+  const [status, setStatus] = useState('')
+
 
   const dataStorageStr = localStorage.getItem("responseF");
   /* const dataStorage = JSON.parse(dataStorageStr);
   console.log('CONTROL: ', dataStorage.user) */
    //control de usuario activo para accesos  canActive={true}
 
+
+  /* setUser()  
+  console.log("user(localStorage): ", user) */
+   
+
+  const dataStorage = JSON.parse(dataStorageStr);
+  console.log("datos en HOME:",dataStorage);
+  
+  //el error esta en la carga d status.. revisar!
   useEffect(() => {
-    const dataStorage = JSON.parse(dataStorageStr);
-    if (dataStorage?.user) {
+    /* const dataStorage = JSON.parse(dataStorageStr);
+    console.log("datos en HOME:",dataStorage) */
+    setStatus(dataStorage?.status)
+    if (status === 401) {
       setUserActive(true);
     }     
   },[]);
