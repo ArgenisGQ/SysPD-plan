@@ -240,127 +240,33 @@ const useDataUser = (data) => {
     )
 
     const mutDeleteUser = useMutation(
-
-    )
-    function Login5(data) {
-        console.log("--en hooks--")
-        mutLogin.mutate(data,
+      async (data)  => {  
+        console.log('BORRAR USUARIO: ',data);
+        try {
+          await axios.delete('/users/'+data,           
           {
-            onMutate: () => {
-              console.log("Ïnicia la mutacion (en hooks)");
-            },
-            onSuccess: (response) => {
-              console.log("response (hooks):", response);
-              /* queryClient.setQueryData("userAuth",response?.accessToken);
-              queryClient.setQueryData("status",response?.status); */
-              localStorage.setItem("responseF",JSON.stringify(response));
-              const responseFull =localStorage.getItem("responseF");              
-              console.log("response full: ", responseFull);
-              const responseFullObj = JSON.parse(responseFull);
-              console.log("response Full Obj: ", responseFullObj)
-              
-              
-              
-              localStorage.setItem("userAuth",response?.accessToken);
-              localStorage.setItem("status",response?.status);
-              localStorage.setItem("user",[response?.user]);
-              localStorage.setItem("message",response?.message);
-              localStorage.setItem("userString",JSON.stringify(response?.user));
-              /* const token  = queryClient.getQueryData(["userAuth"]);
-              const status = queryClient.getQueryData(["status"]);
-              const user   = queryClient.getQueryData(["user"]); */
+              headers: {                
+                /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
+                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+              }
+          })
+          .then((response) => {
+            console.log("show user BORRAR: ", response)
+            /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
-              const token  = localStorage.getItem(["userAuth"]);
-              const status = localStorage.getItem(["status"]);
-              const user   = localStorage.getItem(["user"]);
-              const message  = localStorage.getItem(["message"]);
-              const userString = localStorage.getItem(["userString"])
-              /* const userObject = JSON.parse(localStorage.getItem('userString')) */
-
-              console.log ("token (en hooks): ", token);
-              console.log ("status (en hooks): ", status);
-              console.log ("user (en hooks): ", user); 
-              console.log ("message (en hooks - CACHE): ", message);
-              console.log ("user String (en hooks): ", userString);
-              /* console.log ("user Object (en hooks): ", userObject); */                
-              setUserAuth(user);
-              setUserStatus(status);
-              setUserToken(token);
-              if (status === "success") {
-                navigate('/');
-              } else { 
-                navigate('/login');
-              }              
-            },
-            onError: (error) => {
-              /* const err =  JSON.parse(error); */
-              console.log("Errores(hook):",error);
-              /* navigate('/login'); */
-            },
-            onSettled: (response) => {
-              /* queryClient.setQueryData("status",response.status);
-              const status = queryClient.getQueryData(["status"]); */
-              console.log("RESPONSE(out): ",response.message )
-              /* localStorage.setItem("status",response?.status);
-              const status = localStorage.getItem(["status"]);
-              console.log ("status (en otro hooks): ", status); */
-              console.log("Terminada la mutacion (en hooks)")
-            }
-          });    
-    } 
-
-    function Logout5(data) {
-        console.log("--en hooks--(out)");
-        mutLogout.mutate(data,
-          {
-            onMutate: () => {
-              console.log("Ïnicia la mutacion (en hooks -- out)");
-            },
-            onSuccess: (response) => {
-              console.log("response(mutate out): ",response)
-              console.log("onSucc -- logout");
-              console.log("redireccionando a HOME -- logout");
-              /* await axios.get('/logout',           
-              {
-                  headers: {   
-                    'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
-                  }
-              }) */
-              localStorage.clear();
-              localStorage.removeItem(["userAuth"]);
-              navigate('/');
-            },
-            onError: (error) => { 
-              console.log(error);
-            },
-            onSettled: (response) => {
-              
-              const status = localStorage.getItem(["status"]);
-              const message = localStorage.getItem(["message"]);
-              console.log ("status (en otro hooks -- out): ", status);
-              console.log ("message (en otro hooks -- out): ", message);
-              console.log("Terminada la mutacion (en hooks) -- out")
-            }
+            /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
+            /* queryClient.removeQueries(); */
+            /* localStorage.clear(); */
+            /* localStorage.removeItem(["userAuth"]); */
+            /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
           });
-
-          /* {
-            onMutate: () => {
-              console.log("Ïnicia la mutacion (en hooks -- out)");
-            },
-            onSuccess: (response) => {
-              console.log("onSucc -- logout");
-            },
-            onError: (error) => {
-              console.log(error);
-            },
-            onSettled: (response) => {
-              
-              const status = queryClient.getQueryData(["status"]);
-              console.log ("status (en otro hooks -- out): ", status);
-              console.log("Terminada la mutacion (en hooks) -- out")
-            }
-          }); */
-    }      
+          console.log("Terminado BORRAR USUARIO");   
+        } catch (e) {
+          console.log("error - BORRAR: ",e.response.message);
+        }       
+      }
+    )
+      
 
     function DataUsers(data){
         console.log("datos de usuario -- 050224");
@@ -711,13 +617,81 @@ const useDataUser = (data) => {
             console.log("Terminado el proceso de MOSTRAR usuario (en hooks)")
           }
         });    
-    }    
+    }
+    function DeleteUser(data) {
+      console.log("Mostrando usuario--en hooks--")
+      mutDeleteUser.mutate(data,
+        {
+          onMutate: () => {
+            console.log("Ïnicia BORRADO de usuario(en hooks)");
+          },
+          onSuccess: (response) => {
+            console.log("response BORRAR USuARIO(hooks):", response);
+            /* queryClient.setQueryData("userAuth",response?.accessToken);
+            queryClient.setQueryData("status",response?.status); */
+            /* localStorage.setItem("responseF",JSON.stringify(response));
+            const responseFull =localStorage.getItem("responseF");              
+            console.log("response full: ", responseFull);
+            const responseFullObj = JSON.parse(responseFull);
+            console.log("response Full Obj: ", responseFullObj) */
+            
+            
+            
+            /* localStorage.setItem("userAuth",response?.accessToken);
+            localStorage.setItem("status",response?.status);
+            localStorage.setItem("user",[response?.user]);
+            localStorage.setItem("message",response?.message);
+            localStorage.setItem("userString",JSON.stringify(response?.user)); */
+
+            /* const token  = queryClient.getQueryData(["userAuth"]);
+            const status = queryClient.getQueryData(["status"]);
+            const user   = queryClient.getQueryData(["user"]); */
+
+            /* const token  = localStorage.getItem(["userAuth"]);
+            const status = localStorage.getItem(["status"]);
+            const user   = localStorage.getItem(["user"]);
+            const message  = localStorage.getItem(["message"]);
+            const userString = localStorage.getItem(["userString"]) */
+
+            /* const userObject = JSON.parse(localStorage.getItem('userString')) */
+
+            /* console.log ("token (en hooks): ", token);
+            console.log ("status (en hooks): ", status);
+            console.log ("user (en hooks): ", user); 
+            console.log ("message (en hooks - CACHE): ", message);
+            console.log ("user String (en hooks): ", userString); */
+
+            /* console.log ("user Object (en hooks): ", userObject); */                
+            /* setUserAuth(user);
+            setUserStatus(status);
+            setUserToken(token); */
+            
+            /* if (status === "success") {
+              navigate('/');
+            } else { 
+              navigate('/login');
+            } */              
+          },
+          onError: (error) => {
+            /* const err =  JSON.parse(error); */
+            console.log("Errores BORRAR usuarios(hook):",error);
+            /* navigate('/login'); */
+          },
+          onSettled: (response) => {
+            /* queryClient.setQueryData("status",response.status);
+            const status = queryClient.getQueryData(["status"]); */
+            console.log("RESPONSE BORRAR usuarios (out): ",response )
+            /* localStorage.setItem("status",response?.status);
+            const status = localStorage.getItem(["status"]);
+            console.log ("status (en otro hooks): ", status); */
+            console.log("Terminado el proceso de BORRAR usuario (en hooks)")
+          }
+        });    
+    }     
   return {
         userAuth,
         userStatus,
         userToken,
-        Login5,
-        Logout5,
         DataUsers,
         CreateUser,
         ShowUser,

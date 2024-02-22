@@ -34,6 +34,7 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
+import { useNavigate } from 'react-router-dom';
 
 // Custom components
 import Card from "../../../../components/card/Card";
@@ -45,7 +46,8 @@ export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
 
-  console.log("01 datos head!!: ",columnsData)
+  /* console.log("01 datos head!!: ",columnsData) */
+  const navigate = useNavigate();
 
   console.log("01 datos primera parte en componente!!: ",tableData)
 
@@ -88,6 +90,15 @@ export default function ColumnsTable(props) {
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
+
+  const editUser = (id) => {
+    console.log("funcion editar usuario ID: ", id)
+    navigate('/admin/useredit');
+    
+  }
+  const deleteUser = (id) => {
+    console.log("funcion de borrar usuario ID: ", id)
+  }
   return (
     <Card
       direction='column'
@@ -232,7 +243,8 @@ export default function ColumnsTable(props) {
                         <Button 
                         colorScheme="blue"
                         variant="outline" 
-                        size="sm"> 
+                        size="sm"
+                        onClick={()=>editUser(cell.row.original.id)}> 
                         EDITAR
                         </Button> 
                       </Flex>
@@ -250,7 +262,8 @@ export default function ColumnsTable(props) {
                         <Button 
                         colorScheme="red"
                         variant="outline" 
-                        size="sm"> 
+                        size="sm"
+                        onClick={()=>deleteUser(cell.row.original.id)}> 
                         BORRAR
                         </Button> 
                       </Flex>

@@ -168,14 +168,6 @@ const useAuthUser = (data) => {
           });    
     } 
 
-    function Fuera() {
-      /* const data = 'inside';
-      console.log("dentro del hook: ", data); */
-      /* setUserAuth(data);
-      console.log("log out: ". userAuth); */
-      console.log("dentro...")
-      
-    } 
     
     function Logout5(data) {
         console.log("--en hooks--(out)");
@@ -236,7 +228,6 @@ const useAuthUser = (data) => {
         userToken,
         Login5,
         Logout5,
-        Fuera, 
         mutLogin,
         mutLogout,
         
