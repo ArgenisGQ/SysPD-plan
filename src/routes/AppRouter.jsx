@@ -92,14 +92,14 @@ function AppRouter() {
    
 
   const dataStorage = JSON.parse(dataStorageStr);
-  console.log("datos en HOME:",dataStorage);
+  console.log("datos en HOME:",dataStorage?.status);
   
   //el error esta en la carga d status.. revisar!
   useEffect(() => {
     /* const dataStorage = JSON.parse(dataStorageStr);
     console.log("datos en HOME:",dataStorage) */
     setStatus(dataStorage?.status)
-    if (status === 401) {
+    if (status === "success") {
       setUserActive(true);
     }     
   },[]);
@@ -111,7 +111,7 @@ function AppRouter() {
   const userActiveObj = JSON.parse(userActiveStr); */
 
   /* const userActive = userActiveObj?.user; */
-  console.log("datos usUario full: ", userActive)
+  console.log("datos usUario full(router): ", userActive)
 
  
 
