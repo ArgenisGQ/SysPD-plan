@@ -12,6 +12,7 @@ import { PwdUserCard } from './PwdUserCard';
 import { CourseCard } from './CourseCard';
 import Card from "../../../components/card/Card";
 import useDataUser from '../../../hooks/useDataUser'; 
+import { useParams } from 'react-router-dom';
 
 
 
@@ -19,6 +20,8 @@ export default function Settings(props) {
 
 const { editActive } = props;
 const {CreateUser,EditLoadUser,EditUser,mutEditLoadUser} = useDataUser();
+const paramms = useParams();
+console.log ("PARAMETROS: ", paramms.id)
 /* const [loadData, setLoadData] = useState(false) */
 /* const [activeEdit, setActiveEdit] = useState(false); */
 /* setActiveEdit({editActive}); */
@@ -63,7 +66,7 @@ const LocalEditLoadUser = (data) => {
 /* const idUser = 27 */
 useEffect(() => {
   if (editActive) {
-    LocalEditLoadUser(27);
+    LocalEditLoadUser(paramms.id);
   } 
 },[]); 
 
