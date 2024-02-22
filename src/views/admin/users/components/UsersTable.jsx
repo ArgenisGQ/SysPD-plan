@@ -93,7 +93,7 @@ export default function ColumnsTable(props) {
 
   const editUser = (id) => {
     console.log("funcion editar usuario ID: ", id)
-    navigate('/admin/useredit');
+    navigate('/admin/useredit/'+id);
     
   }
   const deleteUser = (id) => {
