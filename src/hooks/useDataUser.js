@@ -266,6 +266,35 @@ const useDataUser = (data) => {
         }       
       }
     )
+
+    const mutDestroyUser  = useMutation(
+      async (data)  => {  
+        console.log('Datos de usuario -- DESTROY');
+        console.log('Datos de entrada DESTROY: ', data)
+        try {
+          await axios.get('/users/'+data,           
+          {
+              headers: {                
+                /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
+                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+              }
+          })
+          .then((response) => {
+            console.log("show user DESTROY: ", response)
+            /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
+
+            /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
+            /* queryClient.removeQueries(); */
+            /* localStorage.clear(); */
+            /* localStorage.removeItem(["userAuth"]); */
+            /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
+          });
+          console.log("terminado de cargar listado de usuarios");   
+        } catch (e) {
+          console.log("error - DATA: ",e.response.message);
+        }       
+      }    
+    )
       
 
     function DataUsers(data){
@@ -619,7 +648,7 @@ const useDataUser = (data) => {
         });    
     }
     function DeleteUser(data) {
-      console.log("Mostrando usuario--en hooks--")
+      console.log("Mostrando usuario BORRAR--en hooks--: ",data)
       mutDeleteUser.mutate(data,
         {
           onMutate: () => {
@@ -627,67 +656,22 @@ const useDataUser = (data) => {
           },
           onSuccess: (response) => {
             console.log("response BORRAR USuARIO(hooks):", response);
-            /* queryClient.setQueryData("userAuth",response?.accessToken);
-            queryClient.setQueryData("status",response?.status); */
-            /* localStorage.setItem("responseF",JSON.stringify(response));
-            const responseFull =localStorage.getItem("responseF");              
-            console.log("response full: ", responseFull);
-            const responseFullObj = JSON.parse(responseFull);
-            console.log("response Full Obj: ", responseFullObj) */
-            
-            
-            
-            /* localStorage.setItem("userAuth",response?.accessToken);
-            localStorage.setItem("status",response?.status);
-            localStorage.setItem("user",[response?.user]);
-            localStorage.setItem("message",response?.message);
-            localStorage.setItem("userString",JSON.stringify(response?.user)); */
-
-            /* const token  = queryClient.getQueryData(["userAuth"]);
-            const status = queryClient.getQueryData(["status"]);
-            const user   = queryClient.getQueryData(["user"]); */
-
-            /* const token  = localStorage.getItem(["userAuth"]);
-            const status = localStorage.getItem(["status"]);
-            const user   = localStorage.getItem(["user"]);
-            const message  = localStorage.getItem(["message"]);
-            const userString = localStorage.getItem(["userString"]) */
-
-            /* const userObject = JSON.parse(localStorage.getItem('userString')) */
-
-            /* console.log ("token (en hooks): ", token);
-            console.log ("status (en hooks): ", status);
-            console.log ("user (en hooks): ", user); 
-            console.log ("message (en hooks - CACHE): ", message);
-            console.log ("user String (en hooks): ", userString); */
-
-            /* console.log ("user Object (en hooks): ", userObject); */                
-            /* setUserAuth(user);
-            setUserStatus(status);
-            setUserToken(token); */
-            
-            /* if (status === "success") {
-              navigate('/');
-            } else { 
-              navigate('/login');
-            } */              
+                       
           },
           onError: (error) => {
-            /* const err =  JSON.parse(error); */
+            
             console.log("Errores BORRAR usuarios(hook):",error);
-            /* navigate('/login'); */
+            
           },
           onSettled: (response) => {
-            /* queryClient.setQueryData("status",response.status);
-            const status = queryClient.getQueryData(["status"]); */
+            
             console.log("RESPONSE BORRAR usuarios (out): ",response )
-            /* localStorage.setItem("status",response?.status);
-            const status = localStorage.getItem(["status"]);
-            console.log ("status (en otro hooks): ", status); */
+            
             console.log("Terminado el proceso de BORRAR usuario (en hooks)")
           }
         });    
-    }     
+    }
+         
   return {
         userAuth,
         userStatus,
@@ -696,11 +680,13 @@ const useDataUser = (data) => {
         CreateUser,
         ShowUser,
         EditLoadUser,
-        EditUser, 
+        EditUser,
+        DeleteUser, 
         mutLogin,
         mutLogout,
         mutEditLoadUser,
         mutDataUsers,
+        mutDeleteUser,
         
         /* Logout1, */
         

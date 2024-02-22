@@ -41,10 +41,15 @@ import Card from "../../../../components/card/Card";
 import Menu from "../../../../components/menu/MainMenu";
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
+//
+import useDataUser from '../../../../hooks/useDataUser';
+import DeleteUser from "./DeleteUser";
 
 export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
+
+  const { mutDeleteUser, DeleteUser } = useDataUser;
 
   /* console.log("01 datos head!!: ",columnsData) */
   const navigate = useNavigate();
@@ -91,13 +96,40 @@ export default function ColumnsTable(props) {
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
 
+  const LocalDeleteUser = (data) => {
+    console.log("Mostrando usuario--DELETE USER-- :: ", data)
+    mutDeleteUser.mutate(data,
+      {
+        onMutate: () => {
+          console.log("Ïnicia BORRADO de usuario");
+        },
+        onSuccess: (response) => {
+          console.log("response BORRAR USuARIO:", response);
+        },
+        onError: (error) => {
+          console.log("Errores BORRAR usuarios:",error);
+        },
+        onSettled: (response) => {
+          console.log("RESPONSE BORRAR usuarios: ",response )
+          console.log("Terminado el proceso de BORRAR usuario")
+        }
+      });    
+  };
+
   const editUser = (id) => {
     console.log("funcion editar usuario ID: ", id)
     navigate('/admin/useredit/'+id);
     
   }
-  const deleteUser = (id) => {
+  const deleteUserLink = (id) => {
     console.log("funcion de borrar usuario ID: ", id)
+    return(
+      <>
+      <LocalDeleteUser data ={13}/>
+      </>
+    )
+    /* LocalDeleteUser(13) */
+    /* DeleteUser(id) */
   }
   return (
     <Card
@@ -263,7 +295,7 @@ export default function ColumnsTable(props) {
                         colorScheme="red"
                         variant="outline" 
                         size="sm"
-                        onClick={()=>deleteUser(cell.row.original.id)}> 
+                        onClick={()=>deleteUserLink(cell.row.original.id)}> 
                         BORRAR
                         </Button> 
                       </Flex>
