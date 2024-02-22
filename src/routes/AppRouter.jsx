@@ -102,7 +102,7 @@ function AppRouter() {
     if (status === "success") {
       setUserActive(true);
     }     
-  },[]);
+  });
 
   /* const userActive = dataStorage?.user; */
   /* setUserActive(dataStorage?.user); */
