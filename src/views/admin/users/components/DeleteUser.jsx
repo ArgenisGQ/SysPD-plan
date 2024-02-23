@@ -2,8 +2,8 @@
 import useDataUser from '../../../../hooks/useDataUser'; 
 /* import { useParams } from 'react-router-dom'; */
 
-const DeleteUser = (ids) => {
-    /* const { ids } = props; */
+const DeleteUser = (props) => {
+    const { deleteActive } = props;
     const { mutDeleteUser } = useDataUser;
     /* const paramms = useParams(); */
 
@@ -78,16 +78,20 @@ const DeleteUser = (ids) => {
           });    
     };
 
+    if (deleteActive === true) {
+      console.log("control borrar usuarios!!")
+    }
+
     const deleteUserLocal = (id) => {
         console.log("borrar usuario....COMPONENTE:", id)
         LocalDeleteUser(id);
     }
-    deleteUserLocal(ids)
+    /* deleteUserLocal(ids) */
     
     /* LocalDeleteUser(ids) */
   return (
     <>
-      <DeleteUser /* id={id} */ />
+      
     </>
   )
 }

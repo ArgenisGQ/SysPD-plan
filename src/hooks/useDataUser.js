@@ -687,6 +687,7 @@ const useDataUser = (data) => {
         mutEditLoadUser,
         mutDataUsers,
         mutDeleteUser,
+        mutDestroyUser
         
         /* Logout1, */
         

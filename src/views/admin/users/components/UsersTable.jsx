@@ -49,7 +49,7 @@ export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
 
-  const { mutDeleteUser, DeleteUser } = useDataUser;
+  const { mutDeleteUser, DeleteUser, mutDestroyUser } = useDataUser();
 
   /* console.log("01 datos head!!: ",columnsData) */
   const navigate = useNavigate();
@@ -113,7 +113,7 @@ export default function ColumnsTable(props) {
           console.log("RESPONSE BORRAR usuarios: ",response )
           console.log("Terminado el proceso de BORRAR usuario")
         }
-      });    
+      })    
   };
 
   const editUser = (id) => {
@@ -123,13 +123,13 @@ export default function ColumnsTable(props) {
   }
   const deleteUserLink = (id) => {
     console.log("funcion de borrar usuario ID: ", id)
-    return(
+    /* return(
       <>
       <LocalDeleteUser data ={13}/>
       </>
-    )
-    /* LocalDeleteUser(13) */
-    /* DeleteUser(id) */
+    ) */
+    LocalDeleteUser(id)
+    /* LocalDeleteUser(id) */
   }
   return (
     <Card

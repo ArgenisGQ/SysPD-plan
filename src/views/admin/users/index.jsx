@@ -27,8 +27,8 @@ import { useEffect, useState } from "react";
 
 
 
-export default function Settings() {
-
+export default function Settings(props) {
+  const {deleteUser} = props;
   const {mutDataUsers,mutDeleteUser } = useDataUser();
   const [dataFullUsers,setDataFullUsers] = useState([])
 
