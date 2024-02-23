@@ -258,13 +258,36 @@ const useDataUser = (data) => {
             /* queryClient.removeQueries(); */
             /* localStorage.clear(); */
             /* localStorage.removeItem(["userAuth"]); */
-            /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
-          });
+            /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */
+            
+          }),
+          /* .then(() => { */
+            /* async (data)  => {  */ 
+              /* console.log('LIST AFTER DELETING');
+              try { */
+                await axios.get('/users/',           
+                  {
+                      headers: {                
+                        /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
+                        'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
+                      }
+                  })
+                  .then((response) => {
+                    console.log("datausers UPDATE/DELETE: ", response.data)
+                    localStorage.setItem("dataUsers",JSON.stringify(response?.data)); 
+                  });
+                  console.log("terminado de cargar listado de usuarios");   
+              /* } catch (e) {
+                console.log("error - DATA: ",e.response.message);
+              }    */    
+            /* }  */
+          /* }); */
           console.log("Terminado BORRAR USUARIO");   
         } catch (e) {
           console.log("error - BORRAR: ",e.response.message);
         }       
-      }
+      },
+      
     )
 
     const mutDestroyUser  = useMutation(

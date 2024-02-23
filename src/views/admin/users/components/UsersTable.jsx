@@ -57,20 +57,40 @@ export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
 
-  const { mutDeleteUser, DeleteUser, mutDestroyUser } = useDataUser();
+  const { mutDeleteUser, mutDataUsers } = useDataUser();
 
   /* console.log("01 datos head!!: ",columnsData) */
   const navigate = useNavigate();
   const[deleting, setDeleting] = useState(false);
   const[idUser, setIdUser] = useState('');
+  const[tableDataLoad, setTableDataLoad] = useState({});
+  const[monitor, setMonitor] = useState(true)
+  const[dataFullUsers,setDataFullUsers] = useState({})
   
+  /* setTableDataLoad() */
 
-  console.log("01 datos primera parte en componente!!: ",tableData)
+  console.log("DATOS base: ",tableData )
+  useEffect(() => {
+    /* console.log("MONITOR: ", monitor) */
+    setTableDataLoad(tableData);
+  },[])
+  console.log("DATOS PRIMEROS: ",dataFullUsers )
+  console.log("DATOS segundo: ",tableDataLoad)
+
+  /* const dataReload = () => {
+    console.log('test')
+    setTableDataLoad(tableData);
+  } */
+
+  /* console.log("01 datos primera parte en componente!!: ",tableData) */
+  /* console.log("01-1 datos en ESTADO!!: ",tableDataLoad) */
+
+  /* dataReload(); */
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
-  console.log("02 data dentro de la tabla: ",data)
+  /* console.log("02 data dentro de la tabla: ",data) */
 
   const tableInstance = useTable(
     {
@@ -125,6 +145,15 @@ export default function ColumnsTable(props) {
         },
         onSuccess: (response) => {
           console.log("response BORRAR USuARIO:", response);
+          const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
+          setDataFullUsers(loadDataFullUsers)
+          console.log("CARGA DE UUSUARIOS LUEGO DEL DELETE: ",loadDataFullUsers)
+          /* setTableDataLoad(loadDataFullUsers) */
+          /* setMonitor(false) */
+          if (loadDataFullUsers) {
+            console.log("prueba interna - control")
+          }
+          
         },
         onError: (error) => {
           console.log("Errores BORRAR usuarios:",error);
@@ -136,9 +165,11 @@ export default function ColumnsTable(props) {
       })    
   };
 
+  
+
   const yesDelete = () => {
     console.log("si, borrar idUser: ", idUser);
-    /* LocalDeleteUser(idUser) */
+    LocalDeleteUser(idUser)
     /* setDeleting(true); */
     onClose();
   }
@@ -164,6 +195,8 @@ export default function ColumnsTable(props) {
       onClose();
     } */
   }
+
+/*   console.log("DATOS PARA LA TABLA: ", page) */
 
   return (
     <Card

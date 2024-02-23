@@ -57,31 +57,10 @@ export default function Settings(props) {
       }
     });    
   }
-
-  const LocalDeleteUser = (data) => {
-    console.log("Mostrando usuario--DELETE USER-- :: ", data)
-    mutDeleteUser.mutate(data,
-      {
-        onMutate: () => {
-          console.log("Ïnicia BORRADO de usuario");
-        },
-        onSuccess: (response) => {
-          console.log("response BORRAR USuARIO:", response);
-        },
-        onError: (error) => {
-          console.log("Errores BORRAR usuarios:",error);
-        },
-        onSettled: (response) => {
-          console.log("RESPONSE BORRAR usuarios: ",response )
-          console.log("Terminado el proceso de BORRAR usuario")
-        }
-      });    
-  };
   //
     useEffect(() => {
     console.log("EFECTO....");
     LocalDataUsers();
-    /* LocalDeleteUser(12); */
   }, []);
 
   
