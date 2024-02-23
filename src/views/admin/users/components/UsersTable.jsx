@@ -19,7 +19,15 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper
+  NumberDecrementStepper,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import {
   ArrowRightIcon,
@@ -27,7 +35,7 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon
 } from "@chakra-ui/icons";
-import React,  { useMemo, useEffect } from "react";
+import React,  { useMemo, useState, useEffect } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -53,6 +61,9 @@ export default function ColumnsTable(props) {
 
   /* console.log("01 datos head!!: ",columnsData) */
   const navigate = useNavigate();
+  const[deleting, setDeleting] = useState(false);
+  const[idUser, setIdUser] = useState('');
+  
 
   console.log("01 datos primera parte en componente!!: ",tableData)
 
@@ -96,6 +107,15 @@ export default function ColumnsTable(props) {
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
 
+  /* const textColor = useColorModeValue("navy.700", "white"); */
+  const textColorSecondary = "gray.400";
+  const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
+  const textColorBrand = useColorModeValue("brand.500", "white");
+  const brandStars = useColorModeValue("brand.500", "brand.400");
+
+
+  const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
+
   const LocalDeleteUser = (data) => {
     console.log("Mostrando usuario--DELETE USER-- :: ", data)
     mutDeleteUser.mutate(data,
@@ -116,21 +136,35 @@ export default function ColumnsTable(props) {
       })    
   };
 
+  const yesDelete = () => {
+    console.log("si, borrar idUser: ", idUser);
+    /* LocalDeleteUser(idUser) */
+    /* setDeleting(true); */
+    onClose();
+  }
+
+  const notDelete = () => {
+    console.log("no, sin borrar");
+    setIdUser(''); //Borrar id del estado.
+    onClose();
+  }
+
   const editUser = (id) => {
     console.log("funcion editar usuario ID: ", id)
     navigate('/admin/useredit/'+id);
-    
   }
+
   const deleteUserLink = (id) => {
     console.log("funcion de borrar usuario ID: ", id)
-    /* return(
-      <>
-      <LocalDeleteUser data ={13}/>
-      </>
-    ) */
-    LocalDeleteUser(id)
-    /* LocalDeleteUser(id) */
+    setIdUser(id);
+    onOpen();
+    /* if (deleting) {
+      console.log("borrando u usuario...")
+      LocalDeleteUser(id)
+      onClose();
+    } */
   }
+
   return (
     <Card
       direction='column'
@@ -401,6 +435,64 @@ export default function ColumnsTable(props) {
           </Tooltip>
         </Flex>
       </Flex>
+      {/*         MODAL */}
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            {/* <ModalHeader>Alerta</ModalHeader> */}
+            <ModalHeader></ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              {/* <Center> */}
+                <Text
+                  mb='36px'
+                  ms='4px'
+                  color={textColorSecondary}
+                  fontWeight='400'
+                  fontSize='md'
+                  textAlign={[ 'left', 'center' ]}>
+                  {/* Coloque su email y su clave para ingresar! */}
+                  {/* {modalMessage}     */}   
+                  <p>USUARIO BORRADO</p>
+                  {/* {edit ? 'Usuario Editado' : 'Usuario Creado'} */}     
+                </Text>
+              {/* </Center> */}  
+            </ModalBody>  
+            <ModalFooter>
+              <Button
+                mr={20}
+                fontSize='sm'
+                variant='brand'
+                fontWeight='500'
+                w='50%'
+                h='50'
+                mb='24px'                
+                /* onClick={onClose} */
+                onClick={yesDelete}
+                /* onClick={() => {setDeleting(true)}} */
+                type='submit'>
+                SI
+              </Button>
+              <Button
+                fontSize='sm'
+                variant='brand'
+                fontWeight='500'
+                w='50%'
+                h='50'
+                mb='24px'                
+                /* onClick={onClose} */
+                onClick={notDelete}
+                /* onClick={() => setDeleting(false)} */
+                type='submit'>
+                NO
+              </Button>
+              {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
+                Ok
+              </Button> */}
+              {/* <Button variant='ghost'>Secondary Action</Button> */}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
     </Card>
   );
 }

@@ -385,6 +385,7 @@ export const ProfileCard = (props) => {
             { edit?'Editar':'Guardar'}
           </Button>
         </Flex>
+        {/* MODAL */}
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
