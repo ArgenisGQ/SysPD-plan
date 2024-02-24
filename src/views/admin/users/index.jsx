@@ -58,8 +58,8 @@ export default function Settings(props) {
     });    
   }
   //
-    useEffect(() => {
-    console.log("EFECTO....");
+  useEffect(() => {
+    /* console.log("EFECTO...."); */
     LocalDataUsers();
   }, []);
 

@@ -59,24 +59,32 @@ export default function ColumnsTable(props) {
 
   const { mutDeleteUser, mutDataUsers } = useDataUser();
 
+
+  const tableDataX = tableData
   /* console.log("01 datos head!!: ",columnsData) */
   const navigate = useNavigate();
   const[deleting, setDeleting] = useState(false);
   const[idUser, setIdUser] = useState('');
-  const[tableDataLoad, setTableDataLoad] = useState({});
-  const[monitor, setMonitor] = useState(true)
+  const[tableDataLoad, setTableDataLoad] = useState(tableData);
+  const[monitor, setMonitor] = useState(false)
   const[dataFullUsers,setDataFullUsers] = useState({})
   
-  /* setTableDataLoad() */
+  /* const tableDataX = tableData */
+  
+  /* setTableDataLoad(tableDataX) */
 
   console.log("DATOS base: ",tableData )
+  console.log("DATOS PRIMERO pre --: ",tableDataLoad)
+  console.log("DATOS EN X: ",tableDataX)
+  console.log("valor MONITOR: ",monitor)
   useEffect(() => {
-    /* console.log("MONITOR: ", monitor) */
-    setTableDataLoad(tableData);
-  },[])
-  console.log("DATOS PRIMEROS: ",dataFullUsers )
-  console.log("DATOS segundo: ",tableDataLoad)
-
+    if (!monitor) {
+      setTableDataLoad(tableDataX);
+    } 
+  })
+  
+  console.log("DATOS PRIMERO --: ",tableDataLoad)
+  console.log("DATOS SEGUNDO --: ",dataFullUsers)
   /* const dataReload = () => {
     console.log('test')
     setTableDataLoad(tableData);
@@ -88,7 +96,17 @@ export default function ColumnsTable(props) {
   /* dataReload(); */
 
   const columns = useMemo(() => columnsData, [columnsData]);
-  const data = useMemo(() => tableData, [tableData]);
+  const data = useMemo(() => tableDataLoad, [tableDataLoad]);
+
+
+ /*  useEffect(() => {
+    
+    setTableDataLoad(tableDataX);
+  },[]) */
+
+
+
+
 
   /* console.log("02 data dentro de la tabla: ",data) */
 
@@ -148,6 +166,10 @@ export default function ColumnsTable(props) {
           const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
           setDataFullUsers(loadDataFullUsers)
           console.log("CARGA DE UUSUARIOS LUEGO DEL DELETE: ",loadDataFullUsers)
+          setMonitor(true);
+          setTableDataLoad(loadDataFullUsers);
+
+          
           /* setTableDataLoad(loadDataFullUsers) */
           /* setMonitor(false) */
           if (loadDataFullUsers) {
