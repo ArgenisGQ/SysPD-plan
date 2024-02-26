@@ -215,7 +215,7 @@ const useDataUser = (data) => {
       async (data)  => {  
         console.log('Editor Conector: ',data);
         try {
-          await axios.get('/users/'+data,           
+          await axios.put('/users/'+data,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */

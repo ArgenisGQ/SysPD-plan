@@ -57,17 +57,70 @@ export const ProfileCard = (props) => {
   const [lastName, setLastName] = useState(lastNameL);
   const [email, setEmail] = useState(emailL);
   const [password, setPassword] = useState("");
+ /*  const [controlRequired, setControlRequired] = useState(true) */
 
   const form = useRef(); //PARA RESET EL FORMULARIO
 
   const {CreateUser,EditUser} = useDataUser();
 
+  const [preloadedValues,setPreloadedValues] = useState([])
+
+  /* useEffect(()=>{
+    setPreloadedValues({ 
+      username:userNameL,
+      idcard:idCardL,
+      activeuser:false,
+      firstname:firstNameL,
+      lastname:lastNameL,
+      email:emailL
+    })    
+  },[]) */
+  
+
+
+  const preloadedValuesx = {
+        username:userNameL,
+        idcard:idCardL,
+        activeuser:false,
+        firstname:firstNameL,
+        lastname:lastNameL,
+        email:emailL
+  }
+  
+  console.log("DATOS DE LLEGADA: ",preloadedValuesx )
+
+  /* useEffect(() => {
+    setPreloadedValues(preloadedValuesx)
+  },[]) */
+
   const { 
-  register, handleSubmit, watch,  
+  register, handleSubmit,reset,  
   formState: { errors, isSubmitting },                
               } = useForm({
-      
+                defaultValues:preloadedValuesx,
+                /* defaultValues:{
+                  username:'test'
+                } */
   });
+
+  /* useEffect(()=>{ */
+    /* setPreloadedValues({ 
+      username:userNameL,
+      idcard:idCardL,
+      activeuser:false,
+      firstname:firstNameL,
+      lastname:lastNameL,
+      email:emailL
+    }) */
+    /* setPreloadedValues(preloadedValuesx)
+    reset() */
+ /*  },[]) */
+
+  /* useEffect(() => reset(defaultValues), [reset]) */
+
+  /* useEffect(() => { */
+    console.log("PRE CARGA DE VALORES (out): ",preloadedValuesx);
+  /* }, [preloadedValues]); */
 
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -163,7 +216,7 @@ export const ProfileCard = (props) => {
               <Input
                   id = "username" 
                   type='text'
-                  defaultValue= {userNameL}
+                  /* defaultValue= {userNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -187,7 +240,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "idcard" 
                   type='text'
-                  defaultValue={idCardL}
+                  /* defaultValue={idCardL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -234,7 +287,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "firstName" 
                   type='text'
-                  defaultValue={firstNameL}
+                  /* defaultValue={firstNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -256,7 +309,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "lastname" 
                   type='text'
-                  defaultValue={lastNameL}
+                 /*  defaultValue={lastNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -286,7 +339,7 @@ export const ProfileCard = (props) => {
             <Input 
                 id = "email" 
                 type='email'
-                defaultValue={emailL}
+                /* defaultValue={emailL} */
                 /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}
@@ -321,7 +374,8 @@ export const ProfileCard = (props) => {
                   /* size='lg' */
                   {...register('password', {
                     /* pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i, */
-                    required: true,
+                    /* required: true, */
+                    required: !edit,
                     /* maxLength: 10 */
                   })} />              
               <InputRightElement display='flex' alignItems='center' mt='0px'>
@@ -335,7 +389,8 @@ export const ProfileCard = (props) => {
               
             </InputGroup>
             <FormErrorMessage>
-                  {errors.password?.type === 'required' && <p>Password requerido!</p>}
+                  {edit? console.log("EDITAR PASS"):errors.password?.type === 'required' && <p>Password requerido!</p>}
+                  {/* {errors.password?.type === 'required' && <p>Password requerido!</p>} */}
             </FormErrorMessage>
           </FormControl>
           
