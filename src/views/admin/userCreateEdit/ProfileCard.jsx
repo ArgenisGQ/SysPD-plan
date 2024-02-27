@@ -51,14 +51,16 @@ export const ProfileCard = (props) => {
   const brandStars = useColorModeValue("brand.500", "brand.400");
 
   //Estados inciales para usar el formulario en edicion.
-  const [userName, setUserName] = useState(userNameL);
-  const [idCard, setIdCard] = useState(idCardL);
-  const [firstName, setFirstName] = useState(firstNameL);
-  const [lastName, setLastName] = useState(lastNameL);
-  const [email, setEmail] = useState(emailL);
+  const [userName, setUserName] = useState('');
+  const [idCard, setIdCard] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
-  const [preData,setPreData] = useState({})
- /*  const [controlRequired, setControlRequired] = useState(true) */
+  const [preData,setPreData] = useState({});
+  const [postData,setPostData] = useState({});
+  const [controlx, setControlx] = useState(false)
+  /*  const [controlRequired, setControlRequired] = useState(true) */
 
   const form = useRef(); //PARA RESET EL FORMULARIO
 
@@ -75,15 +77,140 @@ export const ProfileCard = (props) => {
         email:emailL
   }
 
+  const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+
+  
+
+  /* useEffect(()=>{ */
+    /* const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+    const name = (userForEdit.name).split(',') */
+  /* },[]) */
+
+  /* useEffect(() => {
+    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+    console.log("user (PROFILE): ", userForEdit);
+    setUserName(userForEdit.username);
+    const name = (userForEdit.name).split(',');
+    setIdCard(false);
+    setFirstName(name[0]);
+    setLastName(name[1]);
+    setEmail(userForEdit.email);
+  },[]) */
+
+
+  
+  useEffect(() => {
+    if (userForEdit.username) {
+      const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+      console.log("user (PROFILE): ", userForEdit);
+      setUserName(userForEdit.username);
+      const name = (userForEdit.name).split(',');
+      setIdCard(false);
+      setFirstName(name[0]);
+      setLastName(name[1]);
+      setEmail(userForEdit.email);
+      form.current.reset();
+      setControlx(true)
+    } else {
+      setControlx(false)
+    }
+    
+  },[])
+  
+
+  console.log("CONTROL: ", controlx)
+
+  /* useEffect(() => {
+    if (!userForEdit) {
+      console.log("aaaaaaaaaaaaaaaaaaaaaa :",userForEdit )
+      form.current.reset();
+    }
+  },[]) */
+
+  console.log("PRE CARGA DE DATOS: ", userForEdit)
+
   const { 
   register, handleSubmit, reset,  
   formState: { errors, isSubmitting },                
               } = useForm({
-                /* defaultValues:preloadedValuesx */
+               /*  defaultValues:preloadedValuesx */
+
+                /* defaultValues:{
+                  username:userForEdit.username,
+                  idcard:idCard,
+                  activeuser:false,
+                  firstname:name[0],
+                  lastname:name[1],
+                  email:userForEdit.email
+                }, */
+
+                defaultValues:{
+                  username:(JSON.parse(localStorage.getItem("userForEdit"))).username,
+                  idcard:(JSON.parse(localStorage.getItem("userForEdit"))).idCard,
+                  activeuser:false,
+                  firstname:(((JSON.parse(localStorage.getItem("userForEdit"))).name).split(','))[0],
+                  lastname:((JSON.parse(localStorage.getItem("userForEdit")).name).split(','))[1],
+                  email:(JSON.parse(localStorage.getItem("userForEdit"))).email
+                },
+
+                /* setValue:{
+                  username:'(JSON.parse(localStorage.getItem("userForEdit"))).username',
+                  idcard:(JSON.parse(localStorage.getItem("userForEdit"))).idCard,
+                  activeuser:false,
+                  firstname:(((JSON.parse(localStorage.getItem("userForEdit"))).name).split(','))[0],
+                  lastname:((JSON.parse(localStorage.getItem("userForEdit")).name).split(','))[1],
+                  email:(JSON.parse(localStorage.getItem("userForEdit"))).email
+                } */
+
+                /* defaultValue:postData */
+
+                /* defaultValues:{
+                  username:userName,
+                  idcard:idCard,
+                  activeuser:false,
+                  firstname:firstName,
+                  lastname:lastName,
+                  email:email
+                } */
                 });
+
+  /* console.log("CONTROL USERNAME IN: ", userName)
+  useEffect(() => {
+    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+    console.log("user (PROFILE): ", userForEdit);
+    setUserName(userForEdit.username);
+    const name = (userForEdit.name).split(',');
+    setIdCard(false);
+    setFirstName(name[0]);
+    setLastName(name[1]);
+    setEmail(userForEdit.email);
+  },[])
+  console.log("CONTROL USERNAME OUT: ", userName) */
+
 
   /* useEffect(() => {
     setPreData(preloadedValuesx)
+
+    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+    console.log("user (PROFILE): ", userForEdit);
+    setUserName(userForEdit.username);
+    const name = (userForEdit.name).split(',')
+    setFirstName(name[0]);
+    setLastName(name[1]);
+    setEmail(userForEdit.email);
+
+    setPostData({
+      username:userName,
+      idcard:idCard,
+      activeuser:false,
+      firstname:firstName,
+      lastname:lastName,
+      email:email
+    })
+
+    console.log("POST CARGA DE DATOS: ",preData)
+    console.log("POST super CARGA DE DATOS: ",postData)
+
   },[reset]) */
 
   /* useEffect(()=>{ */
@@ -98,6 +225,22 @@ export const ProfileCard = (props) => {
     /* setPreloadedValues(preloadedValuesx)
     reset() */
  /*  },[]) */
+
+ useEffect(()=>{
+  setTimeout(() => {
+    reset({
+      username:userName,
+      idcard:idCard,
+      activeuser:false,
+      firstname:firstName,
+      lastname:lastName,
+      email:email
+    });
+  }, 2000);
+ },[reset])
+
+
+ //----------------------------------------------------------------------------------//
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
@@ -151,10 +294,11 @@ export const ProfileCard = (props) => {
     setLastName(name[1]);
     setEmail(userForEdit.email);
   } */
-  console.log("primer nombre(error?): ", firstNameL)
-  console.log("apellido(error?):", lastNameL)
+  /* console.log("primer nombre(error?): ", firstNameL)
+  console.log("apellido(error?):", lastNameL) */
   const EditOnUser = (data) => {
     console.log("DATA para enviar a editar: ",data)
+    /* EditUser(data); */
   }
   
   return(
@@ -192,7 +336,7 @@ export const ProfileCard = (props) => {
               <Input
                   id = "username" 
                   type='text'
-                  defaultValue= {userNameL}
+                  /* defaultValue= {userNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -217,7 +361,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "idcard" 
                   type='text'
-                  defaultValue={idCardL}
+                  /* defaultValue={idCardL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -265,7 +409,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "firstName" 
                   type='text'
-                  defaultValue={firstNameL}
+                  /* defaultValue={firstNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -288,7 +432,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "lastname" 
                   type='text'
-                  defaultValue={lastNameL}
+                  /* defaultValue={lastNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -319,7 +463,7 @@ export const ProfileCard = (props) => {
             <Input 
                 id = "email" 
                 type='email'
-                defaultValue={emailL}
+                /* defaultValue={emailL} */
                 /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}

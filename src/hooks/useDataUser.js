@@ -223,7 +223,7 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("show user: ", response)
+            console.log("show user edited: ", response)
             /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
@@ -234,7 +234,8 @@ const useDataUser = (data) => {
           });
           console.log("Terminado EDITAR USUARIO");   
         } catch (e) {
-          console.log("error - EDITAR: ",e.response.message);
+          /* console.log("error - EDITAR: ",e.response.message); */
+          console.log("error - EDITAR: ",e.message);
         }       
       } 
     )
@@ -600,7 +601,7 @@ const useDataUser = (data) => {
     }
     function EditUser(data) {
       console.log("Mostrando usuario--en hooks--")
-      mutShowUser.mutate(data,
+      mutEditUser.mutate(data,
         {
           onMutate: () => {
             console.log("Ïnicia Muestra de usuario(en hooks)");
