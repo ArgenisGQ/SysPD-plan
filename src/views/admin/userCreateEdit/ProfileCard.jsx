@@ -57,6 +57,7 @@ export const ProfileCard = (props) => {
   const [lastName, setLastName] = useState(lastNameL);
   const [email, setEmail] = useState(emailL);
   const [password, setPassword] = useState("");
+  const [preData,setPreData] = useState({})
  /*  const [controlRequired, setControlRequired] = useState(true) */
 
   const form = useRef(); //PARA RESET EL FORMULARIO
@@ -64,19 +65,6 @@ export const ProfileCard = (props) => {
   const {CreateUser,EditUser} = useDataUser();
 
   const [preloadedValues,setPreloadedValues] = useState([])
-
-  /* useEffect(()=>{
-    setPreloadedValues({ 
-      username:userNameL,
-      idcard:idCardL,
-      activeuser:false,
-      firstname:firstNameL,
-      lastname:lastNameL,
-      email:emailL
-    })    
-  },[]) */
-  
-
 
   const preloadedValuesx = {
         username:userNameL,
@@ -86,22 +74,17 @@ export const ProfileCard = (props) => {
         lastname:lastNameL,
         email:emailL
   }
-  
-  console.log("DATOS DE LLEGADA: ",preloadedValuesx )
-
-  /* useEffect(() => {
-    setPreloadedValues(preloadedValuesx)
-  },[]) */
 
   const { 
-  register, handleSubmit,reset,  
+  register, handleSubmit, reset,  
   formState: { errors, isSubmitting },                
               } = useForm({
-                defaultValues:preloadedValuesx,
-                /* defaultValues:{
-                  username:'test'
-                } */
-  });
+                /* defaultValues:preloadedValuesx */
+                });
+
+  /* useEffect(() => {
+    setPreData(preloadedValuesx)
+  },[reset]) */
 
   /* useEffect(()=>{ */
     /* setPreloadedValues({ 
@@ -115,13 +98,6 @@ export const ProfileCard = (props) => {
     /* setPreloadedValues(preloadedValuesx)
     reset() */
  /*  },[]) */
-
-  /* useEffect(() => reset(defaultValues), [reset]) */
-
-  /* useEffect(() => { */
-    console.log("PRE CARGA DE VALORES (out): ",preloadedValuesx);
-  /* }, [preloadedValues]); */
-
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
@@ -216,7 +192,7 @@ export const ProfileCard = (props) => {
               <Input
                   id = "username" 
                   type='text'
-                  /* defaultValue= {userNameL} */
+                  defaultValue= {userNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -226,8 +202,9 @@ export const ProfileCard = (props) => {
                   fontWeight='500'
                   /* size='lg' */
                   {...register('username', {
-                    required: true,
+                    required: !edit,
                     /* maxLength: 10 */
+                    minLength:2
                   })} />
               <FormErrorMessage>
                   {/* {errors.username?.type === 'required' && <p>Usuario requerido!</p>} */}
@@ -240,7 +217,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "idcard" 
                   type='text'
-                  /* defaultValue={idCardL} */
+                  defaultValue={idCardL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -250,8 +227,9 @@ export const ProfileCard = (props) => {
                   fontWeight='500'
                   /* size='lg' */
                   {...register('idcard', {
-                    required: true,
+                    required: !edit,
                     /* maxLength: 10 */
+                    minLength:2
                   })}/>
               <FormErrorMessage>
                   {errors.idcard?.type === 'required' && <p>Cedula requerido!</p>}
@@ -287,7 +265,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "firstName" 
                   type='text'
-                  /* defaultValue={firstNameL} */
+                  defaultValue={firstNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -297,8 +275,9 @@ export const ProfileCard = (props) => {
                   fontWeight='500'
                   /* size='lg' */
                   {...register('firstname', {
-                    required: true,
+                    required: !edit,
                     /* maxLength: 10 */
+                    minLength:2
                   })} />
               <FormErrorMessage>
                   {errors.firstname?.type === 'required' && <p>Nombre(s) requerido!</p>}
@@ -309,7 +288,7 @@ export const ProfileCard = (props) => {
               <Input 
                   id = "lastname" 
                   type='text'
-                 /*  defaultValue={lastNameL} */
+                  defaultValue={lastNameL}
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
@@ -319,8 +298,9 @@ export const ProfileCard = (props) => {
                   fontWeight='500'
                   /* size='lg' */
                   {...register('lastname', {
-                    required: true,
+                    required: !edit,
                     /* maxLength: 10 */
+                    minLength:2
                   })} />
             <FormErrorMessage>
                   {errors.lastname?.type === 'required' && <p>Apellido(s) requerido!</p>}
@@ -339,7 +319,7 @@ export const ProfileCard = (props) => {
             <Input 
                 id = "email" 
                 type='email'
-                /* defaultValue={emailL} */
+                defaultValue={emailL}
                 /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}
@@ -350,8 +330,9 @@ export const ProfileCard = (props) => {
                 /* size='lg' */
                 {...register('email', {
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-                  required: true,
+                  required: !edit,
                   /* maxLength: 10 */
+                  minLength:2
                 })} />
             <FormErrorMessage>
                 {errors.email?.type === 'required' && <p>Email requerido!</p>}
