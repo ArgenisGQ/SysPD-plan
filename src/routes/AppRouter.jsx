@@ -134,10 +134,10 @@ function AppRouter() {
                       {/* <Route exact path='/login02'    element={< Login02Base/>}/> */}
                       {/* <Route exact path='/login03'    element={< Login03Base/>}/> */}
                       {/* <Route exact path='/login04'    element={< Login04Base/>}/> */}
-                      <Route exact path='/pagination'    element={< Pagination/>}/>
+                      {/* <Route exact path='/pagination'    element={< Pagination/>}/> */}
                       {/* <Route path='/register'   element={< Register/>}/> */}
                       {/* <Route exact path='/all'        element={< AllUsers/>}/> */}
-                      <Route exact path='/LoginTest'  element={< LoginTest/>}/>
+                      {/* <Route exact path='/LoginTest'  element={< LoginTest/>}/> */}
                       {/* <Route path="*" element={<Page404 />}   */}
 
                       <Route path="/" element={<ProtectedRoute canActive={userActive} redirectPath='/' />}>
@@ -160,7 +160,7 @@ function AppRouter() {
 
                       <Route path="/admin" element={<AdminLayout />}>
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
-                        <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
+                        <Route path='/admin/'                     element={< MainDashboardUsers/>}/>
                         <Route path='/admin/users'                element={< Users/>}/>
                         <Route path='/admin/userform'             element={< UserForm/>}/>
                         <Route path='/admin/usercreate'           element={< UserCreate/>}/>

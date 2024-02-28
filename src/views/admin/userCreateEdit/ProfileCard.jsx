@@ -98,69 +98,6 @@ export const ProfileCard = (props) => {
 
 
   
-
-  /* useEffect(()=>{ */
-    /* const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-    const name = (userForEdit.name).split(',') */
-  /* },[]) */
-
-  /* useEffect(() => {
-    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-    console.log("user (PROFILE): ", userForEdit);
-    setUserName(userForEdit.username);
-    const name = (userForEdit.name).split(',');
-    setIdCard(false);
-    setFirstName(name[0]);
-    setLastName(name[1]);
-    setEmail(userForEdit.email);
-  },[]) */
-
-
-  /* 
-  useEffect(() => {
-    if (userForEdit.username) {
-      const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-      console.log("user (PROFILE): ", userForEdit);
-      setUserName(userForEdit.username);
-      const name = (userForEdit.name).split(',');
-      setIdCard(false);
-      setFirstName(name[0]);
-      setLastName(name[1]);
-      setEmail(userForEdit.email);
-      form.current.reset();
-      setControlx(true)
-    } else {
-      setControlx(false)
-    }
-  },[]) */
-  
-
- /*  console.log("CONTROL: ", controlx) */
-
-  /* useEffect(() => {
-    if (!userForEdit) {
-      console.log("aaaaaaaaaaaaaaaaaaaaaa :",userForEdit )
-      form.current.reset();
-    }
-  },[]) */
-
-  /* console.log("PRE CARGA DE DATOS: ", userForEdit) */
-
-  
-  /* useEffect(() => {
-    setValues(
-      {
-        username:userNameL,
-        idcard:idCardL,
-        activeuser:false,
-        firstname:firstNameL,
-        lastname:lastNameL,
-        email:emailL,
-      }
-    )
-    console.log("Values INTERNO 1: ", values)
-    },[]) */
-  
   const { 
   register, handleSubmit, reset,  
   formState: { errors, isSubmitting },                
@@ -176,43 +113,6 @@ export const ProfileCard = (props) => {
                   email:userForEdit.email
                 }, */
 
-                /* defaultValues:{
-                  username:(JSON.parse(localStorage.getItem("userForEdit"))).username,
-                  idcard:(JSON.parse(localStorage.getItem("userForEdit"))).idCard,
-                  activeuser:false,
-                  firstname:(((JSON.parse(localStorage.getItem("userForEdit"))).name).split(','))[0],
-                  lastname:((JSON.parse(localStorage.getItem("userForEdit")).name).split(','))[1],
-                  email:(JSON.parse(localStorage.getItem("userForEdit"))).email
-                }, */
-
-                /* setValue:{
-                  username:'(JSON.parse(localStorage.getItem("userForEdit"))).username',
-                  idcard:(JSON.parse(localStorage.getItem("userForEdit"))).idCard,
-                  activeuser:false,
-                  firstname:(((JSON.parse(localStorage.getItem("userForEdit"))).name).split(','))[0],
-                  lastname:((JSON.parse(localStorage.getItem("userForEdit")).name).split(','))[1],
-                  email:(JSON.parse(localStorage.getItem("userForEdit"))).email
-                } */
-
-                /* defaultValue:postData */
-
-                /* defaultValues:{
-                  username:userName,
-                  idcard:idCard,
-                  activeuser:false,
-                  firstname:firstName,
-                  lastname:lastName,
-                  email:email
-                } */
-
-                /* defaultValues:{
-                  username:'',
-                  idcard:'',
-                  activeuser:false,
-                  firstname:'',
-                  lastname:'',
-                  email:''
-                } */
 
                 values: 
                 { 
@@ -224,87 +124,9 @@ export const ProfileCard = (props) => {
                   lastname:lastNameL,
                   email:emailL,
                 },
-                },
-                /* values, */);
-
-  /* useEffect(() => {
-    setValues(
-      {
-        username:userNameL,
-        idcard:idCardL,
-        activeuser:false,
-        firstname:firstNameL,
-        lastname:lastNameL,
-        email:emailL
-      }
-    )
-    console.log("Values INTERNO: ", values)
-  },[]) */
-
-  /* console.log("CONTROL USERNAME IN: ", userName)
-  useEffect(() => {
-    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-    console.log("user (PROFILE): ", userForEdit);
-    setUserName(userForEdit.username);
-    const name = (userForEdit.name).split(',');
-    setIdCard(false);
-    setFirstName(name[0]);
-    setLastName(name[1]);
-    setEmail(userForEdit.email);
-  },[])
-  console.log("CONTROL USERNAME OUT: ", userName) */
+                },);
 
 
-  /* useEffect(() => {
-    setPreData(preloadedValuesx)
-
-    const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
-    console.log("user (PROFILE): ", userForEdit);
-    setUserName(userForEdit.username);
-    const name = (userForEdit.name).split(',')
-    setFirstName(name[0]);
-    setLastName(name[1]);
-    setEmail(userForEdit.email);
-
-    setPostData({
-      username:userName,
-      idcard:idCard,
-      activeuser:false,
-      firstname:firstName,
-      lastname:lastName,
-      email:email
-    })
-
-    console.log("POST CARGA DE DATOS: ",preData)
-    console.log("POST super CARGA DE DATOS: ",postData)
-
-  },[reset]) */
-
-  /* useEffect(()=>{ */
-    /* setPreloadedValues({ 
-      username:userNameL,
-      idcard:idCardL,
-      activeuser:false,
-      firstname:firstNameL,
-      lastname:lastNameL,
-      email:emailL
-    }) */
-    /* setPreloadedValues(preloadedValuesx)
-    reset() */
- /*  },[]) */
-
- /* useEffect(()=>{
-  setTimeout(() => {
-    reset({
-      username:userName,
-      idcard:idCard,
-      activeuser:false,
-      firstname:firstName,
-      lastname:lastName,
-      email:email
-    });
-  }, 2000);
- },[reset]) */
 
 
  //----------------------------------------------------------------------------------//

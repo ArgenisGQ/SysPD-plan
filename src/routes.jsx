@@ -28,7 +28,7 @@ const routes = [
   {
     name: "Panel Principal",
     layout: "/admin",
-    path: "/dashboard",
+    path: "/",
     /* category: "Category",
     items: "ITEMS",  */   
     /* category: "uno", */
@@ -55,15 +55,15 @@ const routes = [
                 /* category: "Category",
                 items: "ITEMS",  */
               },
-              {
+              /* {
                 name: "Gestion de Usuarios",
                 layout: "/admin",
                 path: "/userform",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
-              },
+              }, */
               {
-                name: "Create/Edit de Usuarios",
+                name: "Crear Usuario",
                 layout: "/admin",
                 path: "/usercreate",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,

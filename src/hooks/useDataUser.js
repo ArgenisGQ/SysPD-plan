@@ -395,6 +395,7 @@ const useDataUser = (data) => {
               console.log("response PROCESANDO CREAR USuARIO(hooks):", response);
               console.log("datos del registro de usuario: ",response.data);
               console.log("mensaje del registro de usuario: ",response.message);
+              navigate('/admin/users');// ruta de listado de  usuarios
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -620,6 +621,7 @@ const useDataUser = (data) => {
             console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
             console.log("datos del USUARIO: ",response);
             console.log("mensaje de LA MUESTRA DE USUARIO: ",response);
+            navigate('/admin/users'); //ruta de lista de usuarios
             /* queryClient.setQueryData("userAuth",response?.accessToken);
             queryClient.setQueryData("status",response?.status); */
             /* localStorage.setItem("responseF",JSON.stringify(response));
