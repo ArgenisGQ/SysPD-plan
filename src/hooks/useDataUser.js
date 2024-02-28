@@ -608,8 +608,8 @@ const useDataUser = (data) => {
           },
           onSuccess: (response) => {
             console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
-            console.log("datos del USUARIO: ",response.data);
-            console.log("mensaje de LA MUESTRA DE USUARIO: ",response.message);
+            console.log("datos del USUARIO: ",response);
+            console.log("mensaje de LA MUESTRA DE USUARIO: ",response);
             /* queryClient.setQueryData("userAuth",response?.accessToken);
             queryClient.setQueryData("status",response?.status); */
             /* localStorage.setItem("responseF",JSON.stringify(response));

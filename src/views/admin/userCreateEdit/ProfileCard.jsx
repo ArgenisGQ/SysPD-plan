@@ -25,7 +25,8 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Text
+  Text,
+  effect
 } from '@chakra-ui/react'
 import {useState, useRef, useEffect} from 'react'
 import {useForm} from "react-hook-form";
@@ -77,7 +78,20 @@ export const ProfileCard = (props) => {
         email:emailL
   }
 
+  const [values, setValues] = useState({})
+
+  /* const values = {
+    username:userNameL,
+    idcard:idCardL,
+    activeuser:false,
+    firstname:firstNameL,
+    lastname:lastNameL,
+    email:emailL
+  } */
+
   const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+
+
 
   
 
@@ -98,7 +112,7 @@ export const ProfileCard = (props) => {
   },[]) */
 
 
-  
+  /* 
   useEffect(() => {
     if (userForEdit.username) {
       const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
@@ -114,11 +128,10 @@ export const ProfileCard = (props) => {
     } else {
       setControlx(false)
     }
-    
-  },[])
+  },[]) */
   
 
-  console.log("CONTROL: ", controlx)
+ /*  console.log("CONTROL: ", controlx) */
 
   /* useEffect(() => {
     if (!userForEdit) {
@@ -127,8 +140,23 @@ export const ProfileCard = (props) => {
     }
   },[]) */
 
-  console.log("PRE CARGA DE DATOS: ", userForEdit)
+  /* console.log("PRE CARGA DE DATOS: ", userForEdit) */
 
+  
+  /* useEffect(() => {
+    setValues(
+      {
+        username:userNameL,
+        idcard:idCardL,
+        activeuser:false,
+        firstname:firstNameL,
+        lastname:lastNameL,
+        email:emailL,
+      }
+    )
+    console.log("Values INTERNO 1: ", values)
+    },[]) */
+  
   const { 
   register, handleSubmit, reset,  
   formState: { errors, isSubmitting },                
@@ -144,14 +172,14 @@ export const ProfileCard = (props) => {
                   email:userForEdit.email
                 }, */
 
-                defaultValues:{
+                /* defaultValues:{
                   username:(JSON.parse(localStorage.getItem("userForEdit"))).username,
                   idcard:(JSON.parse(localStorage.getItem("userForEdit"))).idCard,
                   activeuser:false,
                   firstname:(((JSON.parse(localStorage.getItem("userForEdit"))).name).split(','))[0],
                   lastname:((JSON.parse(localStorage.getItem("userForEdit")).name).split(','))[1],
                   email:(JSON.parse(localStorage.getItem("userForEdit"))).email
-                },
+                }, */
 
                 /* setValue:{
                   username:'(JSON.parse(localStorage.getItem("userForEdit"))).username',
@@ -172,7 +200,41 @@ export const ProfileCard = (props) => {
                   lastname:lastName,
                   email:email
                 } */
-                });
+
+                /* defaultValues:{
+                  username:'',
+                  idcard:'',
+                  activeuser:false,
+                  firstname:'',
+                  lastname:'',
+                  email:''
+                } */
+
+                values: 
+                {
+                  username:userNameL,
+                  idcard:idCardL,
+                  activeuser:false,
+                  firstname:firstNameL,
+                  lastname:lastNameL,
+                  email:emailL,
+                },
+                },
+                /* values, */);
+
+  /* useEffect(() => {
+    setValues(
+      {
+        username:userNameL,
+        idcard:idCardL,
+        activeuser:false,
+        firstname:firstNameL,
+        lastname:lastNameL,
+        email:emailL
+      }
+    )
+    console.log("Values INTERNO: ", values)
+  },[]) */
 
   /* console.log("CONTROL USERNAME IN: ", userName)
   useEffect(() => {
@@ -226,7 +288,7 @@ export const ProfileCard = (props) => {
     reset() */
  /*  },[]) */
 
- useEffect(()=>{
+ /* useEffect(()=>{
   setTimeout(() => {
     reset({
       username:userName,
@@ -237,7 +299,7 @@ export const ProfileCard = (props) => {
       email:email
     });
   }, 2000);
- },[reset])
+ },[reset]) */
 
 
  //----------------------------------------------------------------------------------//
@@ -260,9 +322,9 @@ export const ProfileCard = (props) => {
       EditOnUser(data);
       onOpen();      
     } else {
-      console.log("datos dentro del formulario: ", data);
+      /* console.log("datos dentro del formulario: ", data); */
       CreateUser(data);
-      console.log("data create front: ",localStorage.getItem("dataCreateUser"));
+      /* console.log("data create front: ",localStorage.getItem("dataCreateUser")); */
       const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
       console.log("data dataCreateUser en obj: ", dataCreateUserLocal)
       /* if (responseFullObj.status === 401) {
@@ -298,7 +360,7 @@ export const ProfileCard = (props) => {
   console.log("apellido(error?):", lastNameL) */
   const EditOnUser = (data) => {
     console.log("DATA para enviar a editar: ",data)
-    /* EditUser(data); */
+    EditUser(data);
   }
   
   return(
