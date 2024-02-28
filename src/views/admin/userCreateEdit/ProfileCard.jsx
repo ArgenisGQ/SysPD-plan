@@ -40,6 +40,7 @@ import useDataUser from '../../../hooks/useDataUser';
 
 export const ProfileCard = (props) => {
   const { edit,
+          idUserL,
           userNameL,
           firstNameL,
           lastNameL,
@@ -70,6 +71,7 @@ export const ProfileCard = (props) => {
   const [preloadedValues,setPreloadedValues] = useState([])
 
   const preloadedValuesx = {
+        iduser:idUserL,
         username:userNameL,
         idcard:idCardL,
         activeuser:false,
@@ -77,6 +79,8 @@ export const ProfileCard = (props) => {
         lastname:lastNameL,
         email:emailL
   }
+
+  console.log("DATOS DE ENTRADA ANTES DE EDITAR: ",preloadedValuesx)
 
   const [values, setValues] = useState({})
 
@@ -211,7 +215,8 @@ export const ProfileCard = (props) => {
                 } */
 
                 values: 
-                {
+                { 
+                  iduser:idUserL,
                   username:userNameL,
                   idcard:idCardL,
                   activeuser:false,

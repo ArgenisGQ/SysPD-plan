@@ -26,6 +26,7 @@ console.log ("PARAMETROS: ", paramms.id)
 /* const [activeEdit, setActiveEdit] = useState(false); */
 /* setActiveEdit({editActive}); */
 //Estados inciales para usar el formulario en edicion.
+const [idUser, setIdUser] = useState(paramms.id);
 const [userName, setUserName] = useState("");
 const [idCard, setIdCard] = useState("");
 const [firstName, setFirstName] = useState("");
@@ -43,8 +44,14 @@ const LocalEditLoadUser = (data) => {
         return <div>LOADING...</div>
       },
       onSuccess: (response) => {
-
+        
         const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+
+        
+        /* setIdUser(userForEdit.id) */
+        console.log("parametro (hook)",paramms.id)
+        console.log("iduser(hook): ",idUser)
+
         console.log("FRONT (index): ", userForEdit);
         setUserName(userForEdit.username);
         const name = (userForEdit.name).split(',')
@@ -102,6 +109,7 @@ return (
               <ProfileCard
                 edit={editActive}
                /*  load={loadData} */
+                idUserL={idUser}
                 userNameL={userName}
                 firstNameL={firstName}
                 lastNameL={lastName}
