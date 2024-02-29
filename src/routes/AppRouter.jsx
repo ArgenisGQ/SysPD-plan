@@ -160,7 +160,7 @@ function AppRouter() {
 
                       <Route path="/admin" element={<AdminLayout />}>
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
-                        <Route path='/admin/'                     element={< MainDashboardUsers/>}/>
+                        <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
                         <Route path='/admin/users'                element={< Users/>}/>
                         <Route path='/admin/userform'             element={< UserForm/>}/>
                         <Route path='/admin/usercreate'           element={< UserCreate/>}/>
