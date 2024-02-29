@@ -696,6 +696,8 @@ export function SidebarLinks(props) {
         ); 
       } else if (
         route.layout === "/admin" ||
+        route.layout === "/admin/users" ||
+        route.layout === "/admin/system" ||
         route.layout === "/reference" ||
         route.layout === "/auth" ||
         route.layout === "/rtl"

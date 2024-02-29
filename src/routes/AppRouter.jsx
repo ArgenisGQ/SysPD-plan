@@ -159,22 +159,23 @@ function AppRouter() {
                       <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
 
                       <Route path="/admin" element={<AdminLayout />}>
-                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */}                        
+                        {/* <Route path='/admin' element={ navigate('/admin/default') }/> */} 
+                        {/* <Route path='/admin/'                     element={navigate('/admin/dashboard')}/> */}                       
                         <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
-                        <Route path='/admin/users'                element={< Users/>}/>
-                        <Route path='/admin/userform'             element={< UserForm/>}/>
-                        <Route path='/admin/usercreate'           element={< UserCreate/>}/>
-                        <Route path='/admin/useredit/:id'         element={< UserCreate editActive={true}/>}/>
-                        <Route path='/admin/nextform'             element={< NextForm/>}/>
-                        <Route path='/admin/uploads'              element={< Uploads/>}/>
-                        <Route path='/admin/role'                 element={< Role/>}/>
-                        <Route path='/admin/periods'              element={< Periods/>}/>
+                        <Route path='/admin/users/userss'         element={< Users/>}/>
+                        <Route path='/admin/users/userform'       element={< UserForm/>}/>
+                        <Route path='/admin/users/usercreate'     element={< UserCreate/>}/>
+                        <Route path='/admin/users/useredit/:id'   element={< UserCreate editActive={true}/>}/>
+                        <Route path='/admin/users/nextform'       element={< NextForm/>}/>
+                        <Route path='/admin/system/uploads'       element={< Uploads/>}/>
+                        <Route path='/admin/system/role'          element={< Role/>}/>
+                        <Route path='/admin/system/periods'       element={< Periods/>}/>
                         <Route path='/admin/planning'             element={< Planning/>}/>         
                         {/* <Route path='/reference/default'          element={< MainDashboard/>}/> */}
                         {/* <Route path='/reference/nft-marketplace'  element={< NFTMarketplace/>}/> */}
                         {/* <Route path='/reference/data-tables'      element={< DataTables/>}/> */}
                         <Route path='/admin/myprofile'            element={< MyProfile/>}/>
-                        <Route path='/admin/userprofile'          element={< UserProfile/>}/>                          
+                        <Route path='/admin/users/userprofile'          element={< UserProfile/>}/>                          
                       </Route>
 
                       <Route path="/reference" element={<AdminLayout />}>

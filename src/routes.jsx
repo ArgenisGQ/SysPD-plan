@@ -38,7 +38,7 @@ const routes = [
   { 
     submenu: "submenu",
     name: "Usuarios",    
-    layout: "/admin",
+    layout: "/admin/users",
     category: "category",
     /* items: "ITEMS",  */
     /* category: "uno", */
@@ -48,8 +48,8 @@ const routes = [
     items:[               
               {
                 name: "Usuarios",
-                layout: "/admin",
-                path: "/users",
+                layout: "/admin/users",
+                path: "/userss",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
                 /* category: "Category",
@@ -57,21 +57,21 @@ const routes = [
               },
               /* {
                 name: "Gestion de Usuarios",
-                layout: "/admin",
+                layout: "/admin/users",
                 path: "/userform",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
               }, */
               {
                 name: "Crear Usuario",
-                layout: "/admin",
+                layout: "/admin/users",
                 path: "/usercreate",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
               },
               {
                 name: "Perfil de Usuario",
-                layout: "/admin",
+                layout: "/admin/users",
                 path: "/userprofile",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
@@ -102,28 +102,28 @@ const routes = [
   { 
     submenu: "submenu",
     name: "Sistema",    
-    layout: "/reference",
+    layout: "/admin/system",
     category: "Category",
     /* path: "/profile", */
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
     items:[                           
               {
                 name: "Carga masiva de datos",
-                layout: "/admin",
+                layout: "/admin/system",
                 path: "/uploads",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Uploads",
               },
               {
                 name: "Roles del sistema",
-                layout: "/admin",
+                layout: "/admin/system",
                 path: "/role",
                 icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
                 component: "Role",
               },
               {
                 name: "Periodos",
-                layout: "/admin",
+                layout: "/admin/system",
                 path: "/periods",
                 icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
                 component: "Periods",
