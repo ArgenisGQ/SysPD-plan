@@ -31,6 +31,14 @@ export function SidebarLinks(props) {
     return location.pathname.includes(routeName);
   };
 
+  const activeRoot = (routeName) => {
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", routeName)
+    if (routeName === "/admin") {
+      return true
+    }
+    return false
+  }
+
   //create link sub menu
   const subLinks = (route) => {
           <NavLink>TEST</NavLink>
@@ -716,10 +724,16 @@ export function SidebarLinks(props) {
                   py='5px'
                   ps='10px'>
                   <Flex w='100%' alignItems='center' justifyContent='center'>
-                    <Box
-                      color={
+                    <Box                                                                                                                                                                                                                                                                            
+                      /* color={
                         activeRoute(route.path.toLowerCase())
                           ? activeIcon
+                          : textColor
+                      } */
+
+                      color={
+                        activeRoute(route.path.toLowerCase())
+                          ? (activeRoot(route.path.toLowerCase()) ? textColor : activeIcon)
                           : textColor
                       }
                       me='18px'>

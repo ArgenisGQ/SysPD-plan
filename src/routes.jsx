@@ -28,7 +28,7 @@ const routes = [
   {
     name: "Panel Principal",
     layout: "/admin",
-    path: "/",
+    path: "/dashboard",
     /* path: "/dashboard", */
     /* category: "Category",
     items: "ITEMS",  */   

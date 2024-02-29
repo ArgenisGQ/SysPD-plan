@@ -59,6 +59,8 @@ import Planning           from "../views/admin/planning";
 
 import UserProfile        from "../views/admin/userCreateEdit/myprofile";
 
+import Warning404         from "../views/warnings/404"
+
 /* import NFTMarketplace from "../views/admin/marketplace"; */
 
 /* import DataTables from "../views/admin/dataTables"; */
@@ -159,9 +161,10 @@ function AppRouter() {
                       <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
 
                       <Route path="/admin" element={<AdminLayout />}>
+                        <Route exact path="/admin/" element={< Warning404/> } />
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */} 
                         {/* <Route path='/admin/'                     element={navigate('/admin/dashboard')}/> */}                       
-                        <Route path='/admin'            element={< MainDashboardUsers/>}/>
+                        <Route path='/admin/dashboard'            element={< MainDashboardUsers/>}/>
                         <Route path='/admin/users/userss'         element={< Users/>}/>
                         <Route path='/admin/users/userform'       element={< UserForm/>}/>
                         <Route path='/admin/users/usercreate'     element={< UserCreate/>}/>
@@ -201,6 +204,10 @@ function AppRouter() {
                 <Route path="*">
                     <Route path="*" element={<>404</>} />
                 </Route> 
+
+               {/*  <Route path="/admin">
+                    <Route path="/" element={<>404</>} />
+                </Route> */}
 
 
               </Routes>
