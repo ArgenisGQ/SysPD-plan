@@ -24,8 +24,7 @@ import RTL from "./views/reference/rtl";
 import SignInCentered from "./views/auth/signIn";
 
 
-const routes = [
-  {
+const routes = [{
     name: "Panel Principal",
     layout: "/admin",
     path: "/dashboard",

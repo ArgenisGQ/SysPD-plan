@@ -89,12 +89,13 @@ export default function AdminNavbar(props) {
 				mb={gap}>
 				<Box mb={{ sm: '8px', md: '0px' }}>
 					<Breadcrumb>
+						{/* --CAMBIAR RUTA-- */}
 						<BreadcrumbItem color={secondaryText} fontSize='sm' mb='5px'>
-							<BreadcrumbLink href='#' color={secondaryText}>
-								Seccion
+							<BreadcrumbLink href='/' color={secondaryText}>
+								Inicio
 							</BreadcrumbLink>
 						</BreadcrumbItem>
-
+						{/* --CAMBIAR RUTA--PROGRAMAR VARIABLE DE ORIGEN */}
 						<BreadcrumbItem color={secondaryText} fontSize='sm'>
 							<BreadcrumbLink href='#' color={secondaryText}>
 								{brandText}

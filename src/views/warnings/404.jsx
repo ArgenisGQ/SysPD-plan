@@ -6,7 +6,7 @@ export default function NotFound() {
       <Heading
         display="inline-block"
         as="h2"
-        size="2xl"
+        size="3xl"
         bgGradient="linear(to-r, teal.400, teal.600)"
         backgroundClip="text">
         404
