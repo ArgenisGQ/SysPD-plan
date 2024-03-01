@@ -703,13 +703,17 @@ export function SidebarLinks(props) {
           </>
         ); 
       } else if (
+        route.hidden === false &&
         route.layout === "/admin" ||
+        route.hidden === false &&
         route.layout === "/admin/users" ||
+        route.hidden === false &&
         route.layout === "/admin/system" ||
         route.layout === "/reference" ||
         route.layout === "/auth" ||
-        route.layout === "/rtl"
+        route.layout === "/rtl" 
       ) {
+        console.log("MOSTRANDO TODAS LAS RUTAS LINK: ", route)
         return (
           /* console.log("dos: ",route.path.toLowerCase()),
           console.log("ruta activa:", activeRoute(route.path.toLowerCase())),

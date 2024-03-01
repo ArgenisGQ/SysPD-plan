@@ -31,9 +31,10 @@ const routes = [{
     /* path: "/dashboard", */
     /* category: "Category",
     items: "ITEMS",  */   
-    /* category: "uno", */
+    /* category: "uno", */ 
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: "MainDashboardUsers",
+    hidden: false
   },
   { 
     submenu: "submenu",
@@ -52,6 +53,7 @@ const routes = [{
                 path: "/userss",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
+                hidden: false
                 /* category: "Category",
                 items: "ITEMS",  */
               },
@@ -68,6 +70,7 @@ const routes = [{
                 path: "/usercreate",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
+                hidden: false
               },
               {
                 name: "Perfil de Usuario",
@@ -75,6 +78,7 @@ const routes = [{
                 path: "/userprofile",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
+                hidden: true
               },             
             ]
   },
@@ -113,6 +117,7 @@ const routes = [{
                 path: "/uploads",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Uploads",
+                hidden: false
               },
               {
                 name: "Roles del sistema",
@@ -120,6 +125,7 @@ const routes = [{
                 path: "/role",
                 icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
                 component: "Role",
+                hidden: false
               },
               {
                 name: "Periodos",
@@ -127,6 +133,7 @@ const routes = [{
                 path: "/periods",
                 icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
                 component: "Periods",
+                hidden: false
               },            
             ]
   }, 
@@ -137,6 +144,7 @@ const routes = [{
     path: "/planning",
     icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
     component: "Planning",
+    hidden: false
   },  
   /* {
     name: "NFT Marketplace",
@@ -166,6 +174,7 @@ const routes = [{
     path: "/myprofile",
     icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,    
     component: "MyProfile",
+    hidden: false
     /* items: "ITEMS", */
   },
 
@@ -183,6 +192,7 @@ const routes = [{
                 path: "/nextform",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Nextform",
+                hidden: false
               },             
             ]
   },

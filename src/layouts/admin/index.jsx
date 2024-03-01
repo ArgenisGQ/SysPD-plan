@@ -26,20 +26,25 @@ export default function Dashboard(props) {
 		return window.location.pathname !== '/admin/full-screen-maps';
 	};
 	const getActiveRoute = (routes) => {
-		let activeRoute = 'Default Brand Text -';
+		/* let activeRoute = 'Default Brand Text -'; */
+		let activeRoute = 'Error 404';
 		for (let i = 0; i < routes.length; i++) {
 			if (routes[i].collapse) {
 				let collapseActiveRoute = getActiveRoute(routes[i].items);
 				if (collapseActiveRoute !== activeRoute) {
+					console.log("Collapse Active Route: ",collapseActiveRoute)
 					return collapseActiveRoute;
 				}
 			} else if (routes[i].category) {
+				/* let categoryActiveRoute = getActiveRoute(routes[i].items); */
 				let categoryActiveRoute = getActiveRoute(routes[i].items);
 				if (categoryActiveRoute !== activeRoute) {
+					console.log("Category Active Route: ",categoryActiveRoute)
 					return categoryActiveRoute;
 				}
 			} else {
 				if (window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1) {
+					console.log("Name Active Route: ",routes[i].name)
 					return routes[i].name;
 				}
 			}
