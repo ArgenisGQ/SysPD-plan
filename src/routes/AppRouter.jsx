@@ -202,7 +202,7 @@ function AppRouter() {
 
 
                 <Route path="*">
-                    <Route path="*" element={<>404</>} />
+                    <Route path="*" element={< Warning404/> } />
                 </Route> 
 
                {/*  <Route path="/admin">
