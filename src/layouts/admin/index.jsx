@@ -3,6 +3,8 @@ import { Portal, Box, useDisclosure, Text, Button, Link } from '@chakra-ui/react
 import Footer from '../../components/footer/FooterAdmin';
 // Layout components
 import Navbar from '../../components/navbar/NavbarAdmin';
+import NavbarAuth from '../../components/navbar/NavbarAuth';
+
 import Sidebar from '../../components/sidebar/Sidebar';
 import { SidebarContext } from '../../context/SidebarContext';
 import React, { useState } from 'react';
@@ -142,7 +144,7 @@ export default function Dashboard(props) {
 							<Box>
 								<Navbar
 									onOpen={onOpen}
-									logoText={'Horizon UI --- Dashboard PRO'}
+									logoText={'LOGO UNY - INDEX LAYOUTS ADMIN'}
 									brandText={getActiveRoute(routes)}
 									secondary={getActiveNavbar(routes)}
 									message={getActiveNavbarText(routes)}

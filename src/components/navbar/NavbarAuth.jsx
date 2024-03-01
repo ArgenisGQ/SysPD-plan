@@ -25,11 +25,11 @@ import {
 import IconBox from "../../components/icons/IconBox";
 import { HorizonLogo } from "../../components/icons/Icons";
 import { SidebarResponsive } from "../../components/sidebar/Sidebar";
-import { SidebarContext } from "../../contexts/SidebarContext";
+import { SidebarContext } from "../../context/SidebarContext";
 
 // Assets
 import { GoChevronDown, GoChevronRight } from "react-icons/go";
-import routes from "../../routes.js";
+import routes from "../../routes.jsx";
 
 export default function AuthNavbar(props) {
   const { logo, logoText, secondary, sidebarWidth, ...rest } = props;
