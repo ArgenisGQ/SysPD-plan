@@ -206,7 +206,7 @@ export default function HeaderLinks(props) {
 							color="red.400"
 							borderRadius="8px"
 							px="14px">
-							<Text fontSize="sm">Desconecar</Text>
+							<Text fontSize="sm">Desconectar</Text>
 						</MenuItem>
 					</Flex>
 				</MenuList>
