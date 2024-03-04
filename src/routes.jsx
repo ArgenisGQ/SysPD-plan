@@ -82,6 +82,52 @@ const routes = [{
               },             
             ]
   },
+  { 
+    submenu: "submenu",
+    name: "Materias",    
+    layout: "/admin/courses",
+    category: "category",
+    /* items: "ITEMS",  */
+    /* category: "uno", */
+    /* path: "/profile", */
+    
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    items:[               
+              {
+                name: "Materias",
+                layout: "/admin/courses",
+                path: "/courses",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Users",
+                hidden: false
+                /* category: "Category",
+                items: "ITEMS",  */
+              },
+              /* {
+                name: "Gestion de Usuarios",
+                layout: "/admin/users",
+                path: "/userform",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+              }, */
+              {
+                name: "Crear Materia",
+                layout: "/admin/courses",
+                path: "/coursecreate",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: false
+              },
+              {
+                name: "Perfil de Materia",
+                layout: "/admin/courses",
+                path: "/courseprofile",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: true
+              },             
+            ]
+  },
   /* {
     name: "Usuarios",
     layout: "/admin",

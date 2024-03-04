@@ -708,6 +708,8 @@ export function SidebarLinks(props) {
         route.hidden === false &&
         route.layout === "/admin/users" ||
         route.hidden === false &&
+        route.layout === "/admin/courses" ||
+        route.hidden === false &&
         route.layout === "/admin/system" ||
         route.layout === "/reference" ||
         route.layout === "/auth" ||
