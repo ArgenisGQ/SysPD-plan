@@ -213,7 +213,7 @@ function homePage() {
                 Dashboard - SYS
               </Button>
             </Link>
-            <Link to='/admin/users'>
+           {/*  <Link to='/admin/users'>
               <Button
                 fontSize='sm'
                 fontWeight='500'
@@ -223,8 +223,8 @@ function homePage() {
                 colorScheme='brand'>
                 Registro - SYS
               </Button>
-            </Link>
-            <Link to='/register'>
+            </Link> */}
+            {/* <Link to='/register'>
               <Button
                 fontSize='sm'
                 fontWeight='500'
@@ -234,7 +234,7 @@ function homePage() {
                 colorScheme='brand'>
                 Registro - TEST
               </Button>
-            </Link> 
+            </Link> */} 
             <Link to='/all'>
               <Button
                 fontSize='sm'
