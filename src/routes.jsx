@@ -50,7 +50,7 @@ const routes = [{
               {
                 name: "Usuarios",
                 layout: "/admin/users",
-                path: "/users",
+                path: "/userslist",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
                 hidden: false

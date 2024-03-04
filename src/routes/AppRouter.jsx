@@ -168,7 +168,7 @@ function AppRouter() {
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */} 
                         {/* <Route path='/admin/'                     element={navigate('/admin/dashboard')}/> */}                       
                         <Route path='/admin/dashboard'              element={< MainDashboardUsers/>}/>
-                        <Route path='/admin/users/users'            element={< Users/>}/>
+                        <Route path='/admin/users/userslist'        element={< Users/>}/>
                         <Route path='/admin/users/userform'         element={< UserForm/>}/>
                         <Route path='/admin/users/usercreate'       element={< UserCreate/>}/>
                         <Route path='/admin/users/useredit/:id'     element={< UserCreate editActive={true}/>}/>

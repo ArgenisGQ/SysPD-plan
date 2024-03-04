@@ -131,6 +131,7 @@ export const ProfileCard = (props) => {
 
  //----------------------------------------------------------------------------------//
   const [show, setShow] = useState(false);
+  const [value, setValue] = useState(false);
   const handleClick = () => setShow(!show);
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
@@ -146,10 +147,11 @@ export const ProfileCard = (props) => {
 
     if (edit) {
       console.log("Control EDITAR");
+      console.log("USUARIO ACTIVO?: ",value)
       EditOnUser(data);
       onOpen();      
     } else {
-      /* console.log("datos dentro del formulario: ", data); */
+      console.log("datos dentro del formulario: ", data);
       CreateUser(data);
       /* console.log("data create front: ",localStorage.getItem("dataCreateUser")); */
       const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
@@ -279,6 +281,7 @@ export const ProfileCard = (props) => {
                   mb="0"
                   mt="3"
                   ml="8"
+                  onClick={() => setValue(true)}
                   /* isChecked */
                   {...register('activeuser', {
                     /* required: true, */

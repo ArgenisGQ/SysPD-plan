@@ -715,7 +715,7 @@ export function SidebarLinks(props) {
         route.layout === "/auth" ||
         route.layout === "/rtl" 
       ) {
-        console.log("MOSTRANDO TODAS LAS RUTAS LINK: ", route)
+        /* console.log("MOSTRANDO TODAS LAS RUTAS LINK: ", route) */
         return (
           /* console.log("dos: ",route.path.toLowerCase()),
           console.log("ruta activa:", activeRoute(route.path.toLowerCase())),

@@ -165,7 +165,7 @@ export default function ColumnsTable(props) {
           console.log("response BORRAR USuARIO:", response);
           const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
           setDataFullUsers(loadDataFullUsers)
-          console.log("CARGA DE UUSUARIOS LUEGO DEL DELETE: ",loadDataFullUsers)
+          console.log("CARGA DE USUARIOS LUEGO DEL DELETE: ",loadDataFullUsers)
           setMonitor(true);
           setTableDataLoad(loadDataFullUsers);
 

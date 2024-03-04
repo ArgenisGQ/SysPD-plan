@@ -130,9 +130,10 @@ const useDataUser = (data) => {
 
     const mutCreateUser = useMutation(
       async (data) => { 
-        console.log("datos para enviar: ", data)   
-        const [username, idcard, firstname, lastname, email, password ] = [data.username,
+        console.log("datos para enviar (HOOOKS): ", data)   
+        const [username, idcard, actived, firstname, lastname, email, password ] = [data.username,
                                                                            data.idcard,
+                                                                           data.activeuser,
                                                                            data.firstname,
                                                                            data.lastname,
                                                                            data.email,
@@ -143,9 +144,12 @@ const useDataUser = (data) => {
             /* console.log("nombre concatenado: ", name) */
             /* await axios.post('/register', 
             { username, email, name, password }); */ 
+
+            console.log("IDCARD (HOOKS)", idcard)
+            console.log("ACTIVED (HOOKS)", actived)
             
             const response = await axios.post('/users', 
-            { username, name, email, password },
+            { username, name, idcard, actived, email, password },
             {
               headers: {
                   /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
@@ -163,9 +167,9 @@ const useDataUser = (data) => {
               console.log('datos de usuarios enviados..')
               return response;            
             } catch (err) {
-              console.log("Error de envio o registro de usuario: ", err);
+              console.log("Error de envio o registro de usuario: ", err.message);
               /* return err.response.data.message; */
-              console.log("Tipo de error: ", err )
+              /* console.log("Tipo de error: ", err ) */
               return err.response;
             }
         /* return outfit.json(); */
@@ -395,7 +399,7 @@ const useDataUser = (data) => {
               console.log("response PROCESANDO CREAR USuARIO(hooks):", response);
               console.log("datos del registro de usuario: ",response.data);
               console.log("mensaje del registro de usuario: ",response.message);
-              navigate('/admin/users/users');// ruta de listado de  usuarios
+              navigate('/admin/users/userslist');// ruta de listado de  usuarios
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -621,7 +625,7 @@ const useDataUser = (data) => {
             console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
             console.log("datos del USUARIO: ",response);
             console.log("mensaje de LA MUESTRA DE USUARIO: ",response);
-            navigate('/admin/users/users'); //ruta de lista de usuarios
+            navigate('/admin/users/userslist'); //ruta de lista de usuarios
             /* queryClient.setQueryData("userAuth",response?.accessToken);
             queryClient.setQueryData("status",response?.status); */
             /* localStorage.setItem("responseF",JSON.stringify(response));
