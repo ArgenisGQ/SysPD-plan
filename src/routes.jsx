@@ -50,7 +50,7 @@ const routes = [{
               {
                 name: "Usuarios",
                 layout: "/admin/users",
-                path: "/userss",
+                path: "/users",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
                 hidden: false
@@ -71,6 +71,14 @@ const routes = [{
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Userform",
                 hidden: false
+              },
+              {
+                name: "Editar Usuario",
+                layout: "/admin/users",
+                path: "/useredit",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: true
               },
               {
                 name: "Perfil de Usuario",

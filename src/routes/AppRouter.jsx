@@ -164,11 +164,11 @@ function AppRouter() {
                       <Route path='/auth/sign-in'           element={< SignInCentered/>}/> */}
 
                       <Route path="/admin" element={<AdminLayout />}>
-                        <Route exact path="/admin/" element={< Warning404/> } />
+                        <Route path="/admin/" element={< Warning404/> } />
                         {/* <Route path='/admin' element={ navigate('/admin/default') }/> */} 
                         {/* <Route path='/admin/'                     element={navigate('/admin/dashboard')}/> */}                       
                         <Route path='/admin/dashboard'              element={< MainDashboardUsers/>}/>
-                        <Route path='/admin/users/userss'           element={< Users/>}/>
+                        <Route path='/admin/users/users'           element={< Users/>}/>
                         <Route path='/admin/users/userform'         element={< UserForm/>}/>
                         <Route path='/admin/users/usercreate'       element={< UserCreate/>}/>
                         <Route path='/admin/users/useredit/:id'     element={< UserCreate editActive={true}/>}/>
