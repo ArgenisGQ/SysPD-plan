@@ -218,9 +218,10 @@ const useDataUser = (data) => {
     const mutEditUser = useMutation(
       async (data)  => {  
         console.log('Editor Conector: ',data);
-        const [iduser, username, idcard, firstname, lastname, email, password ] = [data.iduser,
+        const [iduser, username, idcard, actived, firstname, lastname, email, password ] = [data.iduser,
                                                                           data.username,
                                                                           data.idcard,
+                                                                          data.activeuser,
                                                                           data.firstname,
                                                                           data.lastname,
                                                                           data.email,
@@ -229,7 +230,7 @@ const useDataUser = (data) => {
           const name = firstname + ', ' + lastname;
 
           await axios.put('/users/'+iduser,
-          { username, name, email, password },           
+          { username, idcard, actived, name, email, password },           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
