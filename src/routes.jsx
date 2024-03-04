@@ -127,6 +127,14 @@ const routes = [{
                 hidden: false
               },
               {
+                name: "Editar Materia",
+                layout: "/admin/courses",
+                path: "/courseedit",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: true
+              },
+              {
                 name: "Perfil de Materia",
                 layout: "/admin/courses",
                 path: "/courseprofile",
