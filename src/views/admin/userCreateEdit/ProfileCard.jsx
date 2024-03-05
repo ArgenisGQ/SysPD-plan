@@ -131,7 +131,7 @@ export const ProfileCard = (props) => {
 
  //----------------------------------------------------------------------------------//
   const [show, setShow] = useState(false);
-  const [value, setValue] = useState(false);
+  const [actived, setActived] = useState(false);
   const handleClick = () => setShow(!show);
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
@@ -147,7 +147,7 @@ export const ProfileCard = (props) => {
 
     if (edit) {
       console.log("Control EDITAR");
-      console.log("USUARIO ACTIVO?: ",value)
+      console.log("USUARIO ACTIVO?: ",actived)
       EditOnUser(data);
       onOpen();      
     } else {
@@ -281,7 +281,7 @@ export const ProfileCard = (props) => {
                   mb="0"
                   mt="3"
                   ml="8"
-                  onClick={() => setValue(true)}
+                  onClick={() => setActived(!actived)}
                   /* isChecked */
                   {...register('activeuser', {
                     /* required: true, */
