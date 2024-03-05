@@ -45,6 +45,7 @@ export const ProfileCard = (props) => {
           firstNameL,
           lastNameL,
           idCardL,
+          activedL,
           emailL } = props;
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
@@ -74,13 +75,13 @@ export const ProfileCard = (props) => {
         iduser:idUserL,
         username:userNameL,
         idcard:idCardL,
-        activeuser:false,
+        activeuser:activedL,
         firstname:firstNameL,
         lastname:lastNameL,
         email:emailL
   }
 
-  console.log("DATOS DE ENTRADA ANTES DE EDITAR: ",preloadedValuesx)
+  console.log("DATOS DE ENTRADA ANTES DE EDITAR -- : ",preloadedValuesx)
 
   const [values, setValues] = useState({})
 
@@ -100,7 +101,7 @@ export const ProfileCard = (props) => {
   
   const { 
   register, handleSubmit, reset,  
-  formState: { errors, isSubmitting },                
+  formState: { errors, isSubmitting, isLoading },                
               } = useForm({
                /*  defaultValues:preloadedValuesx */
 
@@ -119,22 +120,54 @@ export const ProfileCard = (props) => {
                   iduser:idUserL,
                   username:userNameL,
                   idcard:idCardL,
-                  activeuser:false,
+                  activeuser:activedL,
                   firstname:firstNameL,
                   lastname:lastNameL,
                   email:emailL,
                 },
                 },);
+  /* console.log("LOADGING DATOS(ANTES): ",isLoading)
+  useEffect(()=>{
+    setActived(userForEdit.actived)
+    console.log("LOADGING DATOS: ",isLoading)
+  },[activedL])   */           
 
+  /* useEffect(()=>{
+    setTimeout(()=>{
+      reset({
+        name: "changed",
+        selected: true
+      })
+    },3000);
+  }, [reset]); */
+
+ 
 
 
 
  //----------------------------------------------------------------------------------//
   const [show, setShow] = useState(false);
-  const [actived, setActived] = useState(false);
+  const [actived, setActived] = useState(userForEdit?.actived);
+  /* const [actived, setActived] = useState(activedL); */
+  console.log("Actived de USUARIO: ", actived)
   const handleClick = () => setShow(!show);
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
+
+  /* console.log("ENTRANDO AL USE EFECT: ", actived)
+  useEffect(()=>{
+    setTimeout(()=>{
+      console.log("dentro TIME OUT: ", activedL)
+      reset({
+        activeuser: activedL,        
+      })
+      
+    },10000);
+  }, [reset]); */
+
+
+
+  //----------------------------------------------------------------------------------//
   
   const onSubmit = (data) => {
     /* console.log("datos dentro del formulario: ", data);
@@ -191,6 +224,7 @@ export const ProfileCard = (props) => {
     console.log("DATA para enviar a editar: ",data)
     EditUser(data);
   }
+
   
   return(
   <>
@@ -275,12 +309,18 @@ export const ProfileCard = (props) => {
                 Usuario Activo 
               </FormLabel>
               <Switch 
-                  id="user-active" 
+                  id="activeuser" 
                   colorScheme="brand" 
-                  defaultChecked
+                  checked={actived} 
+                  /* type='checkbox' */
+                  /* inputRef={activeuser} */
+                  /* checked={actived} */
+                  /* defaultChecked={actived} */
+                  /* defaultChecked={actived} */
                   mb="0"
                   mt="3"
                   ml="8"
+                  /* isLoading={isLoading} */
                   onClick={() => setActived(!actived)}
                   /* isChecked */
                   {...register('activeuser', {

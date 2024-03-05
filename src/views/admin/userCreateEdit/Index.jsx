@@ -29,6 +29,7 @@ console.log ("PARAMETROS: ", paramms.id)
 const [idUser, setIdUser] = useState(paramms.id);
 const [userName, setUserName] = useState("");
 const [idCard, setIdCard] = useState("");
+const [actived,setActived] = useState(false);
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [email, setEmail] = useState("");
@@ -54,12 +55,20 @@ const LocalEditLoadUser = (data) => {
 
         console.log("FRONT (index): ", userForEdit);
         setUserName(userForEdit.username);
+        setIdCard(userForEdit.idcard);
+        console.log("FRONT - idCard (index): ",idCard)
+        setActived(userForEdit.actived);
         const name = (userForEdit.name).split(',')
         console.log("nombre EDIT(index): ",name )
         setFirstName(name[0]);
         setLastName(name[1]);
         setEmail(userForEdit.email);
         console.log('ON SUCCESS!!!')
+
+
+        Format();
+
+
       },
       onError: (error) => {
         console.log("Errores LOAD EDIT usuarios(hook):",error);
@@ -76,6 +85,13 @@ useEffect(() => {
     LocalEditLoadUser(paramms.id);
   } 
 },[]); 
+
+
+const Format = () => {
+
+ 
+ } 
+
 
 return (
   <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -114,6 +130,7 @@ return (
                 firstNameL={firstName}
                 lastNameL={lastName}
                 idCardL={idCard}
+                activedL={actived}
                 emailL={email}
                 maxW={{
                   lg: '3xl',
@@ -237,4 +254,8 @@ return (
     </Box>
   </Box>
 )
+
+
+
+
 }
