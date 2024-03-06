@@ -101,7 +101,7 @@ export const ProfileCard = (props) => {
 
   
   const { 
-  register, handleSubmit, reset, control,
+  register, handleSubmit, reset, control, setValue,
   formState: { errors, isSubmitting, isLoading },                
               } = useForm({
                /*  defaultValues:preloadedValuesx */
@@ -121,7 +121,7 @@ export const ProfileCard = (props) => {
                   iduser:idUserL,
                   username:userNameL,
                   idcard:idCardL,
-                  /* activeuser:activedL, */
+                  activeuser:activedL,
                   firstname:firstNameL,
                   lastname:lastNameL,
                   email:emailL,
@@ -143,7 +143,18 @@ export const ProfileCard = (props) => {
   }, [reset]); */
 
  
-
+  useEffect(()=>{
+    console.log("CONTROL (USEEFECT INTERNO): ",userForEdit?.actived)
+    setTimeout(()=>{
+      /* reset({
+        actived: "activeuser",
+        
+      }) */
+      /* reset() */
+      /* setActived(userForEdit.actived) */
+      console.log("CONTROL (USEEFECT INTERNO): ",userForEdit?.actived)
+    },3000);
+  }, [reset]);
 
 
  //----------------------------------------------------------------------------------//
@@ -346,21 +357,23 @@ export const ProfileCard = (props) => {
               <Controller
                 name="activeuser"
                 control={control}
-                render={({ field }) => (
+                /* defaultValue={true} */
+                render={({ field: {onChange, onBlur, value} }) => (
                   <Switch
-                    id="activeuserx"
+                    id="activeuser"
                     colorScheme="brand" 
-                    /* checked={actived}  */
-                    /* type='checkbox' */
-                    /* inputRef={activeuser} */
-                    /* checked={actived} */
-                    /* defaultChecked={actived} */
-                    defaultChecked={true}
+                    /* checked={activeuser} */
+                    /* checked={true} */
+                    defaultChecked={actived}
+                    /* defaultChecked={true} */
                     mb="0"
                     mt="3"
                     ml="8"
-                    {...field}
-                    onChange={(e) => field.onChange(e.target.checked)}
+                    /* {...field} */
+                    /* onChange={(e) => field.onChange(e.target.checked)} */
+                    onChange={(e) => onChange(e.target.checked)}
+                    onBlur={onBlur}
+                    isChecked={value}
                   />
                 )}
               />
