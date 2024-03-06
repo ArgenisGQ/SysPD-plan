@@ -26,10 +26,11 @@ import {
   ModalCloseButton,
   useDisclosure,
   Text,
+  Checkbox,
   effect
 } from '@chakra-ui/react'
 import {useState, useRef, useEffect} from 'react'
-import {useForm} from "react-hook-form";
+import {useForm, Controller} from "react-hook-form";
 import { Dropzone } from './Dropzone'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
@@ -100,7 +101,7 @@ export const ProfileCard = (props) => {
 
   
   const { 
-  register, handleSubmit, reset,  
+  register, handleSubmit, reset, control,
   formState: { errors, isSubmitting, isLoading },                
               } = useForm({
                /*  defaultValues:preloadedValuesx */
@@ -120,7 +121,7 @@ export const ProfileCard = (props) => {
                   iduser:idUserL,
                   username:userNameL,
                   idcard:idCardL,
-                  activeuser:activedL,
+                  /* activeuser:activedL, */
                   firstname:firstNameL,
                   lastname:lastNameL,
                   email:emailL,
@@ -234,7 +235,7 @@ export const ProfileCard = (props) => {
       boxShadow={useColorModeValue('sm', 'sm-dark')}
       borderRadius="lg"
       flex="1"
-      {...props}
+      /* {...props} */
     >
       <form  ref={form} onSubmit={handleSubmit(onSubmit)}>
         <Stack
@@ -304,30 +305,67 @@ export const ProfileCard = (props) => {
                   {errors.idcard?.type === 'required' && <p>Cedula requerido!</p>}
               </FormErrorMessage>
             </FormControl>
-            <FormControl /* display="flex" */ /* alignItems="center" */>
+
+            {/* <FormControl />
               <FormLabel htmlFor="user-active" mb="0">
                 Usuario Activo 
               </FormLabel>
               <Switch 
                   id="activeuser" 
                   colorScheme="brand" 
-                  checked={actived} 
-                  /* type='checkbox' */
-                  /* inputRef={activeuser} */
-                  /* checked={actived} */
-                  /* defaultChecked={actived} */
-                  /* defaultChecked={actived} */
+                  
+                  defaultChecked={actived}
+                  
                   mb="0"
                   mt="3"
                   ml="8"
-                  /* isLoading={isLoading} */
+                  
                   onClick={() => setActived(!actived)}
-                  /* isChecked */
+                 
                   {...register('activeuser', {
-                    /* required: true, */
-                    /* maxLength: 10 */
+                   
                   })}/>          
+            </FormControl> */}
+
+            {/* <FormControl id="activeuser">
+              <FormLabel>Activo usuario</FormLabel>
+                <Controller
+                  name="activeuser"
+                  control={control}
+                  value={actived}
+                  render={({ field }) => (
+                    <Checkbox {...field}>Sí</Checkbox>
+                  )}
+                />
+            </FormControl> */}
+
+            <FormControl /* display="flex" alignItems="center" */>
+              <FormLabel htmlFor="email-alerts" mb="0">
+               Usuario Activo 
+              </FormLabel>
+              <Controller
+                name="activeuser"
+                control={control}
+                render={({ field }) => (
+                  <Switch
+                    id="activeuserx"
+                    colorScheme="brand" 
+                    /* checked={actived}  */
+                    /* type='checkbox' */
+                    /* inputRef={activeuser} */
+                    /* checked={actived} */
+                    /* defaultChecked={actived} */
+                    defaultChecked={true}
+                    mb="0"
+                    mt="3"
+                    ml="8"
+                    {...field}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                  />
+                )}
+              />
             </FormControl>
+
           </Stack>
           <Stack
             spacing="6"
