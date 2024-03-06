@@ -34,9 +34,9 @@ import { Dropzone } from './Dropzone'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 
-import useDataUser from '../../../../hooks/useDataUser'; 
+/* import useDataUser from '../../../../hooks/useDataUser'; */ 
 
-
+import useDataUser from '../../../../hooks/useDataCourse';
 
 export const ProfileCard = (props) => {
   const { edit,

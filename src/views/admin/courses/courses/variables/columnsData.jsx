@@ -80,11 +80,11 @@ export const columnsDataUsers = [
     accessor: "id",
   },
   {
-    Header: "USUARIO",
+    Header: "ASIGNATURA",
     accessor: "username",
   },
   {
-    Header: "NOMBRE",
+    Header: "CODIGO",
     accessor: "name",
   },
   /* {
@@ -92,7 +92,7 @@ export const columnsDataUsers = [
     accessor: "document",
   }, */
   {
-    Header: "EMAIL",
+    Header: "SECCION",
     accessor: "email",
   },
   /* {

@@ -70,8 +70,6 @@ export const ProfileCard = (props) => {
 
   const {CreateUser,EditUser} = useDataUser();
 
-  const [preloadedValues,setPreloadedValues] = useState([])
-
   const preloadedValuesx = {
         iduser:idUserL,
         username:userNameL,
@@ -84,7 +82,7 @@ export const ProfileCard = (props) => {
 
   console.log("DATOS DE ENTRADA ANTES DE EDITAR -- : ",preloadedValuesx)
 
-  const [values, setValues] = useState({})
+  /* const [values, setValues] = useState({}) */
 
   /* const values = {
     username:userNameL,
@@ -97,11 +95,8 @@ export const ProfileCard = (props) => {
 
   const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
 
-
-
-  
   const { 
-  register, handleSubmit, reset, control, setValue,
+  register, handleSubmit, reset, control,
   formState: { errors, isSubmitting, isLoading },                
               } = useForm({
                /*  defaultValues:preloadedValuesx */
@@ -127,12 +122,7 @@ export const ProfileCard = (props) => {
                   email:emailL,
                 },
                 },);
-  /* console.log("LOADGING DATOS(ANTES): ",isLoading)
-  useEffect(()=>{
-    setActived(userForEdit.actived)
-    console.log("LOADGING DATOS: ",isLoading)
-  },[activedL])   */           
-
+                
   /* useEffect(()=>{
     setTimeout(()=>{
       reset({
@@ -143,18 +133,14 @@ export const ProfileCard = (props) => {
   }, [reset]); */
 
  
-  useEffect(()=>{
-    console.log("CONTROL (USEEFECT INTERNO): ",userForEdit?.actived)
+  /* useEffect(()=>{
     setTimeout(()=>{
-      /* reset({
+      reset({
         actived: "activeuser",
-        
-      }) */
-      /* reset() */
-      /* setActived(userForEdit.actived) */
-      console.log("CONTROL (USEEFECT INTERNO): ",userForEdit?.actived)
+      })
+      reset()
     },3000);
-  }, [reset]);
+  }, [reset]); */
 
 
  //----------------------------------------------------------------------------------//
@@ -165,19 +151,6 @@ export const ProfileCard = (props) => {
   const handleClick = () => setShow(!show);
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
-
-  /* console.log("ENTRANDO AL USE EFECT: ", actived)
-  useEffect(()=>{
-    setTimeout(()=>{
-      console.log("dentro TIME OUT: ", activedL)
-      reset({
-        activeuser: activedL,        
-      })
-      
-    },10000);
-  }, [reset]); */
-
-
 
   //----------------------------------------------------------------------------------//
   

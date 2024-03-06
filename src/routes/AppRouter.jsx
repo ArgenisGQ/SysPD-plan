@@ -172,7 +172,7 @@ function AppRouter() {
                         <Route path='/admin/users/userform'         element={< UserForm/>}/>
                         <Route path='/admin/users/usercreate'       element={< UserCreate/>}/>
                         <Route path='/admin/users/useredit/:id'     element={< UserCreate editActive={true}/>}/>
-                        <Route path='/admin/courses/courses'        element={< Courses/>}/>
+                        <Route path='/admin/courses/courseslist'    element={< Courses/>}/>
                         <Route path='/admin/courses/coursecreate'   element={< CourseCreate/>}/>
                         <Route path='/admin/courses/courseedit/:id' element={< CourseCreate editActive={true}/>}/>
                         <Route path='/admin/users/nextform'         element={< NextForm/>}/>

@@ -104,7 +104,7 @@ const routes = [{
               {
                 name: "Materias",
                 layout: "/admin/courses",
-                path: "/courses",
+                path: "/courseslist",
                 icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
                 component: "Users",
                 hidden: false

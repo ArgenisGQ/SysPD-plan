@@ -155,17 +155,17 @@ export default function ColumnsTable(props) {
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
 
   const LocalDeleteUser = (data) => {
-    console.log("Mostrando usuario--DELETE USER-- :: ", data)
+    console.log("Mostrando MATERIA--DELETE COURSE-- :: ", data)
     mutDeleteUser.mutate(data,
       {
         onMutate: () => {
-          console.log("Ïnicia BORRADO de usuario");
+          console.log("Ïnicia BORRADO de MATERIA");
         },
         onSuccess: (response) => {
-          console.log("response BORRAR USuARIO:", response);
+          console.log("response BORRAR MATERIA:", response);
           const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
           setDataFullUsers(loadDataFullUsers)
-          console.log("CARGA DE UUSUARIOS LUEGO DEL DELETE: ",loadDataFullUsers)
+          console.log("CARGA DE MATERIA LUEGO DEL DELETE: ",loadDataFullUsers)
           setMonitor(true);
           setTableDataLoad(loadDataFullUsers);
 
@@ -178,11 +178,11 @@ export default function ColumnsTable(props) {
           
         },
         onError: (error) => {
-          console.log("Errores BORRAR usuarios:",error);
+          console.log("Errores BORRAR MATERIA:",error);
         },
         onSettled: (response) => {
-          console.log("RESPONSE BORRAR usuarios: ",response )
-          console.log("Terminado el proceso de BORRAR usuario")
+          console.log("RESPONSE BORRAR MATERIA: ",response )
+          console.log("Terminado el proceso de BORRAR MATERIA")
         }
       })    
   };
@@ -190,7 +190,7 @@ export default function ColumnsTable(props) {
   
 
   const yesDelete = () => {
-    console.log("si, borrar idUser: ", idUser);
+    console.log("si, borrar idCourse: ", idUser);
     LocalDeleteUser(idUser)
     /* setDeleting(true); */
     onClose();
@@ -204,11 +204,11 @@ export default function ColumnsTable(props) {
 
   const editUser = (id) => {
     console.log("funcion editar usuario ID: ", id)
-    navigate('/admin/useredit/'+id);
+    navigate('/admin/courseedit/'+id);
   }
 
   const deleteUserLink = (id) => {
-    console.log("funcion de borrar usuario ID: ", id)
+    console.log("funcion de borrar materia ID: ", id)
     setIdUser(id);
     onOpen();
     /* if (deleting) {
@@ -271,19 +271,19 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "USUARIO") {
+                  } else if (cell.column.Header === "ASIGNATURA") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "NOMBRE") {
+                  } else if (cell.column.Header === "CODIGO") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "DOCUMENTO") {
+                  } else if (cell.column.Header === "SECCION") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
