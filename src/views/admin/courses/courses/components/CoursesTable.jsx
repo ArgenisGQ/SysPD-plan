@@ -210,7 +210,7 @@ export default function ColumnsTable(props) {
 
   const editCourse = (id) => {
     console.log("funcion editar usuario ID: ", id)
-    navigate('/admin/courseedit/'+id);
+    navigate('/admin/courses/courseedit/'+id);
   }
 
   const deleteCourseLink = (id) => {

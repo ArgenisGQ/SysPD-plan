@@ -11,7 +11,8 @@ import { PasswordCard } from './PasswordCard';
 import { PwdUserCard } from './PwdUserCard';
 import { CourseCard } from './CourseCard';
 import Card from "../../../../components/card/Card";
-import useDataUser from '../../../../hooks/useDataUser'; 
+/* import useDataUser from '../../../../hooks/useDataUser'; */
+import useDataCourse from '../../../../hooks/useDataCourse'; 
 import { useParams } from 'react-router-dom';
 
 
@@ -19,25 +20,30 @@ import { useParams } from 'react-router-dom';
 export default function Settings(props) {
 
 const { editActive } = props;
-const {CreateUser,EditLoadUser,EditUser,mutEditLoadUser} = useDataUser();
+/* const {CreateUser,EditLoadUser,EditUser,mutEditLoadUser} = useDataUser(); */
+const {mutEditLoadCourse} = useDataCourse();
 const paramms = useParams();
 console.log ("PARAMETROS: ", paramms.id)
 /* const [loadData, setLoadData] = useState(false) */
 /* const [activeEdit, setActiveEdit] = useState(false); */
 /* setActiveEdit({editActive}); */
 //Estados inciales para usar el formulario en edicion.
-const [idUser, setIdUser] = useState(paramms.id);
+/* const [idUser, setIdUser] = useState(paramms.id);
 const [userName, setUserName] = useState("");
 const [idCard, setIdCard] = useState("");
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
-const [email, setEmail] = useState("");
+const [email, setEmail] = useState(""); */
+const [idCourse, setIdCourse] = useState(paramms.id);
+const [name, setName] = useState("");
+const [code, setCode] = useState("");
+const [section, setSection] = useState("");
 console.log("props de ruta: ", editActive);
 
 //Cargar info del usuariO.
-const LocalEditLoadUser = (data) => {
+const LocalEditLoadCourse = (data) => {
   console.log("Precarga INDEX")
-  mutEditLoadUser.mutate(data,
+  mutEditLoadCourse.mutate(data,
     {
       onMutate: () => {
         console.log("Ïnicia INDEX-)");
@@ -45,20 +51,23 @@ const LocalEditLoadUser = (data) => {
       },
       onSuccess: (response) => {
         
-        const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+        const courseForEdit = JSON.parse(localStorage.getItem("courseForEdit"));
 
         
         /* setIdUser(userForEdit.id) */
-        console.log("parametro (hook)",paramms.id)
-        console.log("iduser(hook): ",idUser)
+        /* console.log("parametro (hook)",paramms.id)
+        console.log("iduser(hook): ",idUser) */
 
-        console.log("FRONT (index): ", userForEdit);
-        setUserName(userForEdit.username);
-        const name = (userForEdit.name).split(',')
+        console.log("FRONT (index): ", courseForEdit);
+        setIdCourse(courseForEdit.id)
+        setName(courseForEdit.name);
+        setCode(courseForEdit.code);
+        setSection(courseForEdit.section);
+        /* const name = (courseForEdit.name).split(',')
         console.log("nombre EDIT(index): ",name )
         setFirstName(name[0]);
         setLastName(name[1]);
-        setEmail(userForEdit.email);
+        setEmail(userForEdit.email); */
         console.log('ON SUCCESS!!!')
       },
       onError: (error) => {
@@ -73,7 +82,7 @@ const LocalEditLoadUser = (data) => {
 /* const idUser = 27 */
 useEffect(() => {
   if (editActive) {
-    LocalEditLoadUser(paramms.id);
+    LocalEditLoadCourse(paramms.id);
   } 
 },[]); 
 
@@ -100,21 +109,25 @@ return (
           >
             <Box flexShrink={0}>
               <Text fontSize="lg" fontWeight="medium">    
-                Perfil
+                Asignatura
               </Text>
               <Text color="muted" fontSize="sm">
-                Perfil basico del usuario.
+                Datos de la Asignatura.
               </Text>
             </Box>
               <ProfileCard
                 edit={editActive}
                /*  load={loadData} */
-                idUserL={idUser}
+                /* idUserL={idUser}
                 userNameL={userName}
                 firstNameL={firstName}
                 lastNameL={lastName}
                 idCardL={idCard}
-                emailL={email}
+                emailL={email} */
+                idCourseL={idCourse}
+                nameL={name}
+                codeL={code}
+                sectionL={section}
                 maxW={{
                   lg: '3xl',
                 }}

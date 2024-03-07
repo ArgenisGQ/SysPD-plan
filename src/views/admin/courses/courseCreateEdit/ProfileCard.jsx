@@ -39,13 +39,18 @@ import { RiEyeCloseLine } from "react-icons/ri";
 import useDataUser from '../../../../hooks/useDataCourse';
 
 export const ProfileCard = (props) => {
-  const { edit,
+  /* const { edit,
           idUserL,
           userNameL,
           firstNameL,
           lastNameL,
           idCardL,
-          emailL } = props;
+          emailL } = props; */
+  const { edit,
+          idCourseL,
+          nameL,
+          codeL,
+          sectionL} = props;        
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -66,11 +71,12 @@ export const ProfileCard = (props) => {
 
   const form = useRef(); //PARA RESET EL FORMULARIO
 
-  const {CreateUser,EditUser} = useDataUser();
+  /* const {CreateUser,EditUser} = useDataUser(); */
+  const {CreateCourse,EditCourse} = useDataUser();
 
   const [preloadedValues,setPreloadedValues] = useState([])
 
-  const preloadedValuesx = {
+  /* const preloadedValuesx = {
         iduser:idUserL,
         username:userNameL,
         idcard:idCardL,
@@ -78,9 +84,9 @@ export const ProfileCard = (props) => {
         firstname:firstNameL,
         lastname:lastNameL,
         email:emailL
-  }
+  } */
 
-  console.log("DATOS DE ENTRADA ANTES DE EDITAR: ",preloadedValuesx)
+  /* console.log("DATOS DE ENTRADA ANTES DE EDITAR: ",preloadedValuesx) */
 
   const [values, setValues] = useState({})
 
@@ -93,11 +99,8 @@ export const ProfileCard = (props) => {
     email:emailL
   } */
 
-  const userForEdit = JSON.parse(localStorage.getItem("userForEdit"));
+  const courseForEdit = JSON.parse(localStorage.getItem("courseForEdit"));
 
-
-
-  
   const { 
   register, handleSubmit, reset,  
   formState: { errors, isSubmitting },                
@@ -112,9 +115,7 @@ export const ProfileCard = (props) => {
                   lastname:name[1],
                   email:userForEdit.email
                 }, */
-
-
-                values: 
+                /* values: 
                 { 
                   iduser:idUserL,
                   username:userNameL,
@@ -123,11 +124,15 @@ export const ProfileCard = (props) => {
                   firstname:firstNameL,
                   lastname:lastNameL,
                   email:emailL,
+                }, */
+                values: 
+                { 
+                  idcourse:idCourseL,
+                  name:nameL,
+                  code:codeL,
+                  section:sectionL,
                 },
                 },);
-
-
-
 
  //----------------------------------------------------------------------------------//
   const [show, setShow] = useState(false);
@@ -146,14 +151,14 @@ export const ProfileCard = (props) => {
 
     if (edit) {
       console.log("Control EDITAR");
-      EditOnUser(data);
+      EditOnCourse(data);
       onOpen();      
     } else {
       /* console.log("datos dentro del formulario: ", data); */
-      CreateUser(data);
+      CreateCourse(data);
       /* console.log("data create front: ",localStorage.getItem("dataCreateUser")); */
-      const dataCreateUserLocal = JSON.parse(localStorage.getItem("dataCreateUser"));
-      console.log("data dataCreateUser en obj: ", dataCreateUserLocal)
+      const dataCreateCourseLocal = JSON.parse(localStorage.getItem("dataCreateCourse"));
+      console.log("data dataCreateCourse en obj: ", dataCreateCourseLocal)
       /* if (responseFullObj.status === 401) {
         console.log("datos erroneos")
         setModalMessage(responseFullObj.data.data.error)
@@ -185,9 +190,9 @@ export const ProfileCard = (props) => {
   } */
   /* console.log("primer nombre(error?): ", firstNameL)
   console.log("apellido(error?):", lastNameL) */
-  const EditOnUser = (data) => {
+  const EditOnCourse = (data) => {
     console.log("DATA para enviar a editar: ",data)
-    EditUser(data);
+    EditCourse(data);
   }
   
   return(
@@ -220,55 +225,56 @@ export const ProfileCard = (props) => {
               md: 'row',
             }}
           >
-            <FormControl id="userName" isInvalid={errors.username}>
+            <FormControl id="name" isInvalid={errors.name}>
               <FormLabel>Usuario</FormLabel>
               <Input
-                  id = "username" 
+                  id = "name" 
                   type='text'
                   /* defaultValue= {userNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
                   /* type='email' */
-                  placeholder='Usuario unico'
+                  placeholder='Nombre de la Asignatura'
                   mb='24px'
                   fontWeight='500'
                   /* size='lg' */
-                  {...register('username', {
+                  {...register('name', {
                     required: !edit,
                     /* maxLength: 10 */
                     minLength:2
                   })} />
               <FormErrorMessage>
                   {/* {errors.username?.type === 'required' && <p>Usuario requerido!</p>} */}
-                  {errors.username?.type === 'required' && <p>Usuario requerido!</p>}
+                  {errors.name?.type === 'required' && <p>Nombre del curso requerido!</p>}
                   {/* <p>prueba</p> */}
               </FormErrorMessage>
             </FormControl>
-            <FormControl id="idCard" isInvalid={errors.idcard}>
-              <FormLabel>Cedula</FormLabel>
+            <FormControl id="code" isInvalid={errors.code}>
+              <FormLabel>Codigo de Asignatura</FormLabel>
               <Input 
-                  id = "idcard" 
+                  id = "code" 
                   type='text'
                   /* defaultValue={idCardL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
                   /* type='email' */
-                  placeholder='numero de identificacion'
+                  placeholder='Codigo de la Asignatura'
                   mb='24px'
                   fontWeight='500'
                   /* size='lg' */
-                  {...register('idcard', {
+                  {...register('code', {
                     required: !edit,
                     /* maxLength: 10 */
                     minLength:2
                   })}/>
               <FormErrorMessage>
-                  {errors.idcard?.type === 'required' && <p>Cedula requerido!</p>}
+                  {errors.code?.type === 'required' && <p>Codigo requerido!</p>}
               </FormErrorMessage>
             </FormControl>
-            <FormControl /* display="flex" */ /* alignItems="center" */>
+
+            {/* <FormControl >
               <FormLabel htmlFor="user-active" mb="0">
                 Usuario Activo 
               </FormLabel>
@@ -279,12 +285,10 @@ export const ProfileCard = (props) => {
                   mb="0"
                   mt="3"
                   ml="8"
-                  /* isChecked */
                   {...register('activeuser', {
-                    /* required: true, */
-                    /* maxLength: 10 */
                   })}/>          
-            </FormControl>
+            </FormControl> */}
+
           </Stack>
           <Stack
             spacing="6"
@@ -293,52 +297,49 @@ export const ProfileCard = (props) => {
               md: 'row',
             }}
           >
-            <FormControl id="firstName" isInvalid={errors.firstname}>
-              <FormLabel>Nombres</FormLabel>
+            <FormControl id="section" isInvalid={errors.section}>
+              <FormLabel>Seccion</FormLabel>
               <Input 
-                  id = "firstName" 
+                  id = "section" 
                   type='text'
                   /* defaultValue={firstNameL} */
                   /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
                   /* type='email' */
-                  placeholder='Nombres del usuario'
+                  placeholder='Seccion de la Asignatura'
                   mb='24px'
                   fontWeight='500'
                   /* size='lg' */
-                  {...register('firstname', {
+                  {...register('section', {
                     required: !edit,
                     /* maxLength: 10 */
                     minLength:2
                   })} />
               <FormErrorMessage>
-                  {errors.firstname?.type === 'required' && <p>Nombre(s) requerido!</p>}
+                  {errors.section?.type === 'required' && <p>Seccion requerida!</p>}
               </FormErrorMessage>
             </FormControl>
-            <FormControl id="lastName" isInvalid={errors.lastname}>
+
+            {/* <FormControl id="lastName" isInvalid={errors.lastname}>
               <FormLabel>Apellidos</FormLabel>
               <Input 
                   id = "lastname" 
                   type='text'
-                  /* defaultValue={lastNameL} */
-                  /* variant='auth' */
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
-                  /* type='email' */
                   placeholder='Apellidos del  usuario'
                   mb='24px'
                   fontWeight='500'
-                  /* size='lg' */
                   {...register('lastname', {
                     required: !edit,
-                    /* maxLength: 10 */
                     minLength:2
                   })} />
-            <FormErrorMessage>
-                  {errors.lastname?.type === 'required' && <p>Apellido(s) requerido!</p>}
-            </FormErrorMessage>      
-            </FormControl>            
+              <FormErrorMessage>
+                    {errors.lastname?.type === 'required' && <p>Apellido(s) requerido!</p>}
+              </FormErrorMessage>      
+            </FormControl> */}
+
           </Stack>
           {/* <FormControl id="website">
             <FormLabel>Website</FormLabel>
@@ -347,50 +348,46 @@ export const ProfileCard = (props) => {
               <Input defaultValue="www.chakra-ui.com" />
             </InputGroup>
           </FormControl> */}
-          <FormControl id="email" isInvalid={errors.email}>
+
+          {/* <FormControl id="email" isInvalid={errors.email}>
             <FormLabel>Email</FormLabel>
             <Input 
                 id = "email" 
                 type='email'
-                /* defaultValue={emailL} */
-                /* variant='auth' */
                 fontSize='sm'
                 ms={{ base: "0px", md: "0px" }}
-                /* type='email' */
                 placeholder='correo electronico unico'
                 mb='24px'
                 fontWeight='500'
-                /* size='lg' */
                 {...register('email', {
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
                   required: !edit,
-                  /* maxLength: 10 */
                   minLength:2
                 })} />
             <FormErrorMessage>
                 {errors.email?.type === 'required' && <p>Email requerido!</p>}
             </FormErrorMessage>
-          </FormControl>
-          <FormControl id="password" isInvalid={errors.password}>
+          </FormControl> */}
+
+          {/* <FormControl id="password" isInvalid={errors.password}>
             <FormLabel>Password</FormLabel>
             <InputGroup size='md'>
               <Input 
                   id = "password" 
                   type={show ? "text" : "password"}
                   defaultValue={password}
-                  /* variant='auth' */
+                  
                   fontSize='sm'
                   ms={{ base: "0px", md: "0px" }}
-                  /* type='email' */
+                  
                   placeholder='minimo 8 caracteres'
                   mb='24px'
                   fontWeight='500'
-                  /* size='lg' */
+                  
                   {...register('password', {
-                    /* pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i, */
-                    /* required: true, */
+                    
                     required: !edit,
-                    /* maxLength: 10 */
+                   
                   })} />              
               <InputRightElement display='flex' alignItems='center' mt='0px'>
                     <Icon
@@ -404,16 +401,16 @@ export const ProfileCard = (props) => {
             </InputGroup>
             <FormErrorMessage>
                   {edit? console.log("EDITAR PASS"):errors.password?.type === 'required' && <p>Password requerido!</p>}
-                  {/* {errors.password?.type === 'required' && <p>Password requerido!</p>} */}
             </FormErrorMessage>
-          </FormControl>
+          </FormControl> */}
           
           {/* <FormControl id="bio">
             <FormLabel>Bio</FormLabel>
             <Textarea rows={3} resize="none" />
             <FormHelperText color="subtle">Write a short introduction about yourself</FormHelperText>
           </FormControl> */}
-          <FormControl id="picture">
+
+          {/* <FormControl id="picture">
             <FormLabel>Foto</FormLabel>
             <Stack
               spacing={{
@@ -428,9 +425,12 @@ export const ProfileCard = (props) => {
               <Avatar size="lg" name="USUARIO" src="https://tinyurl.com/yhkm2ek8" />
               <Dropzone width="full" />
             </Stack>
-          </FormControl>      
-          </Stack>        
-        <Divider />
+          </FormControl>  */}
+
+          </Stack> 
+
+          <Divider />
+
         <Flex
           direction="row-reverse"
           py="4"

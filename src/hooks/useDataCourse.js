@@ -155,13 +155,14 @@ const useDataCourse = (data) => {
     const mutEditCourse = useMutation(
       async (data)  => {  
         console.log('Editor Conector: ',data);
-        const [name, code, section] = [data.name,
-                                       data.code,
-                                       data.section];
+        const [idcourse, name, code, section] = [data.idcourse,
+                                                 data.name,
+                                                 data.code,
+                                                 data.section];
         try {
           /* const name = firstname + ', ' + lastname; */
 
-          await axios.put('/courses/'+iduser,
+          await axios.put('/courses/'+idcourse,
           { name, code, section },           
           {
               headers: {                

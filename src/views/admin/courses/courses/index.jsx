@@ -8,7 +8,7 @@ import DevelopmentTable from "../../../../views/admin/users/components/Developme
 import CheckTable from "../../../../views/admin/users/components/CheckTable";
 import ColumnsTable from "../../../../views/admin/users/components/ColumnsTable";
 import ComplexTable from "../../../../views/admin/users/components/ComplexTable";
-import UsersTable from "../../../../views/admin/courses/courses/components/UsersTable";
+import UsersTable from "./components/CoursesTable";
 import {
   columnsDataDevelopment,
   columnsDataCheck,
