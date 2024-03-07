@@ -50,41 +50,47 @@ import Menu from "../../../../../components/menu/MainMenu";
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 //
-import useDataUser from '../../../../../hooks/useDataUser';
+/* import useDataUser from '../../../../../hooks/useDataUser'; */
+import useDataCourse from '../../../../../hooks/useDataCourse';
 import DeleteUser from "./DeleteUser";
 
 export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
 
-  const { mutDeleteUser, mutDataUsers } = useDataUser();
+  /* const { mutDeleteUser, mutDataUsers } = useDataUser(); */
+  const { mutDeleteCourse, mutDataCourses} = useDataCourse();
 
 
   const tableDataX = tableData
-  /* console.log("01 datos head!!: ",columnsData) */
+  console.log("01 datos head!!: ",columnsData)
+  console.log("test")
   const navigate = useNavigate();
   const[deleting, setDeleting] = useState(false);
-  const[idUser, setIdUser] = useState('');
+  const[idCourse, setIdCourse] = useState('');
+  const[tableHeadLoad, setTableHeadLoad] = useState(columnsData);
   const[tableDataLoad, setTableDataLoad] = useState(tableData);
   const[monitor, setMonitor] = useState(false)
-  const[dataFullUsers,setDataFullUsers] = useState({})
+  const[dataFullCourses,setDataFullCourses] = useState({})
   
   /* const tableDataX = tableData */
   
   /* setTableDataLoad(tableDataX) */
 
+  console.log("datos HEAD (FOR INDEX): ",tableHeadLoad )
   console.log("DATOS base: ",tableData )
   console.log("DATOS PRIMERO pre --: ",tableDataLoad)
   console.log("DATOS EN X: ",tableDataX)
   console.log("valor MONITOR: ",monitor)
   useEffect(() => {
     if (!monitor) {
+      setTableHeadLoad(columnsData);
       setTableDataLoad(tableDataX);
     } 
   })
   
   console.log("DATOS PRIMERO --: ",tableDataLoad)
-  console.log("DATOS SEGUNDO --: ",dataFullUsers)
+  console.log("DATOS SEGUNDO --: ",dataFullCourses)
   /* const dataReload = () => {
     console.log('test')
     setTableDataLoad(tableData);
@@ -154,25 +160,25 @@ export default function ColumnsTable(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
 
-  const LocalDeleteUser = (data) => {
+  const LocalDeleteCourse = (data) => {
     console.log("Mostrando MATERIA--DELETE COURSE-- :: ", data)
-    mutDeleteUser.mutate(data,
+    mutDeleteCourse.mutate(data,
       {
         onMutate: () => {
           console.log("Ïnicia BORRADO de MATERIA");
         },
         onSuccess: (response) => {
           console.log("response BORRAR MATERIA:", response);
-          const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
-          setDataFullUsers(loadDataFullUsers)
-          console.log("CARGA DE MATERIA LUEGO DEL DELETE: ",loadDataFullUsers)
+          const loadDataFullCourses = JSON.parse(localStorage.getItem("dataCourses"))
+          setDataFullCourses(loadDataFullCourses)
+          console.log("CARGA DE MATERIA LUEGO DEL DELETE: ",loadDataFullCourses)
           setMonitor(true);
-          setTableDataLoad(loadDataFullUsers);
+          setTableDataLoad(loadDataFullCourses);
 
           
           /* setTableDataLoad(loadDataFullUsers) */
           /* setMonitor(false) */
-          if (loadDataFullUsers) {
+          if (loadDataFullCourses) {
             console.log("prueba interna - control")
           }
           
@@ -190,26 +196,26 @@ export default function ColumnsTable(props) {
   
 
   const yesDelete = () => {
-    console.log("si, borrar idCourse: ", idUser);
-    LocalDeleteUser(idUser)
+    console.log("si, borrar idCourse: ", idCourse);
+    LocalDeleteCourse(idCourse)
     /* setDeleting(true); */
     onClose();
   }
 
   const notDelete = () => {
     console.log("no, sin borrar");
-    setIdUser(''); //Borrar id del estado.
+    setIdCourse(''); //Borrar id del estado.
     onClose();
   }
 
-  const editUser = (id) => {
+  const editCourse = (id) => {
     console.log("funcion editar usuario ID: ", id)
     navigate('/admin/courseedit/'+id);
   }
 
-  const deleteUserLink = (id) => {
+  const deleteCourseLink = (id) => {
     console.log("funcion de borrar materia ID: ", id)
-    setIdUser(id);
+    setIdCourse(id);
     onOpen();
     /* if (deleting) {
       console.log("borrando u usuario...")
@@ -232,7 +238,7 @@ export default function ColumnsTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Usuarios
+          Asignaturas
         </Text>
         <Menu />
       </Flex>
@@ -365,7 +371,7 @@ export default function ColumnsTable(props) {
                         colorScheme="blue"
                         variant="outline" 
                         size="sm"
-                        onClick={()=>editUser(cell.row.original.id)}> 
+                        onClick={()=>editCourse(cell.row.original.id)}> 
                         EDITAR
                         </Button> 
                       </Flex>
@@ -384,7 +390,7 @@ export default function ColumnsTable(props) {
                         colorScheme="red"
                         variant="outline" 
                         size="sm"
-                        onClick={()=>deleteUserLink(cell.row.original.id)}> 
+                        onClick={()=>deleteCourseLink(cell.row.original.id)}> 
                         BORRAR
                         </Button> 
                       </Flex>
@@ -508,7 +514,7 @@ export default function ColumnsTable(props) {
                   textAlign={[ 'left', 'center' ]}>
                   {/* Coloque su email y su clave para ingresar! */}
                   {/* {modalMessage}     */}   
-                  <p>USUARIO BORRADO</p>
+                  <p>ASIGNATURA BORRADA</p>
                   {/* {edit ? 'Usuario Editado' : 'Usuario Creado'} */}     
                 </Text>
               {/* </Center> */}  

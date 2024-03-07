@@ -120,3 +120,50 @@ export const columnsDataUsers = [
     accessor: "delete",
   },     
 ];
+
+export const columnsDataCourses = [
+  {
+    Header: "ID",
+    accessor: "id",
+  },
+  {
+    Header: "ASIGNATURA",
+    accessor: "name",
+  },
+  {
+    Header: "CODIGO",
+    accessor: "code",
+  },
+  /* {
+    Header: "DOCUMENTO",
+    accessor: "document",
+  }, */
+  {
+    Header: "SECCION",
+    accessor: "section",
+  },
+  /* {
+    Header: "ROL",
+    accessor: "rol",
+  },  */   
+  /* {
+    Header: "FECHA",
+    accessor: "date",
+  }, */
+  /* {
+    Header: "STATUS",
+    accessor: "status",
+  }, */
+  /* {
+    Header: "PROGRESO",
+    accessor: "progress",
+  }, */
+  {
+    Header: " ",
+    accessor: "edit",
+  },
+  {
+    Header: "",
+    accessor: "delete",
+  },     
+];

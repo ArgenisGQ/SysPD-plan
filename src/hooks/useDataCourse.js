@@ -6,77 +6,18 @@ import { localStorageManager } from '@chakra-ui/system';
 
 
 
-const useDataUser = (data) => {
+const useDataCourse = (data) => {
     const navigate = useNavigate();    
-    const [userAuth,   setUserAuth]    = useState(null);
-    const [userStatus, setUserStatus]  = useState(null);
-    const [userToken,  setUserToken]   = useState(null);    
+      
     const queryClient = useQueryClient();
     const [out, setOut] = useState("base")
 
 
-    const mutLogin      = useMutation(
-        async (data) => {    
-          const [email, password ] = [data.email, data.password];
-          try {
-              const response = await axios.post('/login', {email, password})                       
-              const status = response?.data?.status;
-              const accessToken = response?.data?.accessToken;
-              setUserAuth(response?.data?.user);
-              /* navigate('/'); */
-              return response.data;
-            } catch (err) {
-              console.log("Error de conexx2:", err);
-              /* return err.response.data.message; */
-              return err.response;
-            }
-          /* return outfit.json(); */
-        },
-        {
-          /* onMutate: () => {
-            console.log("Ïnicia la mutacion");
-          },
-          onSuccess: (response) => {
-            console.log("response:", response);
-          },
-          onError: (error) => {
-            console.log(error);
-          },
-          onSettled: () => {
-            console.log("Terminada la mutacion")
-          } */
-        }
-    )
-    const mutLogout     = useMutation(
+    const mutDataCourses  = useMutation(
       async (data)  => {  
-        console.log('borrando cache2 - out');
+        console.log('creacion de cursos -- 070324');
         try {
-          await axios.get('/logout',           
-          {
-              headers: {                
-                /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
-                'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
-              }
-          })
-          .then((response) => {        
-            console.log("token antes2 - out:",localStorage.getItem(["userAuth"]))
-            /* queryClient.removeQueries(); */
-            localStorage.clear();
-            /* localStorage.removeItem(["userAuth"]); */
-            console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))           
-          });
-          console.log("cache borrada...2 - out");   
-        } catch (e) {
-          console.log(e.response.message);
-        }       
-      }      
-    )
-
-    const mutDataUsers  = useMutation(
-      async (data)  => {  
-        console.log('creacion de usuario -- 070224');
-        try {
-          await axios.get('/users/',           
+          await axios.get('/courses/',           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -84,27 +25,27 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("datausers: ", response.data)
-            localStorage.setItem("dataUsers",JSON.stringify(response?.data));        
+            console.log("dataCourses: ", response.data)
+            localStorage.setItem("dataCourses",JSON.stringify(response?.data));        
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
             /* queryClient.removeQueries(); */
             /* localStorage.clear(); */
             /* localStorage.removeItem(["userAuth"]); */
             /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
           });
-          console.log("terminado de cargar listado de usuarios");   
+          console.log("terminado de cargar listado de Course");   
         } catch (e) {
           console.log("error - DATA: ",e.response.message);
         }       
       }    
     )
 
-    const mutShowUser  = useMutation(
+    const mutShowCourse  = useMutation(
       async (data)  => {  
-        console.log('Datos de usuario -- 090224');
+        console.log('Datos de Course -- 070324');
         console.log('Datos de entrada SHOW: ', data)
         try {
-          await axios.get('/users/'+data,           
+          await axios.get('/courses/'+data,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -112,7 +53,7 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("show user: ", response)
+            console.log("show Course: ", response)
             /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
@@ -121,35 +62,31 @@ const useDataUser = (data) => {
             /* localStorage.removeItem(["userAuth"]); */
             /* console.log("token despues2 - out:",localStorage.getItem(["userAuth"]))  */          
           });
-          console.log("terminado de cargar listado de usuarios");   
+          console.log("terminado de cargar listado de Course");   
         } catch (e) {
           console.log("error - DATA: ",e.response.message);
         }       
       }    
     )
 
-    const mutCreateUser = useMutation(
+    const mutCreateCourse = useMutation(
       async (data) => { 
         console.log("datos para enviar (HOOOKS): ", data)   
-        const [username, idcard, actived, firstname, lastname, email, password ] = [data.username,
-                                                                           data.idcard,
-                                                                           data.activeuser,
-                                                                           data.firstname,
-                                                                           data.lastname,
-                                                                           data.email,
-                                                                           data.password];
+        const [name, code, section] = [data.name,
+                                       data.code,
+                                       data.section];
         try {
             /* const response = await axios.post('/login', {email, password}) */
-            const name = firstname + ', ' + lastname;
+           /*  const name = firstname + ', ' + lastname; */
             /* console.log("nombre concatenado: ", name) */
             /* await axios.post('/register', 
             { username, email, name, password }); */ 
 
-            console.log("IDCARD (HOOKS)", idcard)
-            console.log("ACTIVED (HOOKS)", actived)
+           /*  console.log("IDCARD (HOOKS)", idcard)
+            console.log("ACTIVED (HOOKS)", actived) */
             
-            const response = await axios.post('/users', 
-            { username, name, idcard, actived, email, password },
+            const response = await axios.post('/courses', 
+            { name, code, section},
             {
               headers: {
                   /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */
@@ -157,9 +94,9 @@ const useDataUser = (data) => {
                   'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}`  
               }
             });
-              console.log("data en create user: ", response)
-              localStorage.setItem("dataCreateUser",JSON.stringify(response));
-              console.log("dataCreateUser en origen: ",localStorage.getItem("dataCreateUser"))
+              console.log("data en create Course: ", response)
+              localStorage.setItem("dataCreateCourse",JSON.stringify(response));
+              console.log("dataCreateUser en origen: ",localStorage.getItem("dataCreateCourse"))
             /* const status = response?.data?.status; */
             /* const accessToken = response?.data?.accessToken; */
             /* setUserAuth(response?.data?.user); */
@@ -190,11 +127,11 @@ const useDataUser = (data) => {
       }
     )
 
-    const mutEditLoadUser = useMutation(
+    const mutEditLoadCourse = useMutation(
       async (data)  => {  
         console.log('Editor Conector: ',data);
         try {
-          await axios.get('/users/'+data,           
+          await axios.get('/courses/'+data,           
           {
               headers: { 
                 'Authorization': `Bearer ${localStorage.getItem(["userAuth"])}` 
@@ -204,7 +141,7 @@ const useDataUser = (data) => {
           
           .then((response) => {
             console.log("Edit Data User full: ", response.data.users)            
-            localStorage.setItem('userForEdit',JSON.stringify(response.data.users))
+            localStorage.setItem('courseForEdit',JSON.stringify(response.data.users))
             /* return response */
           });
           console.log("Terminado DATA DE USUARIO");
@@ -215,22 +152,17 @@ const useDataUser = (data) => {
       } 
     )
 
-    const mutEditUser = useMutation(
+    const mutEditCourse = useMutation(
       async (data)  => {  
         console.log('Editor Conector: ',data);
-        const [iduser, username, idcard, actived, firstname, lastname, email, password ] = [data.iduser,
-                                                                          data.username,
-                                                                          data.idcard,
-                                                                          data.activeuser,
-                                                                          data.firstname,
-                                                                          data.lastname,
-                                                                          data.email,
-                                                                          data.password];
+        const [name, code, section] = [data.name,
+                                       data.code,
+                                       data.section];
         try {
-          const name = firstname + ', ' + lastname;
+          /* const name = firstname + ', ' + lastname; */
 
-          await axios.put('/users/'+iduser,
-          { username, idcard, actived, name, email, password },           
+          await axios.put('/courses/'+iduser,
+          { name, code, section },           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -238,7 +170,7 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("show user edited: ", response)
+            console.log("show course edited: ", response)
             /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
@@ -255,11 +187,11 @@ const useDataUser = (data) => {
       } 
     )
 
-    const mutDeleteUser = useMutation(
+    const mutDeleteCourse = useMutation(
       async (data)  => {  
         console.log('BORRAR USUARIO: ',data);
         try {
-          await axios.delete('/users/'+data,           
+          await axios.delete('/courses/'+data,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -267,7 +199,7 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("show user BORRAR: ", response)
+            console.log("show Course BORRAR: ", response)
             /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
@@ -281,7 +213,7 @@ const useDataUser = (data) => {
             /* async (data)  => {  */ 
               /* console.log('LIST AFTER DELETING');
               try { */
-                await axios.get('/users/',           
+                await axios.get('/courses/',           
                   {
                       headers: {                
                         /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -289,8 +221,8 @@ const useDataUser = (data) => {
                       }
                   })
                   .then((response) => {
-                    console.log("datausers UPDATE/DELETE: ", response.data)
-                    localStorage.setItem("dataUsers",JSON.stringify(response?.data)); 
+                    console.log("dataCourses UPDATE/DELETE: ", response.data)
+                    localStorage.setItem("dataCourses",JSON.stringify(response?.data)); 
                   });
                   console.log("terminado de cargar listado de usuarios");   
               /* } catch (e) {
@@ -306,12 +238,12 @@ const useDataUser = (data) => {
       
     )
 
-    const mutDestroyUser  = useMutation(
+    const mutDestroyCourse  = useMutation(
       async (data)  => {  
         console.log('Datos de usuario -- DESTROY');
         console.log('Datos de entrada DESTROY: ', data)
         try {
-          await axios.get('/users/'+data,           
+          await axios.get('/courses/'+data,           
           {
               headers: {                
                 /* 'Authorization': `Bearer ${queryClient.getQueryData(["userAuth"])}`  */
@@ -319,7 +251,7 @@ const useDataUser = (data) => {
               }
           })
           .then((response) => {
-            console.log("show user DESTROY: ", response)
+            console.log("show Course DESTROY: ", response)
             /* localStorage.setItem("dataUsers",JSON.stringify(response?.data)); */ 
 
             /* console.log("token antes2 - out:",localStorage.getItem(["userAuth"])) */
@@ -336,9 +268,9 @@ const useDataUser = (data) => {
     )
       
 
-    function DataUsers(data){
-        console.log("datos de usuario -- 050224");
-        mutDataUsers.mutate(data,
+    function DataCourses(data){
+        console.log("datos de usuario -- 070324");
+        mutDataCourses.mutate(data,
         {
           onMutate: () => {
             console.log("Ïnicia la mutacion (en hooks -- DATOS)");
@@ -389,18 +321,18 @@ const useDataUser = (data) => {
           }
         }); */
     }
-    function CreateUser(data) {
-        console.log("creando usuario--en hooks--")
-        mutCreateUser.mutate(data,
+    function CreateCourse(data) {
+        console.log("creando cursos--en hooks--")
+        mutCreateCourse.mutate(data,
           {
             onMutate: () => {
-              console.log("Ïnicia creacion de usuario(en hooks)");
+              console.log("Ïnicia creacion de cursos(en hooks)");
             },
             onSuccess: (response) => {
-              console.log("response PROCESANDO CREAR USuARIO(hooks):", response);
-              console.log("datos del registro de usuario: ",response.data);
-              console.log("mensaje del registro de usuario: ",response.message);
-              navigate('/admin/users/userslist');// ruta de listado de  usuarios
+              console.log("response PROCESANDO CREAR cursos(hooks):", response);
+              console.log("datos del registro de cursos: ",response.data);
+              console.log("mensaje del registro de cursos: ",response.message);
+              navigate('/admin/courses/courseslist');// ruta de listado de  usuarios
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -462,17 +394,17 @@ const useDataUser = (data) => {
             }
           });    
     }
-    function ShowUser(data) {
-        console.log("Mostrando usuario--en hooks--")
-        mutShowUser.mutate(data,
+    function ShowCourse(data) {
+        console.log("Mostrando cursos--en hooks--")
+        mutShowCourse.mutate(data,
           {
             onMutate: () => {
-              console.log("Ïnicia Muestra de usuario(en hooks)");
+              console.log("Ïnicia Muestra de cursos(en hooks)");
             },
             onSuccess: (response) => {
-              console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
-              console.log("datos del USUARIO: ",response.data);
-              console.log("mensaje de LA MUESTRA DE USUARIO: ",response.message);
+              console.log("response PROCESANDO MOSTRAR cursos(hooks):", response);
+              console.log("datos del cursos: ",response.data);
+              console.log("mensaje de LA MUESTRA DE cursos: ",response.message);
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -534,9 +466,9 @@ const useDataUser = (data) => {
             }
           });    
     }
-    function EditLoadUser(data) {
+    function EditLoadCourse(data) {
       console.log("Precarga de datos para edicion-HOOKS")
-      mutEditLoadUser.mutate(data,
+      mutEditLoadCourse.mutate(data,
         {
           onMutate: () => {
             console.log("Ïnicia LOAD -HOOKS-)");
@@ -544,7 +476,7 @@ const useDataUser = (data) => {
           onSuccess: (response) => {
             /* console.log("ZZZZZ response LOAD EDIT USuARIO(hooks):", response); */
             /* localStorage.setItem("userForEdit",JSON.stringify(response.data.users)); */
-            console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("userForEdit"));
+            console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("courseForEdit"));
             /* queryClient.setQueriesData('userForEdit',JSON.stringify(response)) */
             /* console.log('DATOS A EDITAR - HOOK: ', queryClient.getItem('userForEdit')) */
            
@@ -615,18 +547,18 @@ const useDataUser = (data) => {
         });
         /* return {out} */   
     }
-    function EditUser(data) {
-      console.log("Mostrando usuario--en hooks--")
-      mutEditUser.mutate(data,
+    function EditCourse(data) {
+      console.log("Mostrando cursos--en hooks--")
+      mutEditCourse.mutate(data,
         {
           onMutate: () => {
-            console.log("Ïnicia Muestra de usuario(en hooks)");
+            console.log("Ïnicia Muestra de cursos(en hooks)");
           },
           onSuccess: (response) => {
-            console.log("response PROCESANDO MOSTRAR USuARIO(hooks):", response);
-            console.log("datos del USUARIO: ",response);
-            console.log("mensaje de LA MUESTRA DE USUARIO: ",response);
-            navigate('/admin/users/userslist'); //ruta de lista de usuarios
+            console.log("response PROCESANDO MOSTRAR cursos(hooks):", response);
+            console.log("datos del cursos: ",response);
+            console.log("mensaje de LA MUESTRA DE cursos: ",response);
+            navigate('/admin/courses/courseslist'); //ruta de lista de usuarios
             /* queryClient.setQueryData("userAuth",response?.accessToken);
             queryClient.setQueryData("status",response?.status); */
             /* localStorage.setItem("responseF",JSON.stringify(response));
@@ -688,9 +620,9 @@ const useDataUser = (data) => {
           }
         });    
     }
-    function DeleteUser(data) {
+    function DeleteCourse(data) {
       console.log("Mostrando usuario BORRAR--en hooks--: ",data)
-      mutDeleteUser.mutate(data,
+      mutDeleteCourse.mutate(data,
         {
           onMutate: () => {
             console.log("Ïnicia BORRADO de usuario(en hooks)");
@@ -714,26 +646,18 @@ const useDataUser = (data) => {
     }
          
   return {
-        userAuth,
-        userStatus,
-        userToken,
-        DataUsers,
-        CreateUser,
-        ShowUser,
-        EditLoadUser,
-        EditUser,
-        DeleteUser, 
-        mutLogin,
-        mutLogout,
-        mutEditLoadUser,
-        mutDataUsers,
-        mutDeleteUser,
-        mutDestroyUser
-        
-        /* Logout1, */
-        
+        DataCourses,
+        CreateCourse,
+        ShowCourse,
+        EditLoadCourse,
+        EditCourse,
+        DeleteCourse, 
+        mutEditLoadCourse,
+        mutDataCourses,
+        mutDeleteCourse,
+        mutDestroyCourse
   }
     
 }
 
-export default useDataUser
+export default useDataCourse

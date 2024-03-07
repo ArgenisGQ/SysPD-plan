@@ -8,13 +8,14 @@ import DevelopmentTable from "../../../../views/admin/users/components/Developme
 import CheckTable from "../../../../views/admin/users/components/CheckTable";
 import ColumnsTable from "../../../../views/admin/users/components/ColumnsTable";
 import ComplexTable from "../../../../views/admin/users/components/ComplexTable";
-import UsersTable from "../../../../views/admin/users/components/UsersTable";
+import UsersTable from "../../../../views/admin/courses/courses/components/UsersTable";
 import {
   columnsDataDevelopment,
   columnsDataCheck,
   columnsDataColumns,
   columnsDataComplex,
   columnsDataUsers,
+  columnsDataCourses,
 } from "../../../../views/admin/courses/courses/variables/columnsData";
 import tableDataDevelopment from "../../../../views/admin/users/variables/tableDataDevelopment.json";
 import tableDataCheck from "../../../../views/admin/users/variables/tableDataCheck.json";
@@ -22,27 +23,32 @@ import tableDataColumns from "../../../../views/admin/users/variables/tableDataC
 import tableDataComplex from "../../../../views/admin/users/variables/tableDataComplex.json";
 import tableDataUsers from "../../../../views/admin/users/variables/tableDataUsers.json";
 
-import useDataUser from '../../../../hooks/useDataUser'; 
+/* import useDataUser from '../../../../hooks/useDataUser'; */
+import useDataCourse from '../../../../hooks/useDataCourse'; 
 import { useEffect, useState } from "react";
 
 
 
 export default function Settings(props) {
   const {deleteUser} = props;
-  const {mutDataUsers,mutDeleteUser } = useDataUser();
-  const [dataFullUsers,setDataFullUsers] = useState([])
+  /* const {mutDataUsers,mutDeleteUser } = useDataUser(); */
+  const {mutDataCourses,mutDeleteCourses } = useDataCourse();
+  const [dataFullCourses,setDataFullCourses] = useState([])
 
-  const LocalDataUsers = (data) => {
+  
+  /* console.log("heads (index): ", columnsDataCourses) */
+
+  const LocalDataCourses = (data) => {
     /* console.log("datos de usuario -- 050224"); */
-    mutDataUsers.mutate(data,
+    mutDataCourses.mutate(data,
     {
       onMutate: () => {
         /* console.log("Ïnicia la mutacion (en hooks -- DATOS)"); */
       },
       onSuccess: (response) => {
         /* console.log("response(DATOS USER out): ",response?.data) */
-        const loadDataFullUsers = JSON.parse(localStorage.getItem("dataUsers"))
-        setDataFullUsers(loadDataFullUsers)
+        const loadDataFullCourses = JSON.parse(localStorage.getItem("dataCourses"))
+        setDataFullCourses(loadDataFullCourses)
       },
       onError: (error) => { 
         console.log(error);
@@ -60,10 +66,10 @@ export default function Settings(props) {
   //
   useEffect(() => {
     /* console.log("EFECTO...."); */
-    LocalDataUsers();
+    LocalDataCourses();
   }, []);
 
-  
+  /* console.log("columnsDataCourse(index):", columnsDataCourse) */
   // Chakra Color Mode
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -88,9 +94,9 @@ export default function Settings(props) {
           tableData={tableDataComplex}
         /> */}
         <UsersTable
-          columnsData={columnsDataUsers}
+          columnsData={columnsDataCourses}
           /* tableData={tableDataUsers} */
-          tableData={dataFullUsers}
+          tableData={dataFullCourses}
         />
       </SimpleGrid>
     </Box>
