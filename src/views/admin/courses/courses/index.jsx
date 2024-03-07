@@ -23,10 +23,8 @@ import tableDataColumns from "../../../../views/admin/users/variables/tableDataC
 import tableDataComplex from "../../../../views/admin/users/variables/tableDataComplex.json";
 import tableDataUsers from "../../../../views/admin/users/variables/tableDataUsers.json";
 
-/* import useDataUser from '../../../../hooks/useDataUser'; */
 import useDataCourse from '../../../../hooks/useDataCourse'; 
 import { useEffect, useState } from "react";
-
 
 
 export default function Settings(props) {
@@ -35,18 +33,13 @@ export default function Settings(props) {
   const {mutDataCourses,mutDeleteCourses } = useDataCourse();
   const [dataFullCourses,setDataFullCourses] = useState([])
 
-  
-  /* console.log("heads (index): ", columnsDataCourses) */
-
   const LocalDataCourses = (data) => {
-    /* console.log("datos de usuario -- 050224"); */
     mutDataCourses.mutate(data,
     {
       onMutate: () => {
         /* console.log("Ïnicia la mutacion (en hooks -- DATOS)"); */
       },
       onSuccess: (response) => {
-        /* console.log("response(DATOS USER out): ",response?.data) */
         const loadDataFullCourses = JSON.parse(localStorage.getItem("dataCourses"))
         setDataFullCourses(loadDataFullCourses)
       },
@@ -54,22 +47,16 @@ export default function Settings(props) {
         console.log(error);
       },
       onSettled: (response) => {
-        
-        /* const status = localStorage.getItem(["status"]);
-        const message = localStorage.getItem(["message"]);
-        console.log ("status (test -- out): ", status);
-        console.log ("message (test -- otro hooks -- out): ", message); */
+      
         
       }
     });    
   }
   //
   useEffect(() => {
-    /* console.log("EFECTO...."); */
     LocalDataCourses();
   }, []);
-
-  /* console.log("columnsDataCourse(index):", columnsDataCourse) */
+  
   // Chakra Color Mode
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>

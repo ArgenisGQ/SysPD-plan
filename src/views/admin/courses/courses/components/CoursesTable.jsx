@@ -57,10 +57,8 @@ import DeleteUser from "./DeleteUser";
 export default function ColumnsTable(props) {
   
   const { columnsData, tableData } = props;
-
-  /* const { mutDeleteUser, mutDataUsers } = useDataUser(); */
+  
   const { mutDeleteCourse, mutDataCourses} = useDataCourse();
-
 
   const tableDataX = tableData
   console.log("01 datos head!!: ",columnsData)
@@ -72,16 +70,13 @@ export default function ColumnsTable(props) {
   const[tableDataLoad, setTableDataLoad] = useState(tableData);
   const[monitor, setMonitor] = useState(false)
   const[dataFullCourses,setDataFullCourses] = useState({})
-  
-  /* const tableDataX = tableData */
-  
-  /* setTableDataLoad(tableDataX) */
 
   console.log("datos HEAD (FOR INDEX): ",tableHeadLoad )
   console.log("DATOS base: ",tableData )
   console.log("DATOS PRIMERO pre --: ",tableDataLoad)
   console.log("DATOS EN X: ",tableDataX)
   console.log("valor MONITOR: ",monitor)
+
   useEffect(() => {
     if (!monitor) {
       setTableHeadLoad(columnsData);
@@ -91,30 +86,9 @@ export default function ColumnsTable(props) {
   
   console.log("DATOS PRIMERO --: ",tableDataLoad)
   console.log("DATOS SEGUNDO --: ",dataFullCourses)
-  /* const dataReload = () => {
-    console.log('test')
-    setTableDataLoad(tableData);
-  } */
-
-  /* console.log("01 datos primera parte en componente!!: ",tableData) */
-  /* console.log("01-1 datos en ESTADO!!: ",tableDataLoad) */
-
-  /* dataReload(); */
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableDataLoad, [tableDataLoad]);
-
-
- /*  useEffect(() => {
-    
-    setTableDataLoad(tableDataX);
-  },[]) */
-
-
-
-
-
-  /* console.log("02 data dentro de la tabla: ",data) */
 
   const tableInstance = useTable(
     {
@@ -175,9 +149,6 @@ export default function ColumnsTable(props) {
           setMonitor(true);
           setTableDataLoad(loadDataFullCourses);
 
-          
-          /* setTableDataLoad(loadDataFullUsers) */
-          /* setMonitor(false) */
           if (loadDataFullCourses) {
             console.log("prueba interna - control")
           }
@@ -192,8 +163,6 @@ export default function ColumnsTable(props) {
         }
       })    
   };
-
-  
 
   const yesDelete = () => {
     console.log("si, borrar idCourse: ", idCourse);
@@ -217,14 +186,7 @@ export default function ColumnsTable(props) {
     console.log("funcion de borrar materia ID: ", id)
     setIdCourse(id);
     onOpen();
-    /* if (deleting) {
-      console.log("borrando u usuario...")
-      LocalDeleteUser(id)
-      onClose();
-    } */
   }
-
-/*   console.log("DATOS PARA LA TABLA: ", page) */
 
   return (
     <Card
