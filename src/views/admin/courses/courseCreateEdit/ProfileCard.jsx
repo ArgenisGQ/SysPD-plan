@@ -153,7 +153,7 @@ export const ProfileCard = (props) => {
             }}
           >
             <FormControl id="name" isInvalid={errors.name}>
-              <FormLabel>Usuario</FormLabel>
+              <FormLabel>Nombre de la asignatura</FormLabel>
               <Input
                   id = "name" 
                   type='text'
