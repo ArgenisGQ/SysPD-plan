@@ -1,0 +1,134 @@
+[ 
+  {
+    "unit": 1,
+    "activity": [{
+                  "activity":     1,
+                  "strategy":     "Estrategia 01 - unidad 1", 
+                  "instrument":   "C.R.U.D. - 01 - unidad 1",
+                  "type":         "Tipo 01 - unidad 1",
+                  "evidence":     "Evidencia 01 - unidad 1",
+                  "feedback":     "Retroalimentacion 01 - unidad 1",
+                  "lapse":        "Semana 1 - unidad 1",
+                  "weighing":     5
+                },
+                {
+                  "activity":     2,
+                  "strategy":     "Estrategia 02 - unidad 1", 
+                  "instrument":   "C.R.U.D. - 02 - unidad 1",
+                  "type":         "Tipo 02 - unidad 1",
+                  "evidence":     "Evidencia 02 - unidad 1",
+                  "feedback":     "Retroalimentacion 02 - unidad 1",
+                  "lapse":        "Semana 2 - unidad 1",
+                  "weighing":     5
+                },
+                {
+                  "activity":     3,
+                  "strategy":     "Estrategia 03 - unidad 1", 
+                  "instrument":   "C.R.U.D. - 03 - unidad 1",
+                  "type":         "Tipo 03 - unidad 1",
+                  "evidence":     "Evidencia 03 - unidad 1",
+                  "feedback":     "Retroalimentacion 03 - unidad 1",
+                  "lapse":        "Semana 3 - unidad 1",
+                  "weighing":     5
+                }]
+  },
+  {
+    "unit": 2,
+    "activity": [{
+                  "activity":     1,
+                  "strategy":     "Estrategia 01 - unidad 2", 
+                  "instrument":   "C.R.U.D. - 01 - unidad 2",
+                  "type":         "Tipo 01 - unidad 2",
+                  "evidence":     "Evidencia 01 - unidad 2",
+                  "feedback":     "Retroalimentacion 01 - unidad 2",
+                  "lapse":        "Semana 1 - unidad 2",
+                  "weighing":     5
+                },
+                {
+                  "activity":     2,
+                  "strategy":     "Estrategia 02 - unidad 2", 
+                  "instrument":   "C.R.U.D. - 02 - unidad 2",
+                  "type":         "Tipo 02 - unidad 2",
+                  "evidence":     "Evidencia 02 - unidad 2",
+                  "feedback":     "Retroalimentacion 02 - unidad 2",
+                  "lapse":        "Semana 2 - unidad 2",
+                  "weighing":     5
+                },
+                {
+                  "activity":     3,
+                  "strategy":     "Estrategia 03 - unidad 2", 
+                  "instrument":   "C.R.U.D. - 03 - unidad 2",
+                  "type":         "Tipo 03 - unidad 2",
+                  "evidence":     "Evidencia 03 - unidad 2",
+                  "feedback":     "Retroalimentacion 03 - unidad 2",
+                  "lapse":        "Semana 3 - unidad 2",
+                  "weighing":     5
+                }]
+  },
+  {
+    "unit": 3,
+    "activity": [{
+                  "activity":     1,
+                  "strategy":     "Estrategia 01 - unidad 3", 
+                  "instrument":   "C.R.U.D. - 01 - unidad 3",
+                  "type":         "Tipo 01 - unidad 3",
+                  "evidence":     "Evidencia 01 - unidad 3",
+                  "feedback":     "Retroalimentacion 01 - unidad 3",
+                  "lapse":        "Semana 1 - unidad 3",
+                  "weighing":     5
+                },
+                {
+                  "activity":     2,
+                  "strategy":     "Estrategia 02 - unidad 3", 
+                  "instrument":   "C.R.U.D. - 02 - unidad 3",
+                  "type":         "Tipo 02 - unidad 3",
+                  "evidence":     "Evidencia 02 - unidad 3",
+                  "feedback":     "Retroalimentacion 02 - unidad 3",
+                  "lapse":        "Semana 2 - unidad 3",
+                  "weighing":     5
+                },
+                {
+                  "activity":     3,
+                  "strategy":     "Estrategia 03 - unidad 3", 
+                  "instrument":   "C.R.U.D. - 03 - unidad 3",
+                  "type":         "Tipo 03 - unidad 3",
+                  "evidence":     "Evidencia 03 - unidad 3",
+                  "feedback":     "Retroalimentacion 03 - unidad 3",
+                  "lapse":        "Semana 3 - unidad 3",
+                  "weighing":     5
+                }]
+  },
+  {
+    "unit": 4,
+    "activity": [{
+                  "activity":     1,
+                  "strategy":     "Estrategia 01 - unidad 4", 
+                  "instrument":   "C.R.U.D. - 01 - unidad 4",
+                  "type":         "Tipo 01 - unidad 4",
+                  "evidence":     "Evidencia 01 - unidad 4",
+                  "feedback":     "Retroalimentacion 01 - unidad 4",
+                  "lapse":        "Semana 1 - unidad 4",
+                  "weighing":     5
+                },
+                {
+                  "activity":     2,
+                  "strategy":     "Estrategia 02 - unidad 4", 
+                  "instrument":   "C.R.U.D. - 02 - unidad 4",
+                  "type":         "Tipo 02 - unidad 4",
+                  "evidence":     "Evidencia 02 - unidad 4",
+                  "feedback":     "Retroalimentacion 02 - unidad 4",
+                  "lapse":        "Semana 2 - unidad 4",
+                  "weighing":     5
+                },
+                {
+                  "activity":     3,
+                  "strategy":     "Estrategia 03 - unidad 4", 
+                  "instrument":   "C.R.U.D. - 03 - unidad 4",
+                  "type":         "Tipo 03 - unidad 4",
+                  "evidence":     "Evidencia 03 - unidad 4",
+                  "feedback":     "Retroalimentacion 03 - unidad 4",
+                  "lapse":        "Semana 3 - unidad 4",
+                  "weighing":     5
+                }]
+  }
+]

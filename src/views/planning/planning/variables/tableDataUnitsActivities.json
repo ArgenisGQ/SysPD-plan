@@ -1,0 +1,32 @@
+[
+  {
+    "idd":"1",
+    "strategy": "Estrategia 01", 
+    "instrument": "C.R.U.D. - 01",
+    "type": "Tipo 01",
+    "evidence": "Evidencia 01",
+    "feedback": "Retroalimentacion 01",
+    "lapse": "Semana 1",
+    "weighing": 5
+  },
+  {
+    "idd":"2",
+    "strategy": "Estrategia 02", 
+    "instrument": "C.R.U.D. - 02",
+    "type": "Tipo 02",
+    "evidence": "Evidencia 02",
+    "feedback": "Retroalimentacion02 ",
+    "lapse": "Semana 2",
+    "weighing": 5
+  },
+  {
+    "idd":"3",
+    "strategy": "Estrategia 03", 
+    "instrument": "C.R.U.D. - 03",
+    "type": "Tipo 03",
+    "evidence": "Evidencia 03",
+    "feedback": "Retroalimentacion 03",
+    "lapse": "Semana 3",
+    "weighing": 5
+  }
+]

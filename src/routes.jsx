@@ -24,7 +24,9 @@ import RTL from "./views/reference/rtl";
 import SignInCentered from "./views/auth/signIn";
 
 
-const routes = [{
+const routes = [
+  //DASHBOARD
+  {
     name: "Panel Principal",
     layout: "/admin",
     path: "/dashboard",
@@ -36,6 +38,7 @@ const routes = [{
     component: "MainDashboardUsers",
     hidden: false
   },
+  //SUBMENU: USUARIOS
   { 
     submenu: "submenu",
     name: "Usuarios",    
@@ -90,6 +93,7 @@ const routes = [{
               },             
             ]
   },
+  //SUBMENU: MATERIAS
   { 
     submenu: "submenu",
     name: "Materias",    
@@ -165,6 +169,7 @@ const routes = [{
     icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
     component: "Userform",
   }, */
+  //SUBMENU: SISTEMAS
   { 
     submenu: "submenu",
     name: "Sistema",    
@@ -199,15 +204,73 @@ const routes = [{
               },            
             ]
   }, 
-  
-  {
+  //PLANIFIFACION DIDACTICA
+  /* {
     name: "Planificacion Didactica",
     layout: "/admin",
     path: "/planning",
     icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
     component: "Planning",
     hidden: false
-  },  
+  }, */
+  //SUBMENU: PLANIFIFACION DIDACTICA
+  { 
+    submenu: "submenu",
+    name: "Planificacion Didactica",    
+    layout: "/admin/planning",
+    category: "category",
+    /* items: "ITEMS",  */
+    /* category: "uno", */
+    /* path: "/profile", */
+    
+    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    items:[               
+              {
+                name: "Planificaciones",
+                layout: "/admin/planning",
+                path: "/planninglist",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Users",
+                hidden: false
+                /* category: "Category",
+                items: "ITEMS",  */
+              },
+              /* {
+                name: "Gestion de Usuarios",
+                layout: "/admin/users",
+                path: "/userform",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+              }, */
+              {
+                name: "Crear Planificacion",
+                layout: "/admin/planning",
+                path: "/planningcreate",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: false
+              },
+              {
+                name: "Editar Planificacion",
+                layout: "/admin/planning",
+                path: "/planningedit",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: true
+              },
+              {
+                name: "Perfil de Planificacion",
+                layout: "/admin/planning",
+                path: "/planningprofile",
+                icon: <Icon as={MdOutlinePersonalInjury} width='20px' height='20px' color='inherit' />,
+                component: "Userform",
+                hidden: true
+              },             
+            ]
+  },
+  
+
+
   /* {
     name: "NFT Marketplace",
     layout: "/reference",
