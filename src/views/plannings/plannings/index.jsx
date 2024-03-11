@@ -4,10 +4,10 @@
 
 // Chakra imports
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import DevelopmentTable from "../../../views/planning/planningList/components/DevelopmentTable";
-import CheckTable from "../../../../views/admin/plannings/components/CheckTable";
-import ColumnsTable from "../../../../views/admin/plannings/components/ColumnsTable";
-import ComplexTable from "../../../../views/admin/plannings/components/ComplexTable";
+import DevelopmentTable from "../../../views/plannings/plannings/components/DevelopmentTable";
+import CheckTable from "../../../../views/plannings/plannings/components/CheckTable";
+import ColumnsTable from "../../../../views/plannings/plannings/components/ColumnsTable";
+import ComplexTable from "../../../../views/plannings/plannings/components/ComplexTable";
 import UsersTable from "./components/PlanningsTable";
 import {
   columnsDataDevelopment,
@@ -16,32 +16,33 @@ import {
   columnsDataComplex,
   columnsDataUsers,
   columnsDataCourses,
-} from "../../../../views/admin/plannings/plannings/variables/columnsData";
-import tableDataDevelopment from "../../../../views/admin/plannings/variables/tableDataDevelopment.json";
-import tableDataCheck from "../../../../views/admin/plannings/variables/tableDataCheck.json";
-import tableDataColumns from "../../../../views/admin/plannings/variables/tableDataColumns.json";
-import tableDataComplex from "../../../../views/admin/plannings/variables/tableDataComplex.json";
-import tableDataUsers from "../../../../views/admin/plannings/variables/tableDataUsers.json";
+  columnsDataPlannings,
+} from "../../../views/plannings/plannings/variables/columnsData";
+import tableDataDevelopment from "../../../views/plannings/plannings/variables/tableDataDevelopment.json";
+import tableDataCheck from "../../../../views/plannings/plannings/variables/tableDataCheck.json";
+import tableDataColumns from "../../../../views/plannings/plannings/variables/tableDataColumns.json";
+import tableDataComplex from "../../../../views/plannings/plannings/variables/tableDataComplex.json";
+import tableDataUsers from "../../../../views/plannings/plannings/variables/tableDataUsers.json";
 
-import useDataCourse from '../../../../hooks/useDataCourse'; 
+import useDataPlanning from '../../../hooks/useDataPlanning'; 
 import { useEffect, useState } from "react";
 
 
 export default function Settings(props) {
   const {deleteUser} = props;
   /* const {mutDataUsers,mutDeleteUser } = useDataUser(); */
-  const {mutDataCourses,mutDeleteCourses } = useDataCourse();
-  const [dataFullCourses,setDataFullCourses] = useState([])
+  const {mutDataPlannings } = useDataPlanning();
+  const [dataFullPlannings,setDataFullPlannings] = useState([])
 
-  const LocalDataCourses = (data) => {
-    mutDataCourses.mutate(data,
+  const LocalDataPlannings = (data) => {
+    mutDataPlannings.mutate(data,
     {
       onMutate: () => {
         /* console.log("Ïnicia la mutacion (en hooks -- DATOS)"); */
       },
       onSuccess: (response) => {
-        const loadDataFullCourses = JSON.parse(localStorage.getItem("dataCourses"))
-        setDataFullCourses(loadDataFullCourses)
+        const loadDataFullPlannings = JSON.parse(localStorage.getItem("dataPlannings"))
+        setDataFullPlannings(loadDataFullPlannings)
       },
       onError: (error) => { 
         console.log(error);
@@ -54,7 +55,7 @@ export default function Settings(props) {
   }
   //
   useEffect(() => {
-    LocalDataCourses();
+    LocalDataPlannings();
   }, []);
   
   // Chakra Color Mode
@@ -81,9 +82,9 @@ export default function Settings(props) {
           tableData={tableDataComplex}
         /> */}
         <UsersTable
-          columnsData={columnsDataCourses}
+          columnsData={columnsDataPlannings}
           /* tableData={tableDataUsers} */
-          tableData={dataFullCourses}
+          tableData={dataFullPlannings}
         />
       </SimpleGrid>
     </Box>
