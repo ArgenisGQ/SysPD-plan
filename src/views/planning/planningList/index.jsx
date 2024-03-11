@@ -4,7 +4,7 @@
 
 // Chakra imports
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import DevelopmentTable from "../../../../../views/plannings/plannings/components/DevelopmentTable";
+import DevelopmentTable from "../../../views/planning/planningList/components/DevelopmentTable";
 import CheckTable from "../../../../views/admin/plannings/components/CheckTable";
 import ColumnsTable from "../../../../views/admin/plannings/components/ColumnsTable";
 import ComplexTable from "../../../../views/admin/plannings/components/ComplexTable";

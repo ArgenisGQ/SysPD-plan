@@ -28,11 +28,11 @@ import InputField from '../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
-import Form01 from '../../../views/admin/planning/forms/form01';
-import Form02 from '../../../views/admin/planning/forms/form02';
-import Form03 from '../../../views/admin/planning/forms/form03';
-import Form04 from '../../../views/admin/planning/forms/form04';
-import Form05 from '../../../views/admin/planning/forms/form05';
+import Form01 from '../../../views/planning/planning/forms/form01';
+import Form02 from '../../../views/planning/planning/forms/form02';
+import Form03 from '../../../views/planning/planning/forms/form03';
+import Form04 from '../../../views/planning/planning/forms/form04';
+import Form05 from '../../../views/planning/planning/forms/form05';
 import { HSeparator } from "../../../components/separator/Separator";
 
 
