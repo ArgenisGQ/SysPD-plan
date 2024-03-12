@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   Progress,
   Box,
@@ -36,6 +36,13 @@ import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
+
+//-------API-INIT-------
+import {useForm, Controller} from "react-hook-form";
+
+
+//-------API-END--------
+
 /* import {
   AsyncCreatableSelect,
   AsyncSelect,
@@ -45,7 +52,7 @@ import { useToast } from '@chakra-ui/react'
 
 /* const Form1 = () => { */    
 
-export default function Form01() {
+export default function Form01(props) {
       // Chakra color mode
       const textColor = useColorModeValue("navy.700", "white");
       const textColorSecondary = "gray.400";
@@ -59,6 +66,29 @@ export default function Form01() {
       const [valuePos, setValuePos] = useState(null)
       const [valueMod, setValueMod] = useState(null)
       let valuex = null;
+
+      //-----API-INIT-------
+      const { edit,
+        planningUnitL,
+        codeL,
+        sectionL} = props;
+
+      const form = useRef(); //PARA RESET EL FORMULARIO
+
+      const { 
+        register, handleSubmit, reset, control,
+        formState: { errors, isSubmitting, isLoading },                
+                    } = useForm({
+                      values: 
+                      { 
+                        planningUnit:planningUnitL,
+                        code:codeL,
+                        section:sectionL,
+                      },
+                      },);
+
+      //-----API-END--------
+
     return (
 /* export default function Form01(props) { */
       <>    
@@ -74,7 +104,7 @@ export default function Form01() {
             Nombre de la asignatura
           </FormLabel>
           <Input 
-            id="course" 
+            id="planningUnit" 
             /* value=""  */
             /* type="email" */
             disabled={false}
@@ -92,7 +122,7 @@ export default function Form01() {
           color={textColor}>
             Proposito
           </FormLabel>
-          <Textarea rows={3} resize="none" defaultValue="testing" color={textColorSecondary}
+          <Textarea id="proposito" rows={3} resize="none" defaultValue="testing" color={textColorSecondary}
             focusBorderColor="brand.400"/>
           <FormHelperText color="subtle"  >Escriba el proposito de la asignatura</FormHelperText>
         </FormControl>
@@ -112,7 +142,7 @@ export default function Form01() {
               Codigo de Asignatura
             </FormLabel>
             <Input 
-              id="first-name" 
+              id="code" 
               placeholder="Codigo de la asignatura"
               defaultValue="testing"
               focusBorderColor="brand.400"
@@ -132,7 +162,7 @@ export default function Form01() {
               Seccion
             </FormLabel>
             <Input 
-              id="last-name" 
+              id="section" 
               placeholder="Seccion"
               defaultValue="testing"
               focusBorderColor="brand.400"

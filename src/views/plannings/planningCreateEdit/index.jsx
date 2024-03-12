@@ -1,6 +1,6 @@
 /* 'use client' */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Progress,
   Box,
@@ -26,6 +26,12 @@ import {
 
 import InputField from '../../../components/fields/InputField'
 
+//-------API-INIT--------
+import useDataUser from '../../../hooks/useDataPlanning'; 
+import { useParams } from 'react-router-dom';
+
+//-------API-END---------
+
 import { useToast } from '@chakra-ui/react'
 
 import Form01 from './forms/form01';
@@ -36,10 +42,49 @@ import Form05 from './forms/form05';
 import { HSeparator } from "../../../components/separator/Separator";
 
 
-export default function Multistep() {
+export default function Planning(props) {
   const toast = useToast()
   const [step, setStep] = useState(1)
   const [progress, setProgress] = useState(20)
+
+  //-----API-INIT------
+  const { editActive } = props;
+  const { mutEditLoadPlanning } = useDataUser();
+  const paramms = useParams();
+  console.log ("PARAMETROS: ", paramms.id)
+
+    //Estados inciales para usar el formulario en edicion.
+  const [idPlan, setIdPlan] = useState(paramms.id);
+  const [planningUnit, setPlanningUnit] = useState("");
+  const [code, setCode] = useState("");
+  const [section,setSection] = useState("");
+  console.log("props de ruta: ", editActive);
+
+  function LocalEditLoadPlanning(data) {
+    console.log("Precarga de datos para edicion-HOOKS")
+    mutEditLoadPlanning.mutate(data,
+      {
+        onMutate: () => {
+          console.log("Ïnicia LOAD -HOOKS-)");
+        },
+        onSuccess: (response) => {
+          console.log('DATOS A EDITAR - HOOK: ', localStorage.getItem("planningForEdit"));
+        },
+        onError: (error) => {
+          console.log("Errores LOAD EDIT usuarios(hook):",error);
+        },
+        onSettled: (response) => {
+          console.log("Terminado el proceso de LOAD EDIT (en hooks)")
+        }
+      });
+  }
+
+  useEffect(() => {
+    if (editActive) {
+      LocalEditLoadPlanning(paramms.id);
+    } 
+  },[]); 
+  //-----API-END-------
 
   return (
     <>    
@@ -60,7 +105,10 @@ export default function Multistep() {
         as="form"
         >      
         <Progress /* hasStripe */ value={progress} mb="5%" mx="5%" size="xs" width /* isAnimated *//>{/* </Progress> */}
-        {step === 1 ? <Form01 /> : step === 2 
+        {step === 1 ? <Form01  
+                      planningUnitL={planningUnit}
+                      codeL={code}
+                      sectionL={section}/> : step === 2 
                     ? <Form02 /> : step === 3 
                     ? <Form03 /> : step === 4 
                     ? <Form04 /> : <Form05 />}
