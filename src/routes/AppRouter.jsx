@@ -78,11 +78,12 @@ import DataTables         from "../views/reference/dataTables";
 // Auth Imports
 import SignInCentered      from "../views/auth/signIn";
 import { useLocalStorage } from 'react-use';
+import { effect } from '@chakra-ui/system';
 
 function AppRouter() { 
   const navigate = useNavigate();
   const [userActive, setUserActive] = useState(false);
-  /* const [user, setUser] = useLocalStorage('responseF'); */
+  /* const [dataStorage, setDataStorage] = useState(null); */
   /* const [user, setUser] = useState('') */
   const [status, setStatus] = useState('')
 
@@ -96,19 +97,36 @@ function AppRouter() {
   /* setUser()  
   console.log("user(localStorage): ", user) */
    
+  useEffect(() => {
+    console.log("CONTROL DE DATASTORAGESTR: ", dataStorageStr)
+    if (!(dataStorageStr==='undefined')) {   
+      const dataStorage = JSON.parse(dataStorageStr);
+      setStatus(dataStorage?.status)
+      if (status === "success") {
+        setUserActive(true);
+      }  
+      console.log("datos en HOME:",dataStorage?.status);
+    } else {
+      console.log("undefined")
+      console.log("datos en HOME: ", "no active");
+    } 
+  }) 
 
-  const dataStorage = JSON.parse(dataStorageStr);
-  console.log("datos en HOME:",dataStorage?.status);
+
+ /*  const dataStorage = JSON.parse(dataStorageStr);
+  console.log("datos en HOME:",dataStorage?.status); */
+
+
   
   //el error esta en la carga d status.. revisar!
-  useEffect(() => {
-    /* const dataStorage = JSON.parse(dataStorageStr);
-    console.log("datos en HOME:",dataStorage) */
+  /* useEffect(() => {
     setStatus(dataStorage?.status)
     if (status === "success") {
       setUserActive(true);
     }     
-  });
+  }); */
+
+
 
   /* const userActive = dataStorage?.user; */
   /* setUserActive(dataStorage?.user); */
