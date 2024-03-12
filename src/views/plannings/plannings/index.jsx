@@ -5,9 +5,9 @@
 // Chakra imports
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import DevelopmentTable from "../../../views/plannings/plannings/components/DevelopmentTable";
-import CheckTable from "../../../../views/plannings/plannings/components/CheckTable";
-import ColumnsTable from "../../../../views/plannings/plannings/components/ColumnsTable";
-import ComplexTable from "../../../../views/plannings/plannings/components/ComplexTable";
+import CheckTable from "../../../views/plannings/plannings/components/CheckTable";
+import ColumnsTable from "../../../views/plannings/plannings/components/ColumnsTable";
+import ComplexTable from "../../../views/plannings/plannings/components/ComplexTable";
 import UsersTable from "./components/PlanningsTable";
 import {
   columnsDataDevelopment,
@@ -19,10 +19,10 @@ import {
   columnsDataPlannings,
 } from "../../../views/plannings/plannings/variables/columnsData";
 import tableDataDevelopment from "../../../views/plannings/plannings/variables/tableDataDevelopment.json";
-import tableDataCheck from "../../../../views/plannings/plannings/variables/tableDataCheck.json";
-import tableDataColumns from "../../../../views/plannings/plannings/variables/tableDataColumns.json";
-import tableDataComplex from "../../../../views/plannings/plannings/variables/tableDataComplex.json";
-import tableDataUsers from "../../../../views/plannings/plannings/variables/tableDataUsers.json";
+import tableDataCheck from "../../../views/plannings/plannings/variables/tableDataCheck.json";
+import tableDataColumns from "../../../views/plannings/plannings/variables/tableDataColumns.json";
+import tableDataComplex from "../../../views/plannings/plannings/variables/tableDataComplex.json";
+import tableDataUsers from "../../../views/plannings/plannings/variables/tableDataUsers.json";
 
 import useDataPlanning from '../../../hooks/useDataPlanning'; 
 import { useEffect, useState } from "react";

@@ -1,5 +1,5 @@
 /* import React from 'react' */
-import useDataUser from '../../../../../hooks/useDataUser'; 
+import useDataUser from '../../../../hooks/useDataUser'; 
 /* import { useParams } from 'react-router-dom'; */
 
 const DeleteUser = (props) => {

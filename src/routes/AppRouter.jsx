@@ -56,6 +56,8 @@ import Uploads            from "../views/admin/uploads";
 import Role               from "../views/admin/role";
 import Periods            from "../views/admin/periods";
 import Planning           from "../views/admin/planning";
+import Plannings          from "../views/plannings/plannings";
+
 
 import UserProfile        from "../views/admin/userCreateEdit/myprofile";
 
@@ -198,7 +200,7 @@ function AppRouter() {
                         <Route path='/admin/courses/courseedit/:id' element={< CourseCreate editActive={true}/>}/>
 
                         <Route path='/admin/planning/'                    element={< Planning/>}/> 
-                        <Route path='/admin/planning/planninglist'        element={< CommingSoon/>}/>
+                        <Route path='/admin/planning/planninglist'        element={< Plannings/>}/>
                         <Route path='/admin/planning/planningcreate'      element={< CommingSoon/>}/>
                         <Route path='/admin/planning/planningeedit/:id'   element={< CommingSoon/>}/> 
 

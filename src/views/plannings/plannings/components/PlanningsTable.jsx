@@ -45,13 +45,13 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 // Custom components
-import Card from "../../../../../components/card/Card";
-import Menu from "../../../../../components/menu/MainMenu";
+import Card from "../../../../components/card/Card";
+import Menu from "../../../../components/menu/MainMenu";
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 //
 /* import useDataUser from '../../../../../hooks/useDataUser'; */
-import useDataCourse from '../../../../../hooks/useDataCourse';
+import useDataCourse from '../../../../hooks/useDataCourse';
 import DeleteUser from "./DeleteUser";
 
 export default function ColumnsTable(props) {
@@ -200,7 +200,7 @@ export default function ColumnsTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Asignaturas
+          Planificaciones realizadas
         </Text>
         <Menu />
       </Flex>
@@ -239,7 +239,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "ASIGNATURA") {
+                  } else if (cell.column.Header === "UNIDAD") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}
