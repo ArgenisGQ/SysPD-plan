@@ -87,11 +87,14 @@ export default function Form01(props) {
                       },
                       },);
 
+        const onSubmit = (data) => {}
+
       //-----API-END--------
 
     return (
 /* export default function Form01(props) { */
-      <>    
+      <>
+      {/* <form  ref={form} onSubmit={handleSubmit(onSubmit)}>   */}    
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
           I. Identificacion de la unidad curricular
         </Heading>
@@ -542,7 +545,7 @@ export default function Form01(props) {
         {/* {console.log("valuex: ", valuex )} */}
         {/* {console.log("values: ", value )} */}
 
-
+      {/* </form> */}
       </>
 /* } */
 
