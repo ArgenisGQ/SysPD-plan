@@ -60,6 +60,8 @@ import Planning           from "../views/admin/planning"; //referencia
 import Plannings          from "../views/plannings/plannings";
 import PlanningCreate     from "../views/plannings/planningCreateEdit";
 
+import Stepper            from "../views/plannings/stepper";
+
 import UserProfile        from "../views/admin/userCreateEdit/myprofile";
 
 import Courses            from "../views/admin/courses/courses";
@@ -203,7 +205,8 @@ function AppRouter() {
                         <Route path='/admin/planning/'                    element={< Planning/>}/> 
                         <Route path='/admin/planning/planninglist'        element={< Plannings/>}/>
                         <Route path='/admin/planning/planningcreate'      element={< PlanningCreate/>}/>
-                        <Route path='/admin/planning/planningeedit/:id'   element={< CommingSoon/>}/> 
+                        <Route path='/admin/planning/planningeedit/:id'   element={< CommingSoon/>}/>
+                        <Route path='/admin/planning/stepper'             element={< Stepper/>}/>  
 
                         <Route path='/admin/users/nextform'         element={< NextForm/>}/>
                         <Route path='/admin/system/uploads'         element={< Uploads/>}/>

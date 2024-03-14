@@ -21,10 +21,24 @@ import {
   FormHelperText,
   InputRightElement, 
   Grid,
-  useColorModeValue, 
+  useColorModeValue,
+  Step,
+  StepDescription,
+  StepIcon,
+  StepIndicator,
+  StepNumber,
+  StepSeparator,
+  StepStatus,
+  StepTitle,
+  Stepper,
+  useSteps,
+  Stack,
+  Text  
 } from '@chakra-ui/react'
 
 import InputField from '../../../components/fields/InputField'
+
+
 
 //-------API-INIT--------
 import useDataUser from '../../../hooks/useDataPlanning'; 
@@ -46,6 +60,27 @@ export default function Planning(props) {
   const toast = useToast()
   const [step, setStep] = useState(1)
   const [progress, setProgress] = useState(20)
+
+  //stepper
+  const steps = [
+    { title: 'First', description: 'I. Identificacion de la unidad curricular' },
+    { title: 'Second', description: 'II. Identificacion del Docente' },
+    { title: 'Third', description: 'Ajustes de puntos de las unidades' },
+    { title: 'Four', description: 'III. Plan de evaluacion' },
+    { title: 'Five', description: 'IV. Desarrollo de las unidades de contenidos' },
+  ]
+
+  const { activeStep, setActiveStep } = useSteps({
+    index: 0,
+    count: steps.length,
+  })
+
+  const activeStepText = steps[activeStep].description
+  
+  useEffect(()=>{
+    setActiveStep(step - 1)
+  },[step])
+  
 
   //-----API-INIT------
   const { editActive } = props;
@@ -103,8 +138,23 @@ export default function Planning(props) {
         p={6}
         m="10px auto"
         as="form"
-        >      
-        <Progress /* hasStripe */ value={progress} mb="5%" mx="5%" size="xs" width /* isAnimated *//>{/* </Progress> */}
+        > 
+        <Stack>
+            <Stepper size='sm' index={activeStep} gap='0'>
+                {steps.map((step, index) => (
+                <Step key={index} gap='0'>
+                    <StepIndicator>
+                    <StepStatus complete={<StepIcon />} />
+                    </StepIndicator>
+                    <StepSeparator _horizontal={{ ml: '0' }} />
+                </Step>
+                ))}
+            </Stepper>
+            <Text>
+                Paso {activeStep + 1}: <b>{activeStepText}</b>
+            </Text>
+        </Stack>     
+        {/* <Progress  value={progress} mb="5%" mx="5%" size="xs" width -isAnimated  -hasStripe /> */}
         {step === 1 ? <Form01  
                       planningUnitL={planningUnit}
                       codeL={code}
