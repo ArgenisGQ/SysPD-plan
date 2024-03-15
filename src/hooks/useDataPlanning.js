@@ -72,9 +72,10 @@ const useDataPlanning = (data) => {
     const mutCreatePlanning = useMutation(
       async (data) => { 
         console.log("datos para enviar (HOOOKS): ", data)   
-        const [name, code, section] = [data.name,
-                                       data.code,
-                                       data.section];
+        const [curricularunit, code, section] = [data.planningUnit,
+                                                  data.code,
+                                                  data.section];
+        console.log("planning data: ", curricularunit," code: ", code,"section:  ",section)
         try {
             /* const response = await axios.post('/login', {email, password}) */
            /*  const name = firstname + ', ' + lastname; */
@@ -86,7 +87,7 @@ const useDataPlanning = (data) => {
             console.log("ACTIVED (HOOKS)", actived) */
             
             const response = await axios.post('/plannings', 
-            { name, code, section},
+            { curricularunit, code, section},
             {
               headers: {
                   /* 'Authorization': `Bearer ${sessionStorage.accessToken}` */

@@ -84,7 +84,7 @@ export default function Form01(props) {
                     } = useForm({
                       values: 
                       { 
-                        planningunit:planningUnitL,
+                        planningUnit:planningUnitL,
                         code:codeL,
                         section:sectionL,
                       },
@@ -93,6 +93,8 @@ export default function Form01(props) {
       const onSubmit = (data) => {
           /* alert('¡Me hiciste clic!')
           console.log("FORM01 DATA: ",data) */
+
+          console.log("FORM01 DATA: ",data)
 
           if (edit) {
             console.log("Control EDITAR");
@@ -123,7 +125,7 @@ export default function Form01(props) {
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
           I. Identificacion de la unidad curricular
         </Heading>
-        <FormControl mt="2%" id="planningunit" isInvalid={errors.planningunit}>
+        <FormControl mt="2%" id="planningUnit" isInvalid={errors.planningunit}>
           <FormLabel 
             htmlFor="course"
             fontSize='sm' 
@@ -132,20 +134,20 @@ export default function Form01(props) {
             Nombre de la asignatura
           </FormLabel>
           <Input 
-            id="planningunit" 
+            id="planningUnit" 
             /* value=""  */
             /* type="email" */
             disabled={false}
             /* defaultValue="testing" */
             focusBorderColor="brand.400"
             color={textColorSecondary}
-            {...register('planningunit', {
+            {...register('planningUnit', {
               required: true,
               /* maxLength: 10 */
               minLength:2
             })} />
             <FormErrorMessage>
-                  {errors.planningunit?.type === 'required' && <p>Nombre de asignatura requerida!</p>}
+                  {errors.planningUnit?.type === 'required' && <p>Nombre de asignatura requerida!</p>}
                   {/* <p>prueba</p> */}
             </FormErrorMessage>
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
