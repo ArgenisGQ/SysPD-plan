@@ -58,9 +58,10 @@ import Periods            from "../views/admin/periods";
 
 import Planning           from "../views/admin/planning"; //referencia
 import Plannings          from "../views/plannings/plannings";
-import PlanningCreate     from "../views/plannings/planningCreateEdit";
+import PlanningCreate     from "../views/plannings/planningCreateEdit/index";
 
 import Stepper            from "../views/plannings/stepper";
+import Form01             from "../views/plannings/test/form01";
 
 import UserProfile        from "../views/admin/userCreateEdit/myprofile";
 
@@ -207,6 +208,7 @@ function AppRouter() {
                         <Route path='/admin/planning/planningcreate'      element={< PlanningCreate/>}/>
                         <Route path='/admin/planning/planningeedit/:id'   element={< CommingSoon/>}/>
                         <Route path='/admin/planning/stepper'             element={< Stepper/>}/>  
+                        <Route path='/admin/planning/form01'              element={< Form01/>}/>
 
                         <Route path='/admin/users/nextform'         element={< NextForm/>}/>
                         <Route path='/admin/system/uploads'         element={< Uploads/>}/>

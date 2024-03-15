@@ -31,9 +31,9 @@ import {
   FormErrorMessage,     
 } from '@chakra-ui/react'
 
-import { HSeparator } from "../../../../components/separator/Separator";
+import { HSeparator } from "../../../components/separator/Separator";
 
-import InputField from '../../../../components/fields/InputField'
+import InputField from '../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
@@ -418,7 +418,7 @@ export default function Form01(props) {
                     <Stack direction='row'>                                              
                       <Radio value='1' mr="12%">General</Radio>
                       <Radio value='2' mr="12%">Basica</Radio> {/* isChecked is only for testing */}
-                      <Radio value='3' mr="12%">Profesional</Radio>
+                      <Radio value='3' mr="12%"isChecked>Profesional</Radio>
                       <Radio value='4' >Investigacion/Pasantias</Radio>
                     </Stack>
                   </RadioGroup>
@@ -450,7 +450,7 @@ export default function Form01(props) {
                   <RadioGroup onChange={(event) => setValuePos( event)} value={valuePos} /* defaultValue='2' */>
                     <Stack direction='row'>
                       <Radio value='1' mr="25%">Obligatorio</Radio>
-                      <Radio value='2' mr="25%">Electiva</Radio> {/* isChecked is only for testing */}
+                      <Radio value='2' mr="25%" isChecked>Electiva</Radio> {/* isChecked is only for testing */}
                       <Radio value='3' >Investigacion</Radio>                      
                     </Stack>
                   </RadioGroup>   
@@ -545,7 +545,7 @@ export default function Form01(props) {
                   <RadioGroup onChange={(event) => setValueMod( event)} value={valueMod} /* defaultValue='2' */>
                     <Stack direction='row'>
                       <Radio value='1'>Presencial</Radio>
-                      <Radio value='2'>Mixta</Radio> {/* isChecked is only for testing */}
+                      <Radio value='2' isChecked>Mixta</Radio> {/* isChecked is only for testing */}
                       <Radio value='3'>Virtual</Radio>
                     </Stack>
                   </RadioGroup>   

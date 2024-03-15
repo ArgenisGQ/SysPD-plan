@@ -26,7 +26,6 @@ import {
   ModalCloseButton,
   useDisclosure,
   Text,
-  effect
 } from '@chakra-ui/react'
 import {useState, useRef, useEffect} from 'react'
 import {useForm} from "react-hook-form";
