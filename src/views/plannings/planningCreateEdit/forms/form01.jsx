@@ -27,7 +27,8 @@ import {
   CardBody,
   Stack,
   StackDivider,
-  Radio, RadioGroup, Center     
+  Radio, RadioGroup, Center,
+  FormErrorMessage,     
 } from '@chakra-ui/react'
 
 import { HSeparator } from "../../../../components/separator/Separator";
@@ -87,14 +88,17 @@ export default function Form01(props) {
                       },
                       },);
 
-        const onSubmit = (data) => {}
+      const onSubmit = (data) => {
+          alert('¡Me hiciste clic!')
+          console.log("FORM01 DATA: ",data)
+        }
 
       //-----API-END--------
 
     return (
 /* export default function Form01(props) { */
       <>
-      {/* <form  ref={form} onSubmit={handleSubmit(onSubmit)}>   */}    
+      <form  ref={form} onSubmit={handleSubmit(onSubmit)}>      
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
           I. Identificacion de la unidad curricular
         </Heading>
@@ -111,9 +115,19 @@ export default function Form01(props) {
             /* value=""  */
             /* type="email" */
             disabled={false}
-            defaultValue="testing"
+            /* defaultValue="testing" */
             focusBorderColor="brand.400"
-            color={textColorSecondary} />
+            color={textColorSecondary}
+            {...register('planningUnit', {
+              required: true,
+              /* maxLength: 10 */
+              minLength:2
+            })} />
+            <FormErrorMessage>
+                  {/* {errors.username?.type === 'required' && <p>Usuario requerido!</p>} */}
+                  {errors.username?.type === 'required' && <p>Usuario requerido!</p>}
+                  {/* <p>prueba</p> */}
+            </FormErrorMessage>
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
           {/* <FormHelperText>We&apos;ll never share your email.</FormHelperText> */}
         </FormControl>
@@ -539,13 +553,39 @@ export default function Form01(props) {
             </Card>
           </FormControl>
         </Flex>
+        <Flex
+          direction="row-reverse"
+          py="4"
+          px={{
+            base: '4',
+            md: '6',
+          }}
+        >
+          {/* {console.log("ERRORES DATA:", errors)} */}
+          <Button 
+              type="submit" 
+              /* variant="primary" */
+              fontSize='sm'
+              variant='brand'
+              fontWeight='500'
+              w='20%'
+              h='50'
+              mb='24px'
+              /* onClick={() => alert('¡Me hiciste clic!')} */
+              /* onClick={onSubmit()} */
+              isLoading={isSubmitting}
+              /* type='submit' */>
+             { edit?'Editar':'Guardar'} 
+             {/*  GUARDAR */}
+          </Button>
+        </Flex>
         {console.log("valuesPre: ", valuePre )}
         {console.log("valuesPos: ", valuePos )}
         {console.log("valuesM: ", valueMod )}
         {/* {console.log("valuex: ", valuex )} */}
         {/* {console.log("values: ", value )} */}
 
-      {/* </form> */}
+      </form>
       </>
 /* } */
 
