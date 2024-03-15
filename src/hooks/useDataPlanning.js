@@ -321,7 +321,7 @@ const useDataPlanning = (data) => {
               console.log("response PROCESANDO CREAR cursos(hooks):", response);
               console.log("datos del registro de cursos: ",response.data);
               console.log("mensaje del registro de cursos: ",response.message);
-              navigate('/admin/plannings/planningslist');// ruta de listado de  usuarios
+              navigate('/admin/planning/planninglist');// ruta de listado de  usuarios
               /* queryClient.setQueryData("userAuth",response?.accessToken);
               queryClient.setQueryData("status",response?.status); */
               /* localStorage.setItem("responseF",JSON.stringify(response));

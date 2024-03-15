@@ -40,6 +40,7 @@ import { useToast } from '@chakra-ui/react'
 
 //-------API-INIT-------
 import {useForm, Controller} from "react-hook-form";
+import useDataPlanning from '../../../../hooks/useDataPlanning';
 
 
 //-------API-END--------
@@ -70,11 +71,12 @@ export default function Form01(props) {
 
       //-----API-INIT-------
       const { edit,
-        planningUnitL,
-        codeL,
-        sectionL} = props;
+              planningUnitL,
+              codeL,
+              sectionL} = props;
 
       const form = useRef(); //PARA RESET EL FORMULARIO
+      const {CreatePlanning,EditPlanning} = useDataPlanning(); //API
 
       const { 
         register, handleSubmit, reset, control,
@@ -82,15 +84,34 @@ export default function Form01(props) {
                     } = useForm({
                       values: 
                       { 
-                        planningUnit:planningUnitL,
+                        planningunit:planningUnitL,
                         code:codeL,
                         section:sectionL,
                       },
                       },);
 
       const onSubmit = (data) => {
-          alert('¡Me hiciste clic!')
-          console.log("FORM01 DATA: ",data)
+          /* alert('¡Me hiciste clic!')
+          console.log("FORM01 DATA: ",data) */
+
+          if (edit) {
+            console.log("Control EDITAR");
+            EditOnPlanning(data);
+            /* onOpen(); */
+            alert('Editado!')      
+          } else {
+            CreatePlanning(data);
+            const dataCreatePlanningLocal = JSON.parse(localStorage.getItem("dataCreatePlanning"));
+            console.log("data dataCreatePlanning en obj: ", dataCreatePlanningLocal)
+            /* form.current.reset(); *///PARA RESET EL FORMULARIO
+            /* onOpen(); */
+            alert('Creado!')
+          }
+        }
+
+      const EditOnPlanning = (data) => {
+          console.log("DATA para enviar a editar: ",data)
+          EditPlanning(data);
         }
 
       //-----API-END--------
@@ -102,7 +123,7 @@ export default function Form01(props) {
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
           I. Identificacion de la unidad curricular
         </Heading>
-        <FormControl mt="2%">
+        <FormControl mt="2%" id="planningunit" isInvalid={errors.planningunit}>
           <FormLabel 
             htmlFor="course"
             fontSize='sm' 
@@ -111,21 +132,20 @@ export default function Form01(props) {
             Nombre de la asignatura
           </FormLabel>
           <Input 
-            id="planningUnit" 
+            id="planningunit" 
             /* value=""  */
             /* type="email" */
             disabled={false}
             /* defaultValue="testing" */
             focusBorderColor="brand.400"
             color={textColorSecondary}
-            {...register('planningUnit', {
+            {...register('planningunit', {
               required: true,
               /* maxLength: 10 */
               minLength:2
             })} />
             <FormErrorMessage>
-                  {/* {errors.username?.type === 'required' && <p>Usuario requerido!</p>} */}
-                  {errors.username?.type === 'required' && <p>Usuario requerido!</p>}
+                  {errors.planningunit?.type === 'required' && <p>Nombre de asignatura requerida!</p>}
                   {/* <p>prueba</p> */}
             </FormErrorMessage>
           <FormHelperText color="subtle">Nombre asignado..</FormHelperText>
@@ -145,7 +165,7 @@ export default function Form01(props) {
         </FormControl>
 
         <Flex>
-          <FormControl mt="2%" mr="5%">
+          <FormControl mt="2%" mr="5%" id="code" isInvalid={errors.code}>
             <FormLabel
               display='flex'
               /* ms='4px' */
@@ -154,7 +174,7 @@ export default function Form01(props) {
               color={textColor}
               /* mb='8px' */
                
-              htmlFor="code-course" 
+              htmlFor="code" 
               /* fontWeight={'normal'} */>
               Codigo de Asignatura
             </FormLabel>
@@ -163,10 +183,18 @@ export default function Form01(props) {
               placeholder="Codigo de la asignatura"
               defaultValue="testing"
               focusBorderColor="brand.400"
-              color={textColorSecondary} />
+              color={textColorSecondary}
+              {...register('code', {
+                required: true,
+                /* maxLength: 10 */
+                minLength:2
+              })} />
+            <FormErrorMessage>
+                {errors.code?.type === 'required' && <p>Codigo requerido!</p>}
+            </FormErrorMessage>
           </FormControl>
   
-          <FormControl mt="2%" mr="5%">
+          <FormControl mt="2%" mr="5%" id="section" isInvalid={errors.section}>
             <FormLabel 
               display='flex'
               /* ms='4px' */
@@ -174,7 +202,7 @@ export default function Form01(props) {
               fontWeight='500'
               color={textColor}
               /* mb='8px' */
-              htmlFor="seccion-course" 
+              htmlFor="section" 
               /* fontWeight={'normal'} */>
               Seccion
             </FormLabel>
@@ -183,7 +211,15 @@ export default function Form01(props) {
               placeholder="Seccion"
               defaultValue="testing"
               focusBorderColor="brand.400"
-              color={textColorSecondary} />
+              color={textColorSecondary}
+              {...register('section', {
+                required: true,
+                /* maxLength: 10 */
+                minLength:2
+              })} />
+            <FormErrorMessage>
+                {errors.section?.type === 'required' && <p>Seccion requerida!</p>}
+            </FormErrorMessage>
           </FormControl>
 
           <FormControl mt="2%">

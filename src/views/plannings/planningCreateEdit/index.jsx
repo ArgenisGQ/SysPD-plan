@@ -162,7 +162,8 @@ export default function Planning(props) {
         </Stack>     
         {/* <Progress  value={progress} mb="5%" mx="5%" size="xs" width -isAnimated  -hasStripe /> */}
 
-        {step === 1 ? <Form01  
+        {step === 1 ? <Form01
+                      edit={editActive}  
                       planningUnitL={planningUnit}
                       codeL={code}
                       sectionL={section}/> : step === 2 
