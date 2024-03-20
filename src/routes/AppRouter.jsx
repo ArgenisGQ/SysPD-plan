@@ -85,6 +85,7 @@ import DataTables         from "../views/reference/dataTables";
 import SignInCentered      from "../views/auth/signIn";
 import { useLocalStorage } from 'react-use';
 import { effect } from '@chakra-ui/system';
+import { PlanProvider } from '../context/Planning/PlanProvider';
 
 function AppRouter() { 
   const navigate = useNavigate();
@@ -203,12 +204,14 @@ function AppRouter() {
                         <Route path='/admin/courses/coursecreate'   element={< CourseCreate/>}/>
                         <Route path='/admin/courses/courseedit/:id' element={< CourseCreate editActive={true}/>}/>
 
+                        {/* <PlanProvider> */}
                         <Route path='/admin/planning/'                    element={< Planning/>}/> 
                         <Route path='/admin/planning/planninglist'        element={< Plannings/>}/>
                         <Route path='/admin/planning/planningcreate'      element={< PlanningCreate/>}/>
                         <Route path='/admin/planning/planningedit/:id'    element={< PlanningCreate editActive={true}/>}/>
                         <Route path='/admin/planning/stepper'             element={< Stepper/>}/>  
                         <Route path='/admin/planning/form01'              element={< Form01/>}/>
+                        {/* </PlanProvider> */}
 
                         <Route path='/admin/users/nextform'         element={< NextForm/>}/>
                         <Route path='/admin/system/uploads'         element={< Uploads/>}/>

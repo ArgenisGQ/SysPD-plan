@@ -24,6 +24,7 @@ import LoginTest from './components/xtest/LoginTest';
 /* import { UserContext } from "../context/UserProvider"; */
 import { UserProvider } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
+
 /* import { isAuthenticated } from "./services/Login"; */
 
 //--solo para pruebas--//
@@ -47,6 +48,7 @@ import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
 import {  QueryClient,
   QueryClientProvider,
   useQuery, } from 'react-query';
+import { PlanProvider } from './context/Planning/PlanProvider';
   
 const queryClient = new QueryClient();
 
@@ -62,7 +64,9 @@ function App() {
             <QueryClientProvider client={queryClient}>
               <ChakraProvider theme={theme}>
                 <ThemeEditorProvider>
+                  <PlanProvider>
                   <AppRouter />
+                  </PlanProvider>
                 </ThemeEditorProvider>
               </ChakraProvider>
             </QueryClientProvider>
