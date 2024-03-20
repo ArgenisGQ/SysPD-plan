@@ -52,6 +52,7 @@ import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 //
 /* import useDataUser from '../../../../../hooks/useDataUser'; */
 import useDataCourse from '../../../../hooks/useDataCourse';
+import useDataPlanning from '../../../../hooks/useDataPlanning';
 import DeleteUser from "./DeleteUser";
 
 export default function ColumnsTable(props) {
@@ -59,17 +60,18 @@ export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
   
   const { mutDeleteCourse, mutDataCourses} = useDataCourse();
+  const { mutDeletePlanning, mutDataPlannings} = useDataPlanning();
 
   const tableDataX = tableData
   console.log("01 datos head!!: ",columnsData)
   console.log("test")
   const navigate = useNavigate();
   const[deleting, setDeleting] = useState(false);
-  const[idCourse, setIdCourse] = useState('');
+  const[idPlanning, setIdPlanning] = useState('');
   const[tableHeadLoad, setTableHeadLoad] = useState(columnsData);
   const[tableDataLoad, setTableDataLoad] = useState(tableData);
   const[monitor, setMonitor] = useState(false)
-  const[dataFullCourses,setDataFullCourses] = useState({})
+  const[dataFullPlannings,setDataFullPlannings] = useState({})
 
   console.log("datos HEAD (FOR INDEX): ",tableHeadLoad )
   console.log("DATOS base: ",tableData )
@@ -85,7 +87,7 @@ export default function ColumnsTable(props) {
   })
   
   console.log("DATOS PRIMERO --: ",tableDataLoad)
-  console.log("DATOS SEGUNDO --: ",dataFullCourses)
+  console.log("DATOS SEGUNDO --: ",dataFullPlannings)
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableDataLoad, [tableDataLoad]);
@@ -134,7 +136,7 @@ export default function ColumnsTable(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
 
-  const LocalDeleteCourse = (data) => {
+  /* const LocalDeleteCourse = (data) => {
     console.log("Mostrando MATERIA--DELETE COURSE-- :: ", data)
     mutDeleteCourse.mutate(data,
       {
@@ -162,29 +164,59 @@ export default function ColumnsTable(props) {
           console.log("Terminado el proceso de BORRAR MATERIA")
         }
       })    
+  }; */
+
+  const LocalDeletePlanning = (data) => {
+    console.log("Mostrando PLAN--DELETE PLAN-- : ", data)
+    mutDeletePlanning.mutate(data,
+      {
+        onMutate: () => {
+          console.log("Ïnicia BORRADO de PLAN");
+        },
+        onSuccess: (response) => {
+          console.log("response BORRAR PLAN:", response);
+          const loadDataFullPlannings = JSON.parse(localStorage.getItem("dataPlannings"))
+          setDataFullPlannings(loadDataFullPlannings)
+          console.log("CARGA DE PLAN LUEGO DEL DELETE: ",loadDataFullPlannings)
+          setMonitor(true);
+          setTableDataLoad(loadDataFullPlannings);
+
+          if (loadDataFullPlannings) {
+            console.log("prueba interna - control")
+          }
+          
+        },
+        onError: (error) => {
+          console.log("Errores BORRAR MATERIA:",error);
+        },
+        onSettled: (response) => {
+          console.log("RESPONSE BORRAR PLAN: ",response )
+          console.log("Terminado el proceso de BORRAR PLAN")
+        }
+      })    
   };
 
   const yesDelete = () => {
-    console.log("si, borrar idCourse: ", idCourse);
-    LocalDeleteCourse(idCourse)
+    console.log("si, borrar idPlanning: ", idPlanning);
+    LocalDeletePlanning(idPlanning)
     /* setDeleting(true); */
     onClose();
   }
 
   const notDelete = () => {
     console.log("no, sin borrar");
-    setIdCourse(''); //Borrar id del estado.
+    setIdPlanning(''); //Borrar id del estado.
     onClose();
   }
 
-  const editCourse = (id) => {
+  const editPlanning = (id) => {
     console.log("funcion editar usuario ID: ", id)
-    navigate('/admin/courses/courseedit/'+id);
+    navigate('/admin/planning/planningedit/'+id);
   }
 
-  const deleteCourseLink = (id) => {
+  const deletePlanningLink = (id) => {
     console.log("funcion de borrar materia ID: ", id)
-    setIdCourse(id);
+    setIdPlanning(id);
     onOpen();
   }
 
@@ -333,7 +365,7 @@ export default function ColumnsTable(props) {
                         colorScheme="blue"
                         variant="outline" 
                         size="sm"
-                        onClick={()=>editCourse(cell.row.original.id)}> 
+                        onClick={()=>editPlanning(cell.row.original.id)}> 
                         EDITAR
                         </Button> 
                       </Flex>
@@ -352,7 +384,7 @@ export default function ColumnsTable(props) {
                         colorScheme="red"
                         variant="outline" 
                         size="sm"
-                        onClick={()=>deleteCourseLink(cell.row.original.id)}> 
+                        onClick={()=>deletePlanningLink(cell.row.original.id)}> 
                         BORRAR
                         </Button> 
                       </Flex>
@@ -476,7 +508,7 @@ export default function ColumnsTable(props) {
                   textAlign={[ 'left', 'center' ]}>
                   {/* Coloque su email y su clave para ingresar! */}
                   {/* {modalMessage}     */}   
-                  <p>ASIGNATURA BORRADA</p>
+                  <p>PLANIFICACION BORRADA</p>
                   {/* {edit ? 'Usuario Editado' : 'Usuario Creado'} */}     
                 </Text>
               {/* </Center> */}  
