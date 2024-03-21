@@ -1,6 +1,6 @@
 /* 'use client' */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import {
   Progress,
   Box,
@@ -50,11 +50,16 @@ import Form04 from './forms/form04';
 import Form05 from './forms/form05';
 import { HSeparator } from "../../../components/separator/Separator";
 
+import { PlanContext } from '../../../context/Planning/PlanContext';
+
+
 
 export default function Planning(props) {
   const toast = useToast()
   const [step, setStep] = useState(1)
   const [progress, setProgress] = useState(20)
+
+  const {next, previous} =useContext(PlanContext);
 
   //stepper
   const steps = [
@@ -185,6 +190,7 @@ export default function Planning(props) {
               <Button
                 onClick={() => {
                   setStep(step - 1)
+                  previous(step - 1)
                   setProgress(progress - 20)
                 }}
                 isDisabled={step === 1}
@@ -199,6 +205,7 @@ export default function Planning(props) {
                 isDisabled={step === 5}
                 onClick={() => {
                   setStep(step + 1)
+                  next(step + 1)
                   if (step === 5) {
                     setProgress(100)
                   } else {

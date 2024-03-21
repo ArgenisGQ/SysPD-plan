@@ -3,12 +3,12 @@ import { PlanContext } from './PlanContext';
 
 
 export const PlanProvider = ( { children }) => {
-  const next = () => {
-
+  const next = (step) => {
+    console.log("PASO ACTUAL NEXT: ", step)
   }
   
-  const previous = () => {
-
+  const previous = (step) => {
+    console.log("PASO ACTUAL PREVIOUS: ", step)
   }
 
   const reset = () => {

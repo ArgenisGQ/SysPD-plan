@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import {
   Progress,
   Box,
@@ -67,6 +67,9 @@ export default function Form01(props) {
       const [valuePre, setValuePre] = useState(null)
       const [valuePos, setValuePos] = useState(null)
       const [valueMod, setValueMod] = useState(null)
+      const {next, previous} =useContext(PlanContext);
+     
+      
       let valuex = null;
 
       //-----API-INIT-------
@@ -76,6 +79,17 @@ export default function Form01(props) {
               sectionL} = props;
 
       const form = useRef(); //PARA RESET EL FORMULARIO
+
+      useEffect(() => {
+
+        if 
+       
+        /* return () => {
+          connection.disconnect();
+        }; */
+      }, []);
+
+      console.log("FORM: ",form.current)
       const {CreatePlanning,EditPlanning} = useDataPlanning(); //API
 
       const { 
@@ -600,7 +614,8 @@ export default function Form01(props) {
           }}
         >
           {/* {console.log("ERRORES DATA:", errors)} */}
-          <Button 
+          <Button
+              
               type="submit" 
               /* variant="primary" */
               fontSize='sm'
