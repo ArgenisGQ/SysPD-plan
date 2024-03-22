@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {
   Progress,
   Box,
@@ -25,6 +25,8 @@ import InputField from '../../../../components/fields/InputField'
 
 import { useToast } from '@chakra-ui/react'
 
+import { PlanContext } from '../../../../context/Planning/PlanContext';//contexto
+
 export default function Form02() {
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
@@ -34,6 +36,12 @@ export default function Form02() {
     const brandStars = useColorModeValue("brand.500", "brand.400");    
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
+    const {next, previous,
+      testx,
+      stepActive} =useContext(PlanContext);
+
+    console.log("Paso Activo: ", stepActive)
+
     return (
       <>
         <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">

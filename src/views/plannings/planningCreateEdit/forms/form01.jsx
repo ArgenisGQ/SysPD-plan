@@ -69,7 +69,14 @@ export default function Form01(props) {
       const [valuePre, setValuePre] = useState(null)
       const [valuePos, setValuePos] = useState(null)
       const [valueMod, setValueMod] = useState(null)
-      const {next, previous, testx} =useContext(PlanContext);
+      const {next, previous,
+             testx,
+             stepActive,
+             stepControl, setStepControl,
+             stepGo, setStepGo,
+             stepBack, setStepBack,
+             readyForm,
+             readyFormControl} =useContext(PlanContext);
      
       
       let valuex = null;
@@ -83,12 +90,18 @@ export default function Form01(props) {
       const form = useRef(); //PARA RESET EL FORMULARIO
       
       console.log("TESTING: ",testx)
+      console.log("Paso Activo: ", stepActive)
       useEffect(() => {
 
         if (testx) {
           console.log("flag control submit!!")
           form.current.requestSubmit()
         }
+
+        /* if (readyForm) {
+          console.log("flag control submit!!")
+          form.current.requestSubmit()
+        } */
 
         /* if  */
        
@@ -97,7 +110,7 @@ export default function Form01(props) {
         }; */
       }, [testx]);
 
-      console.log("FORM: ",form.current)
+      /* console.log("FORM: ",form.current) */
       const {CreatePlanning,EditPlanning} = useDataPlanning(); //API
 
       const { 
@@ -122,6 +135,7 @@ export default function Form01(props) {
             console.log("Control EDITAR");
             EditOnPlanning(data);
             /* onOpen(); */
+            setStepGo(1);
             alert('Editado!')      
           } else {
             CreatePlanning(data);
@@ -129,6 +143,7 @@ export default function Form01(props) {
             console.log("data dataCreatePlanning en obj: ", dataCreatePlanningLocal)
             /* form.current.reset(); *///PARA RESET EL FORMULARIO
             /* onOpen(); */
+            setStepGo(1);
             alert('Creado!')
           }
         }

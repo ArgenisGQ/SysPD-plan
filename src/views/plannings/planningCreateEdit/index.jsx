@@ -59,15 +59,23 @@ export default function Planning(props) {
   const [step, setStep] = useState(1)
   const [progress, setProgress] = useState(20)
 
-  const {next, previous, test} =useContext(PlanContext);
+  const {next, previous,
+         test,
+         stepActive, setStepActive,
+         stepControl, setStepControl,
+         stepGo, setStepGo,
+         buttonActive,
+         stepBack, setStepBack,
+         readyForm,
+         readyFormControl} =useContext(PlanContext); //CONTEXTO PARA CONTROL COMPLETO
 
   //stepper
   const steps = [
-    { title: 'First', description: 'I. Identificacion de la unidad curricular' },
+    { title: 'First',  description: 'I. Identificacion de la unidad curricular' },
     { title: 'Second', description: 'II. Identificacion del Docente' },
-    { title: 'Third', description: 'Ajustes de puntos de las unidades' },
-    { title: 'Four', description: 'III. Plan de evaluacion' },
-    { title: 'Five', description: 'IV. Desarrollo de las unidades de contenidos' },
+    { title: 'Third',  description: 'Ajustes de puntos de las unidades' },
+    { title: 'Four',   description: 'III. Plan de evaluacion' },
+    { title: 'Five',   description: 'IV. Desarrollo de las unidades de contenidos' },
   ]
 
   const { activeStep, setActiveStep } = useSteps({
@@ -79,6 +87,7 @@ export default function Planning(props) {
   
   useEffect(()=>{
     setActiveStep(step - 1)
+    /* setStepActive(activeStep) */
   },[step])
 
   /* const PageStep = (step) => {
@@ -167,13 +176,13 @@ export default function Planning(props) {
         </Stack>     
         {/* <Progress  value={progress} mb="5%" mx="5%" size="xs" width -isAnimated  -hasStripe /> */}
 
-        {step === 1 ? <Form01
+        {stepControl === 1 ? <Form01
                       edit={editActive}  
                       planningUnitL={planningUnit}
                       codeL={code}
-                      sectionL={section}/> : step === 2 
-                    ? <Form02 /> : step === 3 
-                    ? <Form03 /> : step === 4 
+                      sectionL={section}/> : stepControl === 2 
+                    ? <Form02 /> : stepControl === 3 
+                    ? <Form03 /> : stepControl === 4 
                     ? <Form04 /> : <Form05 />}
 
         {/* <Box>
@@ -204,8 +213,9 @@ export default function Planning(props) {
                 w="7rem"
                 isDisabled={step === 5}
                 onClick={() => {
-                  setStep(step + 1)
-                  next(step + 1)
+                  setStep(step + stepGo)
+                  next(step + stepGo)
+                  readyFormControl()
                   if (step === 5) {
                     setProgress(100)
                   } else {
