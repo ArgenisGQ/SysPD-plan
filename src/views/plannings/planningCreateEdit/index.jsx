@@ -59,7 +59,7 @@ export default function Planning(props) {
   const [step, setStep] = useState(1)
   const [progress, setProgress] = useState(20)
 
-  const {next, previous} =useContext(PlanContext);
+  const {next, previous, test} =useContext(PlanContext);
 
   //stepper
   const steps = [
@@ -234,6 +234,24 @@ export default function Planning(props) {
                 Enviar
               </Button>
             ) : null}
+          </Flex>
+          <Flex>
+            <Button
+            w="7rem"
+            colorScheme="red"
+            variant="solid"
+            onClick={() => {
+              test()
+              toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+              })
+            }}>
+              TEST
+            </Button>
           </Flex>
         </ButtonGroup>
       </Box>

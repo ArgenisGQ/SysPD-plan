@@ -3,6 +3,8 @@ import { PlanContext } from './PlanContext';
 
 
 export const PlanProvider = ( { children }) => {
+  const [testx, setTestx] = useState(false)
+
   const next = (step) => {
     console.log("PASO ACTUAL NEXT: ", step)
   }
@@ -15,9 +17,13 @@ export const PlanProvider = ( { children }) => {
 
   }
 
+  const test = () => {
+    setTestx(true);
+  }
+
 
   return (
-    <PlanContext.Provider value={{ previous , next, reset} }>
+    <PlanContext.Provider value={{ previous , next, reset, test, testx} }>
         {children}
     </PlanContext.Provider>
   )

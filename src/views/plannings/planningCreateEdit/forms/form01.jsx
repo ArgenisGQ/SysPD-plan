@@ -42,6 +42,8 @@ import { useToast } from '@chakra-ui/react'
 import {useForm, Controller} from "react-hook-form";
 import useDataPlanning from '../../../../hooks/useDataPlanning';
 
+import { PlanContext } from '../../../../context/Planning/PlanContext';//contexto
+
 
 //-------API-END--------
 
@@ -67,7 +69,7 @@ export default function Form01(props) {
       const [valuePre, setValuePre] = useState(null)
       const [valuePos, setValuePos] = useState(null)
       const [valueMod, setValueMod] = useState(null)
-      const {next, previous} =useContext(PlanContext);
+      const {next, previous, testx} =useContext(PlanContext);
      
       
       let valuex = null;
@@ -79,15 +81,21 @@ export default function Form01(props) {
               sectionL} = props;
 
       const form = useRef(); //PARA RESET EL FORMULARIO
-
+      
+      console.log("TESTING: ",testx)
       useEffect(() => {
 
-        if 
+        if (testx) {
+          console.log("flag control submit!!")
+          form.current.requestSubmit()
+        }
+
+        /* if  */
        
         /* return () => {
           connection.disconnect();
         }; */
-      }, []);
+      }, [testx]);
 
       console.log("FORM: ",form.current)
       const {CreatePlanning,EditPlanning} = useDataPlanning(); //API
